@@ -118,6 +118,9 @@ footer p {
 }
 
 @media screen and (min-width: 768px) {
+	.bg-1 .caption h1 {
+		margin-top: 40px;
+	}
 	.bg-1 .caption p {
 		font-size: 20px;
 		margin-top: 20px;

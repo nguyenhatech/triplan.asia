@@ -18,6 +18,9 @@ body {
     font-size: 13px;
     text-decoration: none;
 }
+.header-top-navigation .drawer-navbar {
+    border-bottom: none;
+}
 
 
 

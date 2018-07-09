@@ -40,24 +40,28 @@
 @endsection
 
 @section('content')
-    <div class="web-home">
-        <div class="slideshow">
-           <div>
-             <img src="{{ get_asset('web/images/banners/baner3-min.jpg') }}">
-           </div>
-           <div>
-             <img src="{{ get_asset('web/images/banners/baner2-min.jpg') }}">
-           </div>
-        </div>
-        <div class="search">
-            <div>
-                <h1 style="text-transform: uppercase; font-weight: bold">Bạn muốn đi đâu ?</h1>
-                <h4 style="font-weight: 300;">Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h4>
+    <div>
+        <div class="web-home">
+            <div class="slideshow">
+               <div>
+                 <img src="{{ get_asset('web/images/banners/baner3-min.jpg') }}">
+               </div>
+               <div>
+                 <img src="{{ get_asset('web/images/banners/baner2-min.jpg') }}">
+               </div>
+            </div>
+            <div class="search">
+                <div>
+                    <h1 style="text-transform: uppercase; font-weight: bold">Bạn muốn đi đâu ?</h1>
+                    <h4 style="font-weight: 300;">Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h4>
+                </div>
             </div>
         </div>
-    </div>
-    <div style="min-height: 500px">
+        <div class="container-fuild">
+            <div style="min-height: 500px">
 
+            </div>
+        </div>
     </div>
 @endsection
 

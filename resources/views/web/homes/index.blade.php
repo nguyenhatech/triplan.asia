@@ -19,7 +19,7 @@
             position: absolute;
         }
         .web-home .slideshow img {
-            width: 100%;
+            width: 100vw;
             height: 80vh;
             object-fit: cover;
         }
@@ -55,8 +55,6 @@
                 <h4 style="font-weight: 300;">Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h4>
             </div>
         </div>
-    </div>
-
     </div>
 @endsection
 

@@ -20,6 +20,9 @@ body {
 .header-top-navigation .drawer-brand {
     color: #fff;
 }
+.header-top-navigation .drawer-hamburger {
+    background-color: #fff;
+}
 .header-top-navigation .drawer-menu-item {
     font-size: 14px;
     text-decoration: none;

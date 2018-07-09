@@ -13,11 +13,21 @@
             </div>
             <nav class="drawer-nav" role="navigation">
                 <ul class="drawer-menu drawer-menu--right">
-                    <li><a class="drawer-menu-item" href="#">Trang chủ</a></li>
-                    <li><a class="drawer-menu-item" href="#">Giới thiệu</a></li>
-                    <li><a class="drawer-menu-item" href="#">Tin tức</a></li>
-                    <li><a class="drawer-menu-item" href="#">Bí kíp du lịch</a></li>
-                    <li><a class="drawer-menu-item" href="#">Liên hệ</a></li>
+                    <li>
+                        <a class="drawer-menu-item" href="#">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a class="drawer-menu-item" href="#">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a class="drawer-menu-item" href="#">Tin tức</a>
+                    </li>
+                    <li>
+                        <a class="drawer-menu-item" href="#">Bí kíp du lịch</a>
+                    </li>
+                    <li>
+                        <a class="drawer-menu-item" href="#">Liên hệ</a>
+                    </li>
                 </ul>
             </nav>
         </div>

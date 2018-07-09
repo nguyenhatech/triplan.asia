@@ -37,8 +37,9 @@
         }
         .web-home .search div {
             padding: 25px 100px;
-            background-color: #ffffff96;
+            /*background-color: #ffffff96;*/
             border-radius: 4px;
+            color: #fff;
         }
     </style>
 @endsection
@@ -47,18 +48,21 @@
     <div class="web-home">
         <div class="slideshow">
            <div>
-             <img src="{{ get_asset('web/images/banners/baner3.jpg') }}">
+             <img src="{{ get_asset('web/images/banners/baner3-min.jpg') }}">
            </div>
            <div>
-             <img src="{{ get_asset('web/images/banners/baner2.jpg') }}">
+             <img src="{{ get_asset('web/images/banners/baner2-min.jpg') }}">
            </div>
         </div>
         <div class="search">
             <div>
-                <h1>Bạn muốn đi đâu ?</h1>
+                <h1 style="text-transform: uppercase;">Bạn muốn đi đâu ?</h1>
                 <h4>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h4>
             </div>
         </div>
+    </div>
+    <div style="background-color: #ccc; min-height: 500px;">
+
     </div>
 @endsection
 

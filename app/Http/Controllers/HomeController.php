@@ -15,8 +15,8 @@ class HomeController extends WebController
 
     public function index(Request $request)
     {
-        return view('welcome')->with([
-
+        return view('web.homes.index')->with([
+            'title' => 'Trang chủ'
         ]);
     }
 }

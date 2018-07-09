@@ -1,10 +1,20 @@
 body {
-    font-family: 'Roboto Condensed', serif !important;
-    font-size: 13px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
     font-weight: normal !important;
-    background-color: #F8F8F8 !important;
+    background-color: #f8f8f8 !important;
 }
 
+/* HEDER TOP NAVIGATION */
+.header-top-navigation {
+    background-color: #fff;
+    padding: 0px 60px;
+}
+.header-top-navigation .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
 
 
 

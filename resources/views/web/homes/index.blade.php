@@ -17,12 +17,8 @@
 
         .web-home .slideshow > div {
             position: absolute;
-            width: 100vw;
-            height: 100vh;
         }
         .web-home .slideshow img {
-            width: 100vw;
-            height: 100vh;
             object-fit: cover;
         }
         .web-home .search {
@@ -56,8 +52,8 @@
         </div>
         <div class="search">
             <div>
-                <h1 style="text-transform: uppercase;">Bạn muốn đi đâu ?</h1>
-                <h4>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h4>
+                <h1 style="text-transform: uppercase; font-weight: bold">Bạn muốn đi đâu ?</h1>
+                <h4 style="font-weight: 300;">Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h4>
             </div>
         </div>
     </div>

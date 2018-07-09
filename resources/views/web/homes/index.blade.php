@@ -27,7 +27,7 @@
         }
         .web-home .search {
             position: absolute;
-            z-index: ;
+            z-index: 0;
             top: 0;
             display: flex;
             justify-content: center;

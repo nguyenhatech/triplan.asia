@@ -12,6 +12,7 @@ body {
 }
 .header-top-navigation {
     background-color: transparent;
+    z-index: 10;
 }
 .header-top-navigation .logo {
     width: 50px;

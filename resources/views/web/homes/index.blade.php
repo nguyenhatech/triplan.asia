@@ -21,13 +21,13 @@
             height: 100vh;
         }
         .web-home .slideshow img {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             object-fit: cover;
         }
         .web-home .search {
             position: absolute;
-            z-index: 1200;
+            z-index: ;
             top: 0;
             display: flex;
             justify-content: center;

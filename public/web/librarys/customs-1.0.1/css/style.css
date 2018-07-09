@@ -35,6 +35,7 @@ body {
 .header-top-navigation .drawer-navbar .drawer-nav,
 .drawer-navbar .drawer-navbar-header {
     background-color: transparent;
+    border-bottom: none;
 }
 
 

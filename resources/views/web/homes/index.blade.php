@@ -5,14 +5,22 @@
 @endsection
 
 @section('styles')
-<style type="text/css">
+    <style type="text/css">
+        .image {
+            background-image: url({{ get_asset('web/images/banners/baner1.jpg') }});
+            height: 100vh;
+            width: 100vw;
+            background-size: cover;
 
-</style>
+        }
+    </style>
 @endsection
 
 @section('content')
-    <div style="min-height: 1000px;background-color: #ccc">
+    <div class="web-home">
+        <div class="image">
 
+        </div>
     </div>
 @endsection
 

@@ -11,6 +11,7 @@
             height: 100vh;
             width: 100vw;
             background-size: cover;
+            background-position: center center;
         }
         #slideshow {
             position: relative;
@@ -22,6 +23,11 @@
             position: absolute;
             width: 100vw;
             height: 100vh;
+        }
+        #slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 @endsection

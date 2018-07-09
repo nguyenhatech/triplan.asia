@@ -20,10 +20,13 @@
                         <a class="drawer-menu-item" href="#">Giới thiệu</a>
                     </li>
                     <li>
+                        <a class="drawer-menu-item" href="#">Bí kíp du lịch</a>
+                    </li>
+                    <li>
                         <a class="drawer-menu-item" href="#">Tin tức</a>
                     </li>
                     <li>
-                        <a class="drawer-menu-item" href="#">Bí kíp du lịch</a>
+                        <a class="drawer-menu-item" href="#">Tuyển dụng</a>
                     </li>
                     <li>
                         <a class="drawer-menu-item" href="#">Liên hệ</a>

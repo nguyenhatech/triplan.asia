@@ -36,7 +36,7 @@
             height: 100vh;
         }
         .web-home .search div {
-            padding: 15px 20px;
+            padding: 25px 100px;
             background-color: #ffffff96;
             border-radius: 4px;
         }
@@ -47,7 +47,7 @@
     <div class="web-home">
         <div class="slideshow">
            <div>
-             <img src="{{ get_asset('web/images/banners/baner1.jpg') }}">
+             <img src="{{ get_asset('web/images/banners/baner3.jpg') }}">
            </div>
            <div>
              <img src="{{ get_asset('web/images/banners/baner2.jpg') }}">
@@ -56,7 +56,7 @@
         <div class="search">
             <div>
                 <h1>Bạn muốn đi đâu ?</h1>
-                <h3>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h3>
+                <h4>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h4>
             </div>
         </div>
     </div>

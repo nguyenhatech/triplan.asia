@@ -12,15 +12,15 @@
         .web-home .slideshow {
             position: relative;
             width: 100vw;
-            height: 100vh;
+            height: 80vh;
         }
 
         .web-home .slideshow > div {
             position: absolute;
         }
         .web-home .slideshow img {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 80vh;
             object-fit: cover;
         }
         .web-home .search {
@@ -31,12 +31,9 @@
             justify-content: center;
             align-items: center;
             width: 100vw;
-            height: 100vh;
+            height: 80vh;
         }
         .web-home .search div {
-            padding: 25px 100px;
-            /*background-color: #ffffff96;*/
-            border-radius: 4px;
             color: #fff;
         }
     </style>
@@ -59,7 +56,6 @@
             </div>
         </div>
     </div>
-    <div style="background-color: #ccc; min-height: 500px;">
 
     </div>
 @endsection

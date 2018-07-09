@@ -56,6 +56,9 @@
             </div>
         </div>
     </div>
+    <div style="min-height: 500px">
+
+    </div>
 @endsection
 
 @section('scripts')

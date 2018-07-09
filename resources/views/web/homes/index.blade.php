@@ -72,7 +72,7 @@
             .next()
             .fadeIn(1000)
             .end()
-            .appendTo('#slideshow');
+            .appendTo('.slideshow');
         },  3500);
     </script>
 @endsection

@@ -49,10 +49,12 @@
         .home-banner .form input {
             font-size: 13px;
             border-radius: 0px;
+            height: 50px;
         }
         .home-banner .form button {
             margin-top: 10px;
             border-radius: 0px;
+            height: 50px;
             padding: 5px 35px;
         }
         @media screen and (min-width: 375px) {

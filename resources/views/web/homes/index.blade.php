@@ -145,6 +145,18 @@
             border-bottom-left-radius: 6px;
             padding: 15px;
         }
+        .home-best-trips .info-trip .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .home-best-trips .info-trip .address {
+            color: #888888;
+        }
+        .home-best-trips .info-trip .name {
+            font-size: 18px;
+            font-weight: bold;
+        }
 
     </style>
 @endsection
@@ -223,7 +235,97 @@
                             <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
                         </div>
                         <div class="info-trip">
-                            <p>Tour du lịch trọn gói toàn thành phố Hà Nội</p>
+                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
+                            <div class="d-flex justify-content-between">
+                                <span class="address">
+                                    <i class="fas fa-map-pin"></i>
+                                    <span>Hà Nội</span>
+                                </span>
+                                <span>
+                                    <span class="currency">VND</span>
+                                    <span class="price">50.000</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="best-trip__item">
+                        <div>
+                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
+                        </div>
+                        <div class="info-trip">
+                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
+                            <div class="d-flex justify-content-between">
+                                <span class="address">
+                                    <i class="fas fa-map-pin"></i>
+                                    <span>Hà Nội</span>
+                                </span>
+                                <span>
+                                    <span class="currency">VND</span>
+                                    <span class="price">50.000</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="best-trip__item">
+                        <div>
+                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
+                        </div>
+                        <div class="info-trip">
+                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
+                            <div class="d-flex justify-content-between">
+                                <span class="address">
+                                    <i class="fas fa-map-pin"></i>
+                                    <span>Hà Nội</span>
+                                </span>
+                                <span>
+                                    <span class="currency">VND</span>
+                                    <span class="price">50.000</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="best-trip__item">
+                        <div>
+                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
+                        </div>
+                        <div class="info-trip">
+                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
+                            <div class="d-flex justify-content-between">
+                                <span class="address">
+                                    <i class="fas fa-map-pin"></i>
+                                    <span>Hà Nội</span>
+                                </span>
+                                <span>
+                                    <span class="currency">VND</span>
+                                    <span class="price">50.000</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="best-trip__item">
+                        <div>
+                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
+                        </div>
+                        <div class="info-trip">
+                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
+                            <div class="d-flex justify-content-between">
+                                <span class="address">
+                                    <i class="fas fa-map-pin"></i>
+                                    <span>Hà Nội</span>
+                                </span>
+                                <span>
+                                    <span class="currency">VND</span>
+                                    <span class="price">50.000</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

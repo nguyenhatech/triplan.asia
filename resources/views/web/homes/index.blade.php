@@ -35,12 +35,12 @@
             width: 320px;
         }
         .home-banner .solugan h1 {
-            font-size: 13px;
+            font-size: 18px;
             font-weight: 300;
         }
         .home-banner .solugan h2 {
             text-transform: uppercase;
-            font-size: 30px;
+            font-size: 34px;
         }
         .home-banner .form {
             margin-top: 15px;

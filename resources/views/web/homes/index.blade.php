@@ -80,6 +80,34 @@
                 margin-top: 0px;
             }
         }
+
+        /*//==================================*/
+        .home-title {
+            padding: 30px 0px;
+        }
+        .home-title .title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .home-title .description {
+            color: #8D9199;
+            font-size: 15px;
+        }
+        @media screen and (min-width: 768px) {
+            .home-title .title {
+                font-size: 36px;
+            }
+        }
+
+        /*//==================================*/
+        .home-destinations {
+
+        }
+        .home-destinations .destination__item {
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+        }
     </style>
 @endsection
 
@@ -97,7 +125,7 @@
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">
                 <div class="solugan d-flex flex-column justify-content-center align-items-center">
                     <h2>Bạn muốn đi đâu ?</h2>
-                    <h1>Chuyến đi, trải nghiệm và địa điểm. Tất cả chỉ trong một dịch vụ.</h1>
+                    <h1>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một</h1>
                 </div>
                 <div class="form">
                     <form method="get" action="#">
@@ -112,8 +140,23 @@
             </div>
         </div>
     </div>
-    <div class="home-modul" style="min-height: 300px;">
-
+    <div class="home-destinations">
+        <div class="container">
+            <div class="row">
+                <div class="home-title col-md-12 d-flex justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <span class="title">Điểm đến lý tưởng</span>
+                        <span class="description">Điểm đến du lịch tốt nhất thế giới</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="destination__item" style="background-image: url({{ get_asset('web/images/home/tokyo.jpg') }});">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -122,14 +165,14 @@
         jQuery(document).ready(function($) {
             // Ảnh ẩn hiện ở phần banner
             $(".slide-show > div:gt(0)").hide();
-            setInterval(function() {
-              $('.slide-show > div:first')
-                .fadeOut(1000)
-                .next()
-                .fadeIn(1000)
-                .end()
-                .appendTo('.slide-show');
-            },  3500);
+            // setInterval(function() {
+            //   $('.slide-show > div:first')
+            //     .fadeOut(1000)
+            //     .next()
+            //     .fadeIn(1000)
+            //     .end()
+            //     .appendTo('.slide-show');
+            // },  3500);
         });
     </script>
 @endsection

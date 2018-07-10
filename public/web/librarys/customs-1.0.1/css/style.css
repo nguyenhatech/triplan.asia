@@ -16,13 +16,13 @@ body {
     border-radius: 50%;
 }
 .header-top-navigation .navbar-brand span {
-    /*color: rgba(0,0,0,.5);*/
     font-size: 22px;
     margin-left: 0px;
     font-weight: 700;
 }
 .header-top-navigation .nav-link {
     padding-right: 55px;
+    color: #007bff !important;
 }
 .header-top-navigation .nav-item {
     margin-right: 10px;
@@ -33,6 +33,9 @@ body {
 .header-top-navigation .nav-item:hover .nav-link {
     color: #bdc3c7 !important;
     transition: 0.1s all;
+}
+.header-top-navigation .navbar-light .navbar-toggler {
+    border-color: transparent !important;
 }
 @media screen and (min-width: 768px) {
     .header-top-navigation {

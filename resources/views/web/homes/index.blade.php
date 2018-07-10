@@ -141,6 +141,8 @@
         }
         .home-best-trips .best-trip__item .image {
             background-color: #ccc;
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
         }
         .home-best-trips .best-trip__item img {
             width: 100%;

@@ -59,6 +59,9 @@
                 <div class="footer-title">
                     <span>Kết nối với chúng tôi</span>
                 </div>
+                <div>
+                    <div class="fb-page" data-href="https://www.facebook.com/TriplanVN/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/TriplanVN/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TriplanVN/">Triplan Viet Nam</a></blockquote></div>
+                </div>
             </div>
         </div>
     </div>

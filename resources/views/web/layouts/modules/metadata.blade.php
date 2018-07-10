@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="content-language" content="vi" />
 <link href="{{ get_asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
-<title>@yield('title') :: Triplan</title>
+<title>@yield('title') :: Triplan - Khám phá, chia sẻ, kết nối du lịch quốc tế</title>
 <meta name="description" content="" />
 <meta name="robots" content="index,follow" />
 <meta name="revisit-after" content="1 days" />

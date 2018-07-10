@@ -1,45 +1,51 @@
 body {
-    /*font-family: 'Work Sans', sans-serif;*/
     font-family: 'Rubik', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: normal !important;
     background-color: #f8f8f8 !important;
 }
 
 /* HEDER TOP NAVIGATION */
-.drawer--navbarTopGutter {
-    padding-top: 0px;
-}
 .header-top-navigation {
-    background-color: transparent;
-    z-index: 10;
+    background-color: #fff;
+    color: #fff;
 }
 .header-top-navigation .logo {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
-.header-top-navigation .drawer-brand {
-    color: #fff;
+.header-top-navigation .navbar-brand span {
+    color: rgba(0,0,0,.5);
+    text-transform: uppercase;
 }
-.header-top-navigation .drawer-hamburger {
-    background-color: #fff;
+.header-top-navigation .nav-link {
+    padding-right: 55px;
 }
-.header-top-navigation .drawer-menu-item {
-    font-size: 14px;
-    text-decoration: none;
-    color: #fff;
+.header-top-navigation .nav-item {
+    margin-right: 10px;
 }
-.header-top-navigation .drawer-navbar {
-    border-bottom: none;
-    background-color: transparent;
+.header-top-navigation .nav-item:last-child {
+    margin-right: 0px;
 }
-.header-top-navigation .drawer-navbar .drawer-nav,
-.drawer-navbar .drawer-navbar-header {
-    background-color: transparent;
-    border-bottom: none;
+.header-top-navigation .nav-item:hover .nav-link {
+    color: #bdc3c7 !important;
+    transition: 0.1s all;
 }
-
+@media screen and (min-width: 768px) {
+    .header-top-navigation {
+        background-color: transparent;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .header-top-navigation .nav-link {
+        color: #fff !important;
+        padding-right: 55px;
+    }
+    .header-top-navigation .navbar-brand span {
+        color: #fff;
+    }
+}
 
 
 

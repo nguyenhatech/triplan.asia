@@ -1,38 +1,32 @@
-<div class="header-top-navigation">
-    <header class="drawer-navbar drawer-navbar--fixed" role="banner">
-        <div class="drawer-container">
-            <div class="drawer-navbar-header">
-                <a class="drawer-brand" href="{{ env('APP_URL') }}">
-                    <img class="logo" src="{{ get_asset('web/images/logos/logo-triplan.png') }}" alt="logo triplan" title="logo triplan">
-                    Triplan
-                </a>
-                <button type="button" class="drawer-toggle drawer-hamburger">
-                <span class="sr-only">toggle navigation</span>
-                <span class="drawer-hamburger-icon"></span>
-                </button>
-            </div>
-            <nav class="drawer-nav" role="navigation">
-                <ul class="drawer-menu drawer-menu--right">
-                    <li>
-                        <a class="drawer-menu-item" href="#">Trang chủ</a>
+<div class="fixed-top">
+    <div class="header-top-navigation">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="{{ env('APP_URL') }}">
+            <img class="logo" src="{{ get_asset('web/images/logos/logo-triplan.png') }}" alt="logo triplan" title="logo triplan">
+            <span>Triplan</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trang chủ</a>
                     </li>
-                    <li>
-                        <a class="drawer-menu-item" href="#">Giới thiệu</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cẩm nang du lịch</a>
                     </li>
-                    <li>
-                        <a class="drawer-menu-item" href="#">Bí kíp du lịch</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tuyển dụng</a>
                     </li>
-                    <li>
-                        <a class="drawer-menu-item" href="#">Tin tức</a>
-                    </li>
-                    <li>
-                        <a class="drawer-menu-item" href="#">Tuyển dụng</a>
-                    </li>
-                    <li>
-                        <a class="drawer-menu-item" href="#">Liên hệ</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <i class="far fa-user"></i>
+                        Đăng kí / Đăng nhập
+                        </a>
                     </li>
                 </ul>
-            </nav>
-        </div>
-    </header>
+            </div>
+        </nav>
+    </div>
 </div>

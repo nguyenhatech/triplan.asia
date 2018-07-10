@@ -6,60 +6,109 @@
 
 @section('styles')
     <style type="text/css">
-        .web-home {
+        .home-banner {
             position: relative;
         }
-        .web-home .slideshow {
+        .home-banner .slide-show {
             position: relative;
             width: 100vw;
             height: 80vh;
         }
-
-        .web-home .slideshow > div {
+        .home-banner .slide-show .slide-show__item {
             position: absolute;
         }
-        .web-home .slideshow img {
+        .home-banner .slide-show img {
             width: 100vw;
             height: 80vh;
             object-fit: cover;
         }
-        .web-home .search {
+        .home-banner .quick-search {
             position: absolute;
-            z-index: 0;
             top: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             width: 100vw;
             height: 80vh;
-        }
-        .web-home .search div {
             color: #fff;
+        }
+        .home-banner .quick-search {
+            width: 100%;
+            padding: 0px 15px;
+            width: 320px;
+        }
+        .home-banner .solugan h1 {
+            font-size: 13px;
+            font-weight: 300;
+        }
+        .home-banner .solugan h2 {
+            text-transform: uppercase;
+            font-size: 30px;
+        }
+        .home-banner .form {
+            margin-top: 15px;
+            width: 100%;
+        }
+        .home-banner .form input {
+            font-size: 13px;
+            border-radius: 0px;
+        }
+        .home-banner .form button {
+            margin-top: 10px;
+            border-radius: 0px;
+            padding: 5px 35px;
+        }
+        @media screen and (min-width: 375px) {
+            .home-banner .quick-search {
+                width: 375px;
+            }
+        }
+        @media screen and (min-width: 425px) {
+            .home-banner .quick-search {
+                width: 425px;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            .home-banner .solugan h1 {
+                font-size: 18px;
+            }
+            .home-banner .solugan h2 {
+                font-size: 50px;
+                font-weight: bold;
+            }
+            .home-banner .quick-search {
+                width: 650px;
+            }
+            .home-banner .form button {
+                margin-top: 0px;
+            }
         }
     </style>
 @endsection
 
 @section('content')
-    <div>
-        <div class="web-home">
-            <div class="slideshow">
-               <div>
-                 <img src="{{ get_asset('web/images/banners/baner3-min.jpg') }}">
-               </div>
-               <div>
-                 <img src="{{ get_asset('web/images/banners/baner2-min.jpg') }}">
-               </div>
+    <div class="home-banner">
+        <div class="slide-show">
+            <div class="slide-show__item">
+                <img src="{{ get_asset('web/images/banners/baner3-min.jpg') }}">
             </div>
-            <div class="search">
-                <div>
-                    <h1 style="text-transform: uppercase; font-weight: bold">Bạn muốn đi đâu ?</h1>
-                    <h4 style="font-weight: 300;">Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một dịch vụ</h4>
-                </div>
+            <div class="slide-show__item">
+                <img src="{{ get_asset('web/images/banners/baner2-min.jpg') }}">
             </div>
         </div>
-        <div class="container-fuild">
-            <div style="min-height: 500px">
-
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="quick-search d-flex flex-column justify-content-center align-items-center">
+                <div class="solugan d-flex flex-column justify-content-center align-items-center">
+                    <h2>Bạn muốn đi đâu ?</h2>
+                    <h1>Chuyến đi, trải nghiệm và địa điểm. Tất cả chỉ trong một dịch vụ.</h1>
+                </div>
+                <div class="form">
+                    <form method="get" action="#">
+                        <div class="d-flex flex-column flex-sm-row">
+                            <input type="text" name="q" class="form-control" placeholder="Tìm địa điểm, hoạt động vui chơi ...">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -67,15 +116,17 @@
 
 @section('scripts')
     <script type="text/javascript">
-        $(".slideshow > div:gt(0)").hide();
-
-        setInterval(function() {
-          $('.slideshow > div:first')
-            .fadeOut(1000)
-            .next()
-            .fadeIn(1000)
-            .end()
-            .appendTo('.slideshow');
-        },  3500);
+        jQuery(document).ready(function($) {
+            // Ảnh ẩn hiện ở phần banner
+            $(".slide-show > div:gt(0)").hide();
+            // setInterval(function() {
+            //   $('.slide-show > div:first')
+            //     .fadeOut(1000)
+            //     .next()
+            //     .fadeIn(1000)
+            //     .end()
+            //     .appendTo('.slide-show');
+            // },  3500);
+        });
     </script>
 @endsection

@@ -7,7 +7,7 @@ body {
 
 /* HEDER TOP NAVIGATION */
 .header-top-navigation {
-    background-color: #fff;
+    background-color: transparent;
     color: #fff;
 }
 .header-top-navigation .logo {
@@ -22,7 +22,7 @@ body {
 }
 .header-top-navigation .nav-link {
     padding-right: 55px;
-    color: #007bff !important;
+    color: #000 !important;
 }
 .header-top-navigation .nav-item {
     margin-right: 10px;

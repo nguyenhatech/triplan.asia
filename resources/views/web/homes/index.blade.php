@@ -201,20 +201,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-3">
-                    <a href="#">
-                        <div class="list__item" style="background-image: url({{ get_asset('web/images/home/tokyo.jpg') }});">
-                            <span>Hà Nội</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-3">
-                    <a href="#">
-                        <div class="list__item" style="background-image: url({{ get_asset('web/images/home/tokyo.jpg') }});">
-                            <span>Hà Nội</span>
-                        </div>
-                    </a>
-                </div>
+                @forelse ($place_destinations as $key_place => $place)
+                    <div class="col-sm-12 col-md-3">
+                        <a href="#">
+                            <div class="list__item" style="background-image: url({{ $place->getImage() }});">
+                                <span>{{ $place->getTranslation()->name }}</span>
+                            </div>
+                        </a>
+                    </div>
+                @empty
+
+                @endforelse
             </div>
         </div>
     </div>

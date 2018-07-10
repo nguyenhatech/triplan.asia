@@ -21,7 +21,7 @@
                 <div class="contact-us">
                     <div class="contact-us__item d-flex align-items-center">
                         <i class="fas fa-mobile-alt"></i>
-                        <span>09886688888</span>
+                        <span>0988.668.8888</span>
                     </div>
                     <div class="contact-us__item d-flex align-items-center">
                         <i class="fas fa-map-marker-alt"></i>

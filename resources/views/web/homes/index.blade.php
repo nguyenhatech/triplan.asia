@@ -100,9 +100,6 @@
         }
 
         /*//==================================*/
-        .home-destinations {
-
-        }
         .home-destinations .list__item {
             width: 100%;
             height: 300px;
@@ -126,6 +123,27 @@
             color: #fff;
             font-size: 25px;
             font-weight: 700;
+        }
+
+        /*//====================================*/
+        .home-best-trips {
+
+        }
+        .home-best-trips .best-trip__item {
+            margin-bottom: 30px;
+        }
+        .home-best-trips .best-trip__item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+        }
+        .home-best-trips .info-trip {
+            border: 1px solid #ccc;
+            border-bottom-right-radius: 6px;
+            border-bottom-left-radius: 6px;
+            padding: 15px;
         }
 
     </style>
@@ -188,6 +206,30 @@
             </div>
         </div>
     </div>
+    <div class="home-best-trips">
+        <div class="container">
+            <div class="row">
+                <div class="home-title col-md-12 d-flex justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <span class="title">Dịch vụ được yêu thích nhất</span>
+                        <span class="description">Các trải nghiệm được yêu thích bởi người yêu du lịch</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="best-trip__item">
+                        <div>
+                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
+                        </div>
+                        <div class="info-trip">
+                            <p>Tour du lịch trọn gói toàn thành phố Hà Nội</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -195,14 +237,14 @@
         jQuery(document).ready(function($) {
             // Ảnh ẩn hiện ở phần banner
             $(".slide-show > div:gt(0)").hide();
-            // setInterval(function() {
-            //   $('.slide-show > div:first')
-            //     .fadeOut(1000)
-            //     .next()
-            //     .fadeIn(1000)
-            //     .end()
-            //     .appendTo('.slide-show');
-            // },  3500);
+            setInterval(function() {
+              $('.slide-show > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('.slide-show');
+            },  3500);
         });
     </script>
 @endsection

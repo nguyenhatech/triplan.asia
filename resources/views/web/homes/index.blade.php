@@ -149,6 +149,7 @@
             font-size: 18px;
             font-weight: bold;
             color: #28a745;
+            margin-left: 5px;
         }
         .home-best-trips .info-trip .address {
             color: #888888;
@@ -230,7 +231,7 @@
                     <div class="col-sm-12 col-md-4">
                         <div class="best-trip__item">
                             <div>
-                                <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
+                                <img src="{{ $service->getImage() }}">
                             </div>
                             <div class="info-trip">
                                 <p class="name">{{ $service->getTranslation()->name }}</p>
@@ -239,7 +240,7 @@
                                         <i class="fas fa-map-pin"></i>
                                         <span>Hà Nội</span>
                                     </span>
-                                    <span>
+                                    <span class="d-flex align-items-center">
                                         <span class="currency">VND</span>
                                         <span class="price">{{ $service->price }}</span>
                                     </span>

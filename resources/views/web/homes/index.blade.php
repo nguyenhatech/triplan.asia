@@ -103,9 +103,6 @@
         .home-destinations {
 
         }
-        .home-destinations .list {
-            margin-bottom: 20px;
-        }
         .home-destinations .list__item {
             width: 100%;
             height: 300px;
@@ -114,6 +111,13 @@
             background-size: cover;
             background-position: center center;
             position: relative;
+            margin-bottom: 30px;
+            transition: 0.1s all;
+        }
+        .home-destinations .list__item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
+            transition: 0.1s all;
         }
         .home-destinations .list__item span {
             position: absolute;
@@ -123,6 +127,7 @@
             font-size: 25px;
             font-weight: 700;
         }
+
     </style>
 @endsection
 
@@ -166,10 +171,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 list">
-                    <div class="list__item" style="background-image: url({{ get_asset('web/images/home/tokyo.jpg') }});">
-                        <span>Hà Nội</span>
-                    </div>
+                <div class="col-sm-12 col-md-3">
+                    <a href="#">
+                        <div class="list__item" style="background-image: url({{ get_asset('web/images/home/tokyo.jpg') }});">
+                            <span>Hà Nội</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <a href="#">
+                        <div class="list__item" style="background-image: url({{ get_asset('web/images/home/tokyo.jpg') }});">
+                            <span>Hà Nội</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

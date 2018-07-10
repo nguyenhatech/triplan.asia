@@ -8,4 +8,5 @@ return [
 	App\Providers\ServiceServiceProvider::class,
 	App\Providers\PlaceServiceProvider::class,
 	App\Providers\PlaceTranslationServiceProvider::class,
+	App\Providers\ServiceTranslationServiceProvider::class,
 ];

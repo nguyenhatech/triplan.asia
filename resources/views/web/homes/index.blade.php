@@ -226,106 +226,30 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <div class="best-trip__item">
-                        <div>
-                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
-                        </div>
-                        <div class="info-trip">
-                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="address">
-                                    <i class="fas fa-map-pin"></i>
-                                    <span>Hà Nội</span>
-                                </span>
-                                <span>
-                                    <span class="currency">VND</span>
-                                    <span class="price">50.000</span>
-                                </span>
+                @forelse ($best_services as $key_service => $service)
+                    <div class="col-sm-12 col-md-4">
+                        <div class="best-trip__item">
+                            <div>
+                                <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
+                            </div>
+                            <div class="info-trip">
+                                <p class="name">{{ $service->getTranslation()->name }}</p>
+                                <div class="d-flex justify-content-between">
+                                    <span class="address">
+                                        <i class="fas fa-map-pin"></i>
+                                        <span>Hà Nội</span>
+                                    </span>
+                                    <span>
+                                        <span class="currency">VND</span>
+                                        <span class="price">{{ $service->price }}</span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="best-trip__item">
-                        <div>
-                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
-                        </div>
-                        <div class="info-trip">
-                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="address">
-                                    <i class="fas fa-map-pin"></i>
-                                    <span>Hà Nội</span>
-                                </span>
-                                <span>
-                                    <span class="currency">VND</span>
-                                    <span class="price">50.000</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="best-trip__item">
-                        <div>
-                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
-                        </div>
-                        <div class="info-trip">
-                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="address">
-                                    <i class="fas fa-map-pin"></i>
-                                    <span>Hà Nội</span>
-                                </span>
-                                <span>
-                                    <span class="currency">VND</span>
-                                    <span class="price">50.000</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="best-trip__item">
-                        <div>
-                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
-                        </div>
-                        <div class="info-trip">
-                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="address">
-                                    <i class="fas fa-map-pin"></i>
-                                    <span>Hà Nội</span>
-                                </span>
-                                <span>
-                                    <span class="currency">VND</span>
-                                    <span class="price">50.000</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="best-trip__item">
-                        <div>
-                            <img src="{{ get_asset('web/images/home/tokyo.jpg') }}">
-                        </div>
-                        <div class="info-trip">
-                            <p class="name">Tour du lịch trọn gói toàn thành phố Hà Nội</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="address">
-                                    <i class="fas fa-map-pin"></i>
-                                    <span>Hà Nội</span>
-                                </span>
-                                <span>
-                                    <span class="currency">VND</span>
-                                    <span class="price">50.000</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @empty
+
+                @endforelse
             </div>
         </div>
     </div>

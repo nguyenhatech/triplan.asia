@@ -103,10 +103,25 @@
         .home-destinations {
 
         }
-        .home-destinations .destination__item {
+        .home-destinations .list {
+            margin-bottom: 20px;
+        }
+        .home-destinations .list__item {
             width: 100%;
-            height: 200px;
+            height: 300px;
             background-color: #ccc;
+            border-radius: 6px;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+        }
+        .home-destinations .list__item span {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            color: #fff;
+            font-size: 25px;
+            font-weight: 700;
         }
     </style>
 @endsection
@@ -151,8 +166,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="destination__item" style="background-image: url({{ get_asset('web/images/home/tokyo.jpg') }});">
+                <div class="col-sm-12 list">
+                    <div class="list__item" style="background-image: url({{ get_asset('web/images/home/tokyo.jpg') }});">
+                        <span>Hà Nội</span>
                     </div>
                 </div>
             </div>

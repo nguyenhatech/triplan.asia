@@ -26,6 +26,10 @@ class HomeController extends WebController
         // Dịch vụ được yêu thích nhất
         $best_services      = $this->service->getByQuery([]);
 
+        // foreach ($best_services as $key => $value) {
+        //     dd($value->getTranslation());
+        // }
+
         return view('web.homes.index')->with([
             'title'              => 'Trang chủ',
             'place_destinations' => $place_destinations,

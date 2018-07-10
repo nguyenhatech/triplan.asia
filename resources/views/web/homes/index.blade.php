@@ -247,7 +247,7 @@
                                 <div class="d-flex justify-content-between">
                                     <span class="address">
                                         <i class="fas fa-map-pin"></i>
-                                        <span>Hà Nội</span>
+                                        <span>{{ $service->getTranslation()->address }}</span>
                                     </span>
                                     <span class="d-flex align-items-center">
                                         <span class="currency">VND</span>

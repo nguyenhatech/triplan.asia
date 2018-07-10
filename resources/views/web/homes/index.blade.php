@@ -131,6 +131,12 @@
         }
         .home-best-trips .best-trip__item {
             margin-bottom: 30px;
+            transition: 0.2s all;
+        }
+        .home-best-trips .best-trip__item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
+            transition: 0.2s all;
         }
         .home-best-trips .best-trip__item .image {
             background-color: #ccc;
@@ -245,7 +251,7 @@
                                     </span>
                                     <span class="d-flex align-items-center">
                                         <span class="currency">VND</span>
-                                        <span class="price">{{ $service->price }}</span>
+                                        <span class="price">{{ number_format($service->price) }}</span>
                                     </span>
                                 </div>
                             </div>

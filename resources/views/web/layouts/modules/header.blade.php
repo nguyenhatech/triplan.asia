@@ -1,4 +1,4 @@
-<div class="fixed-top1">
+<div class="fixed-top">
     <div class="header-top-navigation">
         <nav class="navbar navbar-expand-md navbar-light">
             <a class="navbar-brand d-flex align-items-center" href="{{ env('APP_URL') }}">

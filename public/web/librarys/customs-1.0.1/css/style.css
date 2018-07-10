@@ -19,10 +19,13 @@ body {
     font-size: 22px;
     margin-left: 0px;
     font-weight: 700;
+    color: #fff;
 }
 .header-top-navigation .nav-link {
     padding-right: 55px;
     color: #000 !important;
+    padding-left: 15px;
+    padding-top: 15px;
 }
 .header-top-navigation .nav-item {
     margin-right: 10px;
@@ -37,6 +40,11 @@ body {
 .header-top-navigation .navbar-light .navbar-toggler {
     border-color: transparent !important;
 }
+.header-top-navigation .navbar-collapse {
+    background-color: #fff;
+    margin-left: -16px;
+    margin-right: -16px;
+}
 @media screen and (min-width: 768px) {
     .header-top-navigation {
         background-color: transparent;
@@ -49,6 +57,11 @@ body {
     }
     .header-top-navigation .navbar-brand span {
         color: #fff;
+    }
+    .header-top-navigation .navbar-collapse {
+        background-color: transparent;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }
 

@@ -36,7 +36,6 @@
         }
         .home-banner .solugan h1 {
             font-size: 18px;
-            font-weight: 300;
         }
         .home-banner .solugan h2 {
             text-transform: uppercase;

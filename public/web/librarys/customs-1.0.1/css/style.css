@@ -2,7 +2,7 @@ body {
     font-family: 'Rubik', sans-serif;
     font-size: 13px;
     font-weight: normal !important;
-    background-color: #f8f8f8 !important;
+    background-color: #fff !important;
 }
 
 /* HEDER TOP NAVIGATION */
@@ -17,7 +17,8 @@ body {
 }
 .header-top-navigation .navbar-brand span {
     color: rgba(0,0,0,.5);
-    text-transform: uppercase;
+    font-size: 22px;
+    margin-left: 8px;
 }
 .header-top-navigation .nav-link {
     padding-right: 55px;
@@ -47,6 +48,48 @@ body {
     }
 }
 
+
+/*FOOTER*/
+.triplan-footer {
+    background-color: #000;
+    color: #ccc;
+    padding: 60px 0px 50px 0px;
+}
+.triplan-footer .footer-title {
+    margin-bottom: 20px;
+}
+.triplan-footer .footer-title span {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.triplan-footer .contact-us > div {
+    padding-bottom: 20px;
+}
+.triplan-footer .contact-us__item span {
+    margin-left: 5px;
+}
+.triplan-footer .contact-us .social {
+    margin-top: 10px;
+}
+.triplan-footer .contact-us .social span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+.triplan-footer .contact-us .social i {
+    color: #fff;
+    font-size: 16px;
+}
+.triplan-footer-sub {
+   background-color: #000;
+   min-height: 80px;
+   border-top: 1px solid #444;
+   color: #cccccc;
+   padding: 0px 15px;
+}
 
 
 

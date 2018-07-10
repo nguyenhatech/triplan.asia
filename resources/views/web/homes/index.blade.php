@@ -112,6 +112,9 @@
             </div>
         </div>
     </div>
+    <div class="home-modul" style="min-height: 300px;">
+
+    </div>
 @endsection
 
 @section('scripts')
@@ -119,14 +122,14 @@
         jQuery(document).ready(function($) {
             // Ảnh ẩn hiện ở phần banner
             $(".slide-show > div:gt(0)").hide();
-            // setInterval(function() {
-            //   $('.slide-show > div:first')
-            //     .fadeOut(1000)
-            //     .next()
-            //     .fadeIn(1000)
-            //     .end()
-            //     .appendTo('.slide-show');
-            // },  3500);
+            setInterval(function() {
+              $('.slide-show > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('.slide-show');
+            },  3500);
         });
     </script>
 @endsection

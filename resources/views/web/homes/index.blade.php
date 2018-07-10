@@ -132,6 +132,9 @@
         .home-best-trips .best-trip__item {
             margin-bottom: 30px;
         }
+        .home-best-trips .best-trip__item .image {
+            background-color: #ccc;
+        }
         .home-best-trips .best-trip__item img {
             width: 100%;
             height: 200px;
@@ -230,7 +233,7 @@
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
                         <div class="best-trip__item">
-                            <div>
+                            <div class="image">
                                 <img src="{{ $service->getImage() }}">
                             </div>
                             <div class="info-trip">

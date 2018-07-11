@@ -8,7 +8,7 @@ body {
 /* HEDER TOP NAVIGATION */
 .header-top-navigation {
     background-color: transparent;
-    color: #fff;
+    color: #fff !important;
 }
 .header-top-navigation-scroll {
     background-color: #fff !important;
@@ -31,9 +31,12 @@ body {
 }
 .header-top-navigation .nav-link {
     padding-right: 55px;
-    color: #000 !important;
+    color: #fff !important;
     padding-left: 15px;
     padding-top: 15px;
+}
+.header-top-navigation .nav-link-scroll {
+    color: #000 !important;
 }
 .header-top-navigation .nav-item {
     margin-right: 10px;
@@ -60,8 +63,8 @@ body {
         padding-right: 60px;
     }
     .header-top-navigation .nav-link {
-        color: #fff !important;
         padding-right: 55px;
+        font-weight: 700;
     }
     .header-top-navigation .navbar-brand span {
         color: #fff;

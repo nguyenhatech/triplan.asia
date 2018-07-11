@@ -175,6 +175,7 @@
         .home-best-trips .info-trip .name {
             font-size: 18px;
             font-weight: bold;
+            min-height: 54px;
         }
 
     </style>

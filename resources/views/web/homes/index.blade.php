@@ -12,21 +12,21 @@
         .home-banner .slide-show {
             position: relative;
             width: 100vw;
-            height: 65vh;
+            height: 60vh;
         }
         .home-banner .slide-show .slide-show__item {
             position: absolute;
         }
         .home-banner .slide-show img {
             width: 100vw;
-            height: 65vh;
+            height: 60vh;
             object-fit: cover;
         }
         .home-banner .quick-search {
             position: absolute;
             top: 0;
             width: 100vw;
-            height: 65vh;
+            height: 60vh;
             color: #fff;
         }
         .home-banner .quick-search {

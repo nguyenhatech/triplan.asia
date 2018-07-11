@@ -8,12 +8,13 @@ jQuery(document).ready(function($) {
     });
 
     $('#td-header-search-button-mob, .td-search-close a').click(function(e) {
+        jQuery('body').bind('touchmove', function(e){e.preventDefault()});
         e.preventDefault();
         if (jQuery("body").hasClass("td-search-opened")) {
-            jQuery('body').bind('touchmove', function(e){e.preventDefault()});
+
             jQuery("body").removeClass("td-search-opened")
         } else {
-            jQuery('body').unbind('touchmove')
+            // jQuery('body').unbind('touchmove');
             jQuery("body").addClass("td-search-opened")
         }
         jQuery("body").hasClass("td-search-opened") ? jQuery("body").addClass("overflow-hidden") : jQuery("body").removeClass("overflow-hidden")

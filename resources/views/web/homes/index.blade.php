@@ -12,21 +12,21 @@
         .home-banner .slide-show {
             position: relative;
             width: 100vw;
-            height: 80vh;
+            height: 65vh;
         }
         .home-banner .slide-show .slide-show__item {
             position: absolute;
         }
         .home-banner .slide-show img {
             width: 100vw;
-            height: 80vh;
+            height: 65vh;
             object-fit: cover;
         }
         .home-banner .quick-search {
             position: absolute;
             top: 0;
             width: 100vw;
-            height: 80vh;
+            height: 65vh;
             color: #fff;
         }
         .home-banner .quick-search {
@@ -77,6 +77,7 @@
             }
             .home-banner .quick-search {
                 width: 650px;
+                height: 80vh;
             }
             .home-banner .form button {
                 padding: 5px 35px;

@@ -50,7 +50,7 @@
             border-radius: 0px;
             height: 50px;
             border: none;
-            background-color: #fff;
+            background-color: #ffffffd1;
         }
         .home-banner .form button {
             border-radius: 0px;

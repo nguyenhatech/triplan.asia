@@ -46,10 +46,11 @@
             width: 100%;
         }
         .home-banner .form input {
-            font-size: 13px;
+            font-size: 14px;
             border-radius: 0px;
             height: 50px;
             border: none;
+            background-color: #ffffffde;
         }
         .home-banner .form button {
             border-radius: 0px;

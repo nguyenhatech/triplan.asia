@@ -1,7 +1,3 @@
-$(document).ready(function() {
-
-});
-
 jQuery(document).ready(function($) {
     var $docEl = $('html, body'),
       $wrap = $('.content'),

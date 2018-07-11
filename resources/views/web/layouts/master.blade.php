@@ -26,7 +26,7 @@
           <div class="td-search-close">
             <a href="#"><i class="fa fa-times"></i></a>
           </div>
-          <div>
+          <div style="max-height: 80vh;overflow-y: scroll;">
               <a href="{{ env('APP_URL') }}">Test nhấn đi nào</a>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

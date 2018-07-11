@@ -49,6 +49,7 @@
             font-size: 13px;
             border-radius: 0px;
             height: 50px;
+            border: none;
         }
         .home-banner .form button {
             margin-top: 10px;
@@ -160,6 +161,7 @@
             border-bottom-right-radius: 6px;
             border-bottom-left-radius: 6px;
             padding: 15px;
+            min-height: 140px;
         }
         .home-best-trips .info-trip .price {
             font-size: 18px;
@@ -238,7 +240,7 @@
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
                         <span class="title">Dịch vụ được yêu thích nhất</span>
-                        <span class="description">Các trải nghiệm được yêu thích bởi người yêu du lịch</span>
+                        <span class="description">Trải nghiệm bởi người yêu du lịch</span>
                     </div>
                 </div>
             </div>

@@ -10,8 +10,9 @@
         @yield('styles')
     </head>
     <body>
+        @include('web.layouts.modules.facebook')
+
         <div id="td-outer-wrap">
-            @include('web.layouts.modules.facebook')
             <header>
                 @include('web.layouts.modules.header')
             </header>
@@ -22,6 +23,7 @@
                 @include('web.layouts.modules.footer')
             </footer>
         </div>
+
         @include('web.layouts.modules.side-bar')
 
         <script type="text/javascript" src="{{ get_asset('web/librarys/jquery-3.3.1.min.js') }}"></script>

@@ -1,0 +1,121 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: normal !important;
+    background-color: #fff !important;
+}
+
+/* HEDER TOP NAVIGATION */
+.header-top-navigation {
+    background-color: transparent;
+    color: #fff;
+}
+.header-top-navigation .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.header-top-navigation .navbar-brand span {
+    font-size: 22px;
+    margin-left: 0px;
+    font-weight: 700;
+    color: #fff;
+}
+.header-top-navigation .nav-link {
+    padding-right: 55px;
+    color: #000 !important;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+.header-top-navigation .nav-item {
+    margin-right: 10px;
+}
+.header-top-navigation .nav-item:last-child {
+    margin-right: 0px;
+}
+.header-top-navigation .nav-item:hover .nav-link {
+    color: #bdc3c7 !important;
+    transition: 0.1s all;
+}
+.header-top-navigation .navbar-light .navbar-toggler {
+    border-color: transparent !important;
+}
+.header-top-navigation .navbar-collapse {
+    background-color: #fff;
+    margin-left: -16px;
+    margin-right: -16px;
+}
+@media screen and (min-width: 768px) {
+    .header-top-navigation {
+        background-color: transparent;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .header-top-navigation .nav-link {
+        color: #fff !important;
+        padding-right: 55px;
+    }
+    .header-top-navigation .navbar-brand span {
+        color: #fff;
+    }
+    .header-top-navigation .navbar-collapse {
+        background-color: transparent;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+
+/*FOOTER*/
+.triplan-footer {
+    background-color: #000;
+    color: #ccc;
+    padding: 60px 0px 50px 0px;
+}
+.triplan-footer .footer-title {
+    margin-bottom: 20px;
+}
+.triplan-footer .footer-title span {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.triplan-footer .contact-us > div {
+    padding-bottom: 20px;
+}
+.triplan-footer .contact-us__item span {
+    margin-left: 5px;
+}
+.triplan-footer .contact-us .social {
+    margin-top: 10px;
+}
+.triplan-footer .contact-us .social a {
+    text-decoration: none;
+}
+.triplan-footer .contact-us .social span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+.triplan-footer .contact-us .social i {
+    color: #fff;
+    font-size: 16px;
+}
+.triplan-footer-sub {
+   background-color: #000;
+   min-height: 80px;
+   border-top: 1px solid #444;
+   color: #cccccc;
+}
+
+
+
+
+
+
+
+
+
+

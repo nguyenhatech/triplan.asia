@@ -8,10 +8,10 @@ jQuery(document).ready(function($) {
     });
 
     $('#td-header-search-button-mob, .td-search-close a').click(function(e) {
-        $(document).on('touchstart', function (evt) {
-            e.preventDefault();
+        $(document.body).on("touchmove", function(event) {
+            event.preventDefault();
+            event.stopPropagation();
         });
-        e.preventDefault();
         if (jQuery("body").hasClass("td-search-opened")) {
             jQuery("body").removeClass("td-search-opened");
         } else {

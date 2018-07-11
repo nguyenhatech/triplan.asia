@@ -38,5 +38,119 @@
                 Go to Triplan Home
             </a>
         </p>
+
+        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>        <p>
+            <a href="{{ env('APP_URL') }}">
+                Go to Triplan Home
+            </a>
+        </p>
     </div>
 </div>

@@ -130,6 +130,10 @@
         .home-best-trips {
 
         }
+        .home-best-trips .link-best-trip__item {
+            text-decoration: none;
+            color: #000;
+        }
         .home-best-trips .best-trip__item {
             margin-bottom: 30px;
             transition: 0.2s all;
@@ -241,24 +245,26 @@
             <div class="row">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
-                        <div class="best-trip__item">
-                            <div class="image">
-                                <img src="{{ $service->getImage() }}">
-                            </div>
-                            <div class="info-trip">
-                                <p class="name">{{ $service->getTranslation()->name }}</p>
-                                <div class="d-flex justify-content-between">
-                                    <span class="address">
-                                        <i class="fas fa-map-pin"></i>
-                                        <span>{{ $service->getTranslation()->address }}</span>
-                                    </span>
-                                    <span class="d-flex align-items-center">
-                                        <span class="currency">VND</span>
-                                        <span class="price">{{ number_format($service->price) }}</span>
-                                    </span>
+                        <a href="#" class="link-best-trip__item">
+                            <div class="best-trip__item">
+                                <div class="image">
+                                    <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
+                                </div>
+                                <div class="info-trip">
+                                    <p class="name">{{ $service->getTranslation()->name }}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="address">
+                                            <i class="fas fa-map-pin"></i>
+                                            <span>{{ $service->getTranslation()->address }}</span>
+                                        </span>
+                                        <span class="d-flex align-items-center">
+                                            <span class="currency">VND</span>
+                                            <span class="price">{{ number_format($service->price) }}</span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @empty
 

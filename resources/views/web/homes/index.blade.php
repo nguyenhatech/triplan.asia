@@ -138,7 +138,6 @@
         .home-best-trips .best-trip__item {
             margin-bottom: 30px;
             transition: 0.2s all;
-            min-height: 340px;
         }
         .home-best-trips .best-trip__item:hover {
             transform: translateY(-4px);
@@ -162,6 +161,7 @@
             border-bottom-right-radius: 6px;
             border-bottom-left-radius: 6px;
             padding: 15px;
+            min-height: 140px;
         }
         .home-best-trips .info-trip .price {
             font-size: 18px;

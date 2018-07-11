@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function($) {
     jQuery("body").addClass("td-js-loaded");
 
@@ -8,16 +9,8 @@ jQuery(document).ready(function($) {
     });
 
     $('#td-header-search-button-mob, .td-search-close a').click(function(e) {
-        $(document.body).on("touchmove", function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-        });
-        if (jQuery("body").hasClass("td-search-opened")) {
-            jQuery("body").removeClass("td-search-opened");
-        } else {
-            // jQuery('body').unbind('touchmove');
-            jQuery("body").addClass("td-search-opened")
-        }
+        e.preventDefault();
+        jQuery("body").hasClass("td-search-opened") ? jQuery("body").removeClass("td-search-opened") : jQuery("body").addClass("td-search-opened")
         jQuery("body").hasClass("td-search-opened") ? jQuery("body").addClass("overflow-hidden") : jQuery("body").removeClass("overflow-hidden")
     });
 });

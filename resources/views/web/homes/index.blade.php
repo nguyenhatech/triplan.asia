@@ -52,10 +52,9 @@
             border: none;
         }
         .home-banner .form button {
-            margin-top: 10px;
             border-radius: 0px;
             height: 50px;
-            padding: 5px 35px;
+            padding: 5px 20px;
         }
         @media screen and (min-width: 375px) {
             .home-banner .quick-search {
@@ -79,7 +78,7 @@
                 width: 650px;
             }
             .home-banner .form button {
-                margin-top: 0px;
+                padding: 5px 35px;
             }
         }
 
@@ -199,7 +198,7 @@
                 </div>
                 <div class="form">
                     <form method="get" action="#">
-                        <div class="d-flex flex-column flex-sm-row">
+                        <div class="d-flex flex-sm-row">
                             <input type="text" name="q" class="form-control" placeholder="Tìm địa điểm, hoạt động vui chơi ...">
                             <button type="submit" class="btn btn-success">
                                 <i class="fa fa-search" aria-hidden="true"></i>

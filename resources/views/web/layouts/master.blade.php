@@ -24,7 +24,7 @@
         </div>
         <div class="td-search-background" style="height: 100vh;">
           <div class="td-search-close">
-            <a href="#"><i class="fa fa-times"></i></a>
+            <a href="#"><i class="fa fa-times"></i>dqdwqdq</a>
           </div>
         </div>
         <script type="text/javascript" src="{{ get_asset('web/librarys/jquery-3.3.1.min.js') }}"></script>

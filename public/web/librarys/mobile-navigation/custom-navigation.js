@@ -9,15 +9,7 @@ jQuery(document).ready(function($) {
 
     $('#td-header-search-button-mob, .td-search-close a').click(function(e) {
         e.preventDefault();
-        if (jQuery("body").hasClass("td-search-opened")) {
-            document.ontouchmove = function(event){
-                event.preventDefault();
-            }
-            jQuery("body").removeClass("td-search-opened")
-        } else {
-            document.ontouchmove = function(e){ return true; }
-            jQuery("body").addClass("td-search-opened")
-        }
+        jQuery("body").hasClass("td-search-opened") ? jQuery("body").removeClass("td-search-opened") : jQuery("body").addClass("td-search-opened")
         jQuery("body").hasClass("td-search-opened") ? jQuery("body").addClass("overflow-hidden") : jQuery("body").removeClass("overflow-hidden")
     });
 });

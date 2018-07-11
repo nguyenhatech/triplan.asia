@@ -4,7 +4,7 @@
             <i class="fa fa-times" style="color: #4a4a4a; padding: 20px 30px 20px 20px;"></i>
         </a>
     </div>
-    <div style="padding-left: 50px; font-size: 20px; font-weight: bold">
+    <div style="padding-left: 50px; font-size: 22px; font-weight: bold">
         <p>
             <a href="{{ env('APP_URL') }}" style="color: #4a4a4a">
                 Trang chủ

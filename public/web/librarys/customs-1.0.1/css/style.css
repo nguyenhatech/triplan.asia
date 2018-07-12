@@ -65,6 +65,13 @@ body {
     }
 }
 
+/*// Header-Scroll*/
+.header-scroll .navbar-light .navbar-nav .nav-link {
+    color: #000 !important;
+}
+.header-scroll {
+    box-shadow: 1px 0 2px rgba(0,0,0,.4) !important;
+}
 
 /*FOOTER*/
 .triplan-footer {

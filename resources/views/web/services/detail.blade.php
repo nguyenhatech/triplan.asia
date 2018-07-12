@@ -1,4 +1,4 @@
-@extends('web.layouts.master')
+@extends('web.layouts.master-scroll')
 
 @section('title')
     {{ $title }}
@@ -7,6 +7,7 @@
 @section('styles')
     <style type="text/css">
         .detail-banner {
+            padding-top: 0px;
             height: 500px;
             background-color: #ccc;
         }

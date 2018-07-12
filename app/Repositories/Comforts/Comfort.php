@@ -13,4 +13,10 @@ class Comfort extends Entity
      * @var array
      */
     public $fillable = [];
+
+    public function getTranslation($locale = 'vi')
+    {
+        return $this->hasOne('App\Repositories\ComfortTranslations\ComfortTranslation', 'comfort_id', 'id')->where('locale', $locale)->first();
+    }
+
 }

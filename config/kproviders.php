@@ -10,4 +10,5 @@ return [
 	App\Providers\PlaceTranslationServiceProvider::class,
 	App\Providers\ServiceTranslationServiceProvider::class,
 	App\Providers\ComfortServiceProvider::class,
+	App\Providers\ComfortTranslationServiceProvider::class,
 ];

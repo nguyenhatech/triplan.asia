@@ -66,6 +66,9 @@
         .service-sub_data_mobile .count-booking {
             color: rgba(0,0,0,0.54);
         }
+        .comfort_item {
+            padding: 10px 20px 10px 0px;
+        }
     </style>
 @endsection
 
@@ -102,6 +105,16 @@
                                 836 Đã được đặt
                             </div>
                         </div>
+                    </div>
+                    <div class="service-comforts d-flex flex-wrap">
+                        @forelse ($service->comforts as $comfort)
+                            <div class="comfort_item">
+                                <i class="fas fa-globe"></i>
+                                <span>{{ $comfort->getTranslation()->name }}</span>
+                            </div>
+                        @empty
+                            {{-- empty expr --}}
+                        @endforelse
                     </div>
                 </div>
             </div>

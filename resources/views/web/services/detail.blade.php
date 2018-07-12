@@ -23,42 +23,48 @@
             }
         }
 
-        .service-info .name h1 {
+        .service-name h1 {
             font-weight: 700;
             color: #333;
             font-size: 24px;
         }
         @media screen and (min-width: 768px) {
-            .service-info .name h1 {
+            .service-name h1 {
                 font-size: 32px;
             }
         }
 
-        .service-info .time_confirm_love {
+        .service-time_confirm_love {
             padding: 10px 0px;
         }
-        .service-info .time_confirm {
+        .service-time_confirm_love .time_confirm {
             border: 1px solid #e6e6e6;
             padding: 2px 6px;
             border-radius: 2px;
         }
-        .service-info .time_confirm i {
+        .service-time_confirm_love .time_confirm i {
             color: #1AAC7C;
             margin-right: 8px;
         }
-        .service-info .time_confirm span {
+        .service-time_confirm_love .time_confirm span {
             font-weight: 700;
         }
-        .service-info .love i {
+        .service-time_confirm_love .love i {
             color: #1AAC7C;
             margin-right: 8px;
             font-size: 16px;
         }
 
-        .service-info .sub_data_mobile .price {
+        .service-sub_data_mobile {
+            padding: 10px 0px;
+        }
+        .service-sub_data_mobile .price {
             color: red;
             font-weight: 700;
             font-size: 24px;
+        }
+        .service-sub_data_mobile .count-booking {
+            color: rgba(0,0,0,0.54);
         }
     </style>
 @endsection
@@ -71,10 +77,10 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="service-info">
-                    <div class="name">
+                    <div class="service-name">
                         <h1>{{ $service->getTranslation()->name }}</h1>
                     </div>
-                    <div class="time_confirm_love d-flex justify-content-between align-items-center">
+                    <div class="service-time_confirm_love d-flex justify-content-between align-items-center">
                         <div class="time_confirm d-flex align-items-center">
                             <i class="fab fa-telegram-plane"></i>
                             <span>
@@ -86,10 +92,14 @@
                             <span>Yêu thích</span>
                         </div>
                     </div>
-                    <div class="sub_data_mobile d-block d-sm-none">
+                    <div class="service-sub_data_mobile d-block d-sm-none">
                         <div>
                             <div>
                                 <span class="price">VND {{ number_format($service->price) }}</span>
+                            </div>
+                            <div class="count-booking">
+                                <i class="fas fa-users"></i>
+                                836 Đã được đặt
                             </div>
                         </div>
                     </div>

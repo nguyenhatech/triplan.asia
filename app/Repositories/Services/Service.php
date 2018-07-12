@@ -34,9 +34,9 @@ class Service extends Entity
     public function getTimeConfirmText()
     {
         $list = [
-            self::IMMEDIATELY => 'Xác nhận đơn hàng ngay lập tức',
-            self::LIMIT_24    => 'Xác nhận đơn hàng trong vòng 24H',
-            self::LIMIT_48    => 'Xác nhận đơn hàng trong vòng 48H'
+            self::IMMEDIATELY => 'Xác nhận ngay lập tức',
+            self::LIMIT_24    => 'Xác nhận trong vòng 24H',
+            self::LIMIT_48    => 'Xác nhận trong vòng 48H'
         ];
 
         return array_key_exists($this->time_confirm, $list) ? $list[$this->time_confirm] : 'Không xác định';

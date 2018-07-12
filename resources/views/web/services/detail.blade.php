@@ -10,7 +10,7 @@
             padding-top: 55px;
             height: 300px;
             background-color: #ccc;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .service-banner img {
             object-fit: cover;
@@ -23,19 +23,42 @@
             }
         }
 
-        .service-info {
-
-        }
         .service-info .name h1 {
             font-weight: 700;
             color: #333;
-            font-size: 32px;
-            line-height: 40px;
+            font-size: 24px;
         }
         @media screen and (min-width: 768px) {
             .service-info .name h1 {
                 font-size: 32px;
             }
+        }
+
+        .service-info .time_confirm_love {
+            padding: 10px 0px;
+        }
+        .service-info .time_confirm {
+            border: 1px solid #e6e6e6;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+        .service-info .time_confirm i {
+            color: #1AAC7C;
+            margin-right: 8px;
+        }
+        .service-info .time_confirm span {
+            font-weight: 700;
+        }
+        .service-info .love i {
+            color: #1AAC7C;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .service-info .sub_data_mobile .price {
+            color: red;
+            font-weight: 700;
+            font-size: 24px;
         }
     </style>
 @endsection
@@ -51,8 +74,8 @@
                     <div class="name">
                         <h1>{{ $service->getTranslation()->name }}</h1>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <div class="time_confirm">
+                    <div class="time_confirm_love d-flex justify-content-between align-items-center">
+                        <div class="time_confirm d-flex align-items-center">
                             <i class="fab fa-telegram-plane"></i>
                             <span>
                                 {{ $service->getTimeConfirmText() }}
@@ -61,6 +84,13 @@
                         <div class="love">
                             <i class="far fa-heart"></i>
                             <span>Yêu thích</span>
+                        </div>
+                    </div>
+                    <div class="sub_data_mobile d-block d-sm-none">
+                        <div>
+                            <div>
+                                <span class="price">VND {{ number_format($service->price) }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -257,7 +257,7 @@
             <div class="row">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
-                        <a href="#" class="link-best-trip__item">
+                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation()->slug]) }}" class="link-best-trip__item">
                             <div class="best-trip__item">
                                 <div class="image">
                                     <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">

@@ -26,6 +26,17 @@
         .service-info {
 
         }
+        .service-info .name h1 {
+            font-weight: 700;
+            color: #333;
+            font-size: 32px;
+            line-height: 40px;
+        }
+        @media screen and (min-width: 768px) {
+            .service-info .name h1 {
+                font-size: 32px;
+            }
+        }
     </style>
 @endsection
 
@@ -39,6 +50,12 @@
                 <div class="service-info">
                     <div class="name">
                         <h1>{{ $service->getTranslation()->name }}</h1>
+                    </div>
+                    <div class="time_confirm">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>
+                            {{ $service->getTimeConfirmText() }}
+                        </span>
                     </div>
                 </div>
             </div>

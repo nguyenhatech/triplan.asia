@@ -76,6 +76,11 @@
         .service-comforts .comfort_item {
             padding: 10px 20px 10px 0px;
         }
+
+        .service-description {
+            padding: 20px 10px;
+            text-align: justify;
+        }
     </style>
 @endsection
 
@@ -122,6 +127,11 @@
                         @empty
                             {{-- empty expr --}}
                         @endforelse
+                    </div>
+                    <div class="service-description">
+                        <div>
+                            {!! $service->getTranslation()->description !!}
+                        </div>
                     </div>
                 </div>
             </div>

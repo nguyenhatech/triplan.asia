@@ -35,7 +35,7 @@
         }
 
         .service-time_confirm_love {
-            padding: 10px 0px;
+            padding: 15px 0px;
         }
         .service-time_confirm_love .time_confirm {
             border: 1px solid #e6e6e6;
@@ -66,7 +66,12 @@
         .service-sub_data_mobile .count-booking {
             color: rgba(0,0,0,0.54);
         }
-        .comfort_item {
+        .service-comforts {
+            padding: 10px 0px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .service-comforts .comfort_item {
             padding: 10px 20px 10px 0px;
         }
     </style>

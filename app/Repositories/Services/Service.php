@@ -46,4 +46,10 @@ class Service extends Entity
     {
         return $this->hasOne('App\Repositories\ServiceTranslations\ServiceTranslation', 'service_id', 'id')->where('locale', $locale)->first();
     }
+
+    public function comforts()
+    {
+        return $this->belongsToMany('App\Repositories\Comforts\Comfort', 'comfort_service', 'service_id', 'comfort_id', 'id');
+    }
+
 }

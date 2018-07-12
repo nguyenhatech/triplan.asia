@@ -62,6 +62,8 @@
             color: red;
             font-weight: 700;
             font-size: 24px;
+            display: block;
+            margin-bottom: 10px;
         }
         .service-sub_data_mobile .count-booking {
             color: rgba(0,0,0,0.54);

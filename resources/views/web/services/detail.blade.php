@@ -56,7 +56,7 @@
         }
 
         .service-sub_data_mobile {
-            padding: 10px 0px;
+            padding: 0px 0px 10px 0px;
         }
         .service-sub_data_mobile .price {
             color: red;

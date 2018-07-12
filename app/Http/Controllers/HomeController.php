@@ -21,7 +21,9 @@ class HomeController extends WebController
     public function index(Request $request)
     {
         // Điểm đến lý tưởng
-        $place_destinations = $this->place->getByQuery([]);
+        $place_destinations = $this->place->getByQuery([
+            'status' => 1
+        ]);
 
         // Dịch vụ được yêu thích nhất
         $best_services      = $this->service->getByQuery([]);

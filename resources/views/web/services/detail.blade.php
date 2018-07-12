@@ -51,16 +51,22 @@
                     <div class="name">
                         <h1>{{ $service->getTranslation()->name }}</h1>
                     </div>
-                    <div class="time_confirm">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>
-                            {{ $service->getTimeConfirmText() }}
-                        </span>
+                    <div class="d-flex justify-content-between">
+                        <div class="time_confirm">
+                            <i class="fab fa-telegram-plane"></i>
+                            <span>
+                                {{ $service->getTimeConfirmText() }}
+                            </span>
+                        </div>
+                        <div class="love">
+                            <i class="far fa-heart"></i>
+                            <span>Yêu thích</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                b
+
             </div>
         </div>
     </div>

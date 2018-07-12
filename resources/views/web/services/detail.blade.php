@@ -78,7 +78,7 @@
         }
 
         .service-description {
-            padding: 20px 10px;
+            padding: 20px 0px;
             text-align: justify;
         }
 

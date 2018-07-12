@@ -83,7 +83,6 @@
         }
 
         .service-what_to_expect {
-           padding: 20px 10px;
            text-align: justify;
            overflow: hidden;
         }

@@ -260,7 +260,7 @@
                         <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation()->slug]) }}" class="link-best-trip__item">
                             <div class="best-trip__item">
                                 <div class="image">
-                                    <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
+                                    <img src="{{ $service->getImage('md') }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
                                 </div>
                                 <div class="info-trip">
                                     <p class="name">{{ $service->getTranslation()->name }}</p>

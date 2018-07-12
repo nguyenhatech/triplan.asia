@@ -20,12 +20,15 @@ class Service extends Entity
     const LIMIT_24    = 2; // Trong vòng 24H
     const LIMIT_48    = 3; // Trong vòng 48H
 
-    public function getImage()
+    public function getImage($type = null)
     {
-        if ($this->image) {
+        if ($type == 'sm') {
+            return env('IMAGE_PATH') . '350x200/' . $this->image;
+        } else if ($type == 'md') {
+            return env('IMAGE_PATH') . '750x390/' . $this->image;
+        } else {
             return env('IMAGE_PATH') . $this->image;
         }
-        return $this->image;
     }
 
     public function getTimeConfirmText()

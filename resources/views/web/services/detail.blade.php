@@ -81,6 +81,17 @@
             padding: 20px 10px;
             text-align: justify;
         }
+
+        .service-what_to_expect {
+           padding: 20px 10px;
+           text-align: justify;
+           overflow: hidden;
+        }
+        .service-what_to_expect h4 {
+            color: #1AAC7C;
+            font-weight: 700;
+        }
+
     </style>
 @endsection
 
@@ -131,6 +142,12 @@
                     <div class="service-description">
                         <div>
                             {!! $service->getTranslation()->description !!}
+                        </div>
+                    </div>
+                    <div class="service-what_to_expect">
+                        <h4>Trải nghiệm dành cho bạn !</h4>
+                        <div>
+                            {!! $service->getTranslation()->what_to_expect !!}
                         </div>
                     </div>
                 </div>

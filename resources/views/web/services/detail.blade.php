@@ -137,6 +137,20 @@
             color: red;
             font-weight: 700;
         }
+
+        .booking-on-mobile {
+            position: fixed;
+            bottom: 0px;
+            z-index: 1000;
+            background-color: #fff;
+            box-shadow: 1px 0 2px rgba(0,0,0,.4);
+            width: 100%;
+            height: 100px;
+        }
+        .booking-on-mobile div {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 @endsection
 
@@ -249,6 +263,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="booking-on-mobile d-block d-sm-none">
+        <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-primary">Primary</button>
         </div>
     </div>
 @endsection

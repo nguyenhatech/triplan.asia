@@ -166,6 +166,7 @@
             background-color: #fff;
             box-shadow: 1px 0 2px rgba(0,0,0,.4);
             height: 250px;
+            width: 365px;
             padding: 20px 15px;
             border-radius: 2px;
         }
@@ -194,7 +195,6 @@
             position: fixed;
             top: 65px;
             z-index: 1001;
-            width: calc(100%/3 - 78px) ;
         }
     </style>
 @endsection

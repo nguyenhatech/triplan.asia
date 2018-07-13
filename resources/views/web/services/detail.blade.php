@@ -111,6 +111,11 @@
         }
         .service-involve_item__wrap .image {
             height: 225px;
+            transition: 0.1s all;
+        }
+        .service-involve_item__wrap .image:hover {
+            opacity: 0.7;
+            transition: 0.1s all;
         }
         .service-involve_item__wrap .image img {
             width: 100%;

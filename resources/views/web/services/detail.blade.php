@@ -85,6 +85,7 @@
         .service-what_to_expect {
            text-align: justify;
            overflow: hidden;
+           padding-bottom: 15px;
         }
         .service-what_to_expect h4 {
             color: #1AAC7C;
@@ -149,6 +150,22 @@
                             {!! $service->getTranslation()->what_to_expect !!}
                         </div>
                     </div>
+                    <div class="service-what_to_expect">
+                        <h4>Thông tin dịch vụ !</h4>
+                        <div>
+                            {!! $service->getTranslation()->activity_information !!}
+                        </div>
+                    </div>
+                    <div class="service-what_to_expect">
+                        <h4>Hướng dẫn sử dụng !</h4>
+                        <div>
+                            {!! $service->getTranslation()->how_to_use !!}
+                        </div>
+                    </div>
+                    <div class="service-what_to_expect">
+                        <h4>Bản đồ</h4>
+                        <div id="map" style="height: 400px; background-color: #ccc"></div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -159,5 +176,26 @@
 @endsection
 
 @section('scripts')
+    <script>
+       function initMap() {
+         var myLatLng = {
+            lat: {{ $service->lat }},
+            lng: {{ $service->lng }},
+        };
 
+         var map = new google.maps.Map(document.getElementById('map'), {
+           zoom: 12,
+           center: myLatLng
+         });
+
+         var marker = new google.maps.Marker({
+           position: myLatLng,
+           map: map,
+           title: 'Hello World!'
+         });
+       }
+     </script>
+     <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
+     </script>
 @endsection

@@ -10,7 +10,7 @@
         @yield('styles')
     </head>
     <body>
-        {{-- @include('web.layouts.modules.facebook') --}}
+        @include('web.layouts.modules.facebook')
 
         <div id="td-outer-wrap">
             <header>

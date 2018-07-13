@@ -5,6 +5,7 @@
 @endsection
 
 @section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.carousel.min.css') }}" >
     <style type="text/css">
         .service-banner {
             padding-top: 55px;
@@ -92,6 +93,22 @@
             font-weight: 700;
         }
 
+
+        .service-involve {
+            padding: 20px 0px;
+            border-top: 1px solid #eee;
+        }
+        .service-involve_item__wrap {
+            padding: 5px;
+        }
+        .service-involve_item__wrap .image {
+            height: 165px;
+        }
+        .service-involve_item__wrap .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 @endsection
 
@@ -172,30 +189,74 @@
 
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="service-involve">
+                    <div class="owl-carousel">
+                        <div class="service-involve_item__wrap">
+                            <div class="image">
+                                <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
 @section('scripts')
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
+    </script>
+    <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script>
-       function initMap() {
-         var myLatLng = {
-            lat: {{ $service->lat }},
-            lng: {{ $service->lng }},
-        };
+        $(".service-involve .owl-carousel").owlCarousel({
+            loop:true,
+            dots:false,
+            nav:false,
+            responsiveClass:true,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplaySpeed: 1200,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true,
+                    loop:true,
+                    stagePadding: 20,
+                },
+                768:{
+                    items:3,
+                    nav:true,
+                    loop:true
+                },
+                1024:{
+                    items:4,
+                    nav:true,
+                    loop:true,
+                }
+            }
+        });
+        $('.owl-prev').text('');
+        $('.owl-next').text('');
 
-         var map = new google.maps.Map(document.getElementById('map'), {
-           zoom: 12,
-           center: myLatLng
-         });
+        function initMap() {
+            var myLatLng = {
+                lat: {{ $service->lat }},
+                lng: {{ $service->lng }},
+            };
 
-         var marker = new google.maps.Marker({
-           position: myLatLng,
-           map: map,
-           title: 'Hello World!'
-         });
-       }
-     </script>
-     <script async defer
-     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: myLatLng
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!'
+            });
+        }
      </script>
 @endsection

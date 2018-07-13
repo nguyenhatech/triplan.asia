@@ -145,7 +145,7 @@
             background-color: #fff;
             box-shadow: 1px 0 2px rgba(0,0,0,.4);
             width: 100%;
-            height: 60px;
+            height: 70px;
         }
         .booking-on-mobile div {
             width: 100%;

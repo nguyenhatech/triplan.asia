@@ -223,7 +223,7 @@
                     <h3>Có thể bạn quan tâm</h3>
                     <div class="owl-carousel">
                         @forelse ($service_involves as $service_involve)
-                            <a href="#">
+                            <a href="{{ route('web.services.detail', [$service_involve->id, $service_involve->getTranslation()->slug]) }}">
                                 <div class="service-involve_item__wrap">
                                     <div class="image">
                                         <img src="{{ $service_involve->getImage() }}"  alt="{{ $service_involve->getTranslation()->name }}" title="{{ $service_involve->getTranslation()->name }}">

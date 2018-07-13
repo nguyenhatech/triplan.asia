@@ -152,13 +152,14 @@
             height: 100%;
             padding: 10px 15px;
         }
-        .booking-on-mobile button {
+        .booking-on-mobile a {
             width: 100%;
             height: 100%;
             background-color: #1AAC7C;
             color: #fff;
             font-weight: 700;
             font-size: 20px;
+            line-height: 40px;
         }
     </style>
 @endsection
@@ -276,9 +277,9 @@
     </div>
     <div class="booking-on-mobile d-block d-sm-none">
         <div class="d-flex justify-content-between align-items-center">
-            <button type="button" class="btn">
+            <a href="/" class="btn">
                 Đặt ngay
-            </button>
+            </a>
         </div>
     </div>
 @endsection

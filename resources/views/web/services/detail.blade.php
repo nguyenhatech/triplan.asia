@@ -194,7 +194,7 @@
             position: fixed;
             top: 65px;
             z-index: 1001;
-            width: calc(33% - 75px) ;
+            width: calc(100%/3 - 78px) ;
         }
     </style>
 @endsection

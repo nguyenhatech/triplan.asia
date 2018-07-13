@@ -102,7 +102,7 @@
             padding: 5px;
         }
         .service-involve_item__wrap .image {
-            height: 165px;
+            height: 200px;
         }
         .service-involve_item__wrap .image img {
             width: 100%;

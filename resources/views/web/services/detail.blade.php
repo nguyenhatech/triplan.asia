@@ -150,7 +150,7 @@
         .booking-on-mobile div {
             width: 100%;
             height: 100%;
-            padding: 10px 15px;
+            padding: 5px 15px;
         }
         .booking-on-mobile button {
             width: 100%;

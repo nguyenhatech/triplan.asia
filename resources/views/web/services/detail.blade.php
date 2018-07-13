@@ -165,11 +165,9 @@
         .booking-service-destop {
             background-color: #fff;
             box-shadow: 1px 0 2px rgba(0,0,0,.4);
-            width: 100%;
             height: 250px;
             padding: 20px 15px;
             border-radius: 2px;
-            position: relative;
         }
         .booking-service-destop .price {
             color: red;
@@ -192,13 +190,11 @@
             margin-top: 15px;
             color: rgba(0,0,0,0.54);
         }
-        .fixed1 {
+        .fixed {
             position: fixed;
             top: 65px;
             z-index: 1001;
-            width: 100%;
-            right: 70px;
-            padding-left: 60px;
+            width: calc(33% - 75px) ;
         }
     </style>
 @endsection
@@ -276,7 +272,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 kaka">
+            <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
                      <div>
                          <span class="price">VND {{ number_format($service->price) }}</span>
@@ -389,9 +385,9 @@
 
         $(window).scroll(function() {
             if ($(this).scrollTop() > 500) {
-                $('.kaka').addClass('fixed1');
+                $('.booking-service-destop').addClass('fixed');
             } else {
-                $('.kaka').removeClass('fixed1');
+                $('.booking-service-destop').removeClass('fixed');
             }
         });
      </script>

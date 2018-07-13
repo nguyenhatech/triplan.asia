@@ -157,6 +157,8 @@
             height: 100%;
             background-color: #1AAC7C;
             color: #fff;
+            font-weight: 700;
+            font-size: 20px;
         }
     </style>
 @endsection

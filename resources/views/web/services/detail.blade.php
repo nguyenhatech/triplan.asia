@@ -161,6 +161,36 @@
             font-size: 20px;
             line-height: 40px;
         }
+
+        .booking-service-destop {
+            background-color: #fff;
+            box-shadow: 1px 0 2px rgba(0,0,0,.4);
+            width: 100%;
+            min-height: 250px;
+            padding: 20px 15px;
+            border-radius: 2px;
+        }
+        .booking-service-destop .price {
+            color: red;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .booking-service-destop .booking-now {
+            background-color: #1AAC7C;
+            color: #fff;
+            font-weight: 700;
+            font-size: 20px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .booking-service-destop .booking-now:hover {
+            color: #fff;
+            box-shadow: 1px 0 2px rgba(0,0,0,.4);
+        }
+        .booking-service-destop .count-booking {
+            margin-top: 15px;
+            color: rgba(0,0,0,0.54);
+        }
     </style>
 @endsection
 
@@ -238,7 +268,20 @@
                 </div>
             </div>
             <div class="col-md-4">
-
+                <div class="booking-service-destop d-none d-sm-block">
+                     <div>
+                         <span class="price">VND {{ number_format($service->price) }}</span>
+                     </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="/" class="btn booking-now">
+                            Đặt ngay
+                        </a>
+                    </div>
+                    <div class="count-booking">
+                        <i class="fas fa-users"></i>
+                        836 Đã được đặt
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">

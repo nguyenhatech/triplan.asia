@@ -145,11 +145,17 @@
             background-color: #fff;
             box-shadow: 1px 0 2px rgba(0,0,0,.4);
             width: 100%;
-            height: 100px;
+            height: 60px;
         }
         .booking-on-mobile div {
             width: 100%;
             height: 100%;
+            padding: 10px 15px;
+        }
+        .booking-on-mobile button {
+            width: 100%;
+            background-color: #1AAC7C;
+            color: #fff;
         }
     </style>
 @endsection
@@ -267,7 +273,9 @@
     </div>
     <div class="booking-on-mobile d-block d-sm-none">
         <div class="d-flex justify-content-between align-items-center">
-            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn">
+                Đặt ngay
+            </button>
         </div>
     </div>
 @endsection

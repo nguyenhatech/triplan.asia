@@ -225,7 +225,7 @@
                     <div class="service-sub_data_mobile d-block d-sm-none">
                         <div>
                             <div>
-                                <span class="price">VND {{ number_format($service->price) }}</span>
+                                <span class="price">VND {{ number_format($service->getPrice()) }}</span>
                             </div>
                             <div class="count-booking">
                                 <i class="fas fa-users"></i>

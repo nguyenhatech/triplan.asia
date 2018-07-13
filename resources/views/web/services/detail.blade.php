@@ -98,16 +98,39 @@
             padding: 20px 0px;
             border-top: 1px solid #eee;
         }
+        .service-involve a {
+            text-decoration: none;
+        }
         .service-involve_item__wrap {
-            padding: 5px;
+            margin: 5px;
+        }
+        @media screen and (min-width: 768px) {
+            .service-involve_item__wrap {
+                margin: 10px;
+            }
         }
         .service-involve_item__wrap .image {
-            height: 300px;
+            height: 225px;
         }
         .service-involve_item__wrap .image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        .service-involve_item__wrap .info {
+            border: 1px solid #eee;
+            padding: 10px;
+        }
+        .service-involve_item__wrap .info .name {
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 20px;
+            padding: 10px 0px;
+            color: #000;
+        }
+        .service-involve_item__wrap .info .price {
+            color: red;
+            font-weight: 700;
         }
     </style>
 @endsection
@@ -194,11 +217,26 @@
                 <div class="service-involve">
                     <h3>Có thể bạn quan tâm</h3>
                     <div class="owl-carousel">
-                        <div class="service-involve_item__wrap">
-                            <div class="image">
-                                <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
+                        <a href="#">
+                            <div class="service-involve_item__wrap">
+                                <div class="image">
+                                    <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
+                                </div>
+                                <div class="info d-flex flex-column">
+                                    <div class="name">
+                                        <span>
+                                            {{ $service->getTranslation()->name }}
+                                        </span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <span class="price">VND {{ number_format($service->price) }}</span>
+                                        <span>
+                                            {{ $service->getTimeConfirmText() }}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

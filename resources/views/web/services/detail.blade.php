@@ -260,7 +260,7 @@
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script>
         $(".service-involve .owl-carousel").owlCarousel({
-            loop:true,
+            loop:false,
             dots:false,
             nav:false,
             responsiveClass:true,
@@ -271,18 +271,15 @@
                 0:{
                     items:1,
                     nav:true,
-                    loop:true,
                     stagePadding: 20,
                 },
                 768:{
                     items:3,
                     nav:true,
-                    loop:true
                 },
                 1024:{
                     items:4,
-                    nav:true,
-                    loop:true,
+                    nav:true
                 }
             }
         });

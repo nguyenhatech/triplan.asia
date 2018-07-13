@@ -17,6 +17,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
     {
         $status = array_get($params, 'status', null);
         $query  = array_get($params, 'q', null);
+        $notInID  = array_get($params, 'notInID', null);
 
         $model  = $this->model;
 
@@ -29,6 +30,10 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
 
         if (! is_null($status)) {
             $model = $model->where('status', $status);
+        }
+
+        if (! is_null($notInID)) {
+            $model = $model->whereNotIn('id', $notInID);
         }
 
         if (! is_null($query)) {

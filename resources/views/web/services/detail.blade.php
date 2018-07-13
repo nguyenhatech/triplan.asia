@@ -222,26 +222,30 @@
                 <div class="service-involve">
                     <h3>Có thể bạn quan tâm</h3>
                     <div class="owl-carousel">
-                        <a href="#">
-                            <div class="service-involve_item__wrap">
-                                <div class="image">
-                                    <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
-                                </div>
-                                <div class="info d-flex flex-column">
-                                    <div class="name">
-                                        <span>
-                                            {{ $service->getTranslation()->name }}
-                                        </span>
+                        @forelse ($service_involves as $service_involve)
+                            <a href="#">
+                                <div class="service-involve_item__wrap">
+                                    <div class="image">
+                                        <img src="{{ $service_involve->getImage() }}"  alt="{{ $service_involve->getTranslation()->name }}" title="{{ $service_involve->getTranslation()->name }}">
                                     </div>
-                                    <div class="d-flex flex-column">
-                                        <span class="price">VND {{ number_format($service->price) }}</span>
-                                        <span>
-                                            {{ $service->getTimeConfirmText() }}
-                                        </span>
+                                    <div class="info d-flex flex-column">
+                                        <div class="name">
+                                            <span>
+                                                {{ $service_involve->getTranslation()->name }}
+                                            </span>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <span class="price">VND {{ number_format($service_involve->price) }}</span>
+                                            <span>
+                                                {{ $service_involve->getTimeConfirmText() }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        @empty
+                            {{-- empty expr --}}
+                        @endforelse
                     </div>
                 </div>
             </div>

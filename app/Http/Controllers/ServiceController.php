@@ -20,9 +20,15 @@ class ServiceController extends WebController
     {
         $service = $this->service->getById($id);
 
+
+        $service_involves = $this->service->getByQuery([
+            'notInID' => [$service->id]
+        ], 8);
+
         return view('web.services.detail')->with([
             'title'   => 'Chi tiết',
-            'service' => $service
+            'service' => $service,
+            'service_involves' => $service_involves
         ]);
     }
 }

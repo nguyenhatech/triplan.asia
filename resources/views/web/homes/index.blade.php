@@ -270,7 +270,7 @@
                                             <span>{{ $service->getTranslation()->address }}</span>
                                         </span>
                                         <span class="d-flex align-items-center">
-                                            <span class="currency">USD</span>
+                                            <span class="currency">VND</span>
                                             <span class="price">{{ number_format($service->price) }}</span>
                                         </span>
                                     </div>

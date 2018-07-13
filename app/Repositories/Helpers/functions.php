@@ -1,6 +1,16 @@
 <?php
 
 /**
+ * Lấy tiền tệ
+ * @return [type] [description]
+ */
+function getPrice($currency = 'VND')
+{
+    $currency = \App::make('App\Repositories\Curencies\Currency');
+    dd($currency);
+}
+
+/**
  * Hàm ghi đè lấy đường dẫn
  * @param  [type] $path [description]
  * @return [type]       [description]

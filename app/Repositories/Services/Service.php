@@ -14,7 +14,6 @@ class Service extends Entity
      */
     public $fillable = [];
 
-
     // Trường time_confirm: Thời gian xác nhận dịch vụ
     const IMMEDIATELY = 1; // Ngay lập tức
     const LIMIT_24    = 2; // Trong vòng 24H
@@ -40,6 +39,17 @@ class Service extends Entity
         ];
 
         return array_key_exists($this->time_confirm, $list) ? $list[$this->time_confirm] : 'Không xác định';
+    }
+
+    public function getPrice()
+    {
+        $currencyRepo = \App::make('App\Repositories\Currencies\Currency');
+
+        $currency = $currencyRepo->where('display', 'VND')
+                                ->where('status', 1)
+                                ->first();
+
+        return $this->price * $currency->ratio;
     }
 
     public function getTranslation($locale = 'vi')

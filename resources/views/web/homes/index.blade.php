@@ -271,7 +271,7 @@
                                         </span>
                                         <span class="d-flex align-items-center">
                                             <span class="currency">VND</span>
-                                            <span class="price">{{ number_format($service->price) }}</span>
+                                            <span class="price">{{ number_format($service->getPrice()) }}</span>
                                         </span>
                                     </div>
                                 </div>

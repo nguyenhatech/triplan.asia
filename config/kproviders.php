@@ -11,4 +11,5 @@ return [
 	App\Providers\ServiceTranslationServiceProvider::class,
 	App\Providers\ComfortServiceProvider::class,
 	App\Providers\ComfortTranslationServiceProvider::class,
+	App\Providers\CurrencyServiceProvider::class,
 ];

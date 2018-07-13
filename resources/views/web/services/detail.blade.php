@@ -275,7 +275,7 @@
             <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
                      <div>
-                         <span class="price">VND {{ number_format($service->price) }}</span>
+                         <span class="price">VND {{ number_format($service->getPrice()) }}</span>
                      </div>
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="/" class="btn booking-now">
@@ -307,7 +307,7 @@
                                             </span>
                                         </div>
                                         <div class="d-flex flex-column">
-                                            <span class="price">VND {{ number_format($service_involve->price) }}</span>
+                                            <span class="price">VND {{ number_format($service_involve->getPrice()) }}</span>
                                             <span>
                                                 {{ $service_involve->getTimeConfirmText() }}
                                             </span>

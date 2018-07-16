@@ -145,7 +145,7 @@
             background-color: #fff;
             box-shadow: 1px 0 2px rgba(0,0,0,.4);
             width: 100%;
-            height: 70px;
+            height: 60px;
         }
         .booking-on-mobile div {
             width: 100%;
@@ -154,12 +154,8 @@
         }
         .booking-on-mobile a {
             width: 100%;
-            height: 100%;
-            background-color: #1AAC7C;
             color: #fff;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 40px;
+            font-size: 14px;
         }
 
         .booking-service-destop {
@@ -277,9 +273,12 @@
                      <div>
                          <span class="price">VND {{ number_format($service->getPrice()) }}</span>
                      </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="/" class="btn booking-now">
+                    <div class="d-flex flex-column justify-content-between align-items-center">
+                        <a href="/" class="btn btn-block booking-now">
                             Đặt ngay
+                        </a>
+                        <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="margin-top: 15px; color: #fff">
+                            Chat trực tiếp với Triplan
                         </a>
                     </div>
                     <div class="count-booking">
@@ -325,8 +324,11 @@
     </div>
     <div class="booking-on-mobile d-block d-sm-none">
         <div class="d-flex justify-content-between align-items-center">
-            <a href="/" class="btn">
+            <a href="/" class="btn btn-success">
                 Đặt ngay
+            </a>
+            <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="color: #fff; margin-left: 10px;">
+                Chat trực tiếp với Triplan
             </a>
         </div>
     </div>

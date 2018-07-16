@@ -155,9 +155,9 @@
         .booking-on-mobile a {
             width: 100%;
             color: #fff;
-            font-size: 14px;
+            font-size: 17px;
             height: 100%;
-            line-height: 28px;
+            line-height: 40px;
         }
 
         .booking-service-destop {

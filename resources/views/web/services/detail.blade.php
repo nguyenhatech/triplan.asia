@@ -156,6 +156,8 @@
             width: 100%;
             color: #fff;
             font-size: 14px;
+            height: 100%;
+            line-height: 28px;
         }
 
         .booking-service-destop {

@@ -182,9 +182,9 @@
             color: #888888;
         }
         .home-best-trips .info-trip .name {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
-            min-height: 54px;
+            max-height: 54px;
         }
 
     </style>

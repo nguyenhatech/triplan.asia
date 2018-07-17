@@ -50,7 +50,6 @@ class Service extends Entity
                                 ->first();
 
         return $this->price * $currency->ratio;
->>>>>>> 75e992dc87ace97be9901d20379cac0589adf070
     }
 
     public function getTranslation($locale = 'vi')

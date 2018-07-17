@@ -185,6 +185,7 @@
             font-size: 15px;
             font-weight: bold;
             max-height: 54px;
+
         }
 
     </style>
@@ -263,7 +264,7 @@
                                     <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
                                 </div>
                                 <div class="info-trip">
-                                    <p class="name">{{ $service->getTranslation()->name }}</p>
+                                    <p class="name">{{ title_case($service->getTranslation()->name) }}</p>
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
                                             <i class="fas fa-map-pin"></i>

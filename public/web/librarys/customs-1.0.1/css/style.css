@@ -19,13 +19,12 @@ body {
     color: #000 !important;
 }
 .header-top-navigation .logo {
-    height: 25px;
+    height: 33px;
 }
 .header-top-navigation .nav-link {
     padding-right: 55px;
     color: #fff !important;
     padding-left: 15px;
-    padding-top: 15px;
 }
 .header-top-navigation .nav-link-scroll {
     color: #000 !important;

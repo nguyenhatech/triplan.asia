@@ -32,4 +32,11 @@ class HomeController extends WebController
             'best_services'      => $best_services
         ]);
     }
+
+    public function tours()
+    {
+        return view('web.searches.tours')->with([
+            'title'              => 'Tìm kiếm tours',
+        ]);
+    }
 }

@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('web.home');
+Route::get('tours', 'HomeController@tours')->name('web.tours');
 
 // Login Facebook
 Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');

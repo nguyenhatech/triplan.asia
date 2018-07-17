@@ -14,6 +14,8 @@
 Route::get('/', 'HomeController@index')->name('web.home');
 Route::get('tours', 'HomeController@tours')->name('web.tours');
 
+Route::get('services/{id}-{slug}', 'ServiceController@detail')->name('web.services.detail');
+
 // Login Facebook
 Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');
 Route::get('/callback/{social}', 'SocialAuthController@callback')->name('callback-social');

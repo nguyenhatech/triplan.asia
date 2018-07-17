@@ -14,8 +14,10 @@ class Place extends Entity
      */
     public $fillable = [];
 
-    public function getImage($type = null)
+    public function getImage($type = false)
     {
+        if ($this->image == '') return get_asset('images/places/place_default.png');
+
         if ($type == 'sm') {
             return env('IMAGE_PATH') . '350x200/' . $this->image;
         } else if ($type == 'md') {

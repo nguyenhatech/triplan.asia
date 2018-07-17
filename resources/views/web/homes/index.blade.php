@@ -12,21 +12,21 @@
         .home-banner .slide-show {
             position: relative;
             width: 100vw;
-            height: 80vh;
+            height: 60vh;
         }
         .home-banner .slide-show .slide-show__item {
             position: absolute;
         }
         .home-banner .slide-show img {
             width: 100vw;
-            height: 80vh;
+            height: 60vh;
             object-fit: cover;
         }
         .home-banner .quick-search {
             position: absolute;
             top: 0;
             width: 100vw;
-            height: 80vh;
+            height: 60vh;
             color: #fff;
         }
         .home-banner .quick-search {
@@ -46,16 +46,16 @@
             width: 100%;
         }
         .home-banner .form input {
-            font-size: 13px;
+            font-size: 14px;
             border-radius: 0px;
             height: 50px;
             border: none;
+            background-color: #ffffffd1;
         }
         .home-banner .form button {
-            margin-top: 10px;
             border-radius: 0px;
             height: 50px;
-            padding: 5px 35px;
+            padding: 5px 20px;
         }
         @media screen and (min-width: 375px) {
             .home-banner .quick-search {
@@ -79,7 +79,16 @@
                 width: 650px;
             }
             .home-banner .form button {
-                margin-top: 0px;
+                padding: 5px 35px;
+            }
+            .home-banner .slide-show {
+                height: 81vh;
+            }
+            .home-banner .slide-show img {
+                height: 81vh;
+            }
+            .home-banner .quick-search {
+                height: 81vh;
             }
         }
 
@@ -173,8 +182,9 @@
             color: #888888;
         }
         .home-best-trips .info-trip .name {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
+            max-height: 54px;
         }
 
     </style>
@@ -198,7 +208,7 @@
                 </div>
                 <div class="form">
                     <form method="get" action="#">
-                        <div class="d-flex flex-column flex-sm-row">
+                        <div class="d-flex flex-sm-row">
                             <input type="text" name="q" class="form-control" placeholder="Tìm địa điểm, hoạt động vui chơi ...">
                             <button type="submit" class="btn btn-success">
                                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -247,7 +257,7 @@
             <div class="row">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
-                        <a href="#" class="link-best-trip__item">
+                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation()->slug]) }}" class="link-best-trip__item">
                             <div class="best-trip__item">
                                 <div class="image">
                                     <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
@@ -261,7 +271,7 @@
                                         </span>
                                         <span class="d-flex align-items-center">
                                             <span class="currency">VND</span>
-                                            <span class="price">{{ number_format($service->price) }}</span>
+                                            <span class="price">{{ number_format($service->getPrice()) }}</span>
                                         </span>
                                     </div>
                                 </div>

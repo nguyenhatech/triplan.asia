@@ -141,14 +141,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="box-service-filter">
-                    <h5>Giá</h5>
-                    <div class="card" style="width: 100%; padding: 5px 15px 5px 15px;">
-                        <div class="form group-price" >
-                            <input type="hidden" id="price_range-slider">
-                        </div>
-                    </div>
-                </div>
                 <div class="box-service-filter box-checkbox-custom">
                     <h5>Thời gian đi</h5>
                     <div class="card" style="width: 100%; padding: 5px 15px 5px 15px;">
@@ -169,6 +161,14 @@
                             <label class="custom-control-label" for="time3">
                                 Hơn 5 ngày
                             </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-service-filter">
+                    <h5>Giá</h5>
+                    <div class="card" style="width: 100%; padding: 5px 15px 5px 15px;">
+                        <div class="form group-price" >
+                            <input type="hidden" id="price_range-slider">
                         </div>
                     </div>
                 </div>
@@ -237,14 +237,9 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Đài Loan</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Đài Bắc</li>
-                        </ol>
+                    <nav aria-label="breadcrumb">
                         <h3 class="search-result">Đã tìm thấy 73 tour du lịch ở Đài Bắc dành cho bạn</h3>
-                    </nav> --}}
+                    </nav>
                 </div>
                 <div class="box-list-result">
                     <div class="row">
@@ -369,7 +364,7 @@
             step: (locale_key == 'vi' ? 1 : 5),
             hide_min_max: true,
             grid: true,
-            postfix: "triệu",
+            postfix: " triệu",
             min_interval: (locale_key == 'vi' ? 1 : 5),
             onFinish: function (data) {
                 var minPrice = data.from_pretty.replace(/ /g, '');
@@ -394,7 +389,7 @@
             step: (locale_key == 'vi' ? 1 : 5),
             hide_min_max: true,
             grid: true,
-            postfix: "triệu",
+            postfix: " triệu",
             min_interval: (locale_key == 'vi' ? 1 : 5),
             onFinish: function (data) {
                 var minPrice = data.from_pretty.replace(/ /g, '');

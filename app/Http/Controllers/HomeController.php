@@ -26,7 +26,9 @@ class HomeController extends WebController
         ]);
 
         // Dịch vụ được yêu thích nhất
-        $best_services      = $this->service->getByQuery([]);
+        $best_services      = $this->service->getByQuery([
+            'hot' => 1
+        ]);
 
         return view('web.homes.index')->with([
             'title'              => 'Trang chủ',

@@ -91,6 +91,7 @@
         .service-what_to_expect h4 {
             color: #1AAC7C;
             font-weight: 700;
+            margin-top: 10px;
         }
 
 
@@ -231,39 +232,49 @@
                             </div>
                         </div>
                     </div>
-                    <div class="service-comforts d-flex flex-wrap">
-                        @forelse ($service->comforts as $comfort)
-                            <div class="comfort_item">
-                                <i class="fas fa-globe"></i>
-                                <span>{{ $comfort->getTranslation()->name }}</span>
+                    @if ($service->comforts)
+                        <div class="service-comforts d-flex flex-wrap">
+                            @forelse ($service->comforts as $comfort)
+                                <div class="comfort_item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>{{ $comfort->getTranslation()->name }}</span>
+                                </div>
+                            @empty
+
+                            @endforelse
+                        </div>
+                    @endif
+                    @if ($service->getTranslation()->description)
+                        <div class="service-description">
+                            <div>
+                                {!! $service->getTranslation()->description !!}
                             </div>
-                        @empty
-                            {{-- empty expr --}}
-                        @endforelse
-                    </div>
-                    <div class="service-description">
-                        <div>
-                            {!! $service->getTranslation()->description !!}
                         </div>
-                    </div>
-                    <div class="service-what_to_expect">
-                        <h4>Trải nghiệm dành cho bạn !</h4>
-                        <div>
-                            {!! $service->getTranslation()->what_to_expect !!}
+                    @endif
+                    @if ($service->getTranslation()->what_to_expect)
+                        <div class="service-what_to_expect">
+                            <h4>Trải nghiệm dành cho bạn !</h4>
+                            <div>
+                                {!! $service->getTranslation()->what_to_expect !!}
+                            </div>
                         </div>
-                    </div>
-                    <div class="service-what_to_expect">
-                        <h4>Thông tin dịch vụ !</h4>
-                        <div>
-                            {!! $service->getTranslation()->activity_information !!}
+                    @endif
+                    @if ($service->getTranslation()->activity_information)
+                        <div class="service-what_to_expect">
+                            <h4>Thông tin dịch vụ !</h4>
+                            <div>
+                                {!! $service->getTranslation()->activity_information !!}
+                            </div>
                         </div>
-                    </div>
-                    <div class="service-what_to_expect">
-                        <h4>Hướng dẫn sử dụng !</h4>
-                        <div>
-                            {!! $service->getTranslation()->how_to_use !!}
+                    @endif
+                    @if ($service->getTranslation()->how_to_use)
+                        <div class="service-what_to_expect">
+                            <h4>Hướng dẫn sử dụng !</h4>
+                            <div>
+                                {!! $service->getTranslation()->how_to_use !!}
+                            </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="service-what_to_expect">
                         <h4>Bản đồ</h4>
                         <div id="map" style="height: 400px; background-color: #ccc"></div>

@@ -31,7 +31,7 @@
         }
         @media screen and (min-width: 768px) {
             .service-name h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
         }
 
@@ -207,7 +207,7 @@
             <div class="col-md-8">
                 <div class="service-info">
                     <div class="service-name">
-                        <h1>{{ $service->getTranslation()->name }}</h1>
+                        <h1>{{ title_case($service->getTranslation()->name) }}</h1>
                     </div>
                     <div class="service-time_confirm_love d-flex justify-content-between align-items-center">
                         <div class="time_confirm d-flex align-items-center">

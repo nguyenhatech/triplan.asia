@@ -232,7 +232,7 @@
                             </div>
                         </div>
                     </div>
-                    @if ($service->comforts)
+                    @if (count($service->comforts))
                         <div class="service-comforts d-flex flex-wrap">
                             @forelse ($service->comforts as $comfort)
                                 <div class="comfort_item">

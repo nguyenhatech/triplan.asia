@@ -163,11 +163,12 @@
 
         .booking-service-destop {
             background-color: #fff;
-            box-shadow: 1px 0 2px rgba(0,0,0,.4);
             height: 250px;
             width: 365px;
             padding: 20px 15px;
             border-radius: 2px;
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+            border: none;
         }
         .booking-service-destop .price {
             color: red;

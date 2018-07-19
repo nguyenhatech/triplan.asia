@@ -179,7 +179,7 @@
             background-color: #1AAC7C;
             color: #fff;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 16px;
             width: 100%;
             margin-top: 10px;
         }

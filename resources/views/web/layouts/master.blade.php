@@ -10,7 +10,7 @@
         @yield('styles')
     </head>
     <body>
-        {{-- @include('web.layouts.modules.facebook') --}}
+        @include('web.layouts.modules.facebook')
 
         <div id="td-outer-wrap">
             <header>
@@ -24,11 +24,11 @@
                 @yield('content')
             </main>
             <footer>
-                {{-- @include('web.layouts.modules.footer') --}}
+                @include('web.layouts.modules.footer')
             </footer>
         </div>
 
-        {{-- @include('web.layouts.modules.side-bar') --}}
+        @include('web.layouts.modules.side-bar')
 
         <script type="text/javascript" src="{{ get_asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>

@@ -1,6 +1,6 @@
 <template>
     <div class="service-package d-flex flex-column">
-        <div class="service-package__item">
+        <div class="service-package__item active">
             <div class="package_parent d-flex justify-content-between">
                 <div class="name">
                     Gói Summer Discounted Ticket QR Code (tháng 7)
@@ -16,18 +16,26 @@
                 </div>
             </div>
             <div class="package_children">
-                <div class="package_children__item d-flex justify-content-between">
-                    <div>
-                        <span>
+                <div class="package_children__item d-flex justify-content-between align-items-center">
+                    <div class="d-flex flex-column">
+                        <span class="name">
                             Người lớn
                         </span>
-                        <span>
+                        <span class="price">
                             VND 1,444,009/Số lượng
                         </span>
                     </div>
-                    <div>
-                        <i class="fas fa-minus"></i>
-                        <i class="fas fa-plus"></i>
+                    <div class="d-flex align-items-center">
+                        <span class="button-action d-flex justify-content-center align-items-center">
+                            <i class="fas fa-minus"></i>
+                        </span>
+                        <span class="quantity">
+                            9
+                        </span>
+                        <span class="button-action d-flex justify-content-center align-items-center">
+                            <i class="fas fa-plus"></i>
+                        </span>
+
                     </div>
                 </div>
             </div>
@@ -118,6 +126,9 @@
     margin-bottom: 15px;
     border-radius: 4px;
 }
+.service-package__item.active {
+    border: 2px solid #19A577;
+}
 .service-package__item .package_parent {
     padding: 10px;
 }
@@ -142,13 +153,38 @@
     border-radius: 4px;
     margin-top: 3px;
 }
-.package_children__item {
-    padding-right: 50%;
-}
+
 .package_children {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     padding: 10px;
     margin-bottom: 20px;
+}
+.package_children__item {
+    padding-right: 50%;
+}
+.package_children__item .name {
+    font-weight: 700;
+    color: #333;
+    font-size: 15px;
+}
+.package_children__item .price {
+    color: #666;
+    font-size: 12px;
+}
+.package_children__item .quantity {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+.package_children__item .button-action {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #19A577;
+    cursor: pointer;
+}
+.package_children__item .button-action i {
+    font-size: 10px;
+    color: #19A577;
 }
 </style>

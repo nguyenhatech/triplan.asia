@@ -97,6 +97,7 @@
 .service-package {
     background-color: #f2f2f2;
     padding: 10px 10px 0px 10px;
+    margin: 10px 0px;
 }
 .service-package__item {
     background-color: #fff;

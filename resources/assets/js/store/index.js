@@ -6,6 +6,7 @@ import Vuex from 'vuex'
  * Loading vuex modules
  * -----------------------------------------------------------------------------------------------------------
  */
+import serviceDetail from '../components/service-detail/store'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,7 @@ const debug = false
 
 export default new Vuex.Store({
   modules: {
-
+    serviceDetail
   },
   state: {
     loading: false
@@ -27,6 +28,5 @@ export default new Vuex.Store({
   mutations: {
 
   },
-  strict: debug,
-  plugins: debug ? [createLogger()] : []
+  strict: debug
 })

@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+
 import indexStore from './store/index'
 
 window.Vue = require('vue');
@@ -23,5 +24,5 @@ Vue.component('oder-box', require('./components/service-detail/OderBox.vue'));
 
 const app = new Vue({
     el: '#td-outer-wrap',
-    indexStore
+    store: indexStore
 });

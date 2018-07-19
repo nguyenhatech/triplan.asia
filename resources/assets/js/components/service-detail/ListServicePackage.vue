@@ -49,6 +49,7 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     export default {
         name: 'BookingComponent',
         props: {
@@ -67,7 +68,11 @@
         components: {
 
         },
+        computed: {
+          ...mapGetters(['loading'])
+        },
         mounted () {
+            console.log(this.loading)
             this.getServicePackageParent();
         },
         methods: {

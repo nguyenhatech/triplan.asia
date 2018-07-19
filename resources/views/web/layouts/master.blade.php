@@ -14,7 +14,11 @@
 
         <div id="td-outer-wrap">
             <header>
-                @include('web.layouts.modules.header')
+                @if (Request::is('service*'))
+                    @include('web.layouts.modules.header-scroll')
+                @else
+                    @include('web.layouts.modules.header')
+                @endif
             </header>
             <main>
                 @yield('content')
@@ -29,6 +33,7 @@
         <script type="text/javascript" src="{{ get_asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/mobile-navigation/custom-navigation.js') }}"></script>
+        <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/customs-1.0.1/js/web.js') }}"></script>
         @yield('scripts')
     </body>

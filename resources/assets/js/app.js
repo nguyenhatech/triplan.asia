@@ -17,6 +17,9 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+Vue.component('list-service-package', require('./components/service-detail/ListServicePackage.vue'));
+Vue.component('oder-box', require('./components/service-detail/OderBox.vue'));
+
 const app = new Vue({
-    el: '#app'
+    el: '#td-outer-wrap'
 });

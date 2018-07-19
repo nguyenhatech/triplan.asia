@@ -1,4 +1,4 @@
-@extends('web.layouts.master-scroll')
+@extends('web.layouts.master')
 
 @section('title')
     {{ $title }}
@@ -89,9 +89,9 @@
            padding-bottom: 15px;
         }
         .service-what_to_expect h4 {
-            color: #1AAC7C;
             font-weight: 700;
             margin-top: 10px;
+            font-size: 18px;
         }
 
 
@@ -210,7 +210,7 @@
                     <div class="service-name">
                         <h1>{{ title_case($service->getTranslation()->name) }}</h1>
                     </div>
-                    <div class="service-time_confirm_love d-flex justify-content-between align-items-center">
+{{--                     <div class="service-time_confirm_love d-flex justify-content-between align-items-center">
                         <div class="time_confirm d-flex align-items-center">
                             <i class="fab fa-telegram-plane"></i>
                             <span>
@@ -221,7 +221,7 @@
                             <i class="far fa-heart"></i>
                             <span>Yêu thích</span>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="service-sub_data_mobile d-block d-sm-none">
                         <div>
                             <div>
@@ -276,6 +276,9 @@
                             </div>
                         </div>
                     @endif
+                    <div>
+                        <list-service-package></list-service-package>
+                    </div>
                     <div class="service-what_to_expect">
                         <h4>Bản đồ</h4>
                         <div id="map" style="height: 400px; background-color: #ccc"></div>
@@ -284,21 +287,7 @@
             </div>
             <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
-                     <div>
-                         <span class="price">VND {{ number_format($service->getPrice()) }}</span>
-                     </div>
-                    <div class="d-flex flex-column justify-content-between align-items-center">
-                        <a href="/" class="btn btn-block booking-now">
-                            Đặt ngay
-                        </a>
-                        <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="margin-top: 15px; color: #fff">
-                            Chat trực tiếp với Triplan
-                        </a>
-                    </div>
-                    <div class="count-booking">
-                        <i class="fas fa-users"></i>
-                        836 Đã được đặt
-                    </div>
+                    <oder-box></oder-box>
                 </div>
             </div>
         </div>
@@ -342,7 +331,7 @@
                 Đặt ngay
             </a>
             <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="color: #fff; margin-left: 10px;">
-                Chat trực tiếp với Triplan
+                Chat ngay với Triplan
             </a>
         </div>
     </div>
@@ -366,15 +355,17 @@
                 0:{
                     items:1,
                     nav:true,
-                    stagePadding: 20,
+                    stagePadding: 20
                 },
                 768:{
                     items:3,
                     nav:true,
+                    stagePadding: 0
                 },
                 1024:{
                     items:4,
-                    nav:true
+                    nav:true,
+                    stagePadding: 0
                 }
             }
         });

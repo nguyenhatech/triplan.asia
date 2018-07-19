@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+import indexStore from './store/index'
 
 window.Vue = require('vue');
 
@@ -21,5 +22,6 @@ Vue.component('list-service-package', require('./components/service-detail/ListS
 Vue.component('oder-box', require('./components/service-detail/OderBox.vue'));
 
 const app = new Vue({
-    el: '#td-outer-wrap'
+    el: '#td-outer-wrap',
+    indexStore
 });

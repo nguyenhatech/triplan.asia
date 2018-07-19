@@ -1,28 +1,33 @@
 <template>
     <div class="service-package d-flex flex-column">
-        <div class="service-package__item active">
+        <div class="service-package__item"
+            v-for="package_parent in servicePackageParent"
+            :key="package_parent.id">
             <div class="package_parent d-flex justify-content-between">
                 <div class="name">
-                    Gói Summer Discounted Ticket QR Code (tháng 7)
+                    {{ package_parent.name }}
                 </div>
                 <div class="d-flex flex-column">
                     <div>
                         <span class="currency">VND</span>
-                        <span class="price">76.000</span>
+                        <span class="price">{{ package_parent.price }}</span>
                     </div>
-                    <span class="choose_package d-flex justify-content-center align-items-center">
+                    <span class="choose_package d-flex justify-content-center align-items-center"
+                        v-if="package_parent.service_package_childrens.data.length">
                         Chọn
                     </span>
                 </div>
             </div>
-            <div class="package_children">
-                <div class="package_children__item d-flex justify-content-between align-items-center">
+            <div class="package_children"
+                v-if="package_parent.service_package_childrens.data.length">
+                <div class="package_children__item d-flex justify-content-between align-items-center"
+                    v-for="package_children in package_parent.service_package_childrens.data">
                     <div class="d-flex flex-column">
                         <span class="name">
-                            Người lớn
+                            {{ package_children.name }}
                         </span>
                         <span class="price">
-                            VND 1,444,009/Số lượng
+                            VND {{ package_children.price }} / Số lượng
                         </span>
                     </div>
                     <div class="d-flex align-items-center">
@@ -36,38 +41,6 @@
                             <i class="fas fa-plus"></i>
                         </span>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="service-package__item">
-            <div class="package_parent d-flex justify-content-between">
-                <div class="name">
-                    Gói Summer Discounted Ticket QR Code (tháng 7)
-                </div>
-                <div class="d-flex flex-column">
-                    <div>
-                        <span class="currency">VND</span>
-                        <span class="price">76.000</span>
-                    </div>
-                    <span class="choose_package d-flex justify-content-center align-items-center">
-                        Chọn
-                    </span>
-                </div>
-            </div>
-            <div class="package_children">
-                <div class="package_children__item d-flex justify-content-between">
-                    <div>
-                        <span>
-                            Người lớn
-                        </span>
-                        <span>
-                            VND 1,444,009/Số lượng
-                        </span>
-                    </div>
-                    <div>
-                        <i class="fas fa-minus"></i>
-                        <i class="fas fa-plus"></i>
                     </div>
                 </div>
             </div>
@@ -100,8 +73,7 @@
         methods: {
             getServicePackageParent () {
                 axios.get('service-packages', {params: {service_id: this.service_id, parent_id: 0, include:'service_package_childrens'}}).then(response => {
-                    console.log(response.data.data)
-                    switch (response.code) {
+                    switch (response.data.code) {
                         case 200:
                             this.servicePackageParent = response.data.data;
                             break
@@ -157,11 +129,12 @@
 .package_children {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
     margin-bottom: 20px;
 }
 .package_children__item {
     padding-right: 50%;
+    margin-bottom: 10px;
 }
 .package_children__item .name {
     font-weight: 700;

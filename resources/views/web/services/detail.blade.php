@@ -245,6 +245,9 @@
                             @endforelse
                         </div>
                     @endif
+                    <div>
+                        <list-service-package :service_id="{{ $service->id }}"></list-service-package>
+                    </div>
                     @if ($service->getTranslation()->description)
                         <div class="service-description">
                             <div>
@@ -276,9 +279,6 @@
                             </div>
                         </div>
                     @endif
-                    <div>
-                        <list-service-package :service_id="{{ $service->id }}"></list-service-package>
-                    </div>
 {{--                     <div class="service-what_to_expect">
                         <h4>Bản đồ</h4>
                         <div id="map" style="height: 400px; background-color: #ccc"></div>

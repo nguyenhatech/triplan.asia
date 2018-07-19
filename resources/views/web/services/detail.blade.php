@@ -277,7 +277,7 @@
                         </div>
                     @endif
                     <div>
-                        <list-service-package></list-service-package>
+                        <list-service-package :service_id="{{ $service->id }}"></list-service-package>
                     </div>
                     <div class="service-what_to_expect">
                         <h4>Bản đồ</h4>

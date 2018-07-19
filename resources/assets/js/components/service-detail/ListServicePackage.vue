@@ -1,17 +1,43 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Kakak</h1>
-            </div>
-        </div>
+    <div>
+
     </div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        name: 'BookingComponent',
+        props: {
+          dataParams: {
+            type: Object,
+            default: () => {
+              return {}
+            }
+          },
+          accountInfo: {
+            type: Object,
+            default: () => {
+              return {}
+            }
+          }
+        },
+        data () {
+            return {
+
+            }
+        },
+        components: {
+
+        },
+        mounted () {
+
+        },
+        methods: {
+
         }
     }
 </script>
+
+<style type="text/css" scoped>
+
+</style>

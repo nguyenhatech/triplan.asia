@@ -1,5 +1,5 @@
 <template>
-    <div class="service-package">
+    <div class="service-package d-flex flex-column">
         <div class="service-package__item">
             <div class="package_parent d-flex justify-content-between">
                 <div class="name">
@@ -10,7 +10,41 @@
                         <span class="currency">VND</span>
                         <span class="price">76.000</span>
                     </div>
-                    <span class="choose_package">Chọn</span>
+                    <span class="choose_package d-flex justify-content-center align-items-center">
+                        Chọn
+                    </span>
+                </div>
+            </div>
+            <div class="package_children">
+                <div class="package_children__item d-flex justify-content-between">
+                    <div>
+                        <span>
+                            Người lớn
+                        </span>
+                        <span>
+                            VND 1,444,009/Số lượng
+                        </span>
+                    </div>
+                    <div>
+                        <i class="fas fa-minus"></i>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="service-package__item">
+            <div class="package_parent d-flex justify-content-between">
+                <div class="name">
+                    Gói Summer Discounted Ticket QR Code (tháng 7)
+                </div>
+                <div class="d-flex flex-column">
+                    <div>
+                        <span class="currency">VND</span>
+                        <span class="price">76.000</span>
+                    </div>
+                    <span class="choose_package d-flex justify-content-center align-items-center">
+                        Chọn
+                    </span>
                 </div>
             </div>
             <div class="package_children">
@@ -76,16 +110,16 @@
 
 <style type="text/css" scoped>
 .service-package {
-    padding: 10px 10px;
     background-color: #f2f2f2;
+    padding: 10px 10px 0px 10px;
 }
 .service-package__item {
-    padding: 10px 10px;
     background-color: #fff;
-
+    margin-bottom: 15px;
+    border-radius: 4px;
 }
 .service-package__item .package_parent {
-    padding: 10px 0px 10px 15px;
+    padding: 10px;
 }
 .package_parent .name {
     font-weight: bold;
@@ -101,7 +135,20 @@
     font-size: 18px;
     font-weight: bold;
 }
+.package_parent .choose_package {
+    border: 2px solid #19A577;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    margin-top: 3px;
+}
 .package_children__item {
     padding-right: 50%;
+}
+.package_children {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 </style>

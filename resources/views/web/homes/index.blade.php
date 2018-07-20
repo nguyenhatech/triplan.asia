@@ -233,7 +233,7 @@
             <div class="row">
                 @forelse ($place_destinations as $key_place => $place)
                     <div class="col-sm-12 col-md-3">
-                        <a href="#">
+                        <a href="{{ route('web.tours') }}?place={{ $place->id }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage() }});">
                                 <span>{{ $place->getTranslation()->name }}</span>
                             </div>

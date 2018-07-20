@@ -1,4 +1,4 @@
-@extends('web.layouts.master-scroll')
+@extends('web.layouts.master')
 
 @section('title')
     {{ $title }}
@@ -31,7 +31,7 @@
         }
         @media screen and (min-width: 768px) {
             .service-name h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
         }
 
@@ -89,8 +89,9 @@
            padding-bottom: 15px;
         }
         .service-what_to_expect h4 {
-            color: #1AAC7C;
             font-weight: 700;
+            margin-top: 10px;
+            font-size: 18px;
         }
 
 
@@ -162,11 +163,12 @@
 
         .booking-service-destop {
             background-color: #fff;
-            box-shadow: 1px 0 2px rgba(0,0,0,.4);
             height: 250px;
             width: 365px;
             padding: 20px 15px;
             border-radius: 2px;
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+            border: none;
         }
         .booking-service-destop .price {
             color: red;
@@ -177,7 +179,7 @@
             background-color: #1AAC7C;
             color: #fff;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 16px;
             width: 100%;
             margin-top: 10px;
         }
@@ -206,9 +208,9 @@
             <div class="col-md-8">
                 <div class="service-info">
                     <div class="service-name">
-                        <h1>{{ $service->getTranslation()->name }}</h1>
+                        <h1>{{ title_case($service->getTranslation()->name) }}</h1>
                     </div>
-                    <div class="service-time_confirm_love d-flex justify-content-between align-items-center">
+{{--                     <div class="service-time_confirm_love d-flex justify-content-between align-items-center">
                         <div class="time_confirm d-flex align-items-center">
                             <i class="fab fa-telegram-plane"></i>
                             <span>
@@ -219,7 +221,7 @@
                             <i class="far fa-heart"></i>
                             <span>Yêu thích</span>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="service-sub_data_mobile d-block d-sm-none">
                         <div>
                             <div>
@@ -231,62 +233,61 @@
                             </div>
                         </div>
                     </div>
-                    <div class="service-comforts d-flex flex-wrap">
-                        @forelse ($service->comforts as $comfort)
-                            <div class="comfort_item">
-                                <i class="fas fa-globe"></i>
-                                <span>{{ $comfort->getTranslation()->name }}</span>
+                    @if (count($service->comforts))
+                        <div class="service-comforts d-flex flex-wrap">
+                            @forelse ($service->comforts as $comfort)
+                                <div class="comfort_item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>{{ $comfort->getTranslation()->name }}</span>
+                                </div>
+                            @empty
+
+                            @endforelse
+                        </div>
+                    @endif
+                    <div>
+                        <list-service-package :service_id="{{ $service->id }}"></list-service-package>
+                    </div>
+                    @if ($service->getTranslation()->description)
+                        <div class="service-description">
+                            <div>
+                                {!! $service->getTranslation()->description !!}
                             </div>
-                        @empty
-                            {{-- empty expr --}}
-                        @endforelse
-                    </div>
-                    <div class="service-description">
-                        <div>
-                            {!! $service->getTranslation()->description !!}
                         </div>
-                    </div>
-                    <div class="service-what_to_expect">
-                        <h4>Trải nghiệm dành cho bạn !</h4>
-                        <div>
-                            {!! $service->getTranslation()->what_to_expect !!}
+                    @endif
+                    @if ($service->getTranslation()->what_to_expect)
+                        <div class="service-what_to_expect">
+                            <h4>Trải nghiệm dành cho bạn !</h4>
+                            <div>
+                                {!! $service->getTranslation()->what_to_expect !!}
+                            </div>
                         </div>
-                    </div>
-                    <div class="service-what_to_expect">
-                        <h4>Thông tin dịch vụ !</h4>
-                        <div>
-                            {!! $service->getTranslation()->activity_information !!}
+                    @endif
+                    @if ($service->getTranslation()->activity_information)
+                        <div class="service-what_to_expect">
+                            <h4>Thông tin dịch vụ !</h4>
+                            <div>
+                                {!! $service->getTranslation()->activity_information !!}
+                            </div>
                         </div>
-                    </div>
-                    <div class="service-what_to_expect">
-                        <h4>Hướng dẫn sử dụng !</h4>
-                        <div>
-                            {!! $service->getTranslation()->how_to_use !!}
+                    @endif
+                    @if ($service->getTranslation()->how_to_use)
+                        <div class="service-what_to_expect">
+                            <h4>Hướng dẫn sử dụng !</h4>
+                            <div>
+                                {!! $service->getTranslation()->how_to_use !!}
+                            </div>
                         </div>
-                    </div>
-                    <div class="service-what_to_expect">
+                    @endif
+{{--                     <div class="service-what_to_expect">
                         <h4>Bản đồ</h4>
                         <div id="map" style="height: 400px; background-color: #ccc"></div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
-                     <div>
-                         <span class="price">VND {{ number_format($service->getPrice()) }}</span>
-                     </div>
-                    <div class="d-flex flex-column justify-content-between align-items-center">
-                        <a href="/" class="btn btn-block booking-now">
-                            Đặt ngay
-                        </a>
-                        <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="margin-top: 15px; color: #fff">
-                            Chat trực tiếp với Triplan
-                        </a>
-                    </div>
-                    <div class="count-booking">
-                        <i class="fas fa-users"></i>
-                        836 Đã được đặt
-                    </div>
+                    <oder-box></oder-box>
                 </div>
             </div>
         </div>
@@ -330,16 +331,16 @@
                 Đặt ngay
             </a>
             <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="color: #fff; margin-left: 10px;">
-                Chat trực tiếp với Triplan
+                Chat ngay với Triplan
             </a>
         </div>
     </div>
 @endsection
 
 @section('scripts')
-    <script async defer
+{{--     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
-    </script>
+    </script> --}}
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script>
         $(".service-involve .owl-carousel").owlCarousel({
@@ -354,15 +355,17 @@
                 0:{
                     items:1,
                     nav:true,
-                    stagePadding: 20,
+                    stagePadding: 20
                 },
                 768:{
                     items:3,
                     nav:true,
+                    stagePadding: 0
                 },
                 1024:{
                     items:4,
-                    nav:true
+                    nav:true,
+                    stagePadding: 0
                 }
             }
         });

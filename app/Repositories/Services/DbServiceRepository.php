@@ -22,7 +22,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         $minPrice = array_get($params, 'min_price', null);
         $maxPrice = array_get($params, 'max_price', null);
         $query  = array_get($params, 'q', null);
-        $notInID  = array_get($params, 'notInID', null);
+        $hot     = array_get($params, 'hot', null);
 
         $model  = $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')
                             ->select('services.*', 'service_translations.name', 'service_translations.slug', 'service_translations.description', 'service_translations.what_to_expect', 'service_translations.activity_information', 'service_translations.additional_information', 'service_translations.tip', 'service_translations.how_to_use', 'service_translations.cancelation_policy', 'service_translations.address')
@@ -55,6 +55,10 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
 
         if (! is_null($notInID)) {
             $model = $model->whereNotIn('id', $notInID);
+        }
+
+        if (! is_null($hot)) {
+            $model = $model->where('hot', $hot);
         }
 
         if (! is_null($query)) {

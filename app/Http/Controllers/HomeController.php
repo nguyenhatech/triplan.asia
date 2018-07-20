@@ -36,7 +36,9 @@ class HomeController extends WebController
         ]);
 
         // Dịch vụ được yêu thích nhất
-        $best_services      = $this->service->getByQuery([]);
+        $best_services      = $this->service->getByQuery([
+            'hot' => 1
+        ]);
 
         return view('web.homes.index')->with([
             'title'              => 'Trang chủ',
@@ -53,7 +55,6 @@ class HomeController extends WebController
         $service_groups = $this->serviceGroup->getByQuery([], -1);
         $service_types = $this->serviceType->getByQuery([], -1);
         $tours = $this->service->getByQuery($request->all());
-        // dd($service_types->groupBy('service_group_id')->toArray());
 
         return view('web.searches.tours')->with([
             'title' => 'Tìm kiếm tours',

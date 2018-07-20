@@ -20,7 +20,6 @@ class ServiceController extends WebController
     {
         $service = $this->service->getById($id);
 
-
         $service_involves = $this->service->getByQuery([
             'notInID' => [$service->id]
         ], 8);

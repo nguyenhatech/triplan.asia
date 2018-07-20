@@ -30,9 +30,9 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
                             ->where('service_translations.locale', getLocaleQuery());
 
         if (! empty($sorting)) {
-            $model = $model->orderBy($sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
+            $model = $model->orderBy('services.' . $sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
         } else {
-            $model = $model->orderBy('id', 'DESC');
+            $model = $model->orderBy('services.id', 'DESC');
         }
 
         if (! is_null($status)) {
@@ -55,7 +55,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         }
 
         if (! is_null($notInID)) {
-            $model = $model->whereNotIn('id', $notInID);
+            $model = $model->whereNotIn('services.id', $notInID);
         }
 
         if (! is_null($hot)) {

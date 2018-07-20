@@ -22,6 +22,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         $minPrice = array_get($params, 'min_price', null);
         $maxPrice = array_get($params, 'max_price', null);
         $query  = array_get($params, 'q', null);
+        $notInID = array_get($params, 'notInID', null);
         $hot     = array_get($params, 'hot', null);
 
         $model  = $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')

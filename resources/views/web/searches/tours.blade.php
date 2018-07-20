@@ -127,9 +127,19 @@
         .box-search {
             margin-top: 20px;
         }
+        .box-search input.input-selected {
+            border-right: none;
+        }
         .box-search .input-group-prepend button {
             background: transparent;
             border-left: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            color: #ddd;
+        }
+        .box-search .input-group-append button {
+            background: transparent;
+            border-right: 1px solid #ddd;
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
             color: #ddd;
@@ -239,9 +249,9 @@
                                         <li class="list-group-item dropright">
                                             <div class="d-flex justify-content-between">
                                                 <a href="{{ Request::fullUrlWithQuery(['group' => $group->id ]) }}">{{ $group->name }}</a>
-                                                <span><i class="fas fa-angle-right"></i></span>
+                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#group{{ $group->id }}" aria-expanded="false" aria-controls="group{{ $group->id }}"><i class="fas fa-angle-down"></i></button>
                                             </div>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <div class="collapse" id="group{{ $group->id }}">
                                                 @foreach($service_types->toArray()[$group->id] as $type)
                                                 <a href="{{ Request::fullUrlWithQuery(['type' => $type['id'] ]) }}" class="dropdown-item">{{ $type['name'] }}</a>
                                                 @endforeach
@@ -290,7 +300,14 @@
                                         <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 24px; width: 24px; display: block; fill: rgb(118, 118, 118);"><path d="m10.4 18.2c-4.2-.6-7.2-4.5-6.6-8.8.6-4.2 4.5-7.2 8.8-6.6 4.2.6 7.2 4.5 6.6 8.8-.6 4.2-4.6 7.2-8.8 6.6m12.6 3.8-5-5c1.4-1.4 2.3-3.1 2.6-5.2.7-5.1-2.8-9.7-7.8-10.5-5-.7-9.7 2.8-10.5 7.9-.7 5.1 2.8 9.7 7.8 10.5 2.5.4 4.9-.3 6.7-1.7v.1l5 5c .3.3.8.3 1.1 0s .4-.8.1-1.1" fill-rule="evenodd"></path></svg>
                                     </button>
                                 </div>
-                                <input type="text" value="{{ $place ? $place->name : '' }}" class="form-control typeahead" placeholder="Tìm kiếm địa điểm bạn muốn đến..." aria-describedby="button-addon2" data-provide="typeahead">
+                                <input type="text" value="{{ $place ? $place->name : '' }}" class="form-control typeahead {{ $place ? 'input-selected' : '' }}" placeholder="Tìm kiếm địa điểm bạn muốn đến..." aria-describedby="button-addon2" data-provide="typeahead">
+                                @if($place)
+                                <div class="input-group-append">
+                                    <button class="btn" type="button" id="button-addon2">
+                                        <svg viewBox="0 0 24 24" role="img" aria-label="Clear Input" focusable="false" style="height: 12px; width: 12px; display: block; fill: rgb(118, 118, 118);"><path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd"></path></svg>
+                                    </button>
+                                </div>
+                                @endif
                             </div>
                             @if(Request::get('group') || Request::get('type'))
                             <div style="margin-top: 10px;">
@@ -349,13 +366,13 @@
                         @endforelse
                     </div>
                 </div>
-                <div class="show-more d-md-none">
+                {{-- <div class="show-more d-md-none">
                     <div class="loading d-flex justify-content-center">
                         <i class="fas fa-spinner fa-pulse"></i>
                     </div>
                     <button type="button" class="btn btn-outline-primary btn-block">Xem thêm</button>
-                </div>
-                <div class="box-pagination d-none d-md-block">
+                </div> --}}
+                <div class="box-pagination">
                     @if(count($tours))
                         {!! $tours->appends(Request::all())->links() !!}
                     @endif
@@ -394,6 +411,7 @@
                 }
                 queryParameters['min_price'] = minPrice;
                 queryParameters['max_price'] = maxPrice;
+                queryParameters['page'] = 1;
                 location.search = $.param(queryParameters);
             },
         });
@@ -419,6 +437,7 @@
                 }
                 queryParameters['min_price'] = minPrice;
                 queryParameters['max_price'] = maxPrice;
+                queryParameters['page'] = 1;
                 location.search = $.param(queryParameters);
             },
         });
@@ -437,6 +456,7 @@
                 while (m = re.exec(queryString)) {
                     queryParameters[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
                 }
+                queryParameters['page'] = 1;
                 queryParameters['place'] = value.id;
                 location.search = $.param(queryParameters);
             }
@@ -449,6 +469,7 @@
             while (m = re.exec(queryString)) {
                 queryParameters[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
             }
+            queryParameters['page'] = 1;
             queryParameters['duration'] = durationArray.map(a => a.value).toString();
             location.search = $.param(queryParameters);
         });
@@ -471,5 +492,14 @@
             delete queryParameters['type'];
             location.search = $.param(queryParameters);
         });
+        $("#button-addon2").click(function(){
+            var queryParameters = {}, queryString = location.search.substring(1),
+                re = /([^&=]+)=([^&]*)/g, m;
+            while (m = re.exec(queryString)) {
+                queryParameters[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+            delete queryParameters['place'];
+            location.search = $.param(queryParameters);
+        })
     </script>
 @endsection

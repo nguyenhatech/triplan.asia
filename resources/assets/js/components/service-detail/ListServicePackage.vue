@@ -15,7 +15,7 @@
                     <span class="choose_package justify-content-center align-items-center"
                         v-show="!package_parent.checked"
                         @click="openPackageChildren(package_parent)"
-                        v-if="package_parent.service_package_childrens.data.length">
+                        v-if="package_parent.service_package_children_actives.data.length">
                         Chọn
                     </span>
                 </div>
@@ -23,9 +23,9 @@
             <transition name="slide-fade">
                 <div class="package_children"
                     v-show="package_parent.checked"
-                    v-if="package_parent.service_package_childrens.data.length">
+                    v-if="package_parent.service_package_children_actives.data.length">
                     <div class="package_children__item d-flex justify-content-between align-items-center"
-                        v-for="package_children in package_parent.service_package_childrens.data">
+                        v-for="package_children in package_parent.service_package_children_actives.data">
                         <div class="d-flex flex-column">
                             <span class="name">
                                 {{ package_children.name }}
@@ -82,12 +82,17 @@
         methods: {
             ...mapActions('serviceDetail', ['setServicePackageName']),
             getServicePackageParent () {
-                axios.get('service-packages', {params: {service_id: this.service_id, parent_id: 0, include:'service_package_childrens'}}).then(response => {
+                axios.get('service-packages', {params: {service_id: this.service_id, parent_id: 0, status: 1, include:'service_package_children_actives'}}).then(response => {
                     let servicePackageParent = response.data.data;
                     servicePackageParent.map(function(index, elem) {
                         index.checked = false;
+                        index.service_package_children_actives.data.map(function(index2, elem2) {
+                            index2.quantity = 0;
+                            return index2;
+                        })
                         return index;
                     })
+                    console.log(servicePackageParent)
                     switch (response.data.code) {
                         case 200:
                             this.servicePackageParent = servicePackageParent;

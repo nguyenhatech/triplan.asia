@@ -14,7 +14,7 @@
             </span>
         </div>
         <div v-else>
-            <span>
+            <span class="name">
                 {{ package_name }}
             </span>
         </div>
@@ -64,3 +64,10 @@
         }
     }
 </script>
+
+<style type="text/css" scoped>
+.order-box .name {
+    font-size: 18px;
+    font-weight: 700;
+}
+</style>

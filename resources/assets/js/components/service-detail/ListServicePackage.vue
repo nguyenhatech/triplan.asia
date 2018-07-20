@@ -37,7 +37,8 @@
                         <div class="d-flex align-items-center">
                             <span
                                 @click="decreaseServicePackage(package_children)"
-                                class="button-action d-flex justify-content-center align-items-center disable">
+                                :class="[package_children.quantity > 0 ? '' : 'disable']"
+                                class="button-action d-flex justify-content-center align-items-center">
                                 <i class="fas fa-minus"></i>
                             </span>
                             <span class="quantity">
@@ -106,6 +107,9 @@
                             break
                     }
                 })
+            },
+            resetServicePackageParent () {
+
             },
             // Kích hoạt nút mở gói dịch vụ
             openPackageChildren (item) {

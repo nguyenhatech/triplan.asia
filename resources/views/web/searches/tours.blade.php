@@ -16,15 +16,27 @@
         }
         .box-title .search-result {
             font-size: 18px;
+            margin-top: 20px;
+        }
+        .box-list-result a {
+            color: rgb(33, 37, 41);
+        }
+        .box-list-result a:hover {
+            text-decoration: none;
         }
         .box-list-result .card {
             width: 100%;
             margin-top: 20px;
             margin-bottom: 20px;
         }
+        .box-list-result .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
         .box-list-result .card h3.card-title {
             font-size: 18px;
             font-weight: bold;
+            text-transform: capitalize;
         }
         .box-list-result .card .time-total {
             margin-top:
@@ -46,7 +58,6 @@
             background-color: #00000069;
             background-blend-mode: overlay;
             transition: background 1s ease;
-            background-image: url('https://image.kkday.com/image/get/s1.kkday.com/product_19510/20180619043138_UPigW/jpeg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -72,6 +83,13 @@
         }
         .box-service-filter .list-group-item a {
             color: #343a40;
+        }
+        .box-service-filter .list-group li.list-group-item:hover {
+            color: #02a676;
+            cursor: pointer;
+        }
+        .box-service-filter .list-group li.list-group-item:hover .dropdown-menu {
+            display: block;
         }
         .box-service-filter .list-group-item a:hover {
             color: #02a676;
@@ -106,62 +124,88 @@
         .group-price {
             margin-top: 20px;
         }
+        .box-search {
+            margin-top: 20px;
+        }
+        .box-search .input-group-prepend button {
+            background: transparent;
+            border-left: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            color: #ddd;
+        }
+        .box-search .input-group input {
+            border-left: none;
+        }
+        .box-search .form-control:focus {
+            border-color: #ddd;
+            box-shadow: 0 0 0 0.2px #dddddda6;
+        }
+        .box-search .btn:focus {
+            box-shadow: none;
+        }
+        .close-tag-btn {
+            padding-left: 5px;
+            cursor: pointer;
+        }
+        @media screen and (min-width: 768px) {
+            .box-list-result .card-body {
+                padding-left: 0px;
+            }
+            .box-list-result .card-img-top {
+                border-top-right-radius: 0px;
+                border-bottom-left-radius: calc(.25rem - 1px);
+            }
+        }
     </style>
 @endsection
 
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 gradient-top">
+            <div class="col-12 gradient-top" style="background-image: url('{{ $place ? $place->getImage() : asset('web/images/tour_list_default.jpg') }}');">
                 <div class="city-name">
-                    <h1>Đài Loan</h1>
+                    <h1>{{ $place ? $place->name : 'Khám phá thế giới cùng Triplan' }}</h1>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-3 d-none d-md-block" style="margin-top: 42px;">
+            <div class="col-3 d-none d-md-block" style="margin-top: 42px; margin-bottom: 20px;">
                 <div class="box-service-filter">
-                    <h5>Loại tour</h5>
+                    <h5>Loại dịch vụ</h5>
                     <div class="card" style="width: 100%; padding: 5px 15px 5px 15px;">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <a href="#">Tour</a>
+                            @foreach($service_groups as $group)
+                            <li class="list-group-item dropright">
+                                <div class="d-flex justify-content-between">
+                                    <a href="{{ Request::fullUrlWithQuery(['group' => $group->id ]) }}">{{ $group->name }}</a>
+                                    <span><i class="fas fa-angle-right"></i></span>
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    @foreach($service_types->toArray()[$group->id] as $type)
+                                    <a href="{{ Request::fullUrlWithQuery(['type' => $type['id'] ]) }}" class="dropdown-item">{{ $type['name'] }}</a>
+                                    @endforeach
+                                </div>
                             </li>
-                            <li class="list-group-item">
-                                <a href="#">Khách sạn</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="#">Vé & Voucher</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="#">Di chuyển</a>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="box-service-filter box-checkbox-custom">
                     <h5>Thời gian đi</h5>
                     <div class="card" style="width: 100%; padding: 5px 15px 5px 15px;">
+                        <form name="duration">
+                        @foreach($durations as $index => $duration)
                         <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" value="" id="time1">
-                            <label class="custom-control-label" for="time1">
-                                1 đến 2 ngày
+                            <input class="custom-control-input" type="checkbox" value="{{ $index }}" id="time{{ $index }}" name="duration[]" {{ in_array($index, explode(',', Request::get('duration'))) ? 'checked' : '' }}>
+                            <label class="custom-control-label" for="time{{ $index }}">
+                                {{ $duration }}
                             </label>
                         </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" value="" id="time2">
-                            <label class="custom-control-label" for="time2">
-                                3 đến 5 ngày
-                            </label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" value="" id="time3">
-                            <label class="custom-control-label" for="time3">
-                                Hơn 5 ngày
-                            </label>
-                        </div>
+                        @endforeach
+                        </form>
                     </div>
                 </div>
                 <div class="box-service-filter">
@@ -191,18 +235,19 @@
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionFilters">
                                 <div class="dropdown-item-text">
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <a href="#">Tour</a>
+                                        @foreach($service_groups as $group)
+                                        <li class="list-group-item dropright">
+                                            <div class="d-flex justify-content-between">
+                                                <a href="{{ Request::fullUrlWithQuery(['group' => $group->id ]) }}">{{ $group->name }}</a>
+                                                <span><i class="fas fa-angle-right"></i></span>
+                                            </div>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                @foreach($service_types->toArray()[$group->id] as $type)
+                                                <a href="{{ Request::fullUrlWithQuery(['type' => $type['id'] ]) }}" class="dropdown-item">{{ $type['name'] }}</a>
+                                                @endforeach
+                                            </div>
                                         </li>
-                                        <li class="list-group-item">
-                                            <a href="#">Khách sạn</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#">Vé & Voucher</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#">Di chuyển</a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -237,84 +282,71 @@
                             </div>
                         </div>
                     </div>
+                    <div class="box-search">
+                        <form autocomplete="off" action="">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn" type="button" id="button-addon1">
+                                        <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 24px; width: 24px; display: block; fill: rgb(118, 118, 118);"><path d="m10.4 18.2c-4.2-.6-7.2-4.5-6.6-8.8.6-4.2 4.5-7.2 8.8-6.6 4.2.6 7.2 4.5 6.6 8.8-.6 4.2-4.6 7.2-8.8 6.6m12.6 3.8-5-5c1.4-1.4 2.3-3.1 2.6-5.2.7-5.1-2.8-9.7-7.8-10.5-5-.7-9.7 2.8-10.5 7.9-.7 5.1 2.8 9.7 7.8 10.5 2.5.4 4.9-.3 6.7-1.7v.1l5 5c .3.3.8.3 1.1 0s .4-.8.1-1.1" fill-rule="evenodd"></path></svg>
+                                    </button>
+                                </div>
+                                <input type="text" value="{{ $place ? $place->name : '' }}" class="form-control typeahead" placeholder="Tìm kiếm địa điểm bạn muốn đến..." aria-describedby="button-addon2" data-provide="typeahead">
+                            </div>
+                            @if(Request::get('group') || Request::get('type'))
+                            <div style="margin-top: 10px;">
+                                @if(Request::get('group'))
+                                <span title="Xóa bỏ" class="btn btn-sm btn-info">{{ $service_groups->firstWhere('id', Request::get('group'))->name  }} <span id="close-group" class="close-tag-btn"><i class="fas fa-times"></i></span></span>
+                                @endif
+                                @if(Request::get('type'))
+                                <span title="Xóa bỏ" class="btn btn-sm btn-info">{{ $service_types->flatten(1)->firstWhere('id', Request::get('type'))->name  }} <span id="close-type" class="close-tag-btn"><i class="fas fa-times"></i></span></span>
+                                @endif
+                            </div>
+                            @endif
+                        </form>
+                    </div>
                     <nav aria-label="breadcrumb">
-                        <h3 class="search-result">Đã tìm thấy 73 tour du lịch ở Đài Bắc dành cho bạn</h3>
+                        @if($tours->count())
+                        <h3 class="search-result">Đã tìm thấy {{ $tours->total() }} tour du lịch dành cho bạn</h3>
+                        @else
+                        <h3 class="search-result">Rất tiếc! Không tìm thấy tour nào phù hợp.</h3>
+                        @endif
                     </nav>
                 </div>
                 <div class="box-list-result">
                     <div class="row">
+                        @forelse($tours as $tour)
                         <div class="col-12">
                             <div class="card">
                                 <div class="row">
                                     <div class="col-12 col-md-5">
-                                        <img class="card-img-top" src="https://image.kkday.com/image/get/w_600%2Cc_fit/s1.kkday.com/product_19510/20180619043138_UPigW/jpeg" alt="Card image cap">
+                                        <a href="{{ $tour->getUrl() }}">
+                                            <img class="card-img-top" src="{{ $tour->getImage() }}">
+                                        </a>
                                     </div>
-                                    <div class="card-body col-12 col-md-7">
-                                        <h3 class="card-title">Tham quan 1 ngày Jiufen, Yehliu, Shifen</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <p class="time-total"><i class="far fa-clock"></i> 2 ngày</p>
-                                        <div class="card-bottom d-flex justify-content-between">
-                                            <div class="rate">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="price">8.000.000đ</div>
+                                    <div class="col-12 col-md-7">
+                                        <div class="card-body">
+                                            <a href="{{ $tour->getUrl() }}">
+                                                <h3 class="card-title">{{ $tour->name }}</h5>
+                                                <p class="card-text">{!! trim_text($tour->description, 200) !!}</p>
+                                                {{-- <p class="time-total"><i class="far fa-clock"></i> 2 ngày</p> --}}
+                                                <div class="card-bottom d-flex justify-content-between">
+                                                    <div class="rate">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <div class="price">{{ number_format($tour->getPrice()) }} VND</div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-12 col-md-5">
-                                        <img class="card-img-top" src="https://image.kkday.com/image/get/w_600%2Cc_fit/s1.kkday.com/product_19510/20180619043138_UPigW/jpeg" alt="Card image cap">
-                                    </div>
-                                    <div class="card-body col-12 col-md-7">
-                                        <h3 class="card-title">Tham quan 1 ngày Jiufen, Yehliu, Shifen</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <p class="time-total"><i class="far fa-clock"></i> 2 ngày</p>
-                                        <div class="card-bottom d-flex justify-content-between">
-                                            <div class="rate">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="price">8.000.000đ</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-12 col-md-5">
-                                        <img class="card-img-top" src="https://image.kkday.com/image/get/w_600%2Cc_fit/s1.kkday.com/product_19510/20180619043138_UPigW/jpeg" alt="Card image cap">
-                                    </div>
-                                    <div class="card-body col-12 col-md-7">
-                                        <h3 class="card-title">Tham quan 1 ngày Jiufen, Yehliu, Shifen</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <p class="time-total"><i class="far fa-clock"></i> 2 ngày</p>
-                                        <div class="card-bottom d-flex justify-content-between">
-                                            <div class="rate">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="price">8.000.000đ</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                        @endforelse
                     </div>
                 </div>
                 <div class="show-more d-md-none">
@@ -324,25 +356,9 @@
                     <button type="button" class="btn btn-outline-primary btn-block">Xem thêm</button>
                 </div>
                 <div class="box-pagination d-none d-md-block">
-                    <nav>
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Trước">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only"><i class="fas fa-angle-left"></i></span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only"><i class="fas fa-angle-right"></i></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    @if(count($tours))
+                        {!! $tours->appends(Request::all())->links() !!}
+                    @endif
                 </div>
             </div>
         </div>
@@ -351,10 +367,11 @@
 
 @section('scripts')
     <script src="{{ asset('js/rangeslider.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script type="text/javascript">
         var locale_key = "vi";
-        var min_price_range = 1;
-        var max_price_range = 200;
+        var min_price_range = {{ Request::get('min_price') ? Request::get('min_price') : 1 }};
+        var max_price_range = {{ Request::get('max_price') ? Request::get('max_price') : 200 }};
         $('#price_range-slider').ionRangeSlider({
             type: "double",
             min: (locale_key == 'vi' ? 1 : 5),
@@ -404,6 +421,55 @@
                 queryParameters['max_price'] = maxPrice;
                 location.search = $.param(queryParameters);
             },
+        });
+
+        $('input.typeahead').typeahead({
+            delay: 300,
+            fitToElement: true,
+            source:  function (query, process) {
+            return $.get('{{ route('places.search') }}', { q: query }, function (data) {
+                    return process(data);
+                });
+            },
+            afterSelect: function(value) {
+                var queryParameters = {}, queryString = location.search.substring(1),
+                    re = /([^&=]+)=([^&]*)/g, m;
+                while (m = re.exec(queryString)) {
+                    queryParameters[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+                }
+                queryParameters['place'] = value.id;
+                location.search = $.param(queryParameters);
+            }
+        });
+
+        $('.box-checkbox-custom input[type=checkbox]').on('change', function(e){
+            durationArray = $('form[name=duration]').serializeArray();
+            var queryParameters = {}, queryString = location.search.substring(1),
+                re = /([^&=]+)=([^&]*)/g, m;
+            while (m = re.exec(queryString)) {
+                queryParameters[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+            queryParameters['duration'] = durationArray.map(a => a.value).toString();
+            location.search = $.param(queryParameters);
+        });
+
+        $("#close-group").click(function(){
+            var queryParameters = {}, queryString = location.search.substring(1),
+                re = /([^&=]+)=([^&]*)/g, m;
+            while (m = re.exec(queryString)) {
+                queryParameters[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+            delete queryParameters['group'];
+            location.search = $.param(queryParameters);
+        });
+        $("#close-type").click(function(){
+            var queryParameters = {}, queryString = location.search.substring(1),
+                re = /([^&=]+)=([^&]*)/g, m;
+            while (m = re.exec(queryString)) {
+                queryParameters[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+            delete queryParameters['type'];
+            location.search = $.param(queryParameters);
         });
     </script>
 @endsection

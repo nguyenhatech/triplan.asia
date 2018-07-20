@@ -19,6 +19,12 @@ class Service extends Entity
     const LIMIT_24    = 2; // Trong vòng 24H
     const LIMIT_48    = 3; // Trong vòng 48H
 
+    const TIME_FILTERS = [
+        2 => '1 đến 2 ngày',
+        5 => '3 đến 5 ngày',
+        6 => 'Hơn 5 ngày'
+    ];
+
     public function getImage($type = null)
     {
         if ($type == 'sm') {
@@ -60,6 +66,16 @@ class Service extends Entity
     public function comforts()
     {
         return $this->belongsToMany('App\Repositories\Comforts\Comfort', 'comfort_service', 'service_id', 'comfort_id', 'id');
+    }
+
+    public function place()
+    {
+        return $this->belongsTo('App\Repositories\Places\Place', 'place_id');
+    }
+
+    public function getUrl()
+    {
+        return route('web.services.detail', [$this->id, $this->getTranslation()->slug]);
     }
 
 }

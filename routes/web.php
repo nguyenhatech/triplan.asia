@@ -19,5 +19,6 @@ Route::get('services/{id}-{slug}', 'ServiceController@detail')->name('web.servic
 // Login Facebook
 Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');
 Route::get('/callback/{social}', 'SocialAuthController@callback')->name('callback-social');
+Route::get('/places/search', 'PlaceController@search')->name('places.search');
 
 Auth::routes();

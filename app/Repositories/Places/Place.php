@@ -27,8 +27,18 @@ class Place extends Entity
         }
     }
 
+    public function translations()
+    {
+        return $this->hasMany('App\Repositories\PlaceTranslations\PlaceTranslation', 'place_id', 'id');
+    }
+
     public function getTranslation($locale = 'vi')
     {
         return $this->hasOne('App\Repositories\PlaceTranslations\PlaceTranslation', 'place_id', 'id')->where('locale', $locale)->first();
+    }
+
+    public function country()
+    {
+        return $this->belongsTo('App\Repositories\Countries\Country', 'country_id');
     }
 }

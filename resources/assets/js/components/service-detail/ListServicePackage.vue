@@ -35,13 +35,17 @@
                             </span>
                         </div>
                         <div class="d-flex align-items-center">
-                            <span class="button-action d-flex justify-content-center align-items-center">
+                            <span
+                                @click="decreaseServicePackage(package_children)"
+                                class="button-action d-flex justify-content-center align-items-center disable">
                                 <i class="fas fa-minus"></i>
                             </span>
                             <span class="quantity">
-                                9
+                                {{ package_children.quantity }}
                             </span>
-                            <span class="button-action d-flex justify-content-center align-items-center">
+                            <span
+                                @click="increaseServicePackage(package_children)"
+                                class="button-action d-flex justify-content-center align-items-center">
                                 <i class="fas fa-plus"></i>
                             </span>
 
@@ -56,7 +60,7 @@
 <script>
     import { mapGetters, mapActions } from 'vuex'
     export default {
-        name: 'BookingComponent',
+        name: 'ListServicePackage',
         props: {
           service: {
             type: Object,
@@ -80,7 +84,7 @@
             this.getServicePackageParent();
         },
         methods: {
-            ...mapActions('serviceDetail', ['setServicePackageName']),
+            ...mapActions('serviceDetail', ['setServicePackageName', 'setArrayServicePackages']),
             getServicePackageParent () {
                 axios.get('service-packages', {params: {service_id: this.service_id, parent_id: 0, status: 1, include:'service_package_children_actives'}}).then(response => {
                     let servicePackageParent = response.data.data;
@@ -92,7 +96,6 @@
                         })
                         return index;
                     })
-                    console.log(servicePackageParent)
                     switch (response.data.code) {
                         case 200:
                             this.servicePackageParent = servicePackageParent;
@@ -112,6 +115,14 @@
                 })
                 item.checked = true;
                 this.setServicePackageName(item.name)
+            },
+            decreaseServicePackage (item) {
+                if (item.quantity != 0) {
+                    item.quantity = item.quantity -1
+                }
+            },
+            increaseServicePackage (item) {
+                item.quantity = item.quantity + 1
             }
         }
     }
@@ -168,6 +179,9 @@
     margin-top: 3px;
     display: flex;
 }
+.package_parent .choose_package:hover {
+    background-color: #f2f2f2;
+}
 
 .package_children {
     border-top: 1px solid #eee;
@@ -203,4 +217,12 @@
     font-size: 10px;
     color: #19A577;
 }
+.package_children__item .button-action:hover {
+    background-color: #f2f2f2;
+}
+.package_children__item .button-action.disable {
+    opacity: 0.4;
+    cursor: default;
+}
+
 </style>

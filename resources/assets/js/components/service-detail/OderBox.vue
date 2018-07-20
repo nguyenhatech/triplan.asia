@@ -13,7 +13,7 @@
                 </span>
             </span>
         </div>
-        <div v-else>
+        <div v-if="package_name">
             <span class="name">
                 {{ package_name }}
             </span>

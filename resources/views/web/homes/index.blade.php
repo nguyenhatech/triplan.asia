@@ -288,6 +288,7 @@
 @endsection
 
 @section('scripts')
+    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             // Ảnh ẩn hiện ở phần banner

@@ -78,9 +78,14 @@
         methods: {
             getServicePackageParent () {
                 axios.get('service-packages', {params: {service_id: this.service_id, parent_id: 0, include:'service_package_childrens'}}).then(response => {
+                    let servicePackageParent = response.data.data;
+                    servicePackageParent.map(function(index, elem) {
+                        index.checked = false;
+                        return index;
+                    })
                     switch (response.data.code) {
                         case 200:
-                            this.servicePackageParent = response.data.data;
+                            this.servicePackageParent = servicePackageParent;
                             break
                         case 404:
                             break

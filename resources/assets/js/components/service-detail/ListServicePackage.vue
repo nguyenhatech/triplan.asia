@@ -12,38 +12,43 @@
                         <span class="currency">VND</span>
                         <span class="price">{{ package_parent.price }}</span>
                     </div>
-                    <span class="choose_package d-flex justify-content-center align-items-center"
+                    <span class="choose_package justify-content-center align-items-center"
+                        v-show="!package_parent.checked"
+                        @click="openPackageChildren(package_parent)"
                         v-if="package_parent.service_package_childrens.data.length">
                         Chọn
                     </span>
                 </div>
             </div>
-            <div class="package_children"
-                v-if="package_parent.service_package_childrens.data.length">
-                <div class="package_children__item d-flex justify-content-between align-items-center"
-                    v-for="package_children in package_parent.service_package_childrens.data">
-                    <div class="d-flex flex-column">
-                        <span class="name">
-                            {{ package_children.name }}
-                        </span>
-                        <span class="price">
-                            VND {{ package_children.price }} / Số lượng
-                        </span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <span class="button-action d-flex justify-content-center align-items-center">
-                            <i class="fas fa-minus"></i>
-                        </span>
-                        <span class="quantity">
-                            9
-                        </span>
-                        <span class="button-action d-flex justify-content-center align-items-center">
-                            <i class="fas fa-plus"></i>
-                        </span>
+            <transition name="slide-fade">
+                <div class="package_children"
+                    v-show="package_parent.checked"
+                    v-if="package_parent.service_package_childrens.data.length">
+                    <div class="package_children__item d-flex justify-content-between align-items-center"
+                        v-for="package_children in package_parent.service_package_childrens.data">
+                        <div class="d-flex flex-column">
+                            <span class="name">
+                                {{ package_children.name }}
+                            </span>
+                            <span class="price">
+                                VND {{ package_children.price }} / Số lượng
+                            </span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span class="button-action d-flex justify-content-center align-items-center">
+                                <i class="fas fa-minus"></i>
+                            </span>
+                            <span class="quantity">
+                                9
+                            </span>
+                            <span class="button-action d-flex justify-content-center align-items-center">
+                                <i class="fas fa-plus"></i>
+                            </span>
 
+                        </div>
                     </div>
                 </div>
-            </div>
+            </transition>
         </div>
     </div>
 </template>
@@ -93,12 +98,32 @@
                             break
                     }
                 })
+            },
+            // Kích hoạt nút mở gói dịch vụ
+            openPackageChildren (item) {
+                this.servicePackageParent.map(function(index, elem) {
+                    index.checked = false;
+                    return index;
+                })
+                item.checked = true;
             }
         }
     }
 </script>
 
 <style type="text/css" scoped>
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 .service-package {
     background-color: #f2f2f2;
     padding: 10px 10px 0px 10px;
@@ -135,6 +160,7 @@
     padding: 6px;
     border-radius: 4px;
     margin-top: 3px;
+    display: flex;
 }
 
 .package_children {

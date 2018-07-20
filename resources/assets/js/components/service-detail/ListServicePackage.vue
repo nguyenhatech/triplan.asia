@@ -54,12 +54,12 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
     export default {
         name: 'BookingComponent',
         props: {
-          service_id: {
-            type: Number,
+          service: {
+            type: Object,
             default: () => {
               return {}
             }
@@ -77,10 +77,10 @@
           ...mapGetters(['loading'])
         },
         mounted () {
-            console.log(this.loading)
             this.getServicePackageParent();
         },
         methods: {
+            ...mapActions('serviceDetail', ['setServicePackageName']),
             getServicePackageParent () {
                 axios.get('service-packages', {params: {service_id: this.service_id, parent_id: 0, include:'service_package_childrens'}}).then(response => {
                     let servicePackageParent = response.data.data;
@@ -106,6 +106,7 @@
                     return index;
                 })
                 item.checked = true;
+                this.setServicePackageName(item.name)
             }
         }
     }
@@ -157,7 +158,7 @@
 .package_parent .choose_package {
     border: 2px solid #19A577;
     cursor: pointer;
-    padding: 6px;
+    padding: 6px 35px;
     border-radius: 4px;
     margin-top: 3px;
     display: flex;

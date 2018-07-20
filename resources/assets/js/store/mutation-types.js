@@ -1,7 +1,7 @@
 /**
  * -----------------------------------------------------------------------------------------------------------
- * Account module
+ *  module
  * -----------------------------------------------------------------------------------------------------------
  */
-export const SET_ACCOUNT_INFO = 'SET_ACCOUNT_INFO'
-export const REMOVE_ACCOUNT_INFO = 'REMOVE_ACCOUNT_INFO'
+export const SET_SERVICE_PACKAGE_NAME = 'SET_SERVICE_PACKAGE_NAME'
+

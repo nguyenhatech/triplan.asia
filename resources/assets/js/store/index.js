@@ -6,6 +6,7 @@ import Vuex from 'vuex'
  * Loading vuex modules
  * -----------------------------------------------------------------------------------------------------------
  */
+// Trang chi tiết dịch vụ
 import serviceDetail from '../components/service-detail/store'
 
 Vue.use(Vuex)

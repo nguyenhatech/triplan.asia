@@ -246,7 +246,7 @@
                         </div>
                     @endif
                     <div>
-                        <list-service-package :service_id="{{ $service->id }}"></list-service-package>
+                        <list-service-package :service="{{ $service }}"></list-service-package>
                     </div>
                     @if ($service->getTranslation()->description)
                         <div class="service-description">
@@ -287,7 +287,7 @@
             </div>
             <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
-                    <oder-box></oder-box>
+                    <oder-box :service="{{ $service }}"></oder-box>
                 </div>
             </div>
         </div>

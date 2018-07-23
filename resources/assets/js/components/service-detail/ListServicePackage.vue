@@ -1,59 +1,67 @@
 <template>
-    <div class="service-package d-flex flex-column">
-        <div class="service-package__item"
-            v-for="package_parent in servicePackageParent"
-            :key="package_parent.id">
-            <div class="package_parent d-flex justify-content-between">
-                <div class="name">
-                    {{ package_parent.name }}
-                </div>
-                <div class="d-flex flex-column">
-                    <div>
-                        <span class="currency">VND</span>
-                        <span class="price">{{ package_parent.price }}</span>
+    <div class="service-package">
+        <h4 class="title">Tùy chọn gói</h4>
+        <div class="calander">
+            <v-date-picker
+                v-model="day">
+            </v-date-picker>
+        </div>
+        <div class="d-flex flex-column">
+            <div class="service-package__item"
+                v-for="package_parent in servicePackageParent"
+                :key="package_parent.id">
+                <div class="package_parent d-flex justify-content-between">
+                    <div class="name">
+                        {{ package_parent.name }}
                     </div>
-                    <span class="choose_package justify-content-center align-items-center"
-                        v-show="!package_parent.checked"
-                        @click="openPackageChildren(package_parent)"
+                    <div class="d-flex flex-column">
+                        <div>
+                            <span class="currency">VND</span>
+                            <span class="price">{{ package_parent.price }}</span>
+                        </div>
+                        <span class="choose_package justify-content-center align-items-center"
+                            v-show="!package_parent.checked"
+                            @click="openPackageChildren(package_parent)"
+                            v-if="package_parent.service_package_children_actives.data.length">
+                            Chọn
+                        </span>
+                    </div>
+                </div>
+                <transition name="slide-fade">
+                    <div class="package_children"
+                        v-show="package_parent.checked"
                         v-if="package_parent.service_package_children_actives.data.length">
-                        Chọn
-                    </span>
-                </div>
-            </div>
-            <transition name="slide-fade">
-                <div class="package_children"
-                    v-show="package_parent.checked"
-                    v-if="package_parent.service_package_children_actives.data.length">
-                    <div class="package_children__item d-flex justify-content-between align-items-center"
-                        v-for="package_children in package_parent.service_package_children_actives.data">
-                        <div class="d-flex flex-column">
-                            <span class="name">
-                                {{ package_children.name }}
-                            </span>
-                            <span class="price">
-                                VND {{ package_children.price }} / Số lượng
-                            </span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <span
-                                @click="decreaseServicePackage(package_children)"
-                                :class="[package_children.quantity > 0 ? '' : 'disable']"
-                                class="button-action d-flex justify-content-center align-items-center">
-                                <i class="fas fa-minus"></i>
-                            </span>
-                            <span class="quantity">
-                                {{ package_children.quantity }}
-                            </span>
-                            <span
-                                @click="increaseServicePackage(package_children)"
-                                class="button-action d-flex justify-content-center align-items-center">
-                                <i class="fas fa-plus"></i>
-                            </span>
+                        <div class="package_children__item d-flex justify-content-between align-items-center"
+                            v-for="package_children in package_parent.service_package_children_actives.data">
+                            <div class="d-flex flex-column">
+                                <span class="name">
+                                    {{ package_children.name }}
+                                </span>
+                                <span class="price">
+                                    VND {{ package_children.price }} / Số lượng
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span
+                                    @click="decreaseServicePackage(package_children)"
+                                    :class="[package_children.quantity > 0 ? '' : 'disable']"
+                                    class="button-action d-flex justify-content-center align-items-center">
+                                    <i class="fas fa-minus"></i>
+                                </span>
+                                <span class="quantity">
+                                    {{ package_children.quantity }}
+                                </span>
+                                <span
+                                    @click="increaseServicePackage(package_children)"
+                                    class="button-action d-flex justify-content-center align-items-center">
+                                    <i class="fas fa-plus"></i>
+                                </span>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-            </transition>
+                </transition>
+            </div>
         </div>
     </div>
 </template>
@@ -72,7 +80,10 @@
         },
         data () {
             return {
-                servicePackageParent: []
+                servicePackageParent: [],
+                serviceDays: [],
+                day: ''
+
             }
         },
         components: {
@@ -87,19 +98,20 @@
         methods: {
             ...mapActions('serviceDetail', ['setServicePackageName', 'setArrayServicePackages']),
             getServicePackageParent () {
-                axios.get('service-packages', {params: {service_id: this.service_id, parent_id: 0, status: 1, include:'service_package_children_actives'}}).then(response => {
-                    let servicePackageParent = response.data.data;
-                    servicePackageParent.map(function(index, elem) {
-                        index.checked = false;
-                        index.service_package_children_actives.data.map(function(index2, elem2) {
-                            index2.quantity = 0;
-                            return index2;
-                        })
-                        return index;
-                    })
+                axios.get('services/' + this.service.id, {params: {status: 1, include:'service_package_parent_actives.service_package_children_actives,service_day_actives'}}).then(response => {
                     switch (response.data.code) {
                         case 200:
+                            let servicePackageParent = response.data.data.service_package_parent_actives.data;
+                            servicePackageParent.map(function(index, elem) {
+                                index.checked = false;
+                                index.service_package_children_actives.data.map(function(index2, elem2) {
+                                    index2.quantity = 0;
+                                    return index2;
+                                })
+                                return index;
+                            })
                             this.servicePackageParent = servicePackageParent;
+                            this.serviceDays = response.data.data.service_day_actives;
                             break
                         case 404:
                             break
@@ -153,6 +165,13 @@
     background-color: #f2f2f2;
     padding: 10px 10px 0px 10px;
     margin: 10px 0px;
+}
+.service-package .title {
+    font-weight: 700;
+    font-size: 18px;
+}
+.service-package .calander {
+    margin-bottom: 15px;
 }
 .service-package__item {
     background-color: #fff;

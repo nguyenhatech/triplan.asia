@@ -108,40 +108,44 @@
                     }
                 })
             },
-            resetServicePackageParent () {
-
-            },
             // Kích hoạt nút mở gói dịch vụ
             openPackageChildren (item) {
-                this.servicePackageParent.map(function(index, elem) {
-                    index.checked = false;
-                    return index;
+                this.servicePackageParent.map(function(item, elem) {
+                    item.checked = false;
+                    // Reset số lượng các package con về 0
+                    item.service_package_children_actives.data.map(function(item2) {
+                        item2.quantity = 0;
+                        return item2;
+                    })
+                    return item;
                 })
                 item.checked = true;
                 this.setServicePackageName(item.name)
             },
+            // Tăng 1 gói con
             decreaseServicePackage (item) {
                 if (item.quantity != 0) {
                     item.quantity = item.quantity -1
                 }
+                this.setArrayServicePackages(item)
             },
+            // Trừ 1 gói con
             increaseServicePackage (item) {
                 item.quantity = item.quantity + 1
+                this.setArrayServicePackages(item)
             }
         }
     }
 </script>
 
 <style type="text/css" scoped>
-/* durations and timing functions.              */
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
 .slide-fade-leave-active {
   transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+.slide-fade-enter, .slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }

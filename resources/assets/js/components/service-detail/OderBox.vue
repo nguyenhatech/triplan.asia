@@ -17,6 +17,18 @@
             <span class="name">
                 {{ package_name }}
             </span>
+            <div>
+                <div
+                    v-for="service_package in service_packages"
+                    :key="service_package.id">
+                    <span>
+                        {{service_package.name}}
+                    </span>
+                    <span>
+                        x {{service_package.quantity}}
+                    </span>
+                </div>
+            </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
             <a href="/" class="btn btn-block booking-now">

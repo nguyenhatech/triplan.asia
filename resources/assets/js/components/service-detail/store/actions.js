@@ -8,7 +8,6 @@ const setServicePackageName = ({commit, dispatch}, name = '') => {
 }
 
 const setArrayServicePackages = ({commit, dispatch}, data = '') => {
-    console.log(data)
     commit(SET_ARRAY_SERVICE_PACKAGES, data)
 }
 

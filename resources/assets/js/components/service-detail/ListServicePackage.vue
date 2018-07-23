@@ -3,6 +3,8 @@
         <h4 class="title">Tùy chọn gói</h4>
         <div class="calander">
             <v-date-picker
+                is-required
+                @input="changeDay(day)"
                 v-model="day">
             </v-date-picker>
         </div>
@@ -82,7 +84,7 @@
             return {
                 servicePackageParent: [],
                 serviceDays: [],
-                day: ''
+                day: null
 
             }
         },
@@ -96,7 +98,7 @@
             this.getServicePackageParent();
         },
         methods: {
-            ...mapActions('serviceDetail', ['setServicePackageName', 'setArrayServicePackages']),
+            ...mapActions('serviceDetail', ['setServicePackageName', 'setServicePackageDay', 'setArrayServicePackages']),
             getServicePackageParent () {
                 axios.get('services/' + this.service.id, {params: {status: 1, include:'service_package_parent_actives.service_package_children_actives,service_day_actives'}}).then(response => {
                     switch (response.data.code) {
@@ -120,8 +122,16 @@
                     }
                 })
             },
+            changeDay (date) {
+                let day = this.getFormattedDate(date);
+                this.setServicePackageDay(day)
+            },
             // Kích hoạt nút mở gói dịch vụ
             openPackageChildren (item) {
+                if (this.day === null) {
+                    alert('Vui lòng chọn ngày đi');
+                    return
+                }
                 this.servicePackageParent.map(function(item, elem) {
                     item.checked = false;
                     // Reset số lượng các package con về 0
@@ -133,6 +143,19 @@
                 })
                 item.checked = true;
                 this.setServicePackageName(item.name)
+            },
+            getFormattedDate(date) {
+                let year = date.getFullYear();
+                let month = date.getMonth() + 1;
+                if (month < 10 ) {
+                    month = "0" + month;
+                }
+                let day = date.getDate();
+                if (day < 10 ) {
+                    day = "0" + day;
+                }
+                let str = year + "-" + month + "-" + day;
+                return str;
             },
             // Tăng 1 gói con
             decreaseServicePackage (item) {

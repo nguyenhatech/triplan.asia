@@ -18,6 +18,9 @@
                 {{ package_name }}
             </span>
             <div>
+                {{ date }}
+            </div>
+            <div v-if="service_packages.length">
                 <div
                     v-for="service_package in service_packages"
                     :key="service_package.id">
@@ -28,6 +31,7 @@
                         x {{service_package.quantity}}
                     </span>
                 </div>
+                <p>Tổng tiền: {{ calcFee }}</p>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
@@ -66,7 +70,14 @@
 
         },
         computed: {
-          ...mapGetters('serviceDetail', ['date', 'package_name', 'service_packages'])
+            ...mapGetters('serviceDetail', ['date', 'package_name', 'service_packages']),
+            calcFee () {
+                let totalFree = 0;
+                _.forEach(this.service_packages, (value) => {
+                    totalFree += value.quantity * value.price
+                })
+                return totalFree
+            }
         },
         mounted () {
 

@@ -71,7 +71,26 @@
             <div class="col-md-4">
                 <div class="form-booking__item info-booking">
                     <div class="name">
-                        <span>Vé đi đâu đó</span>
+                        <span>{{ dataBooking.service_info.name }}</span>
+                    </div>
+                    <div class="info">
+                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
+                            <span style="color: #888">Tên gọi dịch vụ</span>
+                            <span>{{ dataBooking.package_name }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
+                            <span style="color: #888">Ngày</span>
+                            <span>{{ dataBooking.date }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between" style="margin-bottom: 16px;">
+                            <span style="color: #888">Đơn vị</span>
+                            <div>
+                                <p v-for="item in dataBooking.service_packages" :key="item.id">
+                                    {{item.quantity}} x {{item.name}}
+                                </p>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,7 +120,8 @@
         },
         methods: {
             getDateLocalStorage () {
-                this.dataBooking = localStorage.getItem('dataBooking');
+                this.dataBooking = JSON.parse(localStorage.getItem('dataBooking'));
+                console.log(this.dataBooking)
             }
         }
     }

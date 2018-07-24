@@ -73,7 +73,7 @@
 
         },
         computed: {
-            ...mapGetters('serviceDetail', ['date', 'package_name', 'service_packages']),
+            ...mapGetters('serviceDetail', ['date', 'package_name', 'service_packages', 'service_info']),
             calcFee () {
                 let totalFree = 0;
                 _.forEach(this.service_packages, (value) => {
@@ -92,6 +92,7 @@
             ...mapActions('serviceDetail', ['setServiceInfo']),
             nextStepBooking () {
                 var dataBooking = {
+                    service_info: this.service_info,
                     date: this.date,
                     package_name: this.package_name,
                     service_packages: this.service_packages

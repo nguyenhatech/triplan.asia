@@ -163,7 +163,7 @@
 
         .booking-service-destop {
             background-color: #fff;
-            height: 250px;
+            min-height: 300px;
             width: 365px;
             padding: 20px 15px;
             border-radius: 2px;

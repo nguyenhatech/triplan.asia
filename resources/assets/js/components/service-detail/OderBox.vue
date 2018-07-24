@@ -35,12 +35,9 @@
             </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
-            <a href="/" class="btn btn-block booking-now">
+            <span @click="nextStepBooking()" class="btn btn-block booking-now" :class="[!disableButton ? 'isDisabled' : '']">
                 ĐẶT NGAY
-            </a>
-            <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="margin-top: 15px; color: #fff">
-                Chat ngay với Triplan
-            </a>
+            </span>
         </div>
         <div class="count-booking">
             <i class="fas fa-users"></i>
@@ -50,7 +47,7 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
     export default {
         name: 'OderBox',
         props: {
@@ -77,13 +74,31 @@
                     totalFree += value.quantity * value.price
                 })
                 return totalFree
+            },
+            disableButton () {
+                return this.date !== '' && this.package_name !== '';
             }
         },
         mounted () {
 
         },
         methods: {
+            ...mapActions('serviceDetail', ['setServiceInfo']),
+            nextStepBooking () {
+                var dataBooking = {
+                    date: this.date,
+                    package_name: this.package_name,
+                    service_packages: this.service_packages
+                };
 
+                // Put the object into storage
+                localStorage.setItem('testObject', JSON.stringify(testObject));
+
+                // Retrieve the object from storage
+                var retrievedObject = localStorage.getItem('testObject');
+
+                console.log('retrievedObject: ', JSON.parse(retrievedObject));
+            }
         }
     }
 </script>
@@ -92,5 +107,13 @@
 .order-box .name {
     font-size: 18px;
     font-weight: 700;
+}
+.isDisabled {
+   color: currentColor;
+   cursor: not-allowed;
+   opacity: 0.5;
+   text-decoration: none;
+   display: inline-block;  /* For IE11/ MS Edge bug */
+   pointer-events: none;
 }
 </style>

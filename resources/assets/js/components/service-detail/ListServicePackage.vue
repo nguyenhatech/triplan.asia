@@ -84,7 +84,8 @@
             return {
                 servicePackageParent: [],
                 serviceDays: [],
-                day: null
+                day: null,
+                service_info: {}
 
             }
         },
@@ -98,7 +99,7 @@
             this.getServicePackageParent();
         },
         methods: {
-            ...mapActions('serviceDetail', ['setServicePackageName', 'setServicePackageDay', 'setArrayServicePackages']),
+            ...mapActions('serviceDetail', ['setServicePackageName', 'setServicePackageDay', 'setArrayServicePackages', 'setServiceInfo']),
             getServicePackageParent () {
                 axios.get('services/' + this.service.id, {params: {status: 1, include:'service_package_parent_actives.service_package_children_actives,service_day_actives'}}).then(response => {
                     switch (response.data.code) {
@@ -114,6 +115,8 @@
                             })
                             this.servicePackageParent = servicePackageParent;
                             this.serviceDays = response.data.data.service_day_actives;
+                            this.service_info = response.data.data;
+                            this.setServiceInfo(this.service_info)
                             break
                         case 404:
                             break
@@ -162,7 +165,7 @@
                 if (item.quantity != 0) {
                     item.quantity = item.quantity -1
                 }
-                this.setArrayServicePackages(item)
+                this.setArrayServicegPackages(item)
             },
             // Trừ 1 gói con
             increaseServicePackage (item) {
@@ -256,6 +259,7 @@
     padding-right: 10px;
     padding-left: 10px;
     font-weight: bold;
+    width: 35px;
 }
 .package_children__item .button-action {
     width: 30px;

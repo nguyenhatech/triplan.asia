@@ -69,9 +69,9 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="form-booking__item booking_now">
-                    <div class="d-flex align-items-center">
-                        <h1>dqd</h1>
+                <div class="form-booking__item info-booking">
+                    <div class="name">
+                        <span>Vé đi đâu đó</span>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
         },
         data () {
             return {
-
+                dataBooking: {}
             }
         },
         components: {
@@ -97,10 +97,12 @@
 
         },
         mounted () {
-
+            this.getDateLocalStorage();
         },
         methods: {
-
+            getDateLocalStorage () {
+                this.dataBooking = localStorage.getItem('dataBooking');
+            }
         }
     }
 </script>
@@ -127,6 +129,18 @@
     padding: 6px 40px;
     background-color: #19A577;
     color: #fff;
+}
+/* Phần Info bên trái*/
+.info-booking {
+    padding: 15px 20px;
+}
+.info-booking .name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
 }
 /*Đè bootstrap*/
 .form-control {

@@ -24,9 +24,14 @@ Vue.use(VCalendar, {
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+
 // Trang chi tiết dịch vụ
 Vue.component('list-service-package', require('./components/service-detail/ListServicePackage.vue'));
 Vue.component('oder-box', require('./components/service-detail/OderBox.vue'));
+
+// Trang Booking bước 1
+Vue.component('booking-step1', require('./components/booking/Step1.vue'));
+
 
 const app = new Vue({
     el: '#td-outer-wrap',

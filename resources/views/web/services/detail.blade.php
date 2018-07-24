@@ -287,7 +287,7 @@
             </div>
             <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
-                    <oder-box :service="{{ $service }}"></oder-box>
+                    <oder-box :service="{{ $service }}" :data_params="{{ $data_params }}"></oder-box>
                 </div>
             </div>
         </div>

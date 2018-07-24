@@ -24,10 +24,14 @@ class ServiceController extends WebController
             'notInID' => [$service->id]
         ], 8);
 
+        $data_params['url_booking_step1'] = route('web.booking.step1');
+        $data_params = json_encode($data_params);
+
         return view('web.services.detail')->with([
             'title'   => 'Chi tiết',
             'service' => $service,
-            'service_involves' => $service_involves
+            'service_involves' => $service_involves,
+            'data_params' => $data_params
         ]);
     }
 }

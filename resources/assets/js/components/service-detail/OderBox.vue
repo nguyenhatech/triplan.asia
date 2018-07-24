@@ -51,12 +51,18 @@
     export default {
         name: 'OderBox',
         props: {
-          service: {
-            type: Object,
-            default: () => {
-              return {}
+            data_params: {
+                type: Object,
+                default: () => {
+                    return {}
+                }
+            },
+            service: {
+                type: Object,
+                    default: () => {
+                    return {}
+                }
             }
-          }
         },
         data () {
             return {
@@ -92,12 +98,10 @@
                 };
 
                 // Put the object into storage
-                localStorage.setItem('testObject', JSON.stringify(testObject));
-
-                // Retrieve the object from storage
-                var retrievedObject = localStorage.getItem('testObject');
-
-                console.log('retrievedObject: ', JSON.parse(retrievedObject));
+                localStorage.setItem('dataBooking', JSON.stringify(dataBooking));
+                window.location.href = this.data_params.url_booking_step1
+                // var dataBooking = localStorage.getItem('dataBooking');
+                // console.log('dataBooking: ', JSON.parse(dataBooking));
             }
         }
     }

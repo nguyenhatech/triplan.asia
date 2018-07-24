@@ -12,13 +12,21 @@
 */
 
 Route::get('/', 'HomeController@index')->name('web.home');
+
+// Module
 Route::get('tours', 'HomeController@tours')->name('web.tours');
 
+// Module Service
 Route::get('services/{id}-{slug}', 'ServiceController@detail')->name('web.services.detail');
+
+// Module Booking
+Route::get('booking/step1', 'BookingController@bookingStep1')->name('web.booking.step1');
+
+// Module
+Route::get('/places/search', 'PlaceController@search')->name('places.search');
 
 // Login Facebook
 Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');
 Route::get('/callback/{social}', 'SocialAuthController@callback')->name('callback-social');
-Route::get('/places/search', 'PlaceController@search')->name('places.search');
 
 Auth::routes();

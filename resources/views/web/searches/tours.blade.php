@@ -194,9 +194,11 @@
                                     <span><i class="fas fa-angle-right"></i></span>
                                 </div>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    @if(array_key_exists($group->id, $service_types->toArray()))
                                     @foreach($service_types->toArray()[$group->id] as $type)
                                     <a href="{{ Request::fullUrlWithQuery(['type' => $type['id'] ]) }}" class="dropdown-item">{{ $type['name'] }}</a>
                                     @endforeach
+                                    @endif
                                 </div>
                             </li>
                             @endforeach
@@ -252,9 +254,11 @@
                                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#group{{ $group->id }}" aria-expanded="false" aria-controls="group{{ $group->id }}"><i class="fas fa-angle-down"></i></button>
                                             </div>
                                             <div class="collapse" id="group{{ $group->id }}">
+                                                @if(array_key_exists($group->id, $service_types->toArray()))
                                                 @foreach($service_types->toArray()[$group->id] as $type)
                                                 <a href="{{ Request::fullUrlWithQuery(['type' => $type['id'] ]) }}" class="dropdown-item">{{ $type['name'] }}</a>
                                                 @endforeach
+                                                @endif
                                             </div>
                                         </li>
                                         @endforeach

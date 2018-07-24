@@ -8,8 +8,14 @@
 require('./bootstrap');
 
 import indexStore from './store/index'
+import VCalendar from 'v-calendar';
+import 'v-calendar/lib/v-calendar.min.css';
 
 window.Vue = require('vue');
+
+Vue.use(VCalendar, {
+  firstDayOfWeek: 2
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

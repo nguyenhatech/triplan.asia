@@ -273,21 +273,21 @@
                                 </div>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFilters">
-                                <div class="dropdown-item-text box-checkbox-custom"">
+                                <div class="dropdown-item-text box-checkbox-custom">
                                     <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" value="" id="time1">
+                                        <input class="custom-control-input" type="checkbox" value="" id="time1" />
                                         <label class="custom-control-label" for="time1">
                                             1 đến 2 ngày
                                         </label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" value="" id="time2">
+                                        <input class="custom-control-input" type="checkbox" value="" id="time2" />
                                         <label class="custom-control-label" for="time2">
                                             3 đến 5 ngày
                                         </label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" value="" id="time3">
+                                        <input class="custom-control-input" type="checkbox" value="" id="time3" />
                                         <label class="custom-control-label" for="time3">
                                             Hơn 5 ngày
                                         </label>

@@ -279,10 +279,10 @@
                             </div>
                         </div>
                     @endif
-{{--                     <div class="service-what_to_expect">
+                    <div class="service-what_to_expect">
                         <h4>Bản đồ</h4>
                         <div id="map" style="height: 400px; background-color: #ccc"></div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -338,9 +338,10 @@
 @endsection
 
 @section('scripts')
-{{--     <script async defer
+    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
-    </script> --}}
+    </script>
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script>
         $(".service-involve .owl-carousel").owlCarousel({

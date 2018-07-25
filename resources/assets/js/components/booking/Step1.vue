@@ -210,7 +210,7 @@
                                     alert('Đặt vé thành công');
                                     // Xóa LocalStorage
                                     window.localStorage.removeItem("dataBooking");
-                                    window.location.href = this.data_params.APP_URL
+                                    window.location.href = this.data_params.url_booking_thankyou + '?code=' + response.data.code
                                     break;
                                 case 422:
                                     let er = response.data.errors

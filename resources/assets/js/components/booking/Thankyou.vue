@@ -13,6 +13,12 @@
                 default: () => {
                     return {}
                 }
+            },
+            uuid: {
+                type: String,
+                default: () => {
+                    return '';
+                }
             }
         },
         data () {
@@ -30,7 +36,11 @@
 
         },
         methods: {
-
+            getBooking () {
+                if (!uuid) {
+                    console.log('huhuhuhuhuhuhuuh')
+                }
+            },
         }
     }
 </script>

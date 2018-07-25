@@ -14,8 +14,9 @@ class BookingController extends WebController
 
     public function bookingStep1(Request $request)
     {
-        $data_params['APP_URL'] = env('APP_URL');
-        $data_params            = json_encode($data_params);
+        $data_params['APP_URL']              = env('APP_URL');
+        $data_params['url_booking_thankyou'] = route('web.booking.thankyou');
+        $data_params                         = json_encode($data_params);
 
         return view('web.bookings.step1')->with([
             'title'   => 'Thông tin booking',
@@ -25,8 +26,9 @@ class BookingController extends WebController
 
     public function thankyou(Request $request)
     {
-        $data_params = $request->all();
-        $data_params = json_encode($data_params);
+        $data_params                         = $request->all();
+        $data_params['APP_URL']              = env('APP_URL');
+        $data_params                         = json_encode($data_params);
 
         return view('web.bookings.thankyou')->with([
             'title'   => 'Đặt vé thành công',

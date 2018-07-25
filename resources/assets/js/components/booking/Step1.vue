@@ -58,7 +58,7 @@
                                     <label class="name" >Số điện thoại</label>
                                     <input
                                         v-model="orderBooking.phone"
-                                        v-validate="'required|digits params'"
+                                        v-validate="'required'"
                                         name="phone"
                                         data-vv-as="Số điện thoại"
                                         type="text"
@@ -155,12 +155,11 @@
                     }
                 },
                 orderBooking: {
-                    name: '',
-                    phone: '',
-                    email: '',
-                    alias: '',
-                    passport_last_name: '',
-                    passport_first_name: '',
+                    phone: '098123132131',
+                    email: 'nnthuc2402@gmail.com',
+                    alias: 'Mr',
+                    passport_last_name: 'Ngô',
+                    passport_first_name: 'Thức',
                     passport_infomation: '',
                     country_code: '',
                     payment_method: 1,
@@ -187,11 +186,15 @@
         methods: {
             getDateLocalStorage () {
                 this.dataBooking = JSON.parse(localStorage.getItem('dataBooking'));
+                this.orderBooking.booking_details = this.dataBooking.service_packages;
             },
             createBooking () {
                 this.$validator.validateAll().then((result) => {
-                    console.log(result)
-                    console.log(JSON.stringify(this.orderBooking))
+                    if (result) {
+                        axios.post('bookings', this.orderBooking).then(response => {
+                            console.log(response)
+                        })
+                    }
                 })
             }
         }

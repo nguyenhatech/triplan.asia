@@ -102,9 +102,9 @@
             ...mapActions('serviceDetail', ['setServicePackageName', 'setServicePackageDay', 'setArrayServicePackages', 'setServiceInfo']),
             getServicePackageParent () {
                 axios.get('services/' + this.service.id, {params: {status: 1, include:'service_package_parent_actives.service_package_children_actives,service_day_actives'}}).then(response => {
-                    switch (response.data.code) {
+                    switch (response.code) {
                         case 200:
-                            let servicePackageParent = response.data.data.service_package_parent_actives.data;
+                            let servicePackageParent = response.data.service_package_parent_actives.data;
                             servicePackageParent.map(function(index, elem) {
                                 index.checked = false;
                                 index.service_package_children_actives.data.map(function(index2, elem2) {
@@ -114,8 +114,8 @@
                                 return index;
                             })
                             this.servicePackageParent = servicePackageParent;
-                            this.serviceDays = response.data.data.service_day_actives;
-                            this.service_info = response.data.data;
+                            this.serviceDays = response.data.service_day_actives;
+                            this.service_info = response.data;
                             this.setServiceInfo(this.service_info)
                             break
                         case 404:
@@ -140,6 +140,7 @@
                     // Reset số lượng các package con về 0
                     item.service_package_children_actives.data.map(function(item2) {
                         item2.quantity = 0;
+                        item2.service_package_id = item2.id;
                         return item2;
                     })
                     return item;

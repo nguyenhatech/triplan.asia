@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-md-4">
                                 <button class="btn btn-booking-now" @click="createBooking()">
-                                    Thanh toán ngay
+                                    Đặt vé ngay
                                 </button>
                             </div>
                         </div>
@@ -160,8 +160,8 @@
                     alias: 'Mr',
                     passport_last_name: 'Ngô',
                     passport_first_name: 'Thức',
-                    passport_infomation: '',
-                    country_code: '',
+                    passport_infomation: 'Việt Nam',
+                    country_code: '+84',
                     payment_method: 1,
                     currency_id: 1,
                     booking_details: []
@@ -186,13 +186,31 @@
         methods: {
             getDateLocalStorage () {
                 this.dataBooking = JSON.parse(localStorage.getItem('dataBooking'));
-                this.orderBooking.booking_details = this.dataBooking.service_packages;
+                let booking_detail_item = {
+                    service_packages: this.dataBooking.service_packages,
+                    date: this.dataBooking.date,
+                    service_id: this.dataBooking.service_info.id
+                }
+                this.orderBooking.booking_details.push(booking_detail_item);
             },
             createBooking () {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         axios.post('bookings', this.orderBooking).then(response => {
-                            console.log(response)
+                            switch (response.code) {
+                                case 200:
+                                    alert('Đặt vé thành công');
+                                    // Xóa LocalStorage
+                                    window.localStorage.removeItem("dataBooking");
+                                    break;
+                                case 422:
+                                    let er = response.data.errors
+                                    let message = _.head(er[Object.keys(er)[0]])
+                                    alert(message)
+                                    break;
+                                default:
+                                    alert('Có lỗi xảy ra. Vui lòng liên hệ amdin')
+                            }
                         })
                     }
                 })

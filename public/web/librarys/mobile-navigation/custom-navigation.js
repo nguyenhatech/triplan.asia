@@ -32,8 +32,8 @@ jQuery(document).ready(function($) {
       }
 
       $docEl.css({
-        height: "100%",
-        overflow: "hidden"
+        // height: "100%",
+        // overflow: "hidden"
       });
     }
 

@@ -13,11 +13,27 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="name" >Tên (trên hộ chiếu)</label>
-                                    <input type="text" class="form-control" placeholder="Như trên passport">
+                                    <input
+                                        v-model="orderBooking.passport_last_name"
+                                        v-validate="'required'"
+                                        name="passport_last_name"
+                                        data-vv-as="Tên (trên hộ chiếu)"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Như trên passport">
+                                    <span class="error" v-show="errors.has('passport_last_name')">{{ errors.first('passport_last_name') }}</span>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="name" >Họ (trên hộ chiếu)</label>
-                                    <input type="text" class="form-control" placeholder="Như trên passport">
+                                    <input
+                                        v-model="orderBooking.passport_first_name"
+                                        v-validate="'required'"
+                                        name="passport_first_name"
+                                        data-vv-as="Họ (trên hộ chiếu)"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Như trên passport">
+                                    <span class="error" v-show="errors.has('passport_first_name')">{{ errors.first('passport_first_name') }}</span>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -33,21 +49,36 @@
                                 <div class="form-group col-md-2">
                                     <label class="name" >Mã </label>
                                     <select class="custom-select">
-                                        <option selected>Chọn</option>
-                                        <option value="1">One</option>
+                                        <option value="1" selected>One</option>
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label class="name" >Số điện thoại</label>
-                                    <input type="text" class="form-control" placeholder="Số điện thoại">
+                                    <input
+                                        v-model="orderBooking.phone"
+                                        v-validate="'required|digits params'"
+                                        name="phone"
+                                        data-vv-as="Số điện thoại"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Số điện thoại">
+                                    <span class="error" v-show="errors.has('phone')">{{ errors.first('phone') }}</span>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="name">Email</label>
-                                    <input type="text" class="form-control" placeholder="Địa chỉ email">
+                                    <input
+                                        v-model="orderBooking.email"
+                                        v-validate="'required|email'"
+                                        name="email"
+                                        data-vv-as="Email"
+                                        type="email"
+                                        class="form-control"
+                                        placeholder="Địa chỉ email">
+                                    <span class="error" v-show="errors.has('email')">{{ errors.first('email') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +91,7 @@
                                 </span>
                             </div>
                             <div class="col-md-4">
-                                <button class="btn btn-booking-now">
+                                <button class="btn btn-booking-now" @click="createBooking()">
                                     Thanh toán ngay
                                 </button>
                             </div>
@@ -93,6 +124,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-booking__item info-booking">
+                    <div class="info">
+                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
+                            <span style="color: #888">Tổng cộng</span>
+                            <span>{{ calcFee }} VND</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
+                            <span style="color: #888">Tổng tiền thanh toán</span>
+                            <span>{{ calcFee }} VND</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -106,14 +149,37 @@
         },
         data () {
             return {
-                dataBooking: {}
+                dataBooking: {
+                    service_info: {
+                        name: 'Name'
+                    }
+                },
+                orderBooking: {
+                    name: '',
+                    phone: '',
+                    email: '',
+                    alias: '',
+                    passport_last_name: '',
+                    passport_first_name: '',
+                    passport_infomation: '',
+                    country_code: '',
+                    payment_method: 1,
+                    currency_id: 1,
+                    booking_details: []
+                }
             }
         },
         components: {
 
         },
         computed: {
-
+            calcFee () {
+                let totalFree = 0;
+                _.forEach(this.dataBooking.service_packages, (value) => {
+                    totalFree += value.quantity * value.price
+                })
+                return totalFree
+            }
         },
         mounted () {
             this.getDateLocalStorage();
@@ -121,15 +187,22 @@
         methods: {
             getDateLocalStorage () {
                 this.dataBooking = JSON.parse(localStorage.getItem('dataBooking'));
-                console.log(this.dataBooking)
+            },
+            createBooking () {
+                this.$validator.validateAll().then((result) => {
+                    console.log(result)
+                    console.log(JSON.stringify(this.orderBooking))
+                })
             }
         }
     }
 </script>
 
 <style type="text/css" scoped>
+.error {
+    color: red;
+}
 .form-booking__item {
-    border: 1px solid #d1d1d1;
     background-color: #fff;
     margin-bottom: 15px;
 }
@@ -137,7 +210,7 @@
     background-color: #19A577;
     color: #fff;
     font-size: 20px;
-    padding: 10px 20px 10px 50px;
+    padding: 10px 20px 10px 30px;
 }
 .form-booking__item .content {
     padding: 40px 32px 10px;
@@ -149,6 +222,10 @@
     padding: 6px 40px;
     background-color: #19A577;
     color: #fff;
+    background: #00F260;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
 }
 /* Phần Info bên trái*/
 .info-booking {

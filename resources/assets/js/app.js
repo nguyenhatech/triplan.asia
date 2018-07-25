@@ -7,11 +7,22 @@
 
 require('./bootstrap');
 
+
+window.Vue = require('vue');
+
 import indexStore from './store/index'
 import VCalendar from 'v-calendar';
 import 'v-calendar/lib/v-calendar.min.css';
 
-window.Vue = require('vue');
+import messages from 'vee-validate/dist/locale/vi';
+import VeeValidate from 'vee-validate';
+
+Vue.use(VeeValidate, {
+    locale: 'vi',
+    dictionary: {
+        vi: { messages: messages.messages }
+    }
+});
 
 Vue.use(VCalendar, {
   firstDayOfWeek: 2

@@ -225,7 +225,7 @@
     font-weight: bold;
 }
 .package_parent .choose_package {
-    border: 2px solid #19A577;
+    border: 1px solid #19A577;
     cursor: pointer;
     padding: 6px 35px;
     border-radius: 4px;
@@ -233,7 +233,10 @@
     display: flex;
 }
 .package_parent .choose_package:hover {
-    background-color: #f2f2f2;
+    background: #00F260;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
 }
 
 .package_children {

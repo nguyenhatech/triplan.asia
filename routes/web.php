@@ -21,6 +21,7 @@ Route::get('services/{id}-{slug}', 'ServiceController@detail')->name('web.servic
 
 // Module Booking
 Route::get('booking/step1', 'BookingController@bookingStep1')->name('web.booking.step1');
+Route::get('booking/thankyou', 'BookingController@thankyou')->name('web.booking.thankyou');
 
 // Module
 Route::get('/places/search', 'PlaceController@search')->name('places.search');

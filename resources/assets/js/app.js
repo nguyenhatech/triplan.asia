@@ -40,8 +40,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('list-service-package', require('./components/service-detail/ListServicePackage.vue'));
 Vue.component('oder-box', require('./components/service-detail/OderBox.vue'));
 
-// Trang Booking bước 1
+// Trang Booking
 Vue.component('booking-step1', require('./components/booking/Step1.vue'));
+Vue.component('thank-you', require('./components/booking/Thankyou.vue'));
 
 
 const app = new Vue({

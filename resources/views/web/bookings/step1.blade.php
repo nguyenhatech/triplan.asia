@@ -17,7 +17,7 @@
 
 @section('content')
     <div class="booking-step1">
-        <booking-step1></booking-step1>
+        <booking-step1 :data_params="{{ $data_params }}"></booking-step1>
     </div>
 @endsection
 

@@ -25,7 +25,8 @@ class ServiceController extends WebController
         ], 8);
 
         $data_params['url_booking_step1'] = route('web.booking.step1');
-        $data_params = json_encode($data_params);
+        $data_params['APP_URL']           = env('APP_URL');
+        $data_params                      = json_encode($data_params);
 
         return view('web.services.detail')->with([
             'title'   => 'Chi tiết',

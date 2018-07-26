@@ -10,19 +10,50 @@ class DbPlaceRepository extends BaseRepository implements PlaceRepository
         $this->model = $place;
     }
 
+    public function getBySlug($slug)
+    {
+        $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
+                            ->select('places.*', 'place_translations.name', 'place_translations.slug')
+                            ->where('place_translations.locale', getLocaleQuery())
+                            ->where('place_translations.slug', $slug);
+        return $model->first();
+    }
+
+    public function getById($id)
+    {
+        $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
+                            ->select('places.*', 'place_translations.name', 'place_translations.slug')
+                            ->where('place_translations.locale', getLocaleQuery())
+                            ->where('places.id', $id);
+        return $model->first();
+    }
+
     /**
      * Lấy dữ liệu
      */
     public function getByQuery($params, $size = 25, $sorting = [])
     {
-        $status = array_get($params, 'status', null);
+        $status = 1;
         $query  = array_get($params, 'q', null);
 
-        $model  = $this->model;
+        $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
+                            ->select('places.*', 'place_translations.name', 'place_translations.slug')
+                            ->where('place_translations.locale', getLocaleQuery());
 
         if (! empty($sorting)) {
 
-            $model = $model->orderBy($sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
+            $column_translation = [
+                'name'
+            ];
+
+            if (in_array($sorting[0], $column_translation)) {
+                $table = 'place_translations';
+            } else {
+                $table = 'places';
+            }
+
+            $model = $model->orderBy($table . '.' . $sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
+
         } else {
             $model = $model->orderBy('id', 'DESC');
         }

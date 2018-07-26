@@ -20,3 +20,4 @@
 <link property="og:image" href="{{ get_asset('web/images/logos/logo-triplan.png') }}" />
 <meta property="og:description" content="" />
 <meta property="og:url" href="{{ URL::current() }}" />
+<meta name="api-base-url" content="{{ env('API_URL') }}" />

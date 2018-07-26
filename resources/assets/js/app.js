@@ -7,7 +7,26 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
+
+import indexStore from './store/index'
+import VCalendar from 'v-calendar';
+import 'v-calendar/lib/v-calendar.min.css';
+
+import messages from 'vee-validate/dist/locale/vi';
+import VeeValidate from 'vee-validate';
+
+Vue.use(VeeValidate, {
+    locale: 'vi',
+    dictionary: {
+        vi: { messages: messages.messages }
+    }
+});
+
+Vue.use(VCalendar, {
+  firstDayOfWeek: 2
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17,6 +36,16 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+// Trang chi tiết dịch vụ
+Vue.component('list-service-package', require('./components/service-detail/ListServicePackage.vue'));
+Vue.component('oder-box', require('./components/service-detail/OderBox.vue'));
+
+// Trang Booking
+Vue.component('booking-step1', require('./components/booking/Step1.vue'));
+Vue.component('thank-you', require('./components/booking/Thankyou.vue'));
+
+
 const app = new Vue({
-    el: '#app'
+    el: '#td-outer-wrap',
+    store: indexStore
 });

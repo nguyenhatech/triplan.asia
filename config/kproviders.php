@@ -9,4 +9,9 @@ return [
 	App\Providers\PlaceServiceProvider::class,
 	App\Providers\PlaceTranslationServiceProvider::class,
 	App\Providers\ServiceTranslationServiceProvider::class,
+	App\Providers\ComfortServiceProvider::class,
+	App\Providers\ComfortTranslationServiceProvider::class,
+	App\Providers\CurrencyServiceProvider::class,
+	App\Providers\ServiceTypeServiceProvider::class,
+	App\Providers\ServiceGroupServiceProvider::class,
 ];

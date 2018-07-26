@@ -12,21 +12,21 @@
         .home-banner .slide-show {
             position: relative;
             width: 100vw;
-            height: 80vh;
+            height: 60vh;
         }
         .home-banner .slide-show .slide-show__item {
             position: absolute;
         }
         .home-banner .slide-show img {
             width: 100vw;
-            height: 80vh;
+            height: 60vh;
             object-fit: cover;
         }
         .home-banner .quick-search {
             position: absolute;
             top: 0;
             width: 100vw;
-            height: 80vh;
+            height: 60vh;
             color: #fff;
         }
         .home-banner .quick-search {
@@ -46,15 +46,16 @@
             width: 100%;
         }
         .home-banner .form input {
-            font-size: 13px;
+            font-size: 14px;
             border-radius: 0px;
             height: 50px;
+            border: none;
+            background-color: #ffffffd1;
         }
         .home-banner .form button {
-            margin-top: 10px;
             border-radius: 0px;
             height: 50px;
-            padding: 5px 35px;
+            padding: 5px 20px;
         }
         @media screen and (min-width: 375px) {
             .home-banner .quick-search {
@@ -78,7 +79,16 @@
                 width: 650px;
             }
             .home-banner .form button {
-                margin-top: 0px;
+                padding: 5px 35px;
+            }
+            .home-banner .slide-show {
+                height: 81vh;
+            }
+            .home-banner .slide-show img {
+                height: 81vh;
+            }
+            .home-banner .quick-search {
+                height: 81vh;
             }
         }
 
@@ -160,6 +170,7 @@
             border-bottom-right-radius: 6px;
             border-bottom-left-radius: 6px;
             padding: 15px;
+            min-height: 140px;
         }
         .home-best-trips .info-trip .price {
             font-size: 18px;
@@ -171,8 +182,10 @@
             color: #888888;
         }
         .home-best-trips .info-trip .name {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
+            max-height: 54px;
+
         }
 
     </style>
@@ -196,7 +209,7 @@
                 </div>
                 <div class="form">
                     <form method="get" action="#">
-                        <div class="d-flex flex-column flex-sm-row">
+                        <div class="d-flex flex-sm-row">
                             <input type="text" name="q" class="form-control" placeholder="Tìm địa điểm, hoạt động vui chơi ...">
                             <button type="submit" class="btn btn-success">
                                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -220,7 +233,7 @@
             <div class="row">
                 @forelse ($place_destinations as $key_place => $place)
                     <div class="col-sm-12 col-md-3">
-                        <a href="#">
+                        <a href="{{ route('web.tours') }}?place={{ $place->id }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage() }});">
                                 <span>{{ $place->getTranslation()->name }}</span>
                             </div>
@@ -238,20 +251,20 @@
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
                         <span class="title">Dịch vụ được yêu thích nhất</span>
-                        <span class="description">Các trải nghiệm được yêu thích bởi người yêu du lịch</span>
+                        <span class="description">Trải nghiệm bởi người yêu du lịch</span>
                     </div>
                 </div>
             </div>
             <div class="row">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
-                        <a href="#" class="link-best-trip__item">
+                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation()->slug]) }}" class="link-best-trip__item">
                             <div class="best-trip__item">
                                 <div class="image">
                                     <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
                                 </div>
                                 <div class="info-trip">
-                                    <p class="name">{{ $service->getTranslation()->name }}</p>
+                                    <p class="name">{{ title_case($service->getTranslation()->name) }}</p>
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
                                             <i class="fas fa-map-pin"></i>
@@ -259,7 +272,7 @@
                                         </span>
                                         <span class="d-flex align-items-center">
                                             <span class="currency">VND</span>
-                                            <span class="price">{{ number_format($service->price) }}</span>
+                                            <span class="price">{{ number_format($service->getPrice()) }}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -289,4 +302,21 @@
             },  3500);
         });
     </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1783355911741045');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1783355911741045&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 @endsection

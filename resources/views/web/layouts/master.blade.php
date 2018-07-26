@@ -10,10 +10,15 @@
         @yield('styles')
     </head>
     <body>
+        @include('web.layouts.modules.facebook')
+
         <div id="td-outer-wrap">
-            @include('web.layouts.modules.facebook')
             <header>
-                @include('web.layouts.modules.header')
+                @if (Request::is('service*') || Request::is('booking*'))
+                    @include('web.layouts.modules.header-scroll')
+                @else
+                    @include('web.layouts.modules.header')
+                @endif
             </header>
             <main>
                 @yield('content')
@@ -22,11 +27,9 @@
                 @include('web.layouts.modules.footer')
             </footer>
         </div>
-        <div class="td-search-background" style="height: 100vh;">
-          <div class="td-search-close">
-            <a href="#"><i class="fa fa-times"></i></a>
-          </div>
-        </div>
+
+        @include('web.layouts.modules.side-bar')
+
         <script type="text/javascript" src="{{ get_asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/mobile-navigation/custom-navigation.js') }}"></script>

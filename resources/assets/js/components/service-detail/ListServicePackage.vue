@@ -166,7 +166,7 @@
                 if (item.quantity != 0) {
                     item.quantity = item.quantity -1
                 }
-                this.setArrayServicegPackages(item)
+                this.setArrayServicePackages(item)
             },
             // Trừ 1 gói con
             increaseServicePackage (item) {

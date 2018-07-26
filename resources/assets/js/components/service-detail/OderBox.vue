@@ -82,7 +82,13 @@
                 return totalFree
             },
             disableButton () {
-                return this.date !== '' && this.package_name !== '';
+                let flag = false;
+                _.forEach(this.service_packages, (item) => {
+                    if (item.quantity) {
+                        flag = true
+                    }
+                })
+                return this.date !== '' && this.package_name !== '' && flag;
             }
         },
         mounted () {
@@ -98,7 +104,6 @@
                     service_packages: this.service_packages
                 };
 
-                // Put the object into storage
                 localStorage.setItem('dataBooking', JSON.stringify(dataBooking));
                 window.location.href = this.data_params.url_booking_step1
                 // var dataBooking = localStorage.getItem('dataBooking');

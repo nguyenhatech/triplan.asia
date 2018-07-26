@@ -117,7 +117,7 @@
                             <span style="color: #888">Đơn vị</span>
                             <div>
                                 <p v-for="item in dataBooking.service_packages" :key="item.id">
-                                    {{item.quantity}} x {{item.name}}
+                                    <span v-if="item.quantity">{{item.quantity}} x {{item.name}}</span>
                                 </p>
                             </div>
 

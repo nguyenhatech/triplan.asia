@@ -128,11 +128,11 @@
                     <div class="info">
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
                             <span style="color: #888">Tổng cộng</span>
-                            <span>{{ calcFee }} VND</span>
+                            <span>{{ calcFee | number }} VND</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
                             <span style="color: #888">Tổng tiền thanh toán</span>
-                            <span>{{ calcFee }} VND</span>
+                            <span>{{ calcFee | number }} VND</span>
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
             calcFee () {
                 let totalFree = 0;
                 _.forEach(this.dataBooking.service_packages, (value) => {
-                    totalFree += value.quantity * value.price
+                    totalFree += value.quantity * value.price_with_currency
                 })
                 return totalFree
             }

@@ -6,7 +6,7 @@
             <span>Giá từ</span>
             <span class="price">
                 <span>
-                    {{ service.price }}
+                    {{ service_info.price_with_currency | number }}
                 </span>
                 <span style="font-size: 12px;font-weight: bold">VND</span>
             </span>
@@ -29,7 +29,7 @@
                         x {{service_package.quantity}}
                     </span>
                 </div>
-                <p>Tổng tiền: {{ calcFee }}</p>
+                <p>Tổng tiền: {{ calcFee | number }} Vnd</p>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
@@ -71,7 +71,7 @@
             calcFee () {
                 let totalFree = 0;
                 _.forEach(this.service_packages, (value) => {
-                    totalFree += value.quantity * value.price
+                    totalFree += value.quantity * value.price_with_currency
                 })
                 return totalFree
             },

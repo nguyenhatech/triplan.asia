@@ -39,19 +39,28 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="name" >Quốc gia/Vùng lãnh thổ</label>
-                                    <select class="custom-select">
-                                        <option selected>Vui lòng chọn</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select
+                                        v-model="orderBooking.passport_infomation"
+                                        class="custom-select">
+                                        <option
+                                            v-for="country in countries"
+                                            :key="country.id"
+                                            :value="country.name">
+                                            {{ country.name }} ({{ country.country_code }})
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label class="name" >Mã </label>
-                                    <select class="custom-select">
-                                        <option value="1" selected>One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select
+                                        v-model="orderBooking.passport_infomation"
+                                        class="custom-select">
+                                        <option
+                                            v-for="country in countries"
+                                            :key="country.id"
+                                            :value="country.name">
+                                            ({{ country.country_code }})
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
@@ -160,17 +169,18 @@
                     }
                 },
                 orderBooking: {
-                    phone: '098123132131',
-                    email: 'nnthuc2402@gmail.com',
+                    phone: '',
+                    email: '',
                     alias: 'Mr',
-                    passport_last_name: 'Ngô',
-                    passport_first_name: 'Thức',
+                    passport_last_name: '',
+                    passport_first_name: '',
                     passport_infomation: 'Việt Nam',
                     country_code: '+84',
                     payment_method: 1,
                     currency_id: 1,
                     booking_details: []
-                }
+                },
+                countries: []
             }
         },
         components: {
@@ -187,6 +197,7 @@
         },
         mounted () {
             this.getDateLocalStorage();
+            this.fetchCurrencies();
         },
         methods: {
             getDateLocalStorage () {
@@ -200,6 +211,17 @@
                     service_id: this.dataBooking.service_info.id
                 }
                 this.orderBooking.booking_details.push(booking_detail_item);
+            },
+            fetchCurrencies () {
+                axios.get('countries', {params: {'limit':-1}}).then(response => {
+                    switch (response.code) {
+                        case 200:
+                            this.countries = response.data
+                            break;
+                        default:
+                            alert('Có lỗi xảy ra. Vui lòng liên hệ amdin')
+                    }
+                })
             },
             createBooking () {
                 this.$validator.validateAll().then((result) => {
@@ -223,6 +245,11 @@
                         })
                     }
                 })
+            }
+        },
+        watch: {
+            'orderBooking.passport_infomation' () {
+
             }
         }
     }

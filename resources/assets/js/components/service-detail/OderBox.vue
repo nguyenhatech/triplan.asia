@@ -6,11 +6,9 @@
             <span>Giá từ</span>
             <span class="price">
                 <span>
-                    VND
-                </span>
-                <span>
                     {{ service.price }}
                 </span>
+                <span style="font-size: 12px;font-weight: bold">VND</span>
             </span>
         </div>
         <div v-if="package_name">
@@ -38,10 +36,6 @@
             <span @click="nextStepBooking()" class="btn btn-block booking-now" :class="[!disableButton ? 'isDisabled' : '']">
                 ĐẶT NGAY
             </span>
-        </div>
-        <div class="count-booking">
-            <i class="fas fa-users"></i>
-            836 Đã được đặt
         </div>
     </div>
 </template>

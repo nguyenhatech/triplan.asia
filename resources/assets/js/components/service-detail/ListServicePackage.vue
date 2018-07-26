@@ -18,8 +18,8 @@
                     </div>
                     <div class="d-flex flex-column">
                         <div>
+                            <span class="price">{{ package_parent.price_with_currency | number }}</span>
                             <span class="currency">VND</span>
-                            <span class="price">{{ package_parent.price }}</span>
                         </div>
                         <span class="choose_package justify-content-center align-items-center"
                             v-show="!package_parent.checked"
@@ -40,7 +40,7 @@
                                     {{ package_children.name }}
                                 </span>
                                 <span class="price">
-                                    VND {{ package_children.price }} / Số lượng
+                                    {{ package_children.price_with_currency | number }} <span style="font-size: 10px; font-weight: bold">VND</span> / Số lượng
                                 </span>
                             </div>
                             <div class="d-flex align-items-center">
@@ -217,7 +217,7 @@
 }
 .package_parent .currency {
     color: #777;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
 }
 .package_parent .price {

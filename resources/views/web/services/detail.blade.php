@@ -81,12 +81,14 @@
         .service-description {
             padding: 20px 0px;
             text-align: justify;
+            font-family: 'Nunito', sans-serif !important;
         }
 
         .service-what_to_expect {
            text-align: justify;
            overflow: hidden;
            padding-bottom: 15px;
+           font-family: 'Nunito', sans-serif !important;
         }
         .service-what_to_expect h4 {
             font-weight: 700;

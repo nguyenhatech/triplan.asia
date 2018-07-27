@@ -308,6 +308,7 @@
     padding-left: 10px;
     outline: none;
     border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 }
 .vdp-datepicker__calendar {
     border: none !important;

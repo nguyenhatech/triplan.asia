@@ -4,6 +4,7 @@
         <div class="calander">
             <datepicker
                 ref="programaticOpen"
+                :inline="false"
                 placeholder="Chọn ngày"
                 :language="vi"
                 format="yyyy-MM-dd"
@@ -221,7 +222,8 @@
     border: 2px solid #19A577;
 }
 .service-package__item .package_parent {
-    padding: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 }
 .package_parent .name {
     font-weight: bold;
@@ -282,6 +284,7 @@
     height: 30px;
     border: 1px solid #19A577;
     cursor: pointer;
+    border-radius: 4px;
 }
 .package_children__item .button-action i {
     font-size: 10px;
@@ -294,6 +297,7 @@
     opacity: 0.4;
     cursor: default;
 }
+
 </style>
 
 <style type="text/css">
@@ -303,6 +307,11 @@
     border: none;
     padding-left: 10px;
     outline: none;
+    border-radius: 4px;
+}
+.vdp-datepicker__calendar {
+    border: none !important;
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
 }
 </style>

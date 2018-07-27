@@ -2,11 +2,15 @@
     <div class="service-package">
         <h4 class="title">Tùy chọn gói</h4>
         <div class="calander">
-            <v-date-picker
-                is-required
-                @input="changeDay(day)"
-                v-model="day">
-            </v-date-picker>
+            <datepicker
+                :inline="false"
+                :language="vi"
+                format="yyyy-MM-dd"
+                :disabledDates="{
+                    to: new Date(2018, 6, 20),
+                    from: new Date(2018, 6, 26),
+                }"
+                v-model="day"></datepicker>
         </div>
         <div class="d-flex flex-column">
             <div class="service-package__item"
@@ -70,6 +74,8 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex'
+    import Datepicker from 'vuejs-datepicker';
+    import {vi,en} from 'vuejs-datepicker/dist/locale'
     export default {
         name: 'ListServicePackage',
         props: {
@@ -82,6 +88,8 @@
         },
         data () {
             return {
+                en: en,
+                vi: vi,
                 servicePackageParent: [],
                 serviceDays: [],
                 day: null,
@@ -90,7 +98,7 @@
             }
         },
         components: {
-
+            Datepicker
         },
         computed: {
           ...mapGetters(['loading'])

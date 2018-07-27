@@ -11,8 +11,6 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import indexStore from './store/index'
-import VCalendar from 'v-calendar';
-import 'v-calendar/lib/v-calendar.min.css';
 
 import * as filters from './filters'
 
@@ -29,10 +27,6 @@ Vue.use(VeeValidate, {
     dictionary: {
         vi: { messages: messages.messages }
     }
-});
-
-Vue.use(VCalendar, {
-  firstDayOfWeek: 2
 });
 
 /**

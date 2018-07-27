@@ -8,11 +8,12 @@
                 placeholder="Chọn ngày"
                 :language="vi"
                 format="yyyy-MM-dd"
-                :disabledDates="{
-                    to: new Date(2018, 6, 20),
-                    from: new Date(2018, 6, 26),
-                }"
                 v-model="day"
+                :disabledDates="{
+                    dates: [
+                       new Date(2018, 6, 16), new Date(2018, 6, 17),new Date(2018, 6, 18)
+                    ]
+                }"
                 @closed="changeDay()">
 
             </datepicker>
@@ -80,7 +81,7 @@
 <script>
     import { mapGetters, mapActions } from 'vuex'
     import Datepicker from 'vuejs-datepicker';
-    import {vi,en} from 'vuejs-datepicker/dist/locale'
+    import {vi} from 'vuejs-datepicker/dist/locale'
     export default {
         name: 'ListServicePackage',
         props: {
@@ -93,7 +94,6 @@
         },
         data () {
             return {
-                en: en,
                 vi: vi,
                 servicePackageParent: [],
                 serviceDays: [],
@@ -139,8 +139,10 @@
                 })
             },
             changeDay () {
-                let day = this.getFormattedDate(this.day);
-                this.setServicePackageDay(day)
+                if (this.day) {
+                    let day = this.getFormattedDate(this.day);
+                    this.setServicePackageDay(day)
+                }
             },
             // Kích hoạt nút mở gói dịch vụ
             openPackageChildren (item) {
@@ -256,8 +258,8 @@
 
 .package_children {
     border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    padding: 10px 10px 0px 10px;
+    border-bottom: 1px solid #fff;
+    padding: 30px 20px 0px 20px;
     margin-bottom: 20px;
 }
 .package_children__item {
@@ -314,5 +316,6 @@
     border: none !important;
     box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
+    padding: 5px;
 }
 </style>

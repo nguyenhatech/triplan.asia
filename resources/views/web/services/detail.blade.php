@@ -169,7 +169,7 @@
             width: 365px;
             padding: 20px 15px;
             border-radius: 2px;
-            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             border: none;
         }
         .booking-service-destop .price {

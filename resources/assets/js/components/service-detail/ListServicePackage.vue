@@ -3,14 +3,18 @@
         <h4 class="title">Tùy chọn gói</h4>
         <div class="calander">
             <datepicker
-                :inline="false"
+                ref="programaticOpen"
+                placeholder="Chọn ngày"
                 :language="vi"
                 format="yyyy-MM-dd"
                 :disabledDates="{
                     to: new Date(2018, 6, 20),
                     from: new Date(2018, 6, 26),
                 }"
-                v-model="day"></datepicker>
+                v-model="day"
+                @closed="changeDay()">
+
+            </datepicker>
         </div>
         <div class="d-flex flex-column">
             <div class="service-package__item"
@@ -133,14 +137,14 @@
                     }
                 })
             },
-            changeDay (date) {
-                let day = this.getFormattedDate(date);
+            changeDay () {
+                let day = this.getFormattedDate(this.day);
                 this.setServicePackageDay(day)
             },
             // Kích hoạt nút mở gói dịch vụ
             openPackageChildren (item) {
                 if (this.day === null) {
-                    alert('Vui lòng chọn ngày đi');
+                    this.$refs.programaticOpen.showCalendar();
                     return
                 }
                 this.servicePackageParent.map(function(item, elem) {
@@ -290,5 +294,15 @@
     opacity: 0.4;
     cursor: default;
 }
+</style>
 
+<style type="text/css">
+.calander input {
+    height: 40px;
+    width: 250px;
+    border: none;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 4px;
+}
 </style>

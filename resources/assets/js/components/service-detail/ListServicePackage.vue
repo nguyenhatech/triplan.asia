@@ -125,9 +125,19 @@
             this.getServicePackageParent();
         },
         methods: {
-            ...mapActions('serviceDetail', ['setServicePackageName', 'setServicePackageDay', 'setArrayServicePackages', 'setServiceInfo']),
+            ...mapActions('serviceDetail', [
+                'setServicePackageName',
+                'setServicePackageDay',
+                'setArrayServicePackages',
+                'setServiceInfo'
+            ]),
+            // Fetch gói dịch vụ
             getServicePackageParent () {
-                axios.get('services/' + this.service.id, {params: {status: 1, include:'service_package_parent_actives.service_package_children_actives,service_day_actives'}}).then(response => {
+                let params = {
+                    status: 1,
+                    include:'service_package_parent_actives.service_package_children_actives,service_day_actives'
+                }
+                axios.get('services/' + this.service.id, {params: params}).then(response => {
                     switch (response.code) {
                         case 200:
                             this.addColumnToServicePackage(response.data.service_package_parent_actives.data);
@@ -151,11 +161,25 @@
                 })
                 this.servicePackageParent = servicePackageParent;
             },
+            // Thay đổi ngày dịch vụ
             changeDay () {
                 if (this.day) {
                     let day = this.getFormattedDate(this.day);
                     this.setServicePackageDay(day)
                 }
+            },
+            getFormattedDate(date) {
+                let year = date.getFullYear();
+                let month = date.getMonth() + 1;
+                if (month < 10 ) {
+                    month = "0" + month;
+                }
+                let day = date.getDate();
+                if (day < 10 ) {
+                    day = "0" + day;
+                }
+                let str = year + "-" + month + "-" + day;
+                return str;
             },
             // Kích hoạt nút mở gói dịch vụ
             openPackageChildren (item) {
@@ -175,19 +199,6 @@
                 })
                 item.checked = true;
                 this.setServicePackageName(item.name)
-            },
-            getFormattedDate(date) {
-                let year = date.getFullYear();
-                let month = date.getMonth() + 1;
-                if (month < 10 ) {
-                    month = "0" + month;
-                }
-                let day = date.getDate();
-                if (day < 10 ) {
-                    day = "0" + day;
-                }
-                let str = year + "-" + month + "-" + day;
-                return str;
             },
             // Tăng 1 gói con
             decreaseServicePackage (item) {

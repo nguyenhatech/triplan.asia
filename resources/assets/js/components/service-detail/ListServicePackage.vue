@@ -6,13 +6,13 @@
                 ref="programaticOpen"
                 :inline="false"
                 placeholder="Chọn ngày"
-                :language="vi"
+                :language="languages.vi"
                 format="yyyy-MM-dd"
                 v-model="day"
                 :disabledDates="{
-                    dates: [
-                       new Date(2018, 6, 16), new Date(2018, 6, 17),new Date(2018, 6, 18)
-                    ]
+                    to:  new Date(),
+                    from: disabledDates.from,
+                    dates: disabledDates.dates
                 }"
                 @closed="changeDay()">
 
@@ -80,6 +80,8 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex'
+    import { forEach } from 'lodash'
+    import moment from 'moment'
     import Datepicker from 'vuejs-datepicker';
     import {vi} from 'vuejs-datepicker/dist/locale'
     export default {
@@ -94,12 +96,15 @@
         },
         data () {
             return {
-                vi: vi,
+                languages: {
+                    vi: vi
+                },
+                disabledDates: {
+                    from: '',
+                    dates: []
+                },
                 servicePackageParent: [],
-                serviceDays: [],
-                day: null,
-                service_info: {}
-
+                day: null
             }
         },
         components: {
@@ -109,6 +114,14 @@
           ...mapGetters(['loading'])
         },
         mounted () {
+            // let a = moment('2018-07-19');
+            // console.log(a._d)
+            // this.hihi.push(a._d)
+            // let  _this = this
+            // forEach ([1], function (item) {
+            //     _this.hihi.push(new Date('2018','6','17'))
+            // })
+            // console.log(this.hihi)
             this.getServicePackageParent();
         },
         methods: {
@@ -117,19 +130,8 @@
                 axios.get('services/' + this.service.id, {params: {status: 1, include:'service_package_parent_actives.service_package_children_actives,service_day_actives'}}).then(response => {
                     switch (response.code) {
                         case 200:
-                            let servicePackageParent = response.data.service_package_parent_actives.data;
-                            servicePackageParent.map(function(index, elem) {
-                                index.checked = false;
-                                index.service_package_children_actives.data.map(function(index2, elem2) {
-                                    index2.quantity = 0;
-                                    return index2;
-                                })
-                                return index;
-                            })
-                            this.servicePackageParent = servicePackageParent;
-                            this.serviceDays = response.data.service_day_actives;
-                            this.service_info = response.data;
-                            this.setServiceInfo(this.service_info)
+                            this.addColumnToServicePackage(response.data.service_package_parent_actives.data);
+                            this.setServiceInfo(response.data);
                             break
                         case 404:
                             break
@@ -137,6 +139,17 @@
                             break
                     }
                 })
+            },
+            addColumnToServicePackage (servicePackageParent) {
+                servicePackageParent.map(function(index, elem) {
+                    index.checked = false;
+                    index.service_package_children_actives.data.map(function(index2, elem2) {
+                        index2.quantity = 0;
+                        return index2;
+                    })
+                    return index;
+                })
+                this.servicePackageParent = servicePackageParent;
             },
             changeDay () {
                 if (this.day) {

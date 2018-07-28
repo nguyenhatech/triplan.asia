@@ -111,7 +111,7 @@
             Datepicker
         },
         computed: {
-          ...mapGetters(['loading'])
+            ...mapGetters(['loading'])
         },
         mounted () {
             // let a = moment('2018-07-19');

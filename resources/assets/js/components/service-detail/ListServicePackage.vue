@@ -114,14 +114,6 @@
             ...mapGetters(['loading'])
         },
         mounted () {
-            // let a = moment('2018-07-19');
-            // console.log(a._d)
-            // this.hihi.push(a._d)
-            // let  _this = this
-            // forEach ([1], function (item) {
-            //     _this.hihi.push(new Date('2018','6','17'))
-            // })
-            // console.log(this.hihi)
             this.getServicePackageParent();
         },
         methods: {
@@ -141,6 +133,7 @@
                     switch (response.code) {
                         case 200:
                             this.addColumnToServicePackage(response.data.service_package_parent_actives.data);
+                            this.setDisabledDates(response.data.disabledDates);
                             this.setServiceInfo(response.data);
                             break
                         case 404:
@@ -160,6 +153,16 @@
                     return index;
                 })
                 this.servicePackageParent = servicePackageParent;
+            },
+            setDisabledDates (data) {
+                let disabledDates = JSON.parse(data)
+                if (disabledDates.length) {
+                    let  _this = this
+                    forEach (disabledDates, function (item) {
+                        _this.disabledDates.dates.push(moment(item)._d)
+                        _this.disabledDates.from = moment(item)._d
+                    })
+                }
             },
             // Thay đổi ngày dịch vụ
             changeDay () {

@@ -206,12 +206,12 @@
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">
                 <div class="solugan d-flex flex-column justify-content-center align-items-center">
                     <h2>@lang('where_do_you_want_to_go')</h2>
-                    <h1>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một</h1>
+                    <h1>@lang('web_home_baner_top_sologun')</h1>
                 </div>
                 <div class="form">
                     <form method="get" action="#">
                         <div class="d-flex flex-sm-row">
-                            <input type="text" name="q" class="form-control" placeholder="Tìm địa điểm, hoạt động vui chơi ...">
+                            <input type="text" name="q" class="form-control" placeholder="@lang('web_home_baner_top_placehoder_input')">
                             <button type="submit" class="btn btn-success">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
@@ -226,8 +226,8 @@
             <div class="row">
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                        <span class="title">Điểm đến lý tưởng</span>
-                        <span class="description">Điểm đến du lịch tốt nhất thế giới</span>
+                        <span class="title">@lang('web_home_ideal_destination')</span>
+                        <span class="description">@lang('web_home_ideal_destination_description')</span>
                     </div>
                 </div>
             </div>
@@ -251,8 +251,8 @@
             <div class="row">
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                        <span class="title">Dịch vụ được yêu thích nhất</span>
-                        <span class="description">Trải nghiệm bởi người yêu du lịch</span>
+                        <span class="title">@lang('web_home_favorite_service')</span>
+                        <span class="description">@lang('web_home_favorite_service_description')</span>
                     </div>
                 </div>
             </div>

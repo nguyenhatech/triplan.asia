@@ -212,18 +212,6 @@
                     <div class="service-name">
                         <h1>{{ title_case($service->getTranslation()->name) }}</h1>
                     </div>
-{{--                     <div class="service-time_confirm_love d-flex justify-content-between align-items-center">
-                        <div class="time_confirm d-flex align-items-center">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>
-                                {{ $service->getTimeConfirmText() }}
-                            </span>
-                        </div>
-                        <div class="love">
-                            <i class="far fa-heart"></i>
-                            <span>Yêu thích</span>
-                        </div>
-                    </div> --}}
                     <div class="service-sub_data_mobile d-block d-sm-none">
                         <div>
                             <div>
@@ -248,7 +236,10 @@
                         </div>
                     @endif
                     <div>
-                        <list-service-package :service="{{ $service }}"></list-service-package>
+                        <list-service-package
+                            :service="{{ $service }}">
+
+                        </list-service-package>
                     </div>
                     @if ($service->getTranslation()->description)
                         <div class="service-description">
@@ -259,7 +250,7 @@
                     @endif
                     @if ($service->getTranslation()->what_to_expect)
                         <div class="service-what_to_expect">
-                            <h4>Trải nghiệm dành cho bạn !</h4>
+                            <h4>@lang('web_service_experience_for_you')</h4>
                             <div>
                                 {!! $service->getTranslation()->what_to_expect !!}
                             </div>
@@ -267,7 +258,7 @@
                     @endif
                     @if ($service->getTranslation()->activity_information)
                         <div class="service-what_to_expect">
-                            <h4>Thông tin dịch vụ !</h4>
+                            <h4>@lang('web_service_information_services')</h4>
                             <div>
                                 {!! $service->getTranslation()->activity_information !!}
                             </div>
@@ -275,14 +266,14 @@
                     @endif
                     @if ($service->getTranslation()->how_to_use)
                         <div class="service-what_to_expect">
-                            <h4>Hướng dẫn sử dụng !</h4>
+                            <h4>@lang('web_service_user_manual')</h4>
                             <div>
                                 {!! $service->getTranslation()->how_to_use !!}
                             </div>
                         </div>
                     @endif
                     <div class="service-what_to_expect">
-                        <h4>Bản đồ</h4>
+                        <h4>@lang('web_service_map')</h4>
                         <div id="map" style="height: 400px; background-color: #ccc"></div>
                     </div>
                 </div>
@@ -296,7 +287,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="service-involve">
-                    <h3>Có thể bạn quan tâm</h3>
+                    <h3>@lang('web_service_maybe_you_are_interested')</h3>
                     <div class="owl-carousel">
                         @forelse ($service_involves as $service_involve)
                             <a href="{{ route('web.services.detail', [$service_involve->id, $service_involve->getTranslation()->slug]) }}">

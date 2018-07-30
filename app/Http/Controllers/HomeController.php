@@ -28,6 +28,14 @@ class HomeController extends WebController
         $this->serviceGroup  = $serviceGroup;
     }
 
+    // Thay đổi ngôn ngữ hệ thống
+    public function changeLanguage($language)
+    {
+        \Session::put('locale', $language);
+
+        return redirect()->back();
+    }
+
     public function index(Request $request)
     {
         // Điểm đến lý tưởng

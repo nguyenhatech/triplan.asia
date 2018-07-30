@@ -12,10 +12,8 @@
 */
 
 Route::group(['middleware' => 'locale'], function() {
-    Route::get('language/{locale}', function ($locale) {
-        Session::put('locale', $locale);
-        return redirect()->back();
-    });
+    // Thay đổi ngôn ngữ hệ thống
+    Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('web.change-language');
 
     Route::get('/', 'HomeController@index')->name('web.home');
 

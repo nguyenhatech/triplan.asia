@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="footer-title">
-                    <span>Về chúng tôi</span>
+                    <span>@lang('about_us')</span>
                 </div>
                 <div class="about-us">
                     <p>Triplan ra đời với mục tiêu áp dụng những kinh nghiệm sẵn có và công nghệ hiện đại vào dịch vụ du lịch nhằm đem đến khách hàng những tour thú vị, chất lượng</p>
@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-4">
                 <div class="footer-title">
-                    <span>Liên hệ</span>
+                    <span>@lang('contact')</span>
                 </div>
                 <div class="contact-us">
                     <div class="contact-us__item d-flex align-items-center">
@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-4">
                 <div class="footer-title">
-                    <span>Kết nối với chúng tôi</span>
+                    <span>@lang('connect_with_us')</span>
                 </div>
                 <div>
                     <div class="fb-page" data-href="https://www.facebook.com/TriplanVN/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/TriplanVN/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TriplanVN/">Triplan Viet Nam</a></blockquote></div>
@@ -87,7 +87,7 @@
         <div class="row">
             <div class="col-md-12">
                 <span>
-                    @ Copyright 2018 - Phiên bản chính thức - Mọi quyền đều được bảo lưu
+                    @lang('footer_sologun')
                 </span>
             </div>
         </div>

@@ -1,7 +1,9 @@
 {
-   "__________________________________________comment": "Header",
+    "__________________________________________comment": "Header",
     "home_page": "Trang chủ",
     "travel_handbook": "Cẩm nang du lịch",
+
+
     "__________________________________________comment": "Web/Home",
     "where_do_you_want_to_go": "Bạn muốn đi đâu ?",
     "web_home_baner_top_sologun": "Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một",
@@ -9,5 +11,15 @@
     "web_home_ideal_destination": "Điểm đến lý tưởng",
     "web_home_ideal_destination_description": "Điểm đến du lịch tốt nhất thế giới",
     "web_home_favorite_service": "Dịch vụ được yêu thích nhất",
-    "web_home_favorite_service_description": "Trải nghiệm bởi người yêu du lịch"
+    "web_home_favorite_service_description": "Trải nghiệm bởi người yêu du lịch",
+
+
+    "__________________________________________comment": "Footer",
+    "about_us": "Về chúng tôi",
+    "contact": "Liên hệ",
+    "connect_with_us": "Kết nối với chúng tôi",
+    "footer_sologun": "@ Copyright 2018 - Phiên bản chính thức - Mọi quyền đều được bảo lưu",
+
+    "__________________________________________comment": "Web/Service"
+
 }

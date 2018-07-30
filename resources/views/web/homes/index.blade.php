@@ -180,6 +180,7 @@
         }
         .home-best-trips .info-trip .address {
             color: #888888;
+            margin-right: 10px;
         }
         .home-best-trips .info-trip .name {
             font-size: 15px;
@@ -205,6 +206,7 @@
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">
                 <div class="solugan d-flex flex-column justify-content-center align-items-center">
                     <h2>Bạn muốn đi đâu ?</h2>
+                    <span class="title">{{ trans('messages.welcome') }}</span>
                     <h1>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một</h1>
                 </div>
                 <div class="form">

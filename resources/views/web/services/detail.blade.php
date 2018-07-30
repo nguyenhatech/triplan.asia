@@ -307,14 +307,11 @@
                                     <div class="info d-flex flex-column">
                                         <div class="name">
                                             <span>
-                                                {{ $service_involve->getTranslation()->name }}
+                                                {{ title_case($service_involve->getTranslation()->name) }}
                                             </span>
                                         </div>
                                         <div class="d-flex flex-column">
                                             <span class="price">VND {{ number_format($service_involve->getPrice()) }}</span>
-                                            <span>
-                                                {{ $service_involve->getTimeConfirmText() }}
-                                            </span>
                                         </div>
                                     </div>
                                 </div>

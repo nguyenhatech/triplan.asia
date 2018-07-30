@@ -14,17 +14,14 @@
                         <a class="nav-link" href="#">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cẩm nang du lịch</a>
+                        <a class="nav-link" href="http://blog.triplan.asia">Cẩm nang du lịch</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tuyển dụng</a>
-                    </li>
-                    <li class="nav-item">
+{{--                     <li class="nav-item">
                         <a class="nav-link" href="#">
                         <i class="far fa-user"></i>
                         Đăng kí / Đăng nhập
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </nav>

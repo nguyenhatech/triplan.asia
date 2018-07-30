@@ -185,7 +185,7 @@
             font-size: 15px;
             font-weight: bold;
             max-height: 54px;
-
+            min-height: 44px;
         }
 
     </style>

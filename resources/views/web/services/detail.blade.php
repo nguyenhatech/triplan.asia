@@ -81,12 +81,14 @@
         .service-description {
             padding: 20px 0px;
             text-align: justify;
+            font-family: 'Nunito', sans-serif !important;
         }
 
         .service-what_to_expect {
            text-align: justify;
            overflow: hidden;
            padding-bottom: 15px;
+           font-family: 'Nunito', sans-serif !important;
         }
         .service-what_to_expect h4 {
             font-weight: 700;
@@ -167,7 +169,7 @@
             width: 365px;
             padding: 20px 15px;
             border-radius: 2px;
-            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             border: none;
         }
         .booking-service-destop .price {
@@ -305,14 +307,11 @@
                                     <div class="info d-flex flex-column">
                                         <div class="name">
                                             <span>
-                                                {{ $service_involve->getTranslation()->name }}
+                                                {{ title_case($service_involve->getTranslation()->name) }}
                                             </span>
                                         </div>
                                         <div class="d-flex flex-column">
                                             <span class="price">VND {{ number_format($service_involve->getPrice()) }}</span>
-                                            <span>
-                                                {{ $service_involve->getTimeConfirmText() }}
-                                            </span>
                                         </div>
                                     </div>
                                 </div>

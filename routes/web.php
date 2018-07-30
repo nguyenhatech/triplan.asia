@@ -11,23 +11,28 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('web.home');
+Route::group(['middleware' => 'locale'], function() {
+    // Thay đổi ngôn ngữ hệ thống
+    Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('web.change-language');
 
-// Module
-Route::get('tours', 'HomeController@tours')->name('web.tours');
+    Route::get('/', 'HomeController@index')->name('web.home');
 
-// Module Service
-Route::get('services/{id}-{slug}', 'ServiceController@detail')->name('web.services.detail');
+    // Module
+    Route::get('tours', 'HomeController@tours')->name('web.tours');
 
-// Module Booking
-Route::get('booking/step1', 'BookingController@bookingStep1')->name('web.booking.step1');
-Route::get('booking/thankyou', 'BookingController@thankyou')->name('web.booking.thankyou');
+    // Module Service
+    Route::get('services/{id}-{slug}', 'ServiceController@detail')->name('web.services.detail');
 
-// Module
-Route::get('/places/search', 'PlaceController@search')->name('places.search');
+    // Module Booking
+    Route::get('booking/step1', 'BookingController@bookingStep1')->name('web.booking.step1');
+    Route::get('booking/thankyou', 'BookingController@thankyou')->name('web.booking.thankyou');
 
-// Login Facebook
-Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');
-Route::get('/callback/{social}', 'SocialAuthController@callback')->name('callback-social');
+    // Module
+    Route::get('/places/search', 'PlaceController@search')->name('places.search');
 
-Auth::routes();
+    // Login Facebook
+    Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');
+    Route::get('/callback/{social}', 'SocialAuthController@callback')->name('callback-social');
+
+    Auth::routes();
+});

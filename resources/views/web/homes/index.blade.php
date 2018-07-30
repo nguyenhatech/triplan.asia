@@ -180,12 +180,13 @@
         }
         .home-best-trips .info-trip .address {
             color: #888888;
+            margin-right: 10px;
         }
         .home-best-trips .info-trip .name {
             font-size: 15px;
             font-weight: bold;
             max-height: 54px;
-
+            min-height: 44px;
         }
 
     </style>

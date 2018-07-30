@@ -12,4 +12,9 @@ jQuery(document).ready(function($) {
             $('#logo_white').show();
         }
     });
+
+    // Phần chọn thay đổi ngôn ngữ chỗ footer chân trang:
+    $('#language-system').on('change', function() {
+        window.location.href = this.value;
+    })
 });

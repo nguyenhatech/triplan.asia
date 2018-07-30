@@ -8,6 +8,22 @@
                 <div class="about-us">
                     <p>Triplan ra đời với mục tiêu áp dụng những kinh nghiệm sẵn có và công nghệ hiện đại vào dịch vụ du lịch nhằm đem đến khách hàng những tour thú vị, chất lượng</p>
                 </div>
+                <div>
+                    <select id="language-system" class="form-control" style="width: 50%">
+                        @if(Session::has('locale'))
+                            <option
+                                {{ Session::get('locale') == 'vi' ? 'selected' : '' }}
+                                value="{{ route('web.change-language', 'vi') }}">Tiếng Việt</option>
+                            <option
+                                {{ Session::get('locale') == 'en' ? 'selected' : '' }}
+                                value="{{ route('web.change-language', 'en') }}">Tiếng Anh</option>
+                        @else
+                            <option value="{{ route('web.change-language', 'vi') }}">Tiếng Việt</option>
+                            <option value="{{ route('web.change-language', 'en') }}">Tiếng Anh</option>
+                        @endif
+
+                    </select>
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="footer-title">

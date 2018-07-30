@@ -72,11 +72,11 @@
                 font-size: 18px;
             }
             .home-banner .solugan h2 {
-                font-size: 50px;
+                font-size: 42px;
                 font-weight: bold;
             }
             .home-banner .quick-search {
-                width: 650px;
+                width: 725px;
             }
             .home-banner .form button {
                 padding: 5px 35px;
@@ -205,7 +205,7 @@
         <div class="d-flex justify-content-center align-items-center">
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">
                 <div class="solugan d-flex flex-column justify-content-center align-items-center">
-                    <h2>Bạn muốn đi đâu ?</h2>
+                    <h2>@lang('where_do_you_want_to_go')</h2>
                     <h1>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một</h1>
                 </div>
                 <div class="form">

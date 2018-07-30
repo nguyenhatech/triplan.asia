@@ -11,10 +11,10 @@
             <div class="collapse navbar-collapse justify-content-end" id="">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Trang chủ</a>
+                        <a class="nav-link" href="#">@lang('home_page')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://blog.triplan.asia">Cẩm nang du lịch</a>
+                        <a class="nav-link" href="http://blog.triplan.asia">@lang('travel_handbook')</a>
                     </li>
 {{--                     <li class="nav-item">
                         <a class="nav-link" href="#">

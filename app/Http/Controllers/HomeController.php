@@ -50,6 +50,9 @@ class HomeController extends WebController
     public function tours(Request $request)
     {
         $place = $this->place->getById(array_get($request->all(), 'place', ''));
+        if (!$place) {
+            abort(404);
+        }
 
         $durations = Service::TIME_FILTERS;
         $service_groups = $this->serviceGroup->getByQuery([], -1);

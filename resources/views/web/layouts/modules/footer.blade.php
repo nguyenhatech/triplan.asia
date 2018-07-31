@@ -27,12 +27,12 @@
                         <span>support.triplan@gmail.com</span>
                     </div>
                     <div class="social d-flex align-items-center">
-                        <a href="https://www.facebook.com/TriplanVN/">
+                        <a target="_blank" href="https://www.facebook.com/TriplanVN/">
                             <span style="background-color: #306098" class="d-flex align-items-center justify-content-center">
                                 <i class="fab fa-facebook-f"></i>
                             </span>
                         </a>
-                        <a href="https://twitter.com/TriplanVietnam">
+                        <a target="_blank" href="https://twitter.com/TriplanVietnam">
                             <span style="background-color: #21C4F1" class="d-flex align-items-center justify-content-center">
                                 <i class="fab fa-twitter"></i>
                             </span>

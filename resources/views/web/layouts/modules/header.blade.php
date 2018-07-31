@@ -12,7 +12,7 @@
                 <ul class="navbar-nav">
                     <li style="margin-right: 15px;">
                         <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if (Session::get('locale', config('app.locale')) == 'vi')
                                     <img src="{{get_asset('web/images/languages/vi.png')}}">
                                     <span>Tiếng Việt</span>

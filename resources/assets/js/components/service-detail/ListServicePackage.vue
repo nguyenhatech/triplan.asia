@@ -1,6 +1,6 @@
 <template>
     <div class="service-package">
-        <h4 class="title">{{ trans('web_service_package_options') }}</h4>
+        <h4 class="title">{{ data_params.trans.web_service_package_options }}</h4>
         <div class="calander">
             <datepicker
                 ref="programaticOpen"
@@ -87,10 +87,10 @@
     export default {
         name: 'ListServicePackage',
         props: {
-            web_service_package_options: {
-                type: String,
+            data_params: {
+                type: Object,
                 default: () => {
-                  return "Tùy chọn gói"
+                  return {}
                 }
             },
             service: {
@@ -120,7 +120,7 @@
             ...mapGetters(['loading'])
         },
         mounted () {
-            console.log(this.web_service_package_options)
+            console.log(this.data_params)
             this.getServicePackageParent();
         },
         methods: {

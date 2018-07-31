@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\WebController;
 
 use App\Repositories\Services\ServiceRepository;
+use Lang;
 
 class ServiceController extends WebController
 {
@@ -26,6 +27,7 @@ class ServiceController extends WebController
 
         $data_params['APP_URL']           = env('APP_URL');
         $data_params['url_booking_step1'] = route('web.booking.step1');
+        $data_params['trans']             = __('*');
         $data_params                      = json_encode($data_params);
 
         return view('web.services.detail')->with([

@@ -120,7 +120,6 @@
             ...mapGetters(['loading'])
         },
         mounted () {
-            console.log(this.data_params)
             this.getServicePackageParent();
         },
         methods: {

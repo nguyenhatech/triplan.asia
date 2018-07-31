@@ -235,7 +235,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+{{--             <div class="row">
                 @forelse ($place_destinations as $key_place => $place)
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ route('web.tours') }}?place={{ $place->id }}">
@@ -247,7 +247,7 @@
                 @empty
 
                 @endforelse
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="home-best-trips">

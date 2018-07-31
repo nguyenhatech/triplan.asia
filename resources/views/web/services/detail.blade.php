@@ -383,9 +383,21 @@
         }
 
         $(window).scroll(function() {
+            let body = document.body,
+                html = document.documentElement;
+
+            let height = Math.max( body.scrollHeight, body.offsetHeight,
+                                   html.clientHeight, html.scrollHeight, html.offsetHeight );
+            console.log('1:', $(this).scrollTop());
+            console.log(height - 1200);
             if ($(this).scrollTop() > 500) {
                 $('.booking-service-destop').addClass('fixed');
             } else {
+                $('.booking-service-destop').removeClass('fixed');
+            }
+
+            if ($(this).scrollTop() > (height - 1000)) {
+                console.log('dưqdqwdq');
                 $('.booking-service-destop').removeClass('fixed');
             }
         });

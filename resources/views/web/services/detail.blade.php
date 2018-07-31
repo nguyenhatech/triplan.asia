@@ -202,7 +202,7 @@
 @endsection
 
 @php
-    $locale = Session::get('locale');
+    $locale = Session::get('locale', config('app.locale'));
 @endphp
 
 @section('content')

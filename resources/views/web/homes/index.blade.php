@@ -192,6 +192,10 @@
     </style>
 @endsection
 
+@php
+    $locale = Session::get('locale', config('app.locale'));
+@endphp
+
 @section('content')
     <div class="home-banner">
         <div class="slide-show">
@@ -236,7 +240,7 @@
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ route('web.tours') }}?place={{ $place->id }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage() }});">
-                                <span>{{ $place->getTranslation()->name }}</span>
+                                <span>{{ $place->getTranslation($locale)->name }}</span>
                             </div>
                         </a>
                     </div>
@@ -259,17 +263,17 @@
             <div class="row">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
-                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation()->slug]) }}" class="link-best-trip__item">
+                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation($locale)->slug]) }}" class="link-best-trip__item">
                             <div class="best-trip__item">
                                 <div class="image">
-                                    <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
+                                    <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
                                 </div>
                                 <div class="info-trip">
-                                    <p class="name">{{ title_case($service->getTranslation()->name) }}</p>
+                                    <p class="name">{{ title_case($service->getTranslation($locale)->name) }}</p>
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
                                             <i class="fas fa-map-pin"></i>
-                                            <span>{{ $service->getTranslation()->address }}</span>
+                                            <span>{{ $service->getTranslation($locale)->address }}</span>
                                         </span>
                                         <span class="d-flex align-items-center">
                                             <span class="currency">VND</span>

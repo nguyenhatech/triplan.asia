@@ -10,7 +10,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="">
                 <ul class="navbar-nav">
-                    <li style="margin-right: 15px;">
+                    <li id="language-system" style="margin-right: 15px;">
                         <div class="dropdown">
                             <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if (Session::get('locale', config('app.locale')) == 'vi')

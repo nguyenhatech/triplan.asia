@@ -3,7 +3,7 @@
         <div
             class="d-flex justify-content-between"
             v-if="!package_name">
-            <span>Giá từ</span>
+            <span>{{ data_params.trans.web_service_price_form }}</span>
             <span class="price">
                 <span>
                     {{ service_info.price_with_currency | number }}
@@ -34,7 +34,7 @@
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
             <span @click="nextStepBooking()" class="btn btn-block booking-now" :class="[!disableButton ? 'isDisabled' : '']">
-                ĐẶT NGAY
+                {{ data_params.trans.web_service_book_now }}
             </span>
         </div>
     </div>

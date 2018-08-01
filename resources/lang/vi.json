@@ -1,0 +1,33 @@
+{
+    "__________________________________________comment": "Header",
+    "home_page": "Trang chủ",
+    "travel_handbook": "Tin tức",
+
+
+    "__________________________________________comment": "Web/Home",
+    "where_do_you_want_to_go": "Bạn muốn đi đâu ?",
+    "web_home_baner_top_sologun": "Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một",
+    "web_home_baner_top_placehoder_input": "Tìm địa điểm, hoạt động vui chơi ...",
+    "web_home_ideal_destination": "Điểm đến lý tưởng",
+    "web_home_ideal_destination_description": "Điểm đến du lịch tốt nhất thế giới",
+    "web_home_favorite_service": "Dịch vụ được yêu thích nhất",
+    "web_home_favorite_service_description": "Trải nghiệm bởi người yêu du lịch",
+
+
+    "__________________________________________comment": "Footer",
+    "about_us": "Về chúng tôi",
+    "contact": "Liên hệ",
+    "connect_with_us": "Kết nối với chúng tôi",
+    "footer_sologun": "@ Copyright 2018 - Phiên bản chính thức - Mọi quyền đều được bảo lưu",
+
+    "__________________________________________comment": "Web/Service",
+    "web_service_experience_for_you": "Trải nghiệm dành cho bạn !",
+    "web_service_information_services": "Thông tin dịch vụ !",
+    "web_service_user_manual": "Hướng dẫn sử dụng !",
+    "web_service_map": "Bản đố",
+    "web_service_maybe_you_are_interested": "Có thể bạn quan tâm",
+    "web_service_package_options": "Tùy chọn gói",
+    "web_service_price_form": "Giá từ",
+    "web_service_book_now": "Đặt ngay"
+
+}

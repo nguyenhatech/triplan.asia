@@ -1,6 +1,6 @@
 <template>
     <div class="service-package">
-        <h4 class="title">Tùy chọn gói</h4>
+        <h4 class="title">{{ data_params.trans.web_service_package_options }}</h4>
         <div class="calander">
             <datepicker
                 ref="programaticOpen"
@@ -50,7 +50,7 @@
                                     {{ package_children.name }}
                                 </span>
                                 <span class="price">
-                                    {{ package_children.price_with_currency | number }} <span style="font-size: 10px; font-weight: bold">VND</span> / Số lượng
+                                    {{ package_children.price_with_currency | number }} <span style="font-size: 10px; font-weight: bold">VND</span>
                                 </span>
                             </div>
                             <div class="d-flex align-items-center">
@@ -87,12 +87,18 @@
     export default {
         name: 'ListServicePackage',
         props: {
-          service: {
-            type: Object,
-            default: () => {
-              return {}
+            data_params: {
+                type: Object,
+                default: () => {
+                  return {}
+                }
+            },
+            service: {
+                type: Object,
+                default: () => {
+                  return {}
+                }
             }
-          }
         },
         data () {
             return {

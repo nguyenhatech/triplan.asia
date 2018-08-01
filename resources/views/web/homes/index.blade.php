@@ -72,11 +72,11 @@
                 font-size: 18px;
             }
             .home-banner .solugan h2 {
-                font-size: 50px;
+                font-size: 42px;
                 font-weight: bold;
             }
             .home-banner .quick-search {
-                width: 650px;
+                width: 725px;
             }
             .home-banner .form button {
                 padding: 5px 35px;
@@ -275,6 +275,10 @@
     </style>
 @endsection
 
+@php
+    $locale = Session::get('locale', config('app.locale'));
+@endphp
+
 @section('content')
     <div class="home-banner">
         <div class="slide-show">
@@ -288,13 +292,13 @@
         <div class="d-flex justify-content-center align-items-center">
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">
                 <div class="solugan d-flex flex-column justify-content-center align-items-center">
-                    <h2>Bạn muốn đi đâu ?</h2>
-                    <h1>Chuyến đi, trải nghiệm và địa điểm. Tất cả trong một</h1>
+                    <h2>@lang('where_do_you_want_to_go')</h2>
+                    <h1>@lang('web_home_baner_top_sologun')</h1>
                 </div>
                 <div class="form">
                     <form method="get" action="#">
                         <div class="d-flex flex-sm-row">
-                            <input type="text" name="q" class="form-control" placeholder="Tìm địa điểm, hoạt động vui chơi ...">
+                            <input type="text" name="q" class="form-control" placeholder="@lang('web_home_baner_top_placehoder_input')">
                             <button type="submit" class="btn btn-success">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
@@ -309,8 +313,8 @@
             <div class="row">
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                        <span class="title">Điểm đến lý tưởng</span>
-                        <span class="description">Điểm đến du lịch tốt nhất thế giới</span>
+                        <span class="title">@lang('web_home_ideal_destination')</span>
+                        <span class="description">@lang('web_home_ideal_destination_description')</span>
                     </div>
                 </div>
             </div>
@@ -319,7 +323,7 @@
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ $place->getUrl() }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage() }});">
-                                <span>{{ $place->getTranslation()->name }}</span>
+                                <span>{{ $place->getTranslation($locale)->name }}</span>
                             </div>
                         </a>
                     </div>
@@ -334,25 +338,25 @@
             <div class="row">
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                        <span class="title">Dịch vụ được yêu thích nhất</span>
-                        <span class="description">Trải nghiệm bởi người yêu du lịch</span>
+                        <span class="title">@lang('web_home_favorite_service')</span>
+                        <span class="description">@lang('web_home_favorite_service_description')</span>
                     </div>
                 </div>
             </div>
             <div class="row">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
-                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation()->slug]) }}" class="link-best-trip__item">
+                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation($locale)->slug]) }}" class="link-best-trip__item">
                             <div class="best-trip__item">
                                 <div class="image">
-                                    <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
+                                    <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
                                 </div>
                                 <div class="info-trip">
-                                    <p class="name">{{ title_case($service->getTranslation()->name) }}</p>
+                                    <p class="name">{{ title_case($service->getTranslation($locale)->name) }}</p>
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
                                             <i class="fas fa-map-pin"></i>
-                                            <span>{{ $service->getTranslation()->address }}</span>
+                                            <span>{{ $service->getTranslation($locale)->address }}</span>
                                         </span>
                                         <span class="d-flex align-items-center">
                                             <span class="currency">VND</span>

@@ -44,7 +44,12 @@ class PlaceController extends WebController
         if (!$place) {
             abort(404);
         }
-        $places = $this->place->getByQuery(['status' => 1]);
+        $places = \Cache::remember('places', 12*60, function(){
+            return $this->place->getByQuery(['status' => 1]);
+        });
+        $hotTours = \Cache::remember('hot_tours', 12*60, function(){
+            return $this->service->getHotTourSearchBar();
+        });
         $params = $request->all();
         $params['place_id'] = $place->id;
 
@@ -52,7 +57,6 @@ class PlaceController extends WebController
         $service_groups = $this->serviceGroup->getByQuery([], -1);
         $service_types = $this->serviceType->getByQuery([], -1);
         $tours = $this->service->getByQuery($params);
-        $hotTours = $this->service->getHotTourSearchBar();
 
         return view('web.searches.tours')->with([
             'title' => 'Du lịch ' . $place->name,

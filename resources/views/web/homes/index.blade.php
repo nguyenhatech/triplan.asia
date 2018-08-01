@@ -46,14 +46,16 @@
             width: 100%;
         }
         .home-banner .form input {
-            font-size: 14px;
-            border-radius: 0px;
+            font-size: 16px;
+            border-radius: 2px 0px 0px 2px;
             height: 50px;
             border: none;
-            background-color: #ffffffd1;
+            background-color: #fff;
         }
         .home-banner .form button {
-            border-radius: 0px;
+            background-color: #01b07d;
+            border-color: #01b07d;
+            border-radius: 0px 2px 2px 0px;
             height: 50px;
             padding: 5px 20px;
         }
@@ -194,9 +196,12 @@
         .search-box {
             position: relative;
         }
+        .search-box .form-control:focus {
+            box-shadow: none;
+        }
         .box-suggest {
             position: absolute;
-            top: 37px;
+            top: 50px;
             left: 0px;
             width: 100%;
             height: 250px;
@@ -206,7 +211,8 @@
             border-radius: 2px;
         }
         .box-suggest .tab-content {
-            padding: 20px;
+            padding-top: 14px;
+            padding-right: 20px;
         }
         .box-suggest .nav {
             height: 248px;
@@ -260,7 +266,7 @@
         }
         .suggest__list-place .box-hover a:before {
             content: '';
-            width: 72%;
+            width: 76%;
             height: 85%;
             border: 1px solid #fff;
             opacity: 0;
@@ -271,7 +277,9 @@
             right: 0;
             margin: auto;
         }
-
+        .typeahead.dropdown-menu {
+            width: 100%;
+        }
     </style>
 @endsection
 
@@ -297,11 +305,59 @@
                 </div>
                 <div class="form">
                     <form method="get" action="#">
-                        <div class="d-flex flex-sm-row">
-                            <input type="text" name="q" class="form-control" placeholder="@lang('web_home_baner_top_placehoder_input')">
-                            <button type="submit" class="btn btn-success">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
+                        <div class="search-box">
+                            <div class="d-flex flex-sm-row">
+                                <input type="text" value="" id="input-search" onkeydown="onKeySearch.call(this)" class="form-control typeahead" placeholder="@lang('web_home_baner_top_placehoder_input')" aria-describedby="button-addon2" data-provide="typeahead">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="box-suggest" style="display: none;">
+                                <div class="row">
+                                    <div class="col-4" style="padding-right: 7px;">
+                                        <ul class="nav nav-pills flex-column">
+                                            <li class="active">
+                                                <a href="#tab-1" data-toggle="tab">Điểm đến hấp dẫn</a>
+                                            </li>
+                                            <li><a href="#tab-2" data-toggle="tab">Tour hot tháng này</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="tab-content well">
+                                            <div class="tab-pane active" id="tab-1">
+                                                <div class="suggest__list-place">
+                                                    <div class="row">
+                                                        @foreach($places as $item)
+                                                        <div class="col-3" style=" padding-left: 7px; padding-right: 7px;">
+                                                            <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
+                                                                <a href="{{ $item->getUrl() }}">
+                                                                    <h6>{{ $item->name }}</h6>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab-2">
+                                                <div class="suggest__list-place">
+                                                    <div class="row">
+                                                        @foreach($hotTours as $item)
+                                                        <div class="col-4 hot-service-list" style="margin-bottom: 10px; padding-left: 7px; padding-right: 7px;">
+                                                            <a href="{{ route('web.services.detail', ['id' => $item->id, 'slug' => $item->slug]) }}">
+                                                                <div class="box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
+                                                                </div>
+                                                                <h6>{{ $item->name }}</h6>
+                                                            </a>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

@@ -36,7 +36,7 @@ class DbPlaceRepository extends BaseRepository implements PlaceRepository
         $query  = array_get($params, 'q', null);
 
         $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
-                            ->select('places.id', 'place_translations.name', 'place_translations.slug')
+                            ->select('places.id', 'places.image', 'place_translations.name', 'place_translations.slug')
                             ->where('place_translations.locale', getLocaleQuery())
                             ->where('places.status', 1);
 

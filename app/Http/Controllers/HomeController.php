@@ -39,8 +39,12 @@ class HomeController extends WebController
     public function index(Request $request)
     {
         // Search Box
-        $places = $this->place->getByQuery(['status' => 1]);
-        $hotTours = $this->service->getHotTourSearchBar();
+        $places = \Cache::remember('places', 12*60, function(){
+            return $this->place->getByQuery(['status' => 1]);
+        });
+        $hotTours = \Cache::remember('hot_tours', 12*60, function(){
+            return $this->service->getHotTourSearchBar();
+        });
 
         // Điểm đến lý tưởng
         $place_destinations = $this->place->getByQuery([

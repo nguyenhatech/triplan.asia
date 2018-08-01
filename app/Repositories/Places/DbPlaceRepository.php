@@ -33,12 +33,12 @@ class DbPlaceRepository extends BaseRepository implements PlaceRepository
      */
     public function getByQuery($params, $size = 25, $sorting = [])
     {
-        $status = 1;
         $query  = array_get($params, 'q', null);
 
         $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
-                            ->select('places.*', 'place_translations.name', 'place_translations.slug')
-                            ->where('place_translations.locale', getLocaleQuery());
+                            ->select('places.id', 'place_translations.name', 'place_translations.slug')
+                            ->where('place_translations.locale', getLocaleQuery())
+                            ->where('places.status', 1);
 
         if (! empty($sorting)) {
 
@@ -56,10 +56,6 @@ class DbPlaceRepository extends BaseRepository implements PlaceRepository
 
         } else {
             $model = $model->orderBy('id', 'DESC');
-        }
-
-        if (! is_null($status)) {
-            $model = $model->where('status', $status);
         }
 
         if (! is_null($query)) {

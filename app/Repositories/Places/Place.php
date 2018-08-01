@@ -41,4 +41,9 @@ class Place extends Entity
     {
         return $this->belongsTo('App\Repositories\Countries\Country', 'country_id');
     }
+
+    public function getUrl()
+    {
+        return route('web.show_place', ['slug' => $this->slug]);
+    }
 }

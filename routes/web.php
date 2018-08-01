@@ -18,7 +18,7 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/', 'HomeController@index')->name('web.home');
 
     // Module
-    Route::get('tours', 'HomeController@tours')->name('web.tours');
+    Route::get('places/{slug}', 'PlaceController@show')->name('web.show_place');
 
     // Module Service
     Route::get('services/{id}-{slug}', 'ServiceController@detail')->name('web.services.detail');
@@ -28,7 +28,7 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('booking/thankyou', 'BookingController@thankyou')->name('web.booking.thankyou');
 
     // Module
-    Route::get('/places/search', 'PlaceController@search')->name('places.search');
+    Route::get('/search-places', 'PlaceController@search')->name('places.search');
 
     // Login Facebook
     Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');

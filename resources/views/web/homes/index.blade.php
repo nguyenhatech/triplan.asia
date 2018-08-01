@@ -188,6 +188,89 @@
             max-height: 54px;
             min-height: 44px;
         }
+        #button-addon1 {
+            background: #ffffffd1;
+        }
+        .search-box {
+            position: relative;
+        }
+        .box-suggest {
+            position: absolute;
+            top: 37px;
+            left: 0px;
+            width: 100%;
+            height: 250px;
+            z-index: 1;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+        }
+        .box-suggest .tab-content {
+            padding: 20px;
+        }
+        .box-suggest .nav {
+            height: 248px;
+            background-color: #01b07d;
+        }
+        .box-suggest ul li {
+            padding: 20px;
+            font-size: 15px;
+        }
+        .box-suggest ul li.active {
+            background-color: #fff;
+        }
+        .box-suggest ul li.active a {
+            color: #01b07d;
+        }
+        .box-suggest ul li a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .suggest__list-place .box-image {
+            height: 80px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #00000052;
+            background-blend-mode: overlay;
+            color: #fff;
+            font-weight: bold;
+            border: 2px;
+        }
+        .suggest__list-place .hot-service-list a {
+            text-decoration: none;
+            color: rgb(33, 37, 41);
+        }
+        .suggest__list-place .hot-service-list a:hover {
+            color: #4db2ec;
+        }
+        .suggest__list-place .hot-service-list .box-image {
+            margin-bottom: 10px;
+        }
+        .suggest__list-place .box-image a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .suggest__list-place .box-hover:hover a:before {
+            opacity: 0.4;
+        }
+        .suggest__list-place .box-hover a:before {
+            content: '';
+            width: 72%;
+            height: 85%;
+            border: 1px solid #fff;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
 
     </style>
 @endsection
@@ -234,7 +317,7 @@
             <div class="row">
                 @forelse ($place_destinations as $key_place => $place)
                     <div class="col-sm-12 col-md-3">
-                        <a href="{{ route('web.tours') }}?place={{ $place->id }}">
+                        <a href="{{ $place->getUrl() }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage() }});">
                                 <span>{{ $place->getTranslation()->name }}</span>
                             </div>
@@ -289,6 +372,7 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             // Ảnh ẩn hiện ở phần banner
@@ -302,6 +386,44 @@
                 .appendTo('.slide-show');
             },  3500);
         });
+    </script>
+    <script type="text/javascript">
+        $('input.typeahead').typeahead({
+            delay: 300,
+            fitToElement: true,
+            source:  function (query, process) {
+                return $.get('{{ route('places.search') }}', { q: query }, function (data) {
+                    return process(data);
+                });
+            },
+            afterSelect: function(value) {
+                window.location.href = value.url;
+            }
+        });
+        (function ($) {
+          $(function () {
+            $(document).off('click.bs.tab.data-api', '[data-hover="tab"]');
+            $(document).on('mouseenter.bs.tab.data-api', '[data-toggle="tab"], [data-hover="tab"]', function () {
+              $(this).tab('show');
+              $('.box-suggest .nav .active').removeClass('active');
+              $(this).parent().addClass('active');
+            });
+
+            $('#input-search').on('focus', function () {
+                if ($(this).val() == '') {
+                    $('.box-suggest').css('display', 'block');
+                }
+            });
+            $("#input-search").on('blur',function(){
+                setTimeout(function(){
+                    $('.box-suggest').css('display', 'none');
+                }, 100);
+            });
+          });
+        })(jQuery);
+        function onKeySearch () {
+            $('.box-suggest').css('display', 'none');
+        }
     </script>
     <!-- Facebook Pixel Code -->
     <script>

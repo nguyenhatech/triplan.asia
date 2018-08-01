@@ -75,7 +75,7 @@ class Service extends Entity
 
     public function getUrl()
     {
-        return route('web.services.detail', [$this->id, $this->getTranslation()->slug]);
+        return route('web.services.detail', ['id' => $this->id, 'slug' => $this->getTranslation()->slug]);
     }
 
 }

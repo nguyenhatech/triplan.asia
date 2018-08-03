@@ -32,10 +32,14 @@ class PlaceController extends WebController
     {
         $q = array_get($request->all(), 'q', '');
         $places = $this->place->getByQuery(['q' => $q], 10);
+        $services = $this->service->getByQuery(['q' => $q], 5);
         foreach ($places as $place) {
             $place->url = $place->getUrl();
         }
-        return response()->json($places->all());
+        foreach ($services as $service) {
+            $service->url = $service->getUrl();
+        }
+        return response()->json(array_merge($places->all(), $services->all()));
     }
 
     public function show(Request $request, $slug)

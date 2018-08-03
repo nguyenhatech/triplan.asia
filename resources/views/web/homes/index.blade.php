@@ -39,7 +39,7 @@
         }
         .home-banner .solugan h2 {
             text-transform: uppercase;
-            font-size: 34px;
+            font-size: 28px;
         }
         .home-banner .form {
             margin-top: 15px;
@@ -317,9 +317,9 @@
                                     <div class="col-4" style="padding-right: 7px;">
                                         <ul class="nav nav-pills flex-column">
                                             <li class="active">
-                                                <a href="#tab-1" data-toggle="tab">Điểm đến hấp dẫn</a>
+                                                <a href="#tab-1" data-toggle="tab">@lang('places_hot_places')</a>
                                             </li>
-                                            <li><a href="#tab-2" data-toggle="tab">Tour hot tháng này</a></li>
+                                            <li><a href="#tab-2" data-toggle="tab">@lang('places_hot_services')</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-8">
@@ -328,7 +328,7 @@
                                                 <div class="suggest__list-place">
                                                     <div class="row">
                                                         @foreach($places as $item)
-                                                        <div class="col-3" style=" padding-left: 7px; padding-right: 7px;">
+                                                        <div class="col-6 col-md-3" style=" padding-left: 7px; padding-right: 7px; margin-bottom: 14px;">
                                                             <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
                                                                 <a href="{{ $item->getUrl() }}">
                                                                     <h6>{{ $item->name }}</h6>
@@ -343,9 +343,9 @@
                                                 <div class="suggest__list-place">
                                                     <div class="row">
                                                         @foreach($hotTours as $item)
-                                                        <div class="col-4 hot-service-list" style="margin-bottom: 10px; padding-left: 7px; padding-right: 7px;">
+                                                        <div class="col-12 col-md-4 hot-service-list" style="margin-bottom: 10px; padding-left: 7px; padding-right: 7px;">
                                                             <a href="{{ route('web.services.detail', ['id' => $item->id, 'slug' => $item->slug]) }}">
-                                                                <div class="box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
+                                                                <div class="d-none d-md-block box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
                                                                 </div>
                                                                 <h6>{{ $item->name }}</h6>
                                                             </a>

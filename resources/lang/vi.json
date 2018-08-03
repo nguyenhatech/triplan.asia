@@ -28,6 +28,17 @@
     "web_service_maybe_you_are_interested": "Có thể bạn quan tâm",
     "web_service_package_options": "Tùy chọn gói",
     "web_service_price_form": "Giá từ",
-    "web_service_book_now": "Đặt ngay"
+    "web_service_book_now": "Đặt ngay",
 
+    "__________________________________________comment": "Places",
+    "places_service_type_filter": "Loại dịch vụ",
+    "places_duration_filter": "Thời gian đi",
+    "places_price_filter": "Giá",
+    "places_removie_tag_tooltip": "Xóa bỏ",
+    "places_search_result": "Đã tìm thấy :total tour du lịch ở :name",
+    "places_null_result": "Rất tiếc! Không tìm thấy tour nào phù hợp.",
+    "places_currency": "VND",
+    "places_million": "triệu",
+    "places_hot_places": "Điểm đến hấp dẫn",
+    "places_hot_services": "Tour hot tháng này"
 }

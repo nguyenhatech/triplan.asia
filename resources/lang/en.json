@@ -28,6 +28,18 @@
     "web_service_maybe_you_are_interested": "Maybe you are interested",
     "web_service_package_options": "Package options",
     "web_service_price_form": "Price From",
-    "web_service_book_now": "Book Now"
+    "web_service_book_now": "Book Now",
+
+    "__________________________________________comment": "Places",
+    "places_service_type_filter": "Service Type",
+    "places_duration_filter": "Duration",
+    "places_price_filter": "Price",
+    "places_removie_tag_tooltip": "Delete this tag",
+    "places_search_result": ":total services found at :name",
+    "places_null_result": "No result",
+    "places_currency": "USD",
+    "places_million": "USD",
+    "places_hot_places": "Best Destinations",
+    "places_hot_services": "Hot tour this month"
 
 }

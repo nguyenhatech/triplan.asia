@@ -26,7 +26,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         $hot     = array_get($params, 'hot', null);
 
         $model  = $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')
-                            ->select('services.*', 'service_translations.name', 'service_translations.slug', 'service_translations.description', 'service_translations.what_to_expect', 'service_translations.activity_information', 'service_translations.additional_information', 'service_translations.tip', 'service_translations.how_to_use', 'service_translations.cancelation_policy', 'service_translations.address')
+                            ->select('services.*', 'service_translations.name', 'service_translations.slug', 'service_translations.description', 'service_translations.address')
                             ->where('service_translations.locale', getLocaleQuery());
 
         if (! empty($sorting)) {
@@ -63,9 +63,10 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         }
 
         if (! is_null($query)) {
-            $model = $model->whereHas('translations', function ($q) use ($query) {
-                $q->where('name', 'like', "%{$query}%");
-            });
+            // $model = $model->whereHas('translations', function ($q) use ($query) {
+            //     $q->where('name', 'like', "%{$query}%");
+            // });
+            $model = $model->where('service_translations.name', 'like', "%{$query}%");
         }
 
         return $size < 0 ? $model->get() : $model->paginate($size);

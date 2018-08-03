@@ -59,7 +59,6 @@ function getDataTranslaiton($locale, $field, $valueField, $translations)
     }
 
     return 'Ngôn ngữ '. $locale . ' : ' . $valueField;
-    return $valueField;
 }
 
 /**

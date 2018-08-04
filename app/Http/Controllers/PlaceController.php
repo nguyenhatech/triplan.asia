@@ -57,7 +57,7 @@ class PlaceController extends WebController
         $params = $request->all();
         $params['place_id'] = $place->id;
 
-        $durations = Service::TIME_FILTERS;
+        $durations = \App::isLocale('vi') ? Service::TIME_FILTERS : Service::EN_TIME_FILTERS;
         $service_groups = $this->serviceGroup->getByQuery([], -1);
         $service_types = $this->serviceType->getByQuery([], -1);
         $tours = $this->service->getByQuery($params);

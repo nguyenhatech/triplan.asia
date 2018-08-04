@@ -25,6 +25,12 @@ class Service extends Entity
         6 => 'Hơn 5 ngày'
     ];
 
+    const EN_TIME_FILTERS = [
+        2 => '1 - 2 days',
+        5 => '3 - 5 days',
+        6 => '5 day more'
+    ];
+
     public function getImage($type = null)
     {
         if ($type == 'sm') {

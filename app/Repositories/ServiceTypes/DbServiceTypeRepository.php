@@ -26,7 +26,7 @@ class DbServiceTypeRepository extends BaseRepository implements ServiceTypeRepos
 
         $model  = $this->model->join('service_type_translations', 'service_types.id', '=', 'service_type_translations.service_type_id')
                             ->select('service_types.*', 'service_type_translations.name')
-                            ->where('service_type_translations.locale', getLocaleQuery());
+                            ->where('service_type_translations.locale', \App::getLocale());
 
         if (! empty($sorting)) {
             $model = $model->orderBy($sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');

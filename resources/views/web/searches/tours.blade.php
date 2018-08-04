@@ -255,7 +255,7 @@
         <div class="row">
             <div class="col-12 gradient-top" style="background-image: url('{{ $place->getImage() }}');">
                 <div class="city-name">
-                    <h1>{{ $place->name }}</h1>
+                    <h1>{{ $place->getTranslation(\App::getLocale())->name }}</h1>
                 </div>
             </div>
         </div>
@@ -453,7 +453,7 @@
                     </div>
                     <nav aria-label="breadcrumb">
                         @if($tours->count())
-                        <h3 class="search-result">@lang('places_search_result', ['total' => $tours->total(), 'name' => $place->name])</h3>
+                        <h3 class="search-result">@lang('places_search_result', ['total' => $tours->total(), 'name' => $place->getTranslation(\App::getLocale())->name])</h3>
                         @else
                         <h3 class="search-result">@lang('places_null_result')</h3>
                         @endif

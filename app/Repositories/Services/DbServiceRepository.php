@@ -27,7 +27,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
 
         $model  = $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')
                             ->select('services.*', 'service_translations.name', 'service_translations.slug', 'service_translations.description', 'service_translations.address')
-                            ->where('service_translations.locale', getLocaleQuery());
+                            ->where('service_translations.locale', \App::getLocale());
 
         if (! empty($sorting)) {
             $model = $model->orderBy('services.' . $sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
@@ -74,7 +74,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
 
     public function getHotTourSearchBar()
     {
-        return $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')->where('service_translations.locale', getLocaleQuery())->where('services.hot', 1)->orderBy('services.created_at', 'DESC')->limit(3)->get();
+        return $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')->where('service_translations.locale', \App::getLocale())->where('services.hot', 1)->orderBy('services.created_at', 'DESC')->limit(3)->get();
     }
 
 }

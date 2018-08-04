@@ -11,9 +11,15 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="">
                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">@lang('home_page')</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://blog.triplan.asia">@lang('travel_handbook')</a>
+                        </li>
                         <li id="language-system" style="margin-right: 15px;">
                             <div class="dropdown">
-                                <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     @if (Session::get('locale', config('app.locale')) == 'vi')
                                         <img src="{{get_asset('web/images/languages/vi.png')}}">
                                         <span>Tiếng Việt</span>
@@ -35,12 +41,6 @@
                                     </a>
                                 </div>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">@lang('home_page')</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://blog.triplan.asia">@lang('travel_handbook')</a>
                         </li>
 {{--                         <li class="nav-item">
                             <a class="nav-link" href="#">

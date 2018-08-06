@@ -257,6 +257,9 @@
         .suggest__list-place .hot-service-list .box-image {
             margin-bottom: 10px;
         }
+        .suggest__list-place .hot-service-list h6 {
+            text-transform: capitalize;
+        }
         .suggest__list-place .box-image a {
             color: #fff;
             text-decoration: none;
@@ -279,6 +282,9 @@
         }
         .typeahead.dropdown-menu {
             width: 100%;
+        }
+        .typeahead .dropdown-item {
+            text-transform: capitalize;
         }
     </style>
 @endsection

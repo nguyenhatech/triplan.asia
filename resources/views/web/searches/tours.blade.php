@@ -222,6 +222,9 @@
             color: #fff;
             text-decoration: none;
         }
+        .suggest__list-place .hot-service-list h6 {
+            text-transform: capitalize;
+        }
         .suggest__list-place .box-hover:hover a:before {
             opacity: 0.4;
         }
@@ -237,6 +240,15 @@
             bottom: 0;
             right: 0;
             margin: auto;
+        }
+        .box-list-result .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #28a745;
+            margin-left: 5px;
+        }
+        .typeahead .dropdown-item {
+            text-transform: capitalize;
         }
         @media screen and (min-width: 768px) {
             .box-list-result .card-body {

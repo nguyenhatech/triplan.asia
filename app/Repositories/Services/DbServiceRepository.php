@@ -16,7 +16,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
     public function getByQuery($params, $size = 25, $sorting = [])
     {
         $status = array_get($params, 'status', null);
-        $place = array_get($params, 'place', null);
+        $place = array_get($params, 'place_id', null);
         $type = array_get($params, 'type', null);
         $group = array_get($params, 'group', null);
         $minPrice = array_get($params, 'min_price', null);
@@ -26,8 +26,8 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         $hot     = array_get($params, 'hot', null);
 
         $model  = $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')
-                            ->select('services.*', 'service_translations.name', 'service_translations.slug', 'service_translations.description', 'service_translations.what_to_expect', 'service_translations.activity_information', 'service_translations.additional_information', 'service_translations.tip', 'service_translations.how_to_use', 'service_translations.cancelation_policy', 'service_translations.address')
-                            ->where('service_translations.locale', getLocaleQuery());
+                            ->select('services.*', 'service_translations.name', 'service_translations.slug', 'service_translations.description', 'service_translations.address')
+                            ->where('service_translations.locale', \App::getLocale());
 
         if (! empty($sorting)) {
             $model = $model->orderBy('services.' . $sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
@@ -63,12 +63,18 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         }
 
         if (! is_null($query)) {
-            $model = $model->whereHas('translations', function ($q) use ($query) {
-                $q->where('name', 'like', "%{$query}%");
-            });
+            // $model = $model->whereHas('translations', function ($q) use ($query) {
+            //     $q->where('name', 'like', "%{$query}%");
+            // });
+            $model = $model->where('service_translations.name', 'like', "%{$query}%");
         }
 
         return $size < 0 ? $model->get() : $model->paginate($size);
+    }
+
+    public function getHotTourSearchBar()
+    {
+        return $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')->where('service_translations.locale', \App::getLocale())->where('services.hot', 1)->orderBy('services.created_at', 'DESC')->limit(3)->get();
     }
 
 }

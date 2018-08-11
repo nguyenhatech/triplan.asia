@@ -17,7 +17,7 @@ class DbServiceGroupRepository extends BaseRepository implements ServiceGroupRep
 
         $model  = $this->model->join('service_group_translations', 'service_groups.id', '=', 'service_group_translations.service_group_id')
                             ->select('service_groups.*', 'service_group_translations.name', 'service_group_translations.slug')
-                            ->where('service_group_translations.locale', getLocaleQuery());
+                            ->where('service_group_translations.locale', \App::getLocale());
 
         if (! empty($sorting)) {
 

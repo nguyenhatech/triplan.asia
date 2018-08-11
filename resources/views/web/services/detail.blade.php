@@ -81,12 +81,14 @@
         .service-description {
             padding: 20px 0px;
             text-align: justify;
+            font-family: 'Nunito', sans-serif !important;
         }
 
         .service-what_to_expect {
            text-align: justify;
            overflow: hidden;
            padding-bottom: 15px;
+           font-family: 'Nunito', sans-serif !important;
         }
         .service-what_to_expect h4 {
             font-weight: 700;
@@ -167,7 +169,7 @@
             width: 365px;
             padding: 20px 15px;
             border-radius: 2px;
-            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             border: none;
         }
         .booking-service-destop .price {
@@ -199,29 +201,21 @@
     </style>
 @endsection
 
+@php
+    $locale = Session::get('locale', config('app.locale'));
+@endphp
+
 @section('content')
     <div class="service-banner">
-        <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation()->name }}" title="{{ $service->getTranslation()->name }}">
+        <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <div class="service-info">
                     <div class="service-name">
-                        <h1>{{ title_case($service->getTranslation()->name) }}</h1>
+                        <h1>{{ title_case($service->getTranslation($locale)->name) }}</h1>
                     </div>
-{{--                     <div class="service-time_confirm_love d-flex justify-content-between align-items-center">
-                        <div class="time_confirm d-flex align-items-center">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>
-                                {{ $service->getTimeConfirmText() }}
-                            </span>
-                        </div>
-                        <div class="love">
-                            <i class="far fa-heart"></i>
-                            <span>Yêu thích</span>
-                        </div>
-                    </div> --}}
                     <div class="service-sub_data_mobile d-block d-sm-none">
                         <div>
                             <div>
@@ -238,7 +232,7 @@
                             @forelse ($service->comforts as $comfort)
                                 <div class="comfort_item">
                                     <i class="fas fa-globe"></i>
-                                    <span>{{ $comfort->getTranslation()->name }}</span>
+                                    <span>{{ $comfort->getTranslation($locale)->name }}</span>
                                 </div>
                             @empty
 
@@ -246,41 +240,41 @@
                         </div>
                     @endif
                     <div>
-                        <list-service-package :service="{{ $service }}"></list-service-package>
+                        <list-service-package :service="{{ $service }}" :data_params="{{ $data_params }}"></list-service-package>
                     </div>
-                    @if ($service->getTranslation()->description)
+                    @if ($service->getTranslation($locale)->description)
                         <div class="service-description">
                             <div>
-                                {!! $service->getTranslation()->description !!}
+                                {!! $service->getTranslation($locale)->description !!}
                             </div>
                         </div>
                     @endif
-                    @if ($service->getTranslation()->what_to_expect)
+                    @if ($service->getTranslation($locale)->what_to_expect)
                         <div class="service-what_to_expect">
-                            <h4>Trải nghiệm dành cho bạn !</h4>
+                            <h4>@lang('web_service_experience_for_you')</h4>
                             <div>
-                                {!! $service->getTranslation()->what_to_expect !!}
+                                {!! $service->getTranslation($locale)->what_to_expect !!}
                             </div>
                         </div>
                     @endif
-                    @if ($service->getTranslation()->activity_information)
+                    @if ($service->getTranslation($locale)->activity_information)
                         <div class="service-what_to_expect">
-                            <h4>Thông tin dịch vụ !</h4>
+                            <h4>@lang('web_service_information_services')</h4>
                             <div>
-                                {!! $service->getTranslation()->activity_information !!}
+                                {!! $service->getTranslation($locale)->activity_information !!}
                             </div>
                         </div>
                     @endif
-                    @if ($service->getTranslation()->how_to_use)
+                    @if ($service->getTranslation($locale)->how_to_use)
                         <div class="service-what_to_expect">
-                            <h4>Hướng dẫn sử dụng !</h4>
+                            <h4>@lang('web_service_user_manual')</h4>
                             <div>
-                                {!! $service->getTranslation()->how_to_use !!}
+                                {!! $service->getTranslation($locale)->how_to_use !!}
                             </div>
                         </div>
                     @endif
                     <div class="service-what_to_expect">
-                        <h4>Bản đồ</h4>
+                        <h4>@lang('web_service_map')</h4>
                         <div id="map" style="height: 400px; background-color: #ccc"></div>
                     </div>
                 </div>
@@ -294,25 +288,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="service-involve">
-                    <h3>Có thể bạn quan tâm</h3>
+                    <h3>@lang('web_service_maybe_you_are_interested')</h3>
                     <div class="owl-carousel">
                         @forelse ($service_involves as $service_involve)
-                            <a href="{{ route('web.services.detail', [$service_involve->id, $service_involve->getTranslation()->slug]) }}">
+                            <a href="{{ route('web.services.detail', [$service_involve->id, $service_involve->getTranslation($locale)->slug]) }}">
                                 <div class="service-involve_item__wrap">
                                     <div class="image">
-                                        <img src="{{ $service_involve->getImage() }}"  alt="{{ $service_involve->getTranslation()->name }}" title="{{ $service_involve->getTranslation()->name }}">
+                                        <img src="{{ $service_involve->getImage() }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
                                     </div>
                                     <div class="info d-flex flex-column">
                                         <div class="name">
                                             <span>
-                                                {{ $service_involve->getTranslation()->name }}
+                                                {{ title_case($service_involve->getTranslation($locale)->name) }}
                                             </span>
                                         </div>
                                         <div class="d-flex flex-column">
                                             <span class="price">VND {{ number_format($service_involve->getPrice()) }}</span>
-                                            <span>
-                                                {{ $service_involve->getTimeConfirmText() }}
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -392,9 +383,19 @@
         }
 
         $(window).scroll(function() {
+            let body = document.body,
+                html = document.documentElement;
+
+            let height = Math.max( body.scrollHeight, body.offsetHeight,
+                                   html.clientHeight, html.scrollHeight, html.offsetHeight );
             if ($(this).scrollTop() > 500) {
                 $('.booking-service-destop').addClass('fixed');
             } else {
+                $('.booking-service-destop').removeClass('fixed');
+            }
+
+            if ($(this).scrollTop() > (height - 1280)) {
+                console.log('dưqdqwdq');
                 $('.booking-service-destop').removeClass('fixed');
             }
         });

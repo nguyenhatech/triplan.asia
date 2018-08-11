@@ -64,6 +64,15 @@ body {
     }
 }
 
+#language-system .dropdown-menu {
+    border: none;
+    border-radius: 0px;
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45);
+}
+#language-system .dropdown-item {
+    font-size: 14px;
+}
+
 /*// Header-Scroll*/
 .header-scroll .navbar-light .navbar-nav .nav-link {
     color: #000 !important;

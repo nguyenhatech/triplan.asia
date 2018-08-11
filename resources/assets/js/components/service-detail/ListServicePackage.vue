@@ -1,12 +1,22 @@
 <template>
     <div class="service-package">
-        <h4 class="title">Tùy chọn gói</h4>
+        <h4 class="title">{{ data_params.trans.web_service_package_options }}</h4>
         <div class="calander">
-            <v-date-picker
-                is-required
-                @input="changeDay(day)"
-                v-model="day">
-            </v-date-picker>
+            <datepicker
+                ref="programaticOpen"
+                :inline="false"
+                placeholder="Chọn ngày"
+                :language="languages.vi"
+                format="yyyy-MM-dd"
+                v-model="day"
+                :disabledDates="{
+                    to:  new Date(),
+                    from: disabledDates.from,
+                    dates: disabledDates.dates
+                }"
+                @closed="changeDay()">
+
+            </datepicker>
         </div>
         <div class="d-flex flex-column">
             <div class="service-package__item"
@@ -18,8 +28,8 @@
                     </div>
                     <div class="d-flex flex-column">
                         <div>
+                            <span class="price">{{ package_parent.price_with_currency | number }}</span>
                             <span class="currency">VND</span>
-                            <span class="price">{{ package_parent.price }}</span>
                         </div>
                         <span class="choose_package justify-content-center align-items-center"
                             v-show="!package_parent.checked"
@@ -40,7 +50,7 @@
                                     {{ package_children.name }}
                                 </span>
                                 <span class="price">
-                                    VND {{ package_children.price }} / Số lượng
+                                    {{ package_children.price_with_currency | number }} <span style="font-size: 10px; font-weight: bold">VND</span>
                                 </span>
                             </div>
                             <div class="d-flex align-items-center">
@@ -70,53 +80,67 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex'
+    import { forEach } from 'lodash'
+    import moment from 'moment'
+    import Datepicker from 'vuejs-datepicker';
+    import {vi} from 'vuejs-datepicker/dist/locale'
     export default {
         name: 'ListServicePackage',
         props: {
-          service: {
-            type: Object,
-            default: () => {
-              return {}
+            data_params: {
+                type: Object,
+                default: () => {
+                  return {}
+                }
+            },
+            service: {
+                type: Object,
+                default: () => {
+                  return {}
+                }
             }
-          }
         },
         data () {
             return {
+                languages: {
+                    vi: vi
+                },
+                disabledDates: {
+                    from: '',
+                    dates: []
+                },
                 servicePackageParent: [],
-                serviceDays: [],
-                day: null,
-                service_info: {}
-
+                day: null
             }
         },
         components: {
-
+            Datepicker
         },
         computed: {
-          ...mapGetters(['loading'])
+            ...mapGetters(['loading'])
         },
         mounted () {
             this.getServicePackageParent();
         },
         methods: {
-            ...mapActions('serviceDetail', ['setServicePackageName', 'setServicePackageDay', 'setArrayServicePackages', 'setServiceInfo']),
+            ...mapActions('serviceDetail', [
+                'setServicePackageName',
+                'setServicePackageDay',
+                'setArrayServicePackages',
+                'setServiceInfo'
+            ]),
+            // Fetch gói dịch vụ
             getServicePackageParent () {
-                axios.get('services/' + this.service.id, {params: {status: 1, include:'service_package_parent_actives.service_package_children_actives,service_day_actives'}}).then(response => {
+                let params = {
+                    status: 1,
+                    include:'service_package_parent_actives.service_package_children_actives,service_day_actives'
+                }
+                axios.get('services/' + this.service.id, {params: params}).then(response => {
                     switch (response.code) {
                         case 200:
-                            let servicePackageParent = response.data.service_package_parent_actives.data;
-                            servicePackageParent.map(function(index, elem) {
-                                index.checked = false;
-                                index.service_package_children_actives.data.map(function(index2, elem2) {
-                                    index2.quantity = 0;
-                                    return index2;
-                                })
-                                return index;
-                            })
-                            this.servicePackageParent = servicePackageParent;
-                            this.serviceDays = response.data.service_day_actives;
-                            this.service_info = response.data;
-                            this.setServiceInfo(this.service_info)
+                            this.addColumnToServicePackage(response.data.service_package_parent_actives.data);
+                            this.setDisabledDates(response.data.disabledDates);
+                            this.setServiceInfo(response.data);
                             break
                         case 404:
                             break
@@ -125,14 +149,51 @@
                     }
                 })
             },
-            changeDay (date) {
-                let day = this.getFormattedDate(date);
-                this.setServicePackageDay(day)
+            addColumnToServicePackage (servicePackageParent) {
+                servicePackageParent.map(function(index, elem) {
+                    index.checked = false;
+                    index.service_package_children_actives.data.map(function(index2, elem2) {
+                        index2.quantity = 0;
+                        return index2;
+                    })
+                    return index;
+                })
+                this.servicePackageParent = servicePackageParent;
+            },
+            setDisabledDates (data) {
+                let disabledDates = JSON.parse(data)
+                if (disabledDates.length) {
+                    let  _this = this
+                    forEach (disabledDates, function (item) {
+                        _this.disabledDates.dates.push(moment(item)._d)
+                        _this.disabledDates.from = moment(item)._d
+                    })
+                }
+            },
+            // Thay đổi ngày dịch vụ
+            changeDay () {
+                if (this.day) {
+                    let day = this.getFormattedDate(this.day);
+                    this.setServicePackageDay(day)
+                }
+            },
+            getFormattedDate(date) {
+                let year = date.getFullYear();
+                let month = date.getMonth() + 1;
+                if (month < 10 ) {
+                    month = "0" + month;
+                }
+                let day = date.getDate();
+                if (day < 10 ) {
+                    day = "0" + day;
+                }
+                let str = year + "-" + month + "-" + day;
+                return str;
             },
             // Kích hoạt nút mở gói dịch vụ
             openPackageChildren (item) {
                 if (this.day === null) {
-                    alert('Vui lòng chọn ngày đi');
+                    this.$refs.programaticOpen.showCalendar();
                     return
                 }
                 this.servicePackageParent.map(function(item, elem) {
@@ -148,25 +209,12 @@
                 item.checked = true;
                 this.setServicePackageName(item.name)
             },
-            getFormattedDate(date) {
-                let year = date.getFullYear();
-                let month = date.getMonth() + 1;
-                if (month < 10 ) {
-                    month = "0" + month;
-                }
-                let day = date.getDate();
-                if (day < 10 ) {
-                    day = "0" + day;
-                }
-                let str = year + "-" + month + "-" + day;
-                return str;
-            },
             // Tăng 1 gói con
             decreaseServicePackage (item) {
                 if (item.quantity != 0) {
                     item.quantity = item.quantity -1
                 }
-                this.setArrayServicegPackages(item)
+                this.setArrayServicePackages(item)
             },
             // Trừ 1 gói con
             increaseServicePackage (item) {
@@ -209,7 +257,8 @@
     border: 2px solid #19A577;
 }
 .service-package__item .package_parent {
-    padding: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 }
 .package_parent .name {
     font-weight: bold;
@@ -217,7 +266,7 @@
 }
 .package_parent .currency {
     color: #777;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
 }
 .package_parent .price {
@@ -242,8 +291,8 @@
 
 .package_children {
     border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    padding: 10px 10px 0px 10px;
+    border-bottom: 1px solid #fff;
+    padding: 30px 20px 0px 20px;
     margin-bottom: 20px;
 }
 .package_children__item {
@@ -270,6 +319,7 @@
     height: 30px;
     border: 1px solid #19A577;
     cursor: pointer;
+    border-radius: 4px;
 }
 .package_children__item .button-action i {
     font-size: 10px;
@@ -283,4 +333,22 @@
     cursor: default;
 }
 
+</style>
+
+<style type="text/css">
+.calander input {
+    height: 40px;
+    width: 250px;
+    border: none;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+.vdp-datepicker__calendar {
+    border: none !important;
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    padding: 5px;
+}
 </style>

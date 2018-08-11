@@ -3,14 +3,12 @@
         <div
             class="d-flex justify-content-between"
             v-if="!package_name">
-            <span>Giá từ</span>
+            <span>{{ data_params.trans.web_service_price_form }}</span>
             <span class="price">
                 <span>
-                    VND
+                    {{ service_info.price_with_currency | number }}
                 </span>
-                <span>
-                    {{ service.price }}
-                </span>
+                <span style="font-size: 12px;font-weight: bold">VND</span>
             </span>
         </div>
         <div v-if="package_name">
@@ -31,17 +29,13 @@
                         x {{service_package.quantity}}
                     </span>
                 </div>
-                <p>Tổng tiền: {{ calcFee }}</p>
+                <p>Tổng tiền: {{ calcFee | number }} Vnd</p>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
             <span @click="nextStepBooking()" class="btn btn-block booking-now" :class="[!disableButton ? 'isDisabled' : '']">
-                ĐẶT NGAY
+                {{ data_params.trans.web_service_book_now }}
             </span>
-        </div>
-        <div class="count-booking">
-            <i class="fas fa-users"></i>
-            836 Đã được đặt
         </div>
     </div>
 </template>
@@ -77,12 +71,18 @@
             calcFee () {
                 let totalFree = 0;
                 _.forEach(this.service_packages, (value) => {
-                    totalFree += value.quantity * value.price
+                    totalFree += value.quantity * value.price_with_currency
                 })
                 return totalFree
             },
             disableButton () {
-                return this.date !== '' && this.package_name !== '';
+                let flag = false;
+                _.forEach(this.service_packages, (item) => {
+                    if (item.quantity) {
+                        flag = true
+                    }
+                })
+                return this.date !== '' && this.package_name !== '' && flag;
             }
         },
         mounted () {
@@ -98,7 +98,6 @@
                     service_packages: this.service_packages
                 };
 
-                // Put the object into storage
                 localStorage.setItem('dataBooking', JSON.stringify(dataBooking));
                 window.location.href = this.data_params.url_booking_step1
                 // var dataBooking = localStorage.getItem('dataBooking');

@@ -28,8 +28,24 @@ class HomeController extends WebController
         $this->serviceGroup  = $serviceGroup;
     }
 
+    // Thay đổi ngôn ngữ hệ thống
+    public function changeLanguage($language)
+    {
+        \Session::put('locale', $language);
+
+        return redirect()->back();
+    }
+
     public function index(Request $request)
     {
+        // Search Box
+        $places = \Cache::remember('places', 12*60, function(){
+            return $this->place->getByQuery(['status' => 1]);
+        });
+        $hotTours = \Cache::remember('hot_tours', 12*60, function(){
+            return $this->service->getHotTourSearchBar();
+        });
+
         // Điểm đến lý tưởng
         $place_destinations = $this->place->getByQuery([
             'status' => 1
@@ -43,13 +59,18 @@ class HomeController extends WebController
         return view('web.homes.index')->with([
             'title'              => 'Trang chủ',
             'place_destinations' => $place_destinations,
-            'best_services'      => $best_services
+            'best_services'      => $best_services,
+            'places'             => $places,
+            'hotTours'           => $hotTours
         ]);
     }
 
     public function tours(Request $request)
     {
         $place = $this->place->getById(array_get($request->all(), 'place', ''));
+        if (!$place) {
+            abort(404);
+        }
 
         $durations = Service::TIME_FILTERS;
         $service_groups = $this->serviceGroup->getByQuery([], -1);

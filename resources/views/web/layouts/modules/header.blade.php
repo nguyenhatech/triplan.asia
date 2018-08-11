@@ -11,20 +11,42 @@
             <div class="collapse navbar-collapse justify-content-end" id="">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Trang chủ</a>
+                        <a class="nav-link" href="#">@lang('home_page')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cẩm nang du lịch</a>
+                        <a class="nav-link" href="http://blog.triplan.asia">@lang('travel_handbook')</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tuyển dụng</a>
+                    <li id="language-system" style="margin-right: 15px;">
+                        <div class="dropdown">
+                            <a class="btn btn-outline-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @if (Session::get('locale', config('app.locale')) == 'vi')
+                                    <img src="{{get_asset('web/images/languages/vi.png')}}">
+                                    <span>Tiếng Việt</span>
+                                @endif
+                                @if (Session::get('locale', config('app.locale')) == 'en')
+                                    <img src="{{get_asset('web/images/languages/en.png')}}">
+                                    <span>English</span>
+                                @endif
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{{ route('web.change-language', 'vi') }}">
+                                    <img src="{{get_asset('web/images/languages/vi.png')}}">
+                                    Tiếng Việt
+                                </a>
+                                <a class="dropdown-item" href="{{ route('web.change-language', 'en') }}">
+                                    <img src="{{get_asset('web/images/languages/en.png')}}">
+                                    English
+                                </a>
+                            </div>
+                        </div>
                     </li>
-                    <li class="nav-item">
+{{--                     <li class="nav-item">
                         <a class="nav-link" href="#">
                         <i class="far fa-user"></i>
                         Đăng kí / Đăng nhập
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </nav>

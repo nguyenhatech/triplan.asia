@@ -1,52 +1,47 @@
 <div class="fixed-top">
     <div class="header-top-navigation">
         <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand d-flex align-items-center" href="{{ env('APP_URL') }}">
-                <img id="logo_white" class="logo" src="{{ get_asset('web/images/logos/logo_white.png') }}" alt="logo">
-                <img id="logo_blue" style="display: none" class="logo" src="{{ get_asset('web/images/logos/logo_blue.png') }}" alt="logo">
-            </a>
+            <a class="navbar-brand d-flex align-items-center" href="/"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" id="td-header-search-button-mob" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="">
+            <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">@lang('home_page')</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://blog.triplan.asia">@lang('travel_handbook')</a>
-                    </li>
                     <li id="language-system" style="margin-right: 15px;">
+                        @php
+                            $langRepo = \App::make(\App\Repositories\Languages\LanguageRepository::class);
+                            $languages = $langRepo->getAllLanguagesByActive();
+                        @endphp
                         <div class="dropdown">
                             <a class="btn btn-outline-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @if (Session::get('locale', config('app.locale')) == 'vi')
-                                    <img src="{{get_asset('web/images/languages/vi.png')}}">
-                                    <span>Tiếng Việt</span>
-                                @endif
-                                @if (Session::get('locale', config('app.locale')) == 'en')
-                                    <img src="{{get_asset('web/images/languages/en.png')}}">
-                                    <span>English</span>
-                                @endif
+                                @foreach(\Cache::get('languages') as $key => $language)
+                                    @if($language->code == config('app.locale'))
+                                        <img src="{{ $language->getFlag() }}" width="24">
+                                    @endif
+                                @endforeach
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="{{ route('web.change-language', 'vi') }}">
-                                    <img src="{{get_asset('web/images/languages/vi.png')}}">
-                                    Tiếng Việt
-                                </a>
-                                <a class="dropdown-item" href="{{ route('web.change-language', 'en') }}">
-                                    <img src="{{get_asset('web/images/languages/en.png')}}">
-                                    English
-                                </a>
+                                @foreach(\Cache::get('languages') as $key => $language)
+                                    <a class="dropdown-item" href="{{ route('web.change-language', $language->code) }}">
+                                        <img src="{{ $language->getFlag() }}" alt="{{ $language->display_name }}" width="24px">
+                                        {{ $language->name }}
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </li>
-{{--                     <li class="nav-item">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                         <i class="far fa-user"></i>
                         Đăng kí / Đăng nhập
                         </a>
-                    </li> --}}
+                    </li>
                 </ul>
             </div>
         </nav>

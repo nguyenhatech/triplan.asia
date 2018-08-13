@@ -16,15 +16,15 @@
                 <div class="contact-us">
                     <div class="contact-us__item d-flex align-items-center">
                         <i class="fas fa-mobile-alt"></i>
-                        <span>097.5930.251</span>
+                        <span>0945 245 115</span>
                     </div>
                     <div class="contact-us__item d-flex align-items-center">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>102 Thái Thịnh, Đống Đa, Hà Nội</span>
                     </div>
                     <div class="contact-us__item d-flex align-items-center">
-                        <i class="far fa-envelope"></i>
-                        <span>support.triplan@gmail.com</span>
+                        <i class="far fa-envelope"></i>&nbsp;&nbsp;
+                        <a href="mailto:info@triplan.asia">info@triplan.asia</a>
                     </div>
                     <div class="social d-flex align-items-center">
                         <a target="_blank" href="https://www.facebook.com/TriplanVN/">

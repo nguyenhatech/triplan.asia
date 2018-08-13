@@ -14,16 +14,14 @@
         @include('web.layouts.modules.facebook')
 
         <div id="td-outer-wrap">
-            <header>
-                @if (Request::is('service*') || Request::is('booking*'))
-                    @include('web.layouts.modules.header-scroll')
-                @else
-                    @include('web.layouts.modules.header')
-                @endif
+            <header class="tp-header {{ Request::is('/') ? 'homepage' : 'layoutpage' }}">
+                @include('web.layouts.modules.header')
             </header>
+
             <main>
                 @yield('content')
             </main>
+
             <footer>
                 @include('web.layouts.modules.footer')
             </footer>

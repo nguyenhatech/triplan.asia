@@ -14,4 +14,5 @@ return [
 	App\Providers\CurrencyServiceProvider::class,
 	App\Providers\ServiceTypeServiceProvider::class,
 	App\Providers\ServiceGroupServiceProvider::class,
+	App\Providers\LanguageServiceProvider::class,
 ];

@@ -34,12 +34,18 @@
             padding: 0px 15px;
             width: 320px;
         }
-        .home-banner .solugan h1 {
-            font-size: 18px;
-        }
-        .home-banner .solugan h2 {
+        .home-banner .solugan .main-solugan {
+            font-size: 32px;
             text-transform: uppercase;
-            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.2rem;
+            text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+            margin-bottom: 10px;
+        }
+        .home-banner .solugan .sub-solugan {
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0;
         }
         .home-banner .form {
             margin-top: 15px;
@@ -49,9 +55,12 @@
             font-size: 16px;
             border-radius: 2px 0px 0px 2px;
             height: 50px;
-            border: none;
+            border: 1px solid #fff;
             background-color: #fff;
         }
+        /*.home-banner .form input:hover {
+            border: 1px solid #01b07d;
+        }*/
         .home-banner .form button {
             background-color: #01b07d;
             border-color: #01b07d;
@@ -59,17 +68,17 @@
             height: 50px;
             padding: 5px 20px;
         }
-        @media screen and (min-width: 375px) {
+        @media  screen and (min-width: 375px) {
             .home-banner .quick-search {
                 width: 375px;
             }
         }
-        @media screen and (min-width: 425px) {
+        @media  screen and (min-width: 425px) {
             .home-banner .quick-search {
                 width: 425px;
             }
         }
-        @media screen and (min-width: 768px) {
+        @media  screen and (min-width: 768px) {
             .home-banner .solugan h1 {
                 font-size: 18px;
             }
@@ -78,7 +87,7 @@
                 font-weight: bold;
             }
             .home-banner .quick-search {
-                width: 725px;
+                width: 850px;
             }
             .home-banner .form button {
                 padding: 5px 35px;
@@ -106,7 +115,7 @@
             color: #8D9199;
             font-size: 15px;
         }
-        @media screen and (min-width: 768px) {
+        @media  screen and (min-width: 768px) {
             .home-title .title {
                 font-size: 36px;
             }
@@ -147,13 +156,15 @@
             color: #000;
         }
         .home-best-trips .best-trip__item {
+            box-shadow: 0px 0px 1px rgba(0,0,0,.4);
             margin-bottom: 30px;
             transition: 0.2s all;
+            border-radius: 5px;
         }
         .home-best-trips .best-trip__item:hover {
             transform: translateY(-4px);
-            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
-            transition: 0.2s all;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: 0.5s all;
         }
         .home-best-trips .best-trip__item .image {
             background-color: #ccc;
@@ -168,11 +179,9 @@
             border-top-left-radius: 6px;
         }
         .home-best-trips .info-trip {
-            border: 1px solid #ccc;
-            border-bottom-right-radius: 6px;
-            border-bottom-left-radius: 6px;
-            padding: 15px;
-            min-height: 140px;
+            padding: 10px;
+            /*box-shadow: 0px 0px 1px rgba(0,0,0,.4);*/
+            border-radius: 5px;
         }
         .home-best-trips .info-trip .price {
             font-size: 18px;
@@ -185,10 +194,14 @@
             margin-right: 10px;
         }
         .home-best-trips .info-trip .name {
-            font-size: 15px;
-            font-weight: bold;
-            max-height: 54px;
-            min-height: 44px;
+            font-size: 14px;
+            font-weight: 600;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.4;
+            letter-spacing: 0.02rem;
+            text-align: justify;
+            min-height: 45px;
         }
         #button-addon1 {
             background: #ffffffd1;
@@ -204,22 +217,22 @@
             top: 50px;
             left: 0px;
             width: 100%;
-            height: 250px;
             z-index: 1;
             background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 2px;
+            border: none;
+            border-radius: 2px 2px 0 0;
+            border-top: 1px solid #01b07d;
         }
         .box-suggest .tab-content {
-            padding-top: 14px;
-            padding-right: 20px;
+            padding-top: 15px;
+            padding-right: 10px;
         }
         .box-suggest .nav {
-            height: 248px;
+            min-height: 300px;
             background-color: #01b07d;
         }
         .box-suggest ul li {
-            padding: 20px;
+            padding: 15px 10px;
             font-size: 15px;
         }
         .box-suggest ul li.active {
@@ -241,11 +254,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #00000052;
+            background-color: rgba(255,255,255,.15);
             background-blend-mode: overlay;
             color: #fff;
-            font-weight: bold;
-            border: 2px;
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 80px;
         }
         .suggest__list-place .hot-service-list a {
             text-decoration: none;
@@ -255,14 +269,20 @@
             color: #4db2ec;
         }
         .suggest__list-place .hot-service-list .box-image {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
-        .suggest__list-place .hot-service-list h6 {
-            text-transform: capitalize;
+        .suggest__list-place .hot-service-list {
+            font-weight: 600;
+            padding: 0 8px;
         }
         .suggest__list-place .box-image a {
             color: #fff;
             text-decoration: none;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            overflow: hidden;
+            text-shadow: 1px 1px 0px rgba(0,0,0,.4);
         }
         .suggest__list-place .box-hover:hover a:before {
             opacity: 0.4;
@@ -306,8 +326,8 @@
         <div class="d-flex justify-content-center align-items-center">
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">
                 <div class="solugan d-flex flex-column justify-content-center align-items-center">
-                    <h2>@lang('where_do_you_want_to_go')</h2>
-                    <h1>@lang('web_home_baner_top_sologun')</h1>
+                    <h1 class="main-solugan">@lang('where_do_you_want_to_go')</h1>
+                    <h3 class="sub-solugan">@lang('web_home_baner_top_sologun')</h3>
                 </div>
                 <div class="form">
                     <form method="get" action="#">
@@ -319,8 +339,8 @@
                                 </button>
                             </div>
                             <div class="box-suggest" style="display: none;">
-                                <div class="row">
-                                    <div class="col-4" style="padding-right: 7px;">
+                                <div class="row" style="margin-right: 0;">
+                                    <div class="col-4">
                                         <ul class="nav nav-pills flex-column">
                                             <li class="active">
                                                 <a href="#tab-1" data-toggle="tab">@lang('places_hot_places')</a>
@@ -334,13 +354,13 @@
                                                 <div class="suggest__list-place">
                                                     <div class="row">
                                                         @foreach($places as $item)
-                                                        <div class="col-6 col-md-3" style=" padding-left: 7px; padding-right: 7px; margin-bottom: 14px;">
-                                                            <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
-                                                                <a href="{{ $item->getUrl() }}">
-                                                                    <h6>{{ $item->name }}</h6>
-                                                                </a>
+                                                            <div class="col-6 col-md-3" style=" padding-left: 7px; padding-right: 7px; margin-bottom: 14px;">
+                                                                <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
+                                                                    <a href="{{ $item->getUrl() }}" title="{{ $item->name }}">
+                                                                        {{ $item->name }}
+                                                                    </a>
+                                                                </div>
                                                             </div>
-                                                        </div>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -349,11 +369,11 @@
                                                 <div class="suggest__list-place">
                                                     <div class="row">
                                                         @foreach($hotTours as $item)
-                                                        <div class="col-12 col-md-4 hot-service-list" style="margin-bottom: 10px; padding-left: 7px; padding-right: 7px;">
-                                                            <a href="{{ route('web.services.detail', ['id' => $item->id, 'slug' => $item->slug]) }}">
+                                                        <div class="col-12 col-md-4 hot-service-list">
+                                                            <a href="{{ route('web.services.detail', ['id' => $item->id, 'slug' => $item->slug]) }}" title="{{ $item->name }}">
                                                                 <div class="d-none d-md-block box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
                                                                 </div>
-                                                                <h6>{{ $item->name }}</h6>
+                                                                {{ ucfirst($item->name) }}
                                                             </a>
                                                         </div>
                                                         @endforeach
@@ -383,7 +403,7 @@
             <div class="row">
                 @forelse ($place_destinations as $key_place => $place)
                     <div class="col-sm-12 col-md-3">
-                        <a href="{{ $place->getUrl() }}">
+                        <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage() }});">
                                 <span>{{ $place->getTranslation($locale)->name }}</span>
                             </div>
@@ -408,18 +428,21 @@
             <div class="row">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
-                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation($locale)->slug]) }}" class="link-best-trip__item">
+                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation($locale)->slug]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
                             <div class="best-trip__item">
                                 <div class="image">
                                     <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
                                 </div>
                                 <div class="info-trip">
-                                    <p class="name">{{ title_case($service->getTranslation($locale)->name) }}</p>
+                                    <h3 class="name">{{ title_case($service->getTranslation($locale)->name) }}</h3>
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
-                                            <i class="fas fa-map-pin"></i>
-                                            <span>{{ $service->getTranslation($locale)->address }}</span>
+                                            @if($service->getTranslation($locale)->address)
+                                                <i class="fas fa-map-pin"></i>
+                                                <span>{{ $service->getTranslation($locale)->address }}</span>
+                                            @endif
                                         </span>
+
                                         <span class="d-flex align-items-center">
                                             <span class="currency">VND</span>
                                             <span class="price">{{ number_format($service->getPrice()) }}</span>
@@ -483,7 +506,7 @@
             $("#input-search").on('blur',function(){
                 setTimeout(function(){
                     $('.box-suggest').css('display', 'none');
-                }, 100);
+                }, 1000);
             });
           });
         })(jQuery);

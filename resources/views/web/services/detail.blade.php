@@ -8,10 +8,11 @@
     <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.carousel.min.css') }}" >
     <style type="text/css">
         .service-banner {
-            padding-top: 55px;
+            /*padding-top: 55px;
             height: 300px;
-            background-color: #ccc;
+            background-color: #ccc;*/
             margin-bottom: 20px;
+            position: relative;
         }
         .service-banner img {
             object-fit: cover;
@@ -20,7 +21,7 @@
         }
         @media screen and (min-width: 768px) {
             .service-banner {
-                height: 550px;
+                height: 450px;
             }
         }
 
@@ -95,8 +96,6 @@
             margin-top: 10px;
             font-size: 18px;
         }
-
-
         .service-involve {
             padding: 20px 0px;
             border-top: 1px solid #eee;
@@ -208,6 +207,7 @@
 @section('content')
     <div class="service-banner">
         <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
+        <div class="opacity"></div>
     </div>
     <div class="container">
         <div class="row">

@@ -6,20 +6,33 @@ body {
 }
 
 /* HEDER TOP NAVIGATION */
+.navbar-brand {
+    height: 36px;
+    width: 140px;
+    background-size: 100%;
+    padding: 0;
+    margin: 0;
+}
+.header-top-navigation .navbar-brand {
+    background-image: url('/web/images/logos/logo_white.png');
+}
+.header-top-navigation-scroll .navbar-brand{
+    background-image: url('/web/images/logos/logo_blue.png');
+}
+/*.layoutpage .header-top-navigation {
+    background-color: #fff !important;
+}*/
 .header-top-navigation {
     background-color: transparent;
     color: #fff !important;
 }
 .header-top-navigation-scroll {
     background-color: #fff !important;
-    box-shadow: 1px 0 2px rgba(0,0,0,.4) !important;
+    box-shadow: 1px 0 2px rgba(0,0,0,.3) !important;
     transition: 0.2s all;
 }
 .header-top-navigation-link-scroll {
     color: #000 !important;
-}
-.header-top-navigation .logo {
-    height: 33px;
 }
 .header-top-navigation .nav-link {
     padding-right: 55px;
@@ -47,6 +60,9 @@ body {
     margin-left: -16px;
     margin-right: -16px;
 }
+.header-top-navigation .navbar {
+    padding: .45rem 1rem !important;
+}
 @media screen and (min-width: 768px) {
     .header-top-navigation {
         background-color: transparent;
@@ -67,12 +83,22 @@ body {
 #language-system .dropdown-menu {
     border: none;
     border-radius: 0px;
-    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45);
+    /*box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45);*/
 }
 #language-system .dropdown-item {
     font-size: 14px;
 }
-
+#language-system .dropdown > a {
+    border-color: transparent;
+    border-radius: 0;
+}
+#language-system .dropdown > a::focus {
+    box-shadow: none;
+    outline: none;
+}
+#dropdownMenuLink::after {
+    vertical-align: middle !important;
+}
 /*// Header-Scroll*/
 .header-scroll .navbar-light .navbar-nav .nav-link {
     color: #000 !important;
@@ -126,9 +152,14 @@ body {
    color: #cccccc;
 }
 
-
-
-
+/**Class opacity**/
+.opacity {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: rgba(0,0,0,.1);
+}
 
 
 

@@ -438,8 +438,8 @@
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
                                             @if($service->getTranslation($locale)->address)
-                                                <i class="fas fa-map-pin"></i>
-                                                <span>{{ $service->getTranslation($locale)->address }}</span>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span>{{ $service->place ? $service->place->getTranslation($locale)->name: '' }}</span>
                                             @endif
                                         </span>
 

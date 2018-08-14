@@ -36,3 +36,6 @@ Route::group(['middleware' => 'locale'], function() {
 
     Auth::routes();
 });
+
+Route::get('/privacy', 'PageController@privacy')->name('privacy');
+Route::get('/policies', 'PageController@policies')->name('policies');

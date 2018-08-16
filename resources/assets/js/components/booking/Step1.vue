@@ -96,7 +96,7 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <span>
-                                    Khi nhấp vào "Thanh toán", bạn đồng ý rằng bạn đã đọc và hiểu Điều khoản sử dụng và Chính xách huỷ trả
+                                    Khi nhấp vào "Thanh toán", bạn đồng ý rằng bạn đã đọc và hiểu Điều khoản sử dụng và Chính sách huỷ trả
                                 </span>
                             </div>
                             <div class="col-md-4">

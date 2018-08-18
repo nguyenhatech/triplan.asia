@@ -265,6 +265,14 @@
                             </div>
                         </div>
                     @endif
+                    @if ($service->getTranslation($locale)->additional_information)
+                        <div class="service-what_to_expect">
+                            <h4>@lang('web_service_additional_information')</h4>
+                            <div>
+                                {!! $service->getTranslation($locale)->additional_information !!}
+                            </div>
+                        </div>
+                    @endif
                     @if ($service->getTranslation($locale)->how_to_use)
                         <div class="service-what_to_expect">
                             <h4>@lang('web_service_user_manual')</h4>

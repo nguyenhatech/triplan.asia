@@ -115,7 +115,9 @@
                     dates: []
                 },
                 servicePackageParent: [],
-                day: null
+                day: null,
+                item: {}
+
             }
         },
         components: {
@@ -180,6 +182,11 @@
                 if (this.day) {
                     let day = this.getFormattedDate(this.day);
                     this.setServicePackageDay(day)
+                    if (this.item.id) {
+                        console.log('chui')
+                        this.openPackageChildren(this.item)
+                        this.item = {}
+                    }
                 }
             },
             getFormattedDate(date) {
@@ -199,6 +206,7 @@
             openPackageChildren (item) {
                 if (this.day === null) {
                     this.$refs.programaticOpen.showCalendar();
+                    this.item = item;
                     return
                 }
                 this.servicePackageParent.map(function(item, elem) {

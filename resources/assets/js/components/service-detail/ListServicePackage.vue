@@ -216,7 +216,14 @@
             },
             // Trừ 1 gói con
             decreaseServicePackage (item) {
-                if (item.quantity != 0) {
+                let flag = false;
+                if (item.min == 0 && item.quantity > 0) {
+                    flag = true;
+                }
+                if (item.min != 0 && item.quantity > item.min) {
+                    flag = true;
+                }
+                if (flag) {
                     item.quantity = item.quantity - 1
                     this.setArrayServicePackages(item)
                 }

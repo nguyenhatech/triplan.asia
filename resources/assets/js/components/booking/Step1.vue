@@ -122,7 +122,7 @@
                             <span style="color: #888">Ngày</span>
                             <span>{{ dataBooking.date }}</span>
                         </div>
-                        <div class="d-flex justify-content-between" style="margin-bottom: 16px;">
+                        <div class="d-flex justify-content-between" style="margin-bottom: 5px;">
                             <span style="color: #888">Đơn vị</span>
                         </div>
                         <div>
@@ -131,6 +131,20 @@
                                     <span>{{item.quantity}} x {{item.name}}</span>
                                     <span>
                                         {{ item.quantity * item.price_with_currency | number }} VND
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between" style="margin-bottom: 5px; margin-top: 10px">
+                            <span style="color: #888">Khuyến mãi</span>
+                        </div>
+                        <div>
+                            <div v-for="item_sub in dataBooking.service_packages" :key="item_sub.id">
+                                <div  v-if="item_sub.free" class="d-flex justify-content-between align-item_subs-center" style="min-height: 30px">
+                                    <span>{{item_sub.free}} x {{item_sub.name}}</span>
+                                    <span>
+                                        - {{ item_sub.free * item_sub.price_with_currency | number }} VND
                                     </span>
                                 </div>
 

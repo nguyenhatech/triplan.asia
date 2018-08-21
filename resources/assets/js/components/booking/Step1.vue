@@ -124,12 +124,17 @@
                         </div>
                         <div class="d-flex justify-content-between" style="margin-bottom: 16px;">
                             <span style="color: #888">Đơn vị</span>
-                            <div>
-                                <p v-for="item in dataBooking.service_packages" :key="item.id">
-                                    <span v-if="item.quantity">{{item.quantity}} x {{item.name}}</span>
-                                </p>
-                            </div>
+                        </div>
+                        <div>
+                            <div v-for="item in dataBooking.service_packages" :key="item.id">
+                                <div class="d-flex justify-content-between align-items-center" style="min-height: 30px">
+                                    <span>{{item.quantity}} x {{item.name}}</span>
+                                    <span>
+                                        {{ item.quantity * item.price_with_currency | number }} VND
+                                    </span>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>

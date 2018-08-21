@@ -35,13 +35,13 @@
                 <div
                     v-for="(service_package_sub, index) in service_packages"
                     :key="service_package_sub.id">
-                    <span v-if="service_package_sub.free && index === 0" style="display: block; margin-top: 5px; font-size: 12px;">Khuyến mại:</span>
+                    <span v-if="service_package_sub.free" style="display: block; margin-top: 5px; font-size: 12px;">Khuyến mại:</span>
                     <div v-if="service_package_sub.free" class="d-flex justify-content-between align-items-center" style="min-height: 30px">
                         <span>
-                            {{ service_package_sub.quantity }} x {{service_package_sub.name}}
+                            {{ service_package_sub.free }} x {{service_package_sub.name}}
                         </span>
                         <span>
-                            - {{ service_package_sub.quantity * service_package_sub.price_with_currency | number }} VND
+                            - {{ service_package_sub.free * service_package_sub.price_with_currency | number }} VND
                         </span>
                     </div>
                 </div>

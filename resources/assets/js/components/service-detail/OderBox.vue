@@ -16,20 +16,27 @@
                 {{ package_name }}
             </span>
             <div>
-                {{ date }}
+                <span>Ngày đi:</span>
+                <span style="font-weight: bold">{{ date }}</span>
             </div>
             <div v-if="service_packages.length">
+                <span style="display: block; margin-top: 5px;">Số lượng:</span>
                 <div
                     v-for="service_package in service_packages"
                     :key="service_package.id">
-                    <span>
-                        {{service_package.name}}
-                    </span>
-                    <span>
-                        x {{service_package.quantity}}
-                    </span>
+                    <div class="d-flex justify-content-between align-items-center" style="min-height: 30px">
+                        <span>
+                            {{ service_package.quantity }} x {{service_package.name}}
+                        </span>
+                        <span>
+                            800.000 VND
+                        </span>
+                    </div>
                 </div>
-                <p>Tổng tiền: {{ calcFee | number }} Vnd</p>
+                <div class="d-flex justify-content-between" style="padding-top: 10px;border-top-color: #ccc; border-width: 1px; border-top-style: solid;">
+                    <span>Tổng tiền</span>
+                    <span>{{ calcFee | number }} VND</span>
+                </div>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">

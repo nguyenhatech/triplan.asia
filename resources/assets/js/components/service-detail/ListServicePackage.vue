@@ -49,8 +49,12 @@
                                 <span class="name">
                                     {{ package_children.name }}
                                 </span>
+                                <span style="font-size: 11px; font-style: italic;">
+                                    {{ package_children.view_more }}
+                                </span>
                                 <span class="price">
-                                    {{ package_children.price_with_currency | number }} <span style="font-size: 10px; font-weight: bold">VND</span>
+                                    {{ package_children.price_with_currency | number }}
+                                    <span style="font-size: 12px; font-weight: bold">VND</span>
                                 </span>
                             </div>
                             <div class="d-flex align-items-center">
@@ -65,6 +69,7 @@
                                 </span>
                                 <span
                                     @click="increaseServicePackage(package_children)"
+                                    :class="[package_children.quantity > package_children.max && package_children.max !== 0  ? '' : 'disable']"
                                     class="button-action d-flex justify-content-center align-items-center">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -150,11 +155,11 @@
                 })
             },
             addColumnToServicePackage (servicePackageParent) {
-                servicePackageParent.map(function(index, elem) {
+                servicePackageParent.map(function(index) {
                     index.checked = false;
-                    index.service_package_children_actives.data.map(function(index2, elem2) {
-                        index2.quantity = 0;
-                        return index2;
+                    index.service_package_children_actives.data.map(function(item) {
+                        item.quantity = 0;
+                        return item;
                     })
                     return index;
                 })
@@ -212,9 +217,9 @@
             // Trừ 1 gói con
             decreaseServicePackage (item) {
                 if (item.quantity != 0) {
-                    item.quantity = item.quantity -1
+                    item.quantity = item.quantity - 1
+                    this.setArrayServicePackages(item)
                 }
-                this.setArrayServicePackages(item)
             },
             // Tăng 1 gói con
             increaseServicePackage (item) {
@@ -306,7 +311,8 @@
 }
 .package_children__item .price {
     color: #666;
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: bold;
 }
 .package_children__item .quantity {
     padding-right: 10px;

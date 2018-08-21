@@ -223,8 +223,19 @@
             },
             // Tăng 1 gói con
             increaseServicePackage (item) {
-                item.quantity = item.quantity + 1
-                this.setArrayServicePackages(item)
+                let flag = false;
+
+                if (item.max == 0) {
+                    flag = true;
+                }
+                if (item.max != 0 && item.quantity < item.max) {
+                    flag = true;
+                }
+
+                if (flag) {
+                    item.quantity = item.quantity + 1
+                    this.setArrayServicePackages(item)
+                }
             },
             // Check điều kiện để disable phần giảm gói
             getClassDecrease (item) {
@@ -244,7 +255,6 @@
                 if (item.max != 0 && item.quantity < item.max) {
                     return '';
                 }
-
                 return 'disable';
             }
         }

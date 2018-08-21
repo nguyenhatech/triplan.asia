@@ -89,6 +89,13 @@
                         flag = true
                     }
                 })
+                _.forEach(this.service_packages, (item) => {
+                    if (item.min != 0) {
+                        if (item.min > item.quantity) {
+                             flag = false
+                        }
+                    }
+                })
                 return this.date !== '' && this.package_name !== '' && flag;
             }
         },

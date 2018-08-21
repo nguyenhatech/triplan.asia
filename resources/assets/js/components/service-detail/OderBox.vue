@@ -33,15 +33,15 @@
                     </div>
                 </div>
                 <div
-                    v-for="(service_package_sub, index) in service_packages"
-                    :key="service_package_sub.id">
+                    v-for="service_package_sub in service_packages"
+                    :key="service_package_sub.id_translation">
                     <span v-if="service_package_sub.free" style="display: block; margin-top: 5px; font-size: 12px;">Khuyến mại:</span>
                     <div v-if="service_package_sub.free" class="d-flex justify-content-between align-items-center" style="min-height: 30px">
                         <span>
-                            {{ service_package_sub.free }} x {{service_package_sub.name}}
+                            {{ Math.min(service_package_sub.free,service_package_sub.quantity) }} x {{service_package_sub.name}}
                         </span>
                         <span>
-                            - {{ service_package_sub.free * service_package_sub.price_with_currency | number }} VND
+                            - {{ Math.min(service_package_sub.free,service_package_sub.quantity) * service_package_sub.price_with_currency | number }} VND
                         </span>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
             calcFee () {
                 let totalFree = 0;
                 _.forEach(this.service_packages, (value) => {
-                    totalFree += (value.quantity - value.free) * value.price_with_currency
+                    totalFree += (value.quantity - Math.min(value.free,value.quantity)) * value.price_with_currency
                 })
                 return totalFree
             },

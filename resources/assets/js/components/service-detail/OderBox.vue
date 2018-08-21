@@ -90,7 +90,7 @@
             calcFee () {
                 let totalFree = 0;
                 _.forEach(this.service_packages, (value) => {
-                    totalFree += value.quantity * value.price_with_currency
+                    totalFree += (value.quantity - value.free) * value.price_with_currency
                 })
                 return totalFree
             },

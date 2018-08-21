@@ -29,7 +29,7 @@
                             {{ service_package.quantity }} x {{service_package.name}}
                         </span>
                         <span>
-                            800.000 VND
+                            {{ service_package.quantity * service_package.price_with_currency | number }}
                         </span>
                     </div>
                 </div>

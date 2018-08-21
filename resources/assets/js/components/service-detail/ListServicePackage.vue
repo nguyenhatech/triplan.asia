@@ -60,7 +60,7 @@
                             <div class="d-flex align-items-center">
                                 <span
                                     @click="decreaseServicePackage(package_children)"
-                                    :class="[package_children.quantity > 0 ? '' : 'disable']"
+                                    :class="getClassDecrease(package_children)"
                                     class="button-action d-flex justify-content-center align-items-center">
                                     <i class="fas fa-minus"></i>
                                 </span>
@@ -69,7 +69,7 @@
                                 </span>
                                 <span
                                     @click="increaseServicePackage(package_children)"
-                                    :class="[package_children.quantity > package_children.max && package_children.max !== 0  ? '' : 'disable']"
+                                    :class="getClassIncrease(package_children)"
                                     class="button-action d-flex justify-content-center align-items-center">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -225,6 +225,27 @@
             increaseServicePackage (item) {
                 item.quantity = item.quantity + 1
                 this.setArrayServicePackages(item)
+            },
+            // Check điều kiện để disable phần giảm gói
+            getClassDecrease (item) {
+                if (item.min == 0 && item.quantity > 0) {
+                    return '';
+                }
+                if (item.min != 0 && item.quantity > item.min) {
+                    return '';
+                }
+                return 'disable';
+            },
+            // Check điều kiện để disable phần tăng gói
+            getClassIncrease (item) {
+                if (item.max == 0) {
+                    return '';
+                }
+                if (item.max != 0 && item.quantity < item.max) {
+                    return '';
+                }
+
+                return 'disable';
             }
         }
     }

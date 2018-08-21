@@ -22,6 +22,10 @@ export default {
     })
     if (index === -1) {
       state.service_packages.push(data)
+    } else {
+        if (data.quantity === 0) {
+            state.service_packages.splice(index, 1);
+        }
     }
   }
 }

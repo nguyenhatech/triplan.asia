@@ -1,5 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta charset="utf-8">
+<meta name="google-site-verification" content="vbykco7VtC5nsa1NzflzE-6gdiUjNcuhJatIayRjJyQ" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="content-language" content="vi" />
 <link href="{{ get_asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />

@@ -49,14 +49,18 @@
                                 <span class="name">
                                     {{ package_children.name }}
                                 </span>
+                                <span style="font-size: 11px; font-style: italic;">
+                                    {{ package_children.view_more }}
+                                </span>
                                 <span class="price">
-                                    {{ package_children.price_with_currency | number }} <span style="font-size: 10px; font-weight: bold">VND</span>
+                                    {{ package_children.price_with_currency | number }}
+                                    <span style="font-size: 12px; font-weight: bold">VND</span>
                                 </span>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span
                                     @click="decreaseServicePackage(package_children)"
-                                    :class="[package_children.quantity > 0 ? '' : 'disable']"
+                                    :class="getClassDecrease(package_children)"
                                     class="button-action d-flex justify-content-center align-items-center">
                                     <i class="fas fa-minus"></i>
                                 </span>
@@ -65,6 +69,7 @@
                                 </span>
                                 <span
                                     @click="increaseServicePackage(package_children)"
+                                    :class="getClassIncrease(package_children)"
                                     class="button-action d-flex justify-content-center align-items-center">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -110,7 +115,9 @@
                     dates: []
                 },
                 servicePackageParent: [],
-                day: null
+                day: null,
+                item: {}
+
             }
         },
         components: {
@@ -150,11 +157,11 @@
                 })
             },
             addColumnToServicePackage (servicePackageParent) {
-                servicePackageParent.map(function(index, elem) {
+                servicePackageParent.map(function(index) {
                     index.checked = false;
-                    index.service_package_children_actives.data.map(function(index2, elem2) {
-                        index2.quantity = 0;
-                        return index2;
+                    index.service_package_children_actives.data.map(function(item) {
+                        item.quantity = 0;
+                        return item;
                     })
                     return index;
                 })
@@ -175,6 +182,11 @@
                 if (this.day) {
                     let day = this.getFormattedDate(this.day);
                     this.setServicePackageDay(day)
+                    if (this.item.id) {
+                        console.log('chui')
+                        this.openPackageChildren(this.item)
+                        this.item = {}
+                    }
                 }
             },
             getFormattedDate(date) {
@@ -194,6 +206,7 @@
             openPackageChildren (item) {
                 if (this.day === null) {
                     this.$refs.programaticOpen.showCalendar();
+                    this.item = item;
                     return
                 }
                 this.servicePackageParent.map(function(item, elem) {
@@ -211,15 +224,53 @@
             },
             // Trừ 1 gói con
             decreaseServicePackage (item) {
-                if (item.quantity != 0) {
-                    item.quantity = item.quantity -1
+                let flag = false;
+                if (item.min == 0 && item.quantity > 0) {
+                    flag = true;
                 }
-                this.setArrayServicePackages(item)
+                if (item.min != 0 && item.quantity > item.min) {
+                    flag = true;
+                }
+                if (flag) {
+                    item.quantity = item.quantity - 1
+                    this.setArrayServicePackages(item)
+                }
             },
             // Tăng 1 gói con
             increaseServicePackage (item) {
-                item.quantity = item.quantity + 1
-                this.setArrayServicePackages(item)
+                let flag = false;
+
+                if (item.max == 0) {
+                    flag = true;
+                }
+                if (item.max != 0 && item.quantity < item.max) {
+                    flag = true;
+                }
+
+                if (flag) {
+                    item.quantity = item.quantity + 1
+                    this.setArrayServicePackages(item)
+                }
+            },
+            // Check điều kiện để disable phần giảm gói
+            getClassDecrease (item) {
+                if (item.min == 0 && item.quantity > 0) {
+                    return '';
+                }
+                if (item.min != 0 && item.quantity > item.min) {
+                    return '';
+                }
+                return 'disable';
+            },
+            // Check điều kiện để disable phần tăng gói
+            getClassIncrease (item) {
+                if (item.max == 0) {
+                    return '';
+                }
+                if (item.max != 0 && item.quantity < item.max) {
+                    return '';
+                }
+                return 'disable';
             }
         }
     }
@@ -306,7 +357,8 @@
 }
 .package_children__item .price {
     color: #666;
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: bold;
 }
 .package_children__item .quantity {
     padding-right: 10px;

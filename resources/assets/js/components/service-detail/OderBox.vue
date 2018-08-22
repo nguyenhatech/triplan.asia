@@ -16,20 +16,39 @@
                 {{ package_name }}
             </span>
             <div>
-                {{ date }}
+                <span style="font-weight: bold">{{ date }}</span>
             </div>
             <div v-if="service_packages.length">
+                <span style="display: block; margin-top: 5px; font-size: 12px;">Số lượng:</span>
                 <div
                     v-for="service_package in service_packages"
                     :key="service_package.id">
-                    <span>
-                        {{service_package.name}}
-                    </span>
-                    <span>
-                        x {{service_package.quantity}}
-                    </span>
+                    <div class="d-flex justify-content-between align-items-center" style="min-height: 30px">
+                        <span>
+                            {{ service_package.quantity }} x {{service_package.name}}
+                        </span>
+                        <span>
+                            {{ service_package.quantity * service_package.price_with_currency | number }} VND
+                        </span>
+                    </div>
                 </div>
-                <p>Tổng tiền: {{ calcFee | number }} Vnd</p>
+                <div
+                    v-for="service_package_sub in service_packages"
+                    :key="service_package_sub.id_translation">
+                    <span v-if="service_package_sub.free" style="display: block; margin-top: 5px; font-size: 12px;">Khuyến mại:</span>
+                    <div v-if="service_package_sub.free" class="d-flex justify-content-between align-items-center" style="min-height: 30px">
+                        <span>
+                            {{ Math.min(service_package_sub.free,service_package_sub.quantity) }} x {{service_package_sub.name}}
+                        </span>
+                        <span>
+                            - {{ Math.min(service_package_sub.free,service_package_sub.quantity) * service_package_sub.price_with_currency | number }} VND
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between" style="padding-top: 10px;border-top-color: #ccc; border-width: 1px; border-top-style: solid;">
+                    <span>Tổng tiền</span>
+                    <span>{{ calcFee | number }} VND</span>
+                </div>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
@@ -71,7 +90,7 @@
             calcFee () {
                 let totalFree = 0;
                 _.forEach(this.service_packages, (value) => {
-                    totalFree += value.quantity * value.price_with_currency
+                    totalFree += (value.quantity - Math.min(value.free,value.quantity)) * value.price_with_currency
                 })
                 return totalFree
             },
@@ -80,6 +99,13 @@
                 _.forEach(this.service_packages, (item) => {
                     if (item.quantity) {
                         flag = true
+                    }
+                })
+                _.forEach(this.service_packages, (item) => {
+                    if (item.min != 0) {
+                        if (item.min > item.quantity) {
+                             flag = false
+                        }
                     }
                 })
                 return this.date !== '' && this.package_name !== '' && flag;

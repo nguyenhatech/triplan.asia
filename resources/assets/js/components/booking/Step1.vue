@@ -122,14 +122,35 @@
                             <span style="color: #888">Ngày</span>
                             <span>{{ dataBooking.date }}</span>
                         </div>
-                        <div class="d-flex justify-content-between" style="margin-bottom: 16px;">
+                        <div class="d-flex justify-content-between" style="margin-bottom: 5px;">
                             <span style="color: #888">Đơn vị</span>
-                            <div>
-                                <p v-for="item in dataBooking.service_packages" :key="item.id">
-                                    <span v-if="item.quantity">{{item.quantity}} x {{item.name}}</span>
-                                </p>
-                            </div>
+                        </div>
+                        <div>
+                            <div v-for="item in dataBooking.service_packages" :key="item.id">
+                                <div class="d-flex justify-content-between align-items-center" style="min-height: 30px">
+                                    <span>{{item.quantity}} x {{item.name}}</span>
+                                    <span>
+                                        {{ item.quantity * item.price_with_currency | number }} VND
+                                    </span>
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between" style="margin-bottom: 5px; margin-top: 10px">
+                            <span style="color: #888">Khuyến mãi</span>
+                        </div>
+                        <div>
+                            <div v-for="item_sub in dataBooking.service_packages" :key="item_sub.id">
+                                <div  v-if="item_sub.free" class="d-flex justify-content-between align-item_subs-center" style="min-height: 30px">
+                                    <span>
+                                        {{ Math.min(item_sub.free, item_sub.quantity) }} x {{item_sub.name}}
+                                    </span>
+                                    <span>
+                                        - {{ Math.min(item_sub.free, item_sub.quantity) * item_sub.price_with_currency | number }} VND
+                                    </span>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -190,7 +211,7 @@
             calcFee () {
                 let totalFree = 0;
                 _.forEach(this.dataBooking.service_packages, (value) => {
-                    totalFree += value.quantity * value.price_with_currency
+                    totalFree += (value.quantity - Math.min(value.free,value.quantity)) * value.price_with_currency
                 })
                 return totalFree
             }

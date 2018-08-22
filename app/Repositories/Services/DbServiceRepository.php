@@ -74,7 +74,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
 
     public function getHotTourSearchBar()
     {
-        return $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')->where('service_translations.locale', \App::getLocale())->where('services.hot', 1)->select('services.*', 'service_translations.name', 'service_translations.slug')->orderBy('services.created_at', 'DESC')->limit(3)->get();
+        return $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')->where('service_translations.locale', \App::getLocale())->where('services.hot', 1)->select('services.*', 'service_translations.name', 'service_translations.slug')->orderBy('services.created_at', 'DESC')->limit(6)->get();
     }
 
 }

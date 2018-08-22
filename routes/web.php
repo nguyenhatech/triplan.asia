@@ -18,10 +18,10 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/', 'HomeController@index')->name('web.home');
 
     // Module
-    Route::get('places/{slug}', 'PlaceController@show')->name('web.show_place');
+    Route::get('du-lich-{slug}', 'PlaceController@show')->name('web.show_place');
 
     // Module Service
-    Route::get('services/{id}-{slug}', 'ServiceController@detail')->name('web.services.detail');
+    Route::get('{slug}_{uuid}', 'ServiceController@detail')->name('web.services.detail');
 
     // Module Booking
     Route::get('booking/step1', 'BookingController@bookingStep1')->name('web.booking.step1');

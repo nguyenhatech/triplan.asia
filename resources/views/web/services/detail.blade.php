@@ -403,7 +403,6 @@
             }
 
             if ($(this).scrollTop() > (height - 1280)) {
-                console.log('dưqdqwdq');
                 $('.booking-service-destop').removeClass('fixed');
             }
         });

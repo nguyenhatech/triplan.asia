@@ -404,7 +404,7 @@
                 @forelse ($place_destinations as $key_place => $place)
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
-                            <div class="list__item" style="background-image: url({{ $place->getImage() }});">
+                            <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
                                 <span>{{ $place->getTranslation($locale)->name }}</span>
                             </div>
                         </a>
@@ -431,15 +431,15 @@
                         <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation($locale)->slug]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
                             <div class="best-trip__item">
                                 <div class="image">
-                                    <img src="{{ $service->getImage() }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
+                                    <img src="{{ $service->getImage('sm') }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
                                 </div>
                                 <div class="info-trip">
                                     <h3 class="name">{{ title_case($service->getTranslation($locale)->name) }}</h3>
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
                                             @if($service->getTranslation($locale)->address)
-                                                <i class="fas fa-map-pin"></i>
-                                                <span>{{ $service->getTranslation($locale)->address }}</span>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span>{{ $service->place ? $service->place->getTranslation($locale)->name: '' }}</span>
                                             @endif
                                         </span>
 

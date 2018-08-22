@@ -209,14 +209,14 @@
                 item.checked = true;
                 this.setServicePackageName(item.name)
             },
-            // Tăng 1 gói con
+            // Trừ 1 gói con
             decreaseServicePackage (item) {
                 if (item.quantity != 0) {
                     item.quantity = item.quantity -1
                 }
                 this.setArrayServicePackages(item)
             },
-            // Trừ 1 gói con
+            // Tăng 1 gói con
             increaseServicePackage (item) {
                 item.quantity = item.quantity + 1
                 this.setArrayServicePackages(item)

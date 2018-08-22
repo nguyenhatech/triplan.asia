@@ -62,6 +62,11 @@ class PlaceController extends WebController
         $service_types = $this->serviceType->getByQuery([], -1);
         $tours = $this->service->getByQuery($params);
 
+        $this->metadata->setMetaTitle($this->createMetaTitlePlace($place));
+        $this->metadata->setDescription($this->createMetaDescriptionPlace($place));
+        $this->metadata->setMetaKeyword($this->createMetaKeywordPlace($place));
+        $this->metadata->setOgpimage($place->getImage('sm'));
+
         return view('web.searches.tours')->with([
             'title' => 'Du lịch ' . $place->name,
             'place' => $place,

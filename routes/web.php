@@ -37,5 +37,6 @@ Route::group(['middleware' => 'locale'], function() {
     Auth::routes();
 });
 
+// Điểu khoản & chính sách
 Route::get('/privacy', 'PageController@privacy')->name('privacy');
 Route::get('/policies', 'PageController@policies')->name('policies');

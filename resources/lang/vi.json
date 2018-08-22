@@ -5,10 +5,10 @@
 
 
     "__________________________________________comment": "Web/Home",
-    "where_do_you_want_to_go": "Cùng nhau khám phá",
-    "web_home_baner_top_sologun": "Những nơi mà bạn chưa từng đặt chân tới",
-    "web_home_baner_top_placehoder_input": "Bạn muốn đi đâu?",
-    "web_home_ideal_destination": "Điểm đến lý tưởng",
+    "where_do_you_want_to_go": "Khám phá những điều tuyệt vời",
+    "web_home_baner_top_sologun": "Nơi mà bạn chưa từng đặt chân tới",
+    "web_home_baner_top_placehoder_input": "Tìm kiếm địa điểm, hoạt động du lịch hoặc điểm tham quan",
+    "web_home_ideal_destination": "Các điểm đến lý tưởng",
     "web_home_ideal_destination_description": "Điểm đến du lịch tốt nhất thế giới",
     "web_home_favorite_service": "Dịch vụ được yêu thích nhất",
     "web_home_favorite_service_description": "Trải nghiệm bởi người yêu du lịch",
@@ -22,10 +22,10 @@
 
     "__________________________________________comment": "Web/Service",
     "web_service_experience_for_you": "Trải nghiệm dành cho bạn !",
-    "web_service_information_services": "Các hoạt động",
+    "web_service_information_services": "Thông tin dịch vụ !",
     "web_service_additional_information": "Thông tin thêm",
-    "web_service_user_manual": "Hướng dẫn sử dụng !",
-    "web_service_map": "Bản đố",
+    "web_service_user_manual": "Hướng dẫn sử dụng!",
+    "web_service_map": "Bản đồ",
     "web_service_maybe_you_are_interested": "Có thể bạn quan tâm",
     "web_service_package_options": "Tùy chọn gói",
     "web_service_price_form": "Giá từ",

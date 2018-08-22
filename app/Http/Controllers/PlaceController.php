@@ -63,13 +63,13 @@ class PlaceController extends WebController
         $tours = $this->service->getByQuery($params);
 
         return view('web.searches.tours')->with([
-            'title' => 'Du lịch ' . $place->name,
-            'place' => $place,
-            'places' => $places,
-            'durations'      => $durations,
-            'service_groups' => $service_groups,
-            'service_types'  => $service_types->groupBy('service_group_id'),
-            'tours'          => $tours,
+            'title'             => 'Du lịch ' . $place->name,
+            'place'             => $place,
+            'places'            => $places,
+            'durations'         => $durations,
+            'service_groups'    => $service_groups,
+            'service_types'     => $service_types->groupBy('service_group_id'),
+            'tours'             => $tours,
             'hotTours'          => $hotTours
         ]);
     }

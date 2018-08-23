@@ -166,7 +166,7 @@
             top: 37px;
             left: 0px;
             width: 100%;
-            height: 250px;
+            height: 290px;
             z-index: 1;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -176,7 +176,7 @@
             padding: 20px;
         }
         .box-suggest .nav {
-            height: 248px;
+            height: 288px;
             background-color: #01b07d;
         }
         .box-suggest ul li {
@@ -195,7 +195,7 @@
             text-decoration: none;
         }
         .suggest__list-place .box-image {
-            height: 80px;
+            height: 90px;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -224,13 +224,14 @@
         }
         .suggest__list-place .hot-service-list h6 {
             text-transform: capitalize;
+            font-size: 14px;
         }
         .suggest__list-place .box-hover:hover a:before {
             opacity: 0.4;
         }
         .suggest__list-place .box-hover a:before {
             content: '';
-            width: 72%;
+            width: 79%;
             height: 85%;
             border: 1px solid #fff;
             opacity: 0;
@@ -240,6 +241,7 @@
             bottom: 0;
             right: 0;
             margin: auto;
+            margin-right: 23px;
         }
         .box-list-result .price {
             font-size: 16px;
@@ -413,13 +415,13 @@
                                                     <li><a href="#tab-2" data-toggle="tab">@lang('places_hot_services')</a></li>
                                                 </ul>
                                             </div>
-                                            <div class="col-9">
+                                            <div class="col-9" style="padding-left: 0px;">
                                                 <div class="tab-content well">
                                                     <div class="tab-pane active" id="tab-1">
                                                         <div class="suggest__list-place">
                                                             <div class="row">
                                                                 @foreach($places as $item)
-                                                                <div class="col-3" style="margin-bottom: 15px;">
+                                                                <div class="col-3" style="margin-bottom: 15px; padding-left: 0px;">
                                                                     <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
                                                                         <a href="{{ $item->getUrl() }}">
                                                                             <h6>{{ $item->name }}</h6>
@@ -434,11 +436,11 @@
                                                         <div class="suggest__list-place">
                                                             <div class="row">
                                                                 @foreach($hotTours as $item)
-                                                                <div class="col-4 hot-service-list" style="margin-bottom: 10px;">
-                                                                    <a href="{{ route('web.services.detail', ['id' => $item->id, 'slug' => $item->slug]) }}">
-                                                                        <div class="box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 120px;">
+                                                                <div class="col-3 hot-service-list" style="margin-bottom: 10px; padding-left: 0px;">
+                                                                    <a href="{{ $item->getUrl() }}" title="{{ $item->name }}">
+                                                                        <div class="box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 80px;">
                                                                         </div>
-                                                                        <h6>{{ $item->name }}</h6>
+                                                                        <h6>{{ shortString($item->name, 34) }}</h6>
                                                                     </a>
                                                                 </div>
                                                                 @endforeach

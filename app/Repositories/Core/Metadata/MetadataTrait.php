@@ -43,13 +43,13 @@ trait MetadataTrait
     {
         switch (\App::getLocale()) {
             case 'vi':
-                return 'du lịch ' . $place->getTranslation('vi')->name;
+                return 'Du lịch ' . $place->getTranslation('vi')->name;
                 break;
             case 'en':
                 return $place->getTranslation('en')->name . ' travel';
                 break;
             default:
-                return 'du lịch ' . $place->getTranslation('vi')->name;
+                return 'Du lịch ' . $place->getTranslation('vi')->name;
                 break;
         }
     }

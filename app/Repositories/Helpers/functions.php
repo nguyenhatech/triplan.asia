@@ -122,3 +122,18 @@ function convert_uuid2id($uuid) {
     }
     return $uuid;
 }
+
+/**
+ * Truncate string with ellipsis
+ * @param  [type] $string [description]
+ * @param  [type] $length [description]
+ * @return [type]         [description]
+ */
+function shortString($string, $length)
+{
+    if(strlen($string) > $length)
+    {
+        $string = trim(substr($string, 0, $length))."&hellip;";
+    }
+    return $string;
+}

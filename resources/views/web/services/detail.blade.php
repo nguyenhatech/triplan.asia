@@ -6,6 +6,7 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.carousel.min.css') }}" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css">
     <style type="text/css">
         .service-banner {
             /*padding-top: 55px;
@@ -129,6 +130,7 @@
             padding: 10px;
         }
         .service-involve_item__wrap .info .name {
+            min-height: 60px;
             font-size: 17px;
             font-weight: 700;
             line-height: 20px;
@@ -197,6 +199,23 @@
             top: 65px;
             z-index: 1001;
         }
+
+        .fancybox-thumbs {
+            top: auto;
+            width: auto;
+            bottom: 0;
+            left: 0;
+            right : 0;
+            height: 95px;
+            padding: 10px 10px 5px 10px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .fancybox-show-thumbs .fancybox-inner {
+            right: 0;
+            bottom: 95px;
+        }
     </style>
 @endsection
 
@@ -207,7 +226,11 @@
 @section('content')
     <div class="service-banner">
         <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
-        <div class="opacity"></div>
+        <div class="opacity">
+            <div class="container d-flex align-items-end" style="height: 100%; padding-bottom: 20px;">
+                <button id="view-photos" type="button" class="btn btn-light">@lang('web_service_view_photos')</button>
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
@@ -302,12 +325,12 @@
                             <a href="{{ route('web.services.detail', [$service_involve->id, $service_involve->getTranslation($locale)->slug]) }}">
                                 <div class="service-involve_item__wrap">
                                     <div class="image">
-                                        <img src="{{ $service_involve->getImage() }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
+                                        <img src="{{ $service_involve->getImage('sm') }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
                                     </div>
                                     <div class="info d-flex flex-column">
                                         <div class="name">
                                             <span>
-                                                {{ title_case($service_involve->getTranslation($locale)->name) }}
+                                                {{ shortString(title_case($service_involve->getTranslation($locale)->name), 58) }}
                                             </span>
                                         </div>
                                         <div class="d-flex flex-column">
@@ -342,6 +365,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
     </script>
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>
         $(".service-involve .owl-carousel").owlCarousel({
             loop:false,
@@ -406,5 +430,28 @@
                 $('.booking-service-destop').removeClass('fixed');
             }
         });
-     </script>
+    </script>
+    <script type="text/javascript">
+        $('#view-photos').on('click', async function() {
+            imageList = [
+                @forelse($service->media_services as $index => $image)
+                {src: '{{ $image->getImage() }}', opts: { caption: '{{ $service->getTranslation($locale)->name . " - Ảnh " . ($index+1) }}', thumb: '{{ $image->getImage("tn") }}' }}
+                @break($loop->last)
+                ,
+                @empty
+                {src: '{{ $service->getImage() }}', opts: { caption: '{{ $service->getTranslation($locale)->name }}', thumb: '{{ $service->getImage("tn") }}' }}
+                @endforelse
+            ];
+            $.fancybox.open(
+                imageList,
+                {
+                    loop: true,
+                    thumbs: {
+                        autoStart: true,
+                        axis: 'x'
+                    }
+                }
+            );
+        });
+    </script>
 @endsection

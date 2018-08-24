@@ -3,6 +3,7 @@
 namespace App\Repositories\Services;
 
 use App\Repositories\Entity;
+use Illuminate\Database\Eloquent\Builder;
 
 class Service extends Entity
 {
@@ -30,6 +31,14 @@ class Service extends Entity
         5 => '3 - 5 days',
         6 => '5 day more'
     ];
+
+    protected static function boot()
+    {
+        static::addGlobalScope('active', function (Builder $builder) {
+            $builder->where('status', 1);
+        });
+        parent::boot();
+    }
 
     public function getImage($type = null)
     {
@@ -81,7 +90,7 @@ class Service extends Entity
 
     public function getUrl()
     {
-        return route('web.services.detail', ['id' => $this->id, 'slug' => $this->getTranslation()->slug]);
+        return route('web.services.detail', ['uuid' => $this->uuid, 'slug' => $this->getTranslation()->slug]);
     }
 
 }

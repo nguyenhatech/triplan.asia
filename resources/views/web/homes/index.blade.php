@@ -370,7 +370,7 @@
                                                     <div class="row">
                                                         @foreach($hotTours as $item)
                                                         <div class="col-12 col-md-4 hot-service-list">
-                                                            <a href="{{ route('web.services.detail', ['id' => $item->id, 'slug' => $item->slug]) }}" title="{{ $item->name }}">
+                                                            <a href="{{ route('web.services.detail', [$item->getTranslation($locale)->slug, $item->uuid]) }}" title="{{ $item->name }}">
                                                                 <div class="d-none d-md-block box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
                                                                 </div>
                                                                 {{ ucfirst($item->name) }}
@@ -428,7 +428,7 @@
             <div class="row">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-4">
-                        <a href="{{ route('web.services.detail', [$service->id, $service->getTranslation($locale)->slug]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
+                        <a href="{{ route('web.services.detail', [$service->getTranslation($locale)->slug, $service->uuid]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
                             <div class="best-trip__item">
                                 <div class="image">
                                     <img src="{{ $service->getImage('sm') }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">

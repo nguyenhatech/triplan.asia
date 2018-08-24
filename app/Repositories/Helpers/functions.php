@@ -110,3 +110,15 @@ function trim_text($input, $length, $ellipses = true, $strip_html = true) {
 
     return $trimmed_text;
 }
+
+/**
+ * Convert uuid to id
+ * @param  [type] $uuid [description]
+ * @return [type]       [description]
+ */
+function convert_uuid2id($uuid) {
+    if ($decodeId = \Hashids::decode($uuid)) {
+        return $decodeId[0];
+    }
+    return $uuid;
+}

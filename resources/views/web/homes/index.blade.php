@@ -229,6 +229,7 @@
         }
         .box-suggest .nav {
             min-height: 300px;
+            height: 100%;
             background-color: #01b07d;
         }
         .box-suggest ul li {
@@ -274,6 +275,7 @@
         .suggest__list-place .hot-service-list {
             font-weight: 600;
             padding: 0 8px;
+            margin-bottom: 10px;
         }
         .suggest__list-place .box-image a {
             color: #fff;
@@ -338,45 +340,47 @@
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <div class="box-suggest" style="display: none;">
-                                <div class="row" style="margin-right: 0;">
-                                    <div class="col-4">
-                                        <ul class="nav nav-pills flex-column">
-                                            <li class="active">
-                                                <a href="#tab-1" data-toggle="tab">@lang('places_hot_places')</a>
-                                            </li>
-                                            <li><a href="#tab-2" data-toggle="tab">@lang('places_hot_services')</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="tab-content well">
-                                            <div class="tab-pane active" id="tab-1">
-                                                <div class="suggest__list-place">
-                                                    <div class="row">
-                                                        @foreach($places as $item)
-                                                            <div class="col-6 col-md-3" style=" padding-left: 7px; padding-right: 7px; margin-bottom: 14px;">
-                                                                <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
-                                                                    <a href="{{ $item->getUrl() }}" title="{{ $item->name }}">
-                                                                        {{ $item->name }}
-                                                                    </a>
+                            <div class="d-none d-lg-block">
+                                <div class="box-suggest" style="display: none;">
+                                    <div class="row" style="margin-right: 0;">
+                                        <div class="col-4">
+                                            <ul class="nav nav-pills flex-column">
+                                                <li class="active">
+                                                    <a href="#tab-1" data-toggle="tab">@lang('places_hot_places')</a>
+                                                </li>
+                                                <li><a href="#tab-2" data-toggle="tab">@lang('places_hot_services')</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="tab-content well">
+                                                <div class="tab-pane active" id="tab-1">
+                                                    <div class="suggest__list-place">
+                                                        <div class="row">
+                                                            @foreach($places as $item)
+                                                                <div class="col-6 col-md-3" style=" padding-left: 7px; padding-right: 7px; margin-bottom: 14px;">
+                                                                    <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
+                                                                        <a href="{{ $item->getUrl() }}" title="{{ $item->name }}">
+                                                                            {{ $item->name }}
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        @endforeach
+                                                            @endforeach
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane" id="tab-2">
-                                                <div class="suggest__list-place">
-                                                    <div class="row">
-                                                        @foreach($hotTours as $item)
-                                                        <div class="col-12 col-md-4 hot-service-list">
-                                                            <a href="{{ route('web.services.detail', [$item->getTranslation($locale)->slug, $item->uuid]) }}" title="{{ $item->name }}">
-                                                                <div class="d-none d-md-block box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
-                                                                </div>
-                                                                {{ ucfirst($item->name) }}
-                                                            </a>
+                                                <div class="tab-pane" id="tab-2">
+                                                    <div class="suggest__list-place">
+                                                        <div class="row">
+                                                            @foreach($hotTours as $item)
+                                                            <div class="col-12 col-md-4 hot-service-list">
+                                                                <a href="{{ route('web.services.detail', [$item->getTranslation($locale)->slug, $item->uuid]) }}" title="{{ $item->name }}">
+                                                                    <div class="d-none d-md-block box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
+                                                                    </div>
+                                                                    {{ shortString(ucfirst($item->name), 48) }}
+                                                                </a>
+                                                            </div>
+                                                            @endforeach
                                                         </div>
-                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>

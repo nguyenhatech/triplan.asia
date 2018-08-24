@@ -17,11 +17,6 @@ Route::group(['middleware' => 'locale'], function() {
 
     Route::get('/', 'HomeController@index')->name('web.home');
 
-    // Test email bắn ngon ko
-    Route::get('email-template', function () {
-        return view('emails.booking');
-    });
-
     // Module
     Route::get('du-lich-{slug}', 'PlaceController@show')->name('web.show_place');
 

@@ -5,308 +5,7 @@
 @endsection
 
 @section('styles')
-    <style type="text/css">
-        .home-banner {
-            position: relative;
-        }
-        .home-banner .slide-show {
-            position: relative;
-            width: 100vw;
-            height: 60vh;
-        }
-        .home-banner .slide-show .slide-show__item {
-            position: absolute;
-        }
-        .home-banner .slide-show img {
-            width: 100vw;
-            height: 60vh;
-            object-fit: cover;
-        }
-        .home-banner .quick-search {
-            position: absolute;
-            top: 0;
-            width: 100vw;
-            height: 60vh;
-            color: #fff;
-        }
-        .home-banner .quick-search {
-            width: 100%;
-            padding: 0px 15px;
-            width: 320px;
-        }
-        .home-banner .solugan .main-solugan {
-            font-size: 32px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.2rem;
-            text-shadow: 1px 1px 1px rgba(0,0,0,.4);
-            margin-bottom: 10px;
-        }
-        .home-banner .solugan .sub-solugan {
-            font-size: 20px;
-            font-weight: 400;
-            margin: 0;
-        }
-        .home-banner .form {
-            margin-top: 15px;
-            width: 100%;
-        }
-        .home-banner .form input {
-            font-size: 16px;
-            border-radius: 2px 0px 0px 2px;
-            height: 50px;
-            border: 1px solid #fff;
-            background-color: #fff;
-        }
-        /*.home-banner .form input:hover {
-            border: 1px solid #01b07d;
-        }*/
-        .home-banner .form button {
-            background-color: #01b07d;
-            border-color: #01b07d;
-            border-radius: 0px 2px 2px 0px;
-            height: 50px;
-            padding: 5px 20px;
-        }
-        @media  screen and (min-width: 375px) {
-            .home-banner .quick-search {
-                width: 375px;
-            }
-        }
-        @media  screen and (min-width: 425px) {
-            .home-banner .quick-search {
-                width: 425px;
-            }
-        }
-        @media  screen and (min-width: 768px) {
-            .home-banner .solugan h1 {
-                font-size: 18px;
-            }
-            .home-banner .solugan h2 {
-                font-size: 42px;
-                font-weight: bold;
-            }
-            .home-banner .quick-search {
-                width: 850px;
-            }
-            .home-banner .form button {
-                padding: 5px 35px;
-            }
-            .home-banner .slide-show {
-                height: 81vh;
-            }
-            .home-banner .slide-show img {
-                height: 81vh;
-            }
-            .home-banner .quick-search {
-                height: 81vh;
-            }
-        }
-
-        /*//==================================*/
-        .home-title {
-            padding: 30px 0px;
-        }
-        .home-title .title {
-            font-size: 24px;
-            font-weight: 700;
-        }
-        .home-title .description {
-            color: #8D9199;
-            font-size: 15px;
-        }
-        @media  screen and (min-width: 768px) {
-            .home-title .title {
-                font-size: 36px;
-            }
-        }
-
-        /*//==================================*/
-        .home-destinations .list__item {
-            width: 100%;
-            height: 300px;
-            background-color: #ccc;
-            border-radius: 6px;
-            background-size: cover;
-            background-position: center center;
-            position: relative;
-            margin-bottom: 30px;
-            transition: 0.1s all;
-        }
-        .home-destinations .list__item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
-            transition: 0.1s all;
-        }
-        .home-destinations .list__item span {
-            position: absolute;
-            bottom: 10px;
-            left: 15px;
-            color: #fff;
-            font-size: 25px;
-            font-weight: 700;
-        }
-
-        /*//====================================*/
-        .home-best-trips {
-
-        }
-        .home-best-trips .link-best-trip__item {
-            text-decoration: none;
-            color: #000;
-        }
-        .home-best-trips .best-trip__item {
-            box-shadow: 0px 0px 1px rgba(0,0,0,.4);
-            margin-bottom: 30px;
-            transition: 0.2s all;
-            border-radius: 5px;
-        }
-        .home-best-trips .best-trip__item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            transition: 0.5s all;
-        }
-        .home-best-trips .best-trip__item .image {
-            background-color: #ccc;
-            border-top-right-radius: 6px;
-            border-top-left-radius: 6px;
-        }
-        .home-best-trips .best-trip__item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-top-right-radius: 6px;
-            border-top-left-radius: 6px;
-        }
-        .home-best-trips .info-trip {
-            padding: 10px;
-            /*box-shadow: 0px 0px 1px rgba(0,0,0,.4);*/
-            border-radius: 5px;
-        }
-        .home-best-trips .info-trip .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #28a745;
-            margin-left: 5px;
-        }
-        .home-best-trips .info-trip .address {
-            color: #888888;
-            margin-right: 10px;
-        }
-        .home-best-trips .info-trip .name {
-            font-size: 14px;
-            font-weight: 600;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            line-height: 1.4;
-            letter-spacing: 0.02rem;
-            text-align: justify;
-            min-height: 45px;
-        }
-        #button-addon1 {
-            background: #ffffffd1;
-        }
-        .search-box {
-            position: relative;
-        }
-        .search-box .form-control:focus {
-            box-shadow: none;
-        }
-        .box-suggest {
-            position: absolute;
-            top: 50px;
-            left: 0px;
-            width: 100%;
-            z-index: 1;
-            background-color: #fff;
-            border: none;
-            border-radius: 2px 2px 0 0;
-            border-top: 1px solid #01b07d;
-        }
-        .box-suggest .tab-content {
-            padding-top: 15px;
-            padding-right: 10px;
-        }
-        .box-suggest .nav {
-            min-height: 300px;
-            background-color: #01b07d;
-        }
-        .box-suggest ul li {
-            padding: 15px 10px;
-            font-size: 15px;
-        }
-        .box-suggest ul li.active {
-            background-color: #fff;
-        }
-        .box-suggest ul li.active a {
-            color: #01b07d;
-        }
-        .box-suggest ul li a {
-            color: #fff;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .suggest__list-place .box-image {
-            height: 80px;
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(255,255,255,.15);
-            background-blend-mode: overlay;
-            color: #fff;
-            text-transform: uppercase;
-            font-size: 14px;
-            line-height: 80px;
-        }
-        .suggest__list-place .hot-service-list a {
-            text-decoration: none;
-            color: rgb(33, 37, 41);
-        }
-        .suggest__list-place .hot-service-list a:hover {
-            color: #4db2ec;
-        }
-        .suggest__list-place .hot-service-list .box-image {
-            margin-bottom: 5px;
-        }
-        .suggest__list-place .hot-service-list {
-            font-weight: 600;
-            padding: 0 8px;
-        }
-        .suggest__list-place .box-image a {
-            color: #fff;
-            text-decoration: none;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            overflow: hidden;
-            text-shadow: 1px 1px 0px rgba(0,0,0,.4);
-        }
-        .suggest__list-place .box-hover:hover a:before {
-            opacity: 0.4;
-        }
-        .suggest__list-place .box-hover a:before {
-            content: '';
-            width: 76%;
-            height: 85%;
-            border: 1px solid #fff;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            margin: auto;
-        }
-        .typeahead.dropdown-menu {
-            width: 100%;
-        }
-        .typeahead .dropdown-item {
-            text-transform: capitalize;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/screens/web/homes/index.css') }}">
 @endsection
 
 @php
@@ -338,45 +37,47 @@
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <div class="box-suggest" style="display: none;">
-                                <div class="row" style="margin-right: 0;">
-                                    <div class="col-4">
-                                        <ul class="nav nav-pills flex-column">
-                                            <li class="active">
-                                                <a href="#tab-1" data-toggle="tab">@lang('places_hot_places')</a>
-                                            </li>
-                                            <li><a href="#tab-2" data-toggle="tab">@lang('places_hot_services')</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="tab-content well">
-                                            <div class="tab-pane active" id="tab-1">
-                                                <div class="suggest__list-place">
-                                                    <div class="row">
-                                                        @foreach($places as $item)
-                                                            <div class="col-6 col-md-3" style=" padding-left: 7px; padding-right: 7px; margin-bottom: 14px;">
-                                                                <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
-                                                                    <a href="{{ $item->getUrl() }}" title="{{ $item->name }}">
-                                                                        {{ $item->name }}
-                                                                    </a>
+                            <div class="d-none d-lg-block">
+                                <div class="box-suggest" style="display: none;">
+                                    <div class="row" style="margin-right: 0;">
+                                        <div class="col-4">
+                                            <ul class="nav nav-pills flex-column">
+                                                <li class="active">
+                                                    <a href="#tab-1" data-toggle="tab">@lang('places_hot_places')</a>
+                                                </li>
+                                                <li><a href="#tab-2" data-toggle="tab">@lang('places_hot_services')</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="tab-content well">
+                                                <div class="tab-pane active" id="tab-1">
+                                                    <div class="suggest__list-place">
+                                                        <div class="row">
+                                                            @foreach($places as $item)
+                                                                <div class="col-6 col-md-3" style=" padding-left: 7px; padding-right: 7px; margin-bottom: 14px;">
+                                                                    <div class="box-image box-hover" style="background-image: url('{{ $item->getImage("sm") }}');">
+                                                                        <a href="{{ $item->getUrl() }}" title="{{ $item->name }}">
+                                                                            {{ $item->name }}
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        @endforeach
+                                                            @endforeach
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane" id="tab-2">
-                                                <div class="suggest__list-place">
-                                                    <div class="row">
-                                                        @foreach($hotTours as $item)
-                                                        <div class="col-12 col-md-4 hot-service-list">
-                                                            <a href="{{ route('web.services.detail', [$item->getTranslation($locale)->slug, $item->uuid]) }}" title="{{ $item->name }}">
-                                                                <div class="d-none d-md-block box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
-                                                                </div>
-                                                                {{ ucfirst($item->name) }}
-                                                            </a>
+                                                <div class="tab-pane" id="tab-2">
+                                                    <div class="suggest__list-place">
+                                                        <div class="row">
+                                                            @foreach($hotTours as $item)
+                                                            <div class="col-12 col-md-4 hot-service-list">
+                                                                <a href="{{ route('web.services.detail', [$item->getTranslation($locale)->slug, $item->uuid]) }}" title="{{ $item->name }}">
+                                                                    <div class="d-none d-md-block box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 100px;">
+                                                                    </div>
+                                                                    {{ shortString(ucfirst($item->name), 48) }}
+                                                                </a>
+                                                            </div>
+                                                            @endforeach
                                                         </div>
-                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>

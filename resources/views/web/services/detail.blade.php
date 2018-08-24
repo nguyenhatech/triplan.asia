@@ -6,198 +6,8 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.carousel.min.css') }}" >
-    <style type="text/css">
-        .service-banner {
-            /*padding-top: 55px;
-            height: 300px;
-            background-color: #ccc;*/
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .service-banner img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-        @media screen and (min-width: 768px) {
-            .service-banner {
-                height: 450px;
-            }
-        }
-
-        .service-name h1 {
-            font-weight: 700;
-            color: #333;
-            font-size: 24px;
-        }
-        @media screen and (min-width: 768px) {
-            .service-name h1 {
-                font-size: 28px;
-            }
-        }
-
-        .service-time_confirm_love {
-            padding: 15px 0px;
-        }
-        .service-time_confirm_love .time_confirm {
-            border: 1px solid #e6e6e6;
-            padding: 2px 6px;
-            border-radius: 2px;
-        }
-        .service-time_confirm_love .time_confirm i {
-            color: #1AAC7C;
-            margin-right: 8px;
-        }
-        .service-time_confirm_love .time_confirm span {
-            font-weight: 700;
-        }
-        .service-time_confirm_love .love i {
-            color: #1AAC7C;
-            margin-right: 8px;
-            font-size: 16px;
-        }
-
-        .service-sub_data_mobile {
-            padding: 0px 0px 10px 0px;
-        }
-        .service-sub_data_mobile .price {
-            color: red;
-            font-weight: 700;
-            font-size: 24px;
-            display: block;
-            margin-bottom: 10px;
-        }
-        .service-sub_data_mobile .count-booking {
-            color: rgba(0,0,0,0.54);
-        }
-        .service-comforts {
-            padding: 10px 0px;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-        .service-comforts .comfort_item {
-            padding: 10px 20px 10px 0px;
-        }
-
-        .service-description {
-            padding: 20px 0px;
-            text-align: justify;
-            font-family: 'Nunito', sans-serif !important;
-        }
-
-        .service-what_to_expect {
-           text-align: justify;
-           overflow: hidden;
-           padding-bottom: 15px;
-           font-family: 'Nunito', sans-serif !important;
-        }
-        .service-what_to_expect h4 {
-            font-weight: 700;
-            margin-top: 10px;
-            font-size: 18px;
-        }
-        .service-involve {
-            padding: 20px 0px;
-            border-top: 1px solid #eee;
-        }
-        .service-involve a {
-            text-decoration: none;
-        }
-        .service-involve_item__wrap {
-            margin: 5px;
-        }
-        @media screen and (min-width: 768px) {
-            .service-involve_item__wrap {
-                margin: 10px;
-            }
-        }
-        .service-involve_item__wrap .image {
-            height: 225px;
-            transition: 0.1s all;
-        }
-        .service-involve_item__wrap .image:hover {
-            opacity: 0.7;
-            transition: 0.1s all;
-        }
-        .service-involve_item__wrap .image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .service-involve_item__wrap .info {
-            border: 1px solid #eee;
-            padding: 10px;
-        }
-        .service-involve_item__wrap .info .name {
-            font-size: 17px;
-            font-weight: 700;
-            line-height: 20px;
-            padding: 10px 0px;
-            color: #000;
-        }
-        .service-involve_item__wrap .info .price {
-            color: red;
-            font-weight: 700;
-        }
-
-        .booking-on-mobile {
-            position: fixed;
-            bottom: 0px;
-            z-index: 1000;
-            background-color: #fff;
-            box-shadow: 1px 0 2px rgba(0,0,0,.4);
-            width: 100%;
-            height: 70px;
-        }
-        .booking-on-mobile div {
-            width: 100%;
-            height: 100%;
-            padding: 10px 15px;
-        }
-        .booking-on-mobile a {
-            width: 100%;
-            color: #fff;
-            font-size: 17px;
-            height: 100%;
-            line-height: 40px;
-        }
-
-        .booking-service-destop {
-            background-color: #fff;
-            min-height: 300px;
-            width: 365px;
-            padding: 20px 15px;
-            border-radius: 2px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border: none;
-        }
-        .booking-service-destop .price {
-            color: red;
-            font-weight: 700;
-            font-size: 20px;
-        }
-        .booking-service-destop .booking-now {
-            background-color: #1AAC7C;
-            color: #fff;
-            font-weight: 700;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-        }
-        .booking-service-destop .booking-now:hover {
-            color: #fff;
-            box-shadow: 1px 0 2px rgba(0,0,0,.4);
-        }
-        .booking-service-destop .count-booking {
-            margin-top: 15px;
-            color: rgba(0,0,0,0.54);
-        }
-        .fixed {
-            position: fixed;
-            top: 65px;
-            z-index: 1001;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/screens/web/services/detail.css') }}">
 @endsection
 
 @php
@@ -207,7 +17,11 @@
 @section('content')
     <div class="service-banner">
         <img src="{{ $service->getImage() }}"  alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
-        <div class="opacity"></div>
+        <div class="opacity">
+            <div class="container d-flex align-items-end" style="height: 100%; padding-bottom: 20px;">
+                <button id="view-photos" type="button" class="btn btn-light">@lang('web_service_view_photos')</button>
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
@@ -299,15 +113,15 @@
                     <h3>@lang('web_service_maybe_you_are_interested')</h3>
                     <div class="owl-carousel">
                         @forelse ($service_involves as $service_involve)
-                            <a href="{{ route('web.services.detail', [$service_involve->id, $service_involve->getTranslation($locale)->slug]) }}">
+                            <a href="{{ route('web.services.detail', [$service_involve->getTranslation($locale)->slug, $service_involve->uuid]) }}">
                                 <div class="service-involve_item__wrap">
                                     <div class="image">
-                                        <img src="{{ $service_involve->getImage() }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
+                                        <img src="{{ $service_involve->getImage('sm') }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
                                     </div>
                                     <div class="info d-flex flex-column">
                                         <div class="name">
                                             <span>
-                                                {{ title_case($service_involve->getTranslation($locale)->name) }}
+                                                {{ shortString(title_case($service_involve->getTranslation($locale)->name), 58) }}
                                             </span>
                                         </div>
                                         <div class="d-flex flex-column">
@@ -342,6 +156,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
     </script>
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>
         $(".service-involve .owl-carousel").owlCarousel({
             loop:false,
@@ -406,5 +221,28 @@
                 $('.booking-service-destop').removeClass('fixed');
             }
         });
-     </script>
+    </script>
+    <script type="text/javascript">
+        $('#view-photos').on('click', async function() {
+            imageList = [
+                @forelse($service->media_services as $index => $image)
+                {src: '{{ $image->getImage() }}', opts: { caption: '{{ $service->getTranslation($locale)->name . " - Ảnh " . ($index+1) }}', thumb: '{{ $image->getImage("tn") }}' }}
+                @break($loop->last)
+                ,
+                @empty
+                {src: '{{ $service->getImage() }}', opts: { caption: '{{ $service->getTranslation($locale)->name }}', thumb: '{{ $service->getImage("tn") }}' }}
+                @endforelse
+            ];
+            $.fancybox.open(
+                imageList,
+                {
+                    loop: true,
+                    thumbs: {
+                        autoStart: true,
+                        axis: 'x'
+                    }
+                }
+            );
+        });
+    </script>
 @endsection

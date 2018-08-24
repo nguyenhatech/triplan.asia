@@ -93,4 +93,9 @@ class Service extends Entity
         return route('web.services.detail', ['uuid' => $this->uuid, 'slug' => $this->getTranslation()->slug]);
     }
 
+    public function media_services()
+    {
+        return $this->hasMany('App\Repositories\MediaServices\MediaService', 'service_id', 'id');
+    }
+
 }

@@ -199,7 +199,8 @@
                     country_code: '+84',
                     payment_method: 1,
                     currency_id: 1,
-                    booking_details: []
+                    booking_details: [],
+                    source: 2
                 },
                 countries: []
             }

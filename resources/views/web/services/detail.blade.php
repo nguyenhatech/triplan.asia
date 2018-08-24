@@ -322,7 +322,7 @@
                     <h3>@lang('web_service_maybe_you_are_interested')</h3>
                     <div class="owl-carousel">
                         @forelse ($service_involves as $service_involve)
-                            <a href="{{ route('web.services.detail', [$service_involve->id, $service_involve->getTranslation($locale)->slug]) }}">
+                            <a href="{{ route('web.services.detail', [$service_involve->getTranslation($locale)->slug, $service_involve->uuid]) }}">
                                 <div class="service-involve_item__wrap">
                                     <div class="image">
                                         <img src="{{ $service_involve->getImage('sm') }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">

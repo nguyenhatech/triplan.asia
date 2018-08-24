@@ -106,7 +106,9 @@
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
-                                <span>{{ $place->getTranslation($locale)->name }}</span>
+                                <div class="place-caption">
+                                    <span>{{ $place->getTranslation($locale)->name }}</span>
+                                </div>
                             </div>
                         </a>
                     </div>

@@ -124,9 +124,9 @@
         /*//==================================*/
         .home-destinations .list__item {
             width: 100%;
-            height: 300px;
+            height: 200px;
             background-color: #ccc;
-            border-radius: 6px;
+            border-radius: 3px;
             background-size: cover;
             background-position: center center;
             position: relative;
@@ -138,13 +138,16 @@
             box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
             transition: 0.1s all;
         }
-        .home-destinations .list__item span {
+        .home-destinations .list__item .place-caption {
             position: absolute;
-            bottom: 10px;
-            left: 15px;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            padding: 20px 10px 10px 10px;
             color: #fff;
             font-size: 25px;
             font-weight: 700;
+            background-image: linear-gradient(transparent, #00000075);
         }
 
         /*//====================================*/
@@ -409,7 +412,9 @@
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
-                                <span>{{ $place->getTranslation($locale)->name }}</span>
+                                <div class="place-caption">
+                                    <span>{{ $place->getTranslation($locale)->name }}</span>
+                                </div>
                             </div>
                         </a>
                     </div>

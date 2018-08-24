@@ -11,9 +11,12 @@
 |
 */
 
-Route::group(['middleware' => 'locale'], function() {
+Route::group([
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function($language){
     // Thay đổi ngôn ngữ hệ thống
-    Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('web.change-language');
+    // Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('web.change-language');
 
     Route::get('/', 'HomeController@index')->name('web.home');
 
@@ -34,9 +37,9 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');
     Route::get('/callback/{social}', 'SocialAuthController@callback')->name('callback-social');
 
+    // Điểu khoản & chính sách
+    Route::get('/privacy', 'PageController@privacy')->name('privacy');
+    Route::get('/policies', 'PageController@policies')->name('policies');
+
     Auth::routes();
 });
-
-// Điểu khoản & chính sách
-Route::get('/privacy', 'PageController@privacy')->name('privacy');
-Route::get('/policies', 'PageController@policies')->name('policies');

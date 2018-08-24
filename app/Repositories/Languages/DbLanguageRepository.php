@@ -13,7 +13,7 @@ class DbLanguageRepository extends BaseRepository implements LanguageRepository
 
     public function getAllLanguagesByActive()
     {
-        return Cache::remember('languages', 10, function()
+        return Cache::remember('languages', 864000, function()
         {
             return $this->model->where('status', 1)->get();
         });

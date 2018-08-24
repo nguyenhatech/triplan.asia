@@ -46,14 +46,10 @@ class HomeController extends WebController
         });
 
         // Điểm đến lý tưởng
-        $place_destinations = $this->place->getByQuery([
-            'status' => 1
-        ]);
+        $place_destinations = $this->place->getByQuery(['hot' => 1], 4);
 
         // Dịch vụ được yêu thích nhất
-        $best_services      = $this->service->getByQuery([
-            'hot' => 1
-        ]);
+        $best_services      = $this->service->getByQuery(['hot' => 1], 9);
 
         return view('web.homes.index')->with([
             'title'              => 'Trang chủ',

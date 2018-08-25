@@ -251,7 +251,6 @@
                         axios.post('bookings', this.orderBooking).then(response => {
                             switch (response.code) {
                                 case 200:
-                                    alert('Đặt vé thành công');
                                     // Xóa LocalStorage
                                     window.localStorage.removeItem("dataBooking");
                                     window.location.href = this.data_params.url_booking_thankyou + '?code=' + response.data.code

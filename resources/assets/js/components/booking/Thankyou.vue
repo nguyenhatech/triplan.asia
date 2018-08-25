@@ -28,7 +28,7 @@
                              <tr>
                                 <td colspan="2" style="padding:27px 30px 10px;background-color:#fff;text-align:center">
                                    <p style="font-size:14px;font-family:Arial;color:#000;margin-top:0px;text-align:center">
-                                      Chào , vui lòng thanh toán để hoàn thiện đặt tour tại Triplan của bạn.
+                                      Chào {{ booking.name }}, vui lòng thanh toán để hoàn thiện đặt tour tại Triplan của bạn.
                                    </p>
                                 </td>
                              </tr>
@@ -41,7 +41,7 @@
                                             </td>
                                          </tr>
                                          <tr>
-                                            <td style="font-weight:bold;font-size:24px;font-family:Arial;color:#f8a000;text-align:center;text-transform: uppercase;"></td>
+                                            <td style="font-weight:bold;font-size:24px;font-family:Arial;color:#f8a000;text-align:center;text-transform: uppercase;">{{ booking.code }}</td>
                                          </tr>
                                       </tbody>
                                    </table>
@@ -64,7 +64,7 @@
                              <tr>
                                 <td align="left" style="padding-left:30px">
                                    <p style="font-size:24px;font-family:Arial;color:#222;margin:0px;line-height:26px">
-
+                                        {{ booking.timeGoing }}
                                    </p>
                                 </td>
                              </tr>
@@ -83,7 +83,7 @@
                                 <td style="font-size:14px;font-family:Arial;padding:10px 0px;text-align:left;border-bottom:1px solid #ddd">
                                    <p style="margin:2px 0px">
                                         <strong>
-12321321
+                                            {{ booking.nameService }}
                                         </strong>
                                    </p>
                                 </td>
@@ -111,7 +111,9 @@
                                 </td>
                                 <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
                                    <p style="margin:2px 0px">&nbsp;</p>
-                                   <p style="margin:2px 0px;font-size:24px;color:#91bb15"></p>
+                                   <p style="margin:2px 0px;font-size:24px;color:#91bb15">
+                                       {{ booking.payment_total | vnd }}
+                                   </p>
                                 </td>
                              </tr>
                              <tr>
@@ -122,7 +124,7 @@
                                 <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
                                    <p style="margin:2px 0px">&nbsp;</p>
                                    <p style="margin:2px 0px;font-size:24px;color:#91bb15">
-
+                                        {{ booking.payment_total | vnd }}
                                    </p>
                                 </td>
                              </tr>
@@ -148,7 +150,7 @@
                              <tr>
                                 <td colspan="3" style="font-size:14px;font-family:Arial;padding:20px 0px 10px;text-align:left;border-bottom:1px solid #ddd">
                                    <p style="font-weight:bold;color:#222;margin:0px">
-                                        Người nhận tour:
+                                        Người nhận tour: {{ booking.nameService }}
                                    </p>
                                 </td>
                              </tr>
@@ -158,9 +160,9 @@
                                    </p>
                                 </td>
                                 <td colspan="2" style="font-size:14px;font-family:Arial;color:#222;padding:10px 0px;border-bottom:1px solid #ddd">
-                                   <p style="margin:0px;line-height:25px"></p>
-                                   <p style="margin:0px;line-height:25px"></p>
-                                   <p style="margin:0px;line-height:25px"></p>
+                                   <p style="margin:0px;line-height:25px">{{ booking.name }}</p>
+                                   <p style="margin:0px;line-height:25px">{{ booking.phone }}</p>
+                                   <p style="margin:0px;line-height:25px">{{ booking.email }}</p>
                                 </td>
                              </tr>
                           </tbody>
@@ -192,7 +194,7 @@
                                 <td>
                                    <p style="font-size:18px;text-align:center">
                                     Thanh toán cho đơn hàng
-                                    <span style="text-transform: uppercase;"></span>
+                                    <span style="text-transform: uppercase;">{{ booking.code }}</span>
                                 </p>
                                 </td>
                              </tr>

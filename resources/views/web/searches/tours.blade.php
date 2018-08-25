@@ -166,7 +166,6 @@
             top: 37px;
             left: 0px;
             width: 100%;
-            height: 290px;
             z-index: 1;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -176,7 +175,7 @@
             padding: 20px;
         }
         .box-suggest .nav {
-            height: 288px;
+            height: 100%;
             background-color: #01b07d;
         }
         .box-suggest ul li {

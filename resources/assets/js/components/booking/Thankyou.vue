@@ -96,6 +96,11 @@
                                    <p style="margin:2px 0px;color:#a0a0a0">Dịch vụ</p>
                                 </td>
                                 <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
+                                    <div v-for="item in booking.infomation" :key="item.id">
+                                        <span>{{item.quantity}} x {{ item.service_package_name }}</span>
+                                        =
+                                        <span>{{item.total_money_origin | vnd}}</span>
+                                    </div>
                                 </td>
                              </tr>
                              <tr>
@@ -103,6 +108,13 @@
                                    <p style="margin:2px 0px;color:#a0a0a0">Khuyến mại</p>
                                 </td>
                                 <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
+                                    <div v-for="item in booking.infomation" :key="item.id">
+                                        <div v-if="item.quantity_free">
+                                            <span>{{item.quantity_free}} x {{ item.service_package_name }}</span>
+                                            =
+                                            <span>{{item.total_money_free | vnd}}</span>
+                                        </div>
+                                    </div>
                                 </td>
                              </tr>
                              <tr>

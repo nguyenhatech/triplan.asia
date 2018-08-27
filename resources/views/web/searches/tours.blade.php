@@ -71,9 +71,11 @@
             text-align: center;
             color: #000;
         }
-        .city-name h1 {
+        .city-name {
             color: #fff;
-            font-size:
+        }
+        .city-name p {
+            font-size: 16px;
         }
         .box-service-filter {
             margin-top: 20px;
@@ -195,6 +197,8 @@
         }
         .suggest__list-place .box-image {
             height: 90px;
+            padding: 5px;
+            text-align: center;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -259,6 +263,13 @@
                 border-top-right-radius: 0px;
                 border-bottom-left-radius: calc(.25rem - 1px);
             }
+            .gradient-top {
+                height: 320px;
+            }
+            .city-name {
+                padding-left: 120px;
+                padding-right: 120px;
+            }
         }
     </style>
 @endsection
@@ -269,6 +280,9 @@
             <div class="col-12 gradient-top" style="background-image: url('{{ $place->getImage() }}');">
                 <div class="city-name">
                     <h1>{{ $place->getTranslation(\App::getLocale())->name }}</h1>
+                    <div class="d-none d-lg-block">
+                        <p>{!! $place->getTranslation(\App::getLocale())->description !!}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -330,7 +344,7 @@
                                 <button class="btn btn-outline-primary btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">@lang('places_service_type_filter') <i class="fas fa-angle-down"></i></button>
                             </div>
                             <div class="flex-fill btn-group" id="headingTwo">
-                                <button class="btn btn-outline-primary btn-light btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">>@lang('places_price_filter') <i class="fas fa-angle-down"></i></button>
+                                <button class="btn btn-outline-primary btn-light btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">@lang('places_price_filter') <i class="fas fa-angle-down"></i></button>
                             </div>
                             <div class="flex-fill btn-group" id="headingThree">
                                 <button class="btn btn-outline-primary btn-light btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">@lang('places_duration_filter') <i class="fas fa-angle-down"></i></button>
@@ -437,7 +451,7 @@
                                                                 @foreach($hotTours as $item)
                                                                 <div class="col-3 hot-service-list" style="margin-bottom: 10px; padding-left: 0px;">
                                                                     <a href="{{ $item->getUrl() }}" title="{{ $item->name }}">
-                                                                        <div class="box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 80px;">
+                                                                        <div class="box-image" style="background-image: url('{{ $item->getImage("sm") }}'); height: 80px; background-color: none;">
                                                                         </div>
                                                                         <h6>{{ shortString($item->name, 34) }}</h6>
                                                                     </a>

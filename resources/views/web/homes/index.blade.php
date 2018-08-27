@@ -96,13 +96,40 @@
             <div class="row">
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                        <span class="title">@lang('web_home_ideal_destination')</span>
-                        <span class="description">@lang('web_home_ideal_destination_description')</span>
+                        <h2 class="title">@lang('web_home_vn_destination')</h2>
+                        <span class="description">@lang('web_home_vn_destination_description')</span>
                     </div>
                 </div>
             </div>
             <div class="row">
-                @forelse ($place_destinations as $key_place => $place)
+                @forelse ($vn_destinations as $key_place => $place)
+                    <div class="col-sm-12 col-md-3">
+                        <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
+                            <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
+                                <div class="place-caption">
+                                    <span>{{ $place->getTranslation($locale)->name }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @empty
+
+                @endforelse
+            </div>
+        </div>
+    </div>
+    <div class="home-destinations">
+        <div class="container">
+            <div class="row">
+                <div class="home-title col-md-12 d-flex justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <h2 class="title">@lang('web_home_over_destination')</h2>
+                        <span class="description">@lang('web_home_over_destination_description')</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @forelse ($over_destinations as $key_place => $place)
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
@@ -147,8 +174,7 @@
                                         </span>
 
                                         <span class="d-flex align-items-center">
-                                            <span class="currency">VND</span>
-                                            <span class="price">{{ number_format($service->getPrice()) }}</span>
+                                            <span class="price">{{ $service->getPrice() }}</span>
                                         </span>
                                     </div>
                                 </div>

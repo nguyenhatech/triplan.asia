@@ -33,7 +33,7 @@
                     <div class="service-sub_data_mobile d-block d-sm-none">
                         <div>
                             <div>
-                                <span class="price">VND {{ number_format($service->getPrice()) }}</span>
+                                <span class="price">{{ $service->getPrice() }}</span>
                             </div>
                             <div class="count-booking">
                                 <i class="fas fa-users"></i>
@@ -125,7 +125,7 @@
                                             </span>
                                         </div>
                                         <div class="d-flex flex-column">
-                                            <span class="price">VND {{ number_format($service_involve->getPrice()) }}</span>
+                                            <span class="price">{{ $service_involve->getPrice() }}</span>
                                         </div>
                                     </div>
                                 </div>

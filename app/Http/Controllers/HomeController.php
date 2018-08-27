@@ -46,17 +46,20 @@ class HomeController extends WebController
         });
 
         // Điểm đến lý tưởng
-        $place_destinations = $this->place->getByQuery(['hot' => 1], 4);
+        // $place_destinations = $this->place->getByQuery(['hot' => 1], 4);
+        $vn_destinations = $this->place->getVnPlaces(4);
+        $over_destinations = $this->place->getOverPlaces(4);
 
         // Dịch vụ được yêu thích nhất
         $best_services      = $this->service->getByQuery(['hot' => 1], 9);
 
         return view('web.homes.index')->with([
-            'title'              => 'Trang chủ',
-            'place_destinations' => $place_destinations,
-            'best_services'      => $best_services,
-            'places'             => $places,
-            'hotTours'           => $hotTours
+            'title'                 => 'Trang chủ',
+            'vn_destinations'       => $vn_destinations,
+            'over_destinations'     => $over_destinations,
+            'best_services'         => $best_services,
+            'places'                => $places,
+            'hotTours'              => $hotTours
         ]);
     }
 

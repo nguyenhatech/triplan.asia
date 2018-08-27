@@ -37,7 +37,7 @@ class DbPlaceRepository extends BaseRepository implements PlaceRepository
 
         $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
                             ->select('places.id', 'places.image', 'place_translations.name', 'place_translations.slug')
-                            ->where('place_translations.locale', getLocaleQuery())
+                            ->where('place_translations.locale', \App::getLocale())
                             ->where('places.status', 1);
 
         if (! empty($sorting)) {
@@ -65,6 +65,64 @@ class DbPlaceRepository extends BaseRepository implements PlaceRepository
         }
 
         return $size < 0 ? $model->get() : $model->paginate($size);
+    }
+
+    public function getVnPlaces($pagination = false)
+    {
+        $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
+                            ->select('places.id', 'places.image', 'place_translations.name', 'place_translations.slug')
+                            ->where('places.country_id', 1)
+                            ->where('place_translations.locale', \App::getLocale())
+                            ->where('places.status', 1);
+
+        if (! empty($sorting)) {
+
+            $column_translation = [
+                'name'
+            ];
+
+            if (in_array($sorting[0], $column_translation)) {
+                $table = 'place_translations';
+            } else {
+                $table = 'places';
+            }
+
+            $model = $model->orderBy($table . '.' . $sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
+
+        } else {
+            $model = $model->orderBy('id', 'DESC');
+        }
+
+        return $pagination < 0 ? $model->get() : $model->paginate($pagination);
+    }
+
+    public function getOverPlaces($pagination = false)
+    {
+        $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
+                            ->select('places.id', 'places.image', 'place_translations.name', 'place_translations.slug')
+                            ->where('places.country_id', '>', 1)
+                            ->where('place_translations.locale', \App::getLocale())
+                            ->where('places.status', 1);
+
+        if (! empty($sorting)) {
+
+            $column_translation = [
+                'name'
+            ];
+
+            if (in_array($sorting[0], $column_translation)) {
+                $table = 'place_translations';
+            } else {
+                $table = 'places';
+            }
+
+            $model = $model->orderBy($table . '.' . $sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
+
+        } else {
+            $model = $model->orderBy('id', 'DESC');
+        }
+
+        return $pagination < 0 ? $model->get() : $model->paginate($pagination);
     }
 
 }

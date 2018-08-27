@@ -65,12 +65,20 @@ class Service extends Entity
     public function getPrice()
     {
         $currencyRepo = \App::make('App\Repositories\Currencies\Currency');
-
-        $currency = $currencyRepo->where('display', 'VND')
-                                ->where('status', 1)
-                                ->first();
-
-        return $this->price * $currency->ratio;
+        switch (\App::getLocale()) {
+            case 'vi':
+                $currency = $currencyRepo->where('display', 'VND')->where('status', 1)->first();
+                return number_format($this->price * $currency->ratio,0,",",".") . $currency->unit;
+                break;
+            case 'en':
+                $currency = $currencyRepo->where('display', 'USD')->where('status', 1)->first();
+                return $currency->unit . number_format($this->price * $currency->ratio, 0);
+                break;
+            default:
+                $currency = $currencyRepo->where('display', 'VND')->where('status', 1)->first();
+                return number_format($this->price * $currency->ratio,0,",",".") . $currency->unit;
+                break;
+        }
     }
 
     public function getTranslation($locale = 'vi')

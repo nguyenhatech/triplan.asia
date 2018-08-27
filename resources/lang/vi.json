@@ -9,8 +9,11 @@
     "web_home_baner_top_sologun": "Nơi mà bạn chưa từng đặt chân tới",
     "web_home_baner_top_placehoder_input": "Tìm kiếm địa điểm, hoạt động du lịch hoặc điểm tham quan",
     "web_home_ideal_destination": "Các điểm đến lý tưởng",
-    "web_home_ideal_destination_description": "Điểm đến hấp dẫn mùa du lịch này",
-    "web_home_favorite_service": "Dịch vụ được yêu thích nhất",
+    "web_home_vn_destination": "Du lịch trong nước",
+    "web_home_over_destination": "Du lịch nước ngoài",
+    "web_home_vn_destination_description": "Điểm đến hấp dẫn mùa du lịch này",
+    "web_home_over_destination_description": "Cùng nhau khám phá thế giới",
+    "web_home_favorite_service": "Tour được yêu thích nhất",
     "web_home_favorite_service_description": "Trải nghiệm bởi người yêu du lịch",
 
 

@@ -72,7 +72,7 @@ class PlaceController extends WebController
         $this->metadata->setMetaKeyword($this->createMetaKeywordPlace($place));
         $this->metadata->setOgpimage($place->getImage('sm'));
 
-        return view('web.searches.places')->with([
+        return view('web.places.show')->with([
             'place'             => $place,
             'places'            => $places,
             'durations'         => $durations,
@@ -80,6 +80,32 @@ class PlaceController extends WebController
             'service_types'     => $service_types->groupBy('service_group_id'),
             'tours'             => $tours,
             'hotTours'          => $hotTours
+        ]);
+    }
+
+    public function vietnam()
+    {
+        $locale = \App::getLocale();
+        $places = $this->place->getVnPlaces(8);
+        $services = $this->service->getVnServices(9);
+
+        return view('web.places.vietnam')->with([
+            'places'       => $places,
+            'services'     => $services,
+            'locale'       => $locale
+        ]);
+    }
+
+    public function international()
+    {
+        $locale = \App::getLocale();
+        $places = $this->place->getInterPlaces(8);
+        $services = $this->service->getInterServices(9);
+
+        return view('web.places.international')->with([
+            'places'       => $places,
+            'services'     => $services,
+            'locale'       => $locale
         ]);
     }
 }

@@ -32,6 +32,8 @@ Route::group([
 
     // Module
     Route::get('/search-places', 'PlaceController@search')->name('places.search');
+    Route::get('/kham-pha-vietnam', 'PlaceController@vietnam')->name('places.vietnam');
+    Route::get('/kham-pha-the-gioi', 'PlaceController@international')->name('places.international');
 
     // Login Facebook
     Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');

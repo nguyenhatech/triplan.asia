@@ -11,7 +11,7 @@
 @endsection
 
 @php
-    $locale = Session::get('locale', config('app.locale'));
+    $locale = \App::getLocale();
 @endphp
 
 @section('content')

@@ -277,7 +277,7 @@
                 <div class="city-name">
                     <h1>{{ $place->getTranslation(\App::getLocale())->name }}</h1>
                     <div class="d-none d-lg-block">
-                        <p>{!! $place->getTranslation(\App::getLocale())->description !!}</p>
+                        <p>{{ $place->getTranslation(\App::getLocale())->description }}</p>
                     </div>
                 </div>
             </div>

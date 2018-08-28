@@ -2,6 +2,9 @@
     "__________________________________________comment": "Header",
     "home_page": "Trang chủ",
     "travel_handbook": "Tin tức",
+    "login": "Đăng nhập",
+    "menu_vietnam": "Du lịch Việt Nam",
+    "menu_international": "Du lịch nước ngoài",
 
 
     "__________________________________________comment": "Web/Home",
@@ -15,6 +18,7 @@
     "web_home_over_destination_description": "Cùng nhau khám phá thế giới",
     "web_home_favorite_service": "Tour được yêu thích nhất",
     "web_home_favorite_service_description": "Trải nghiệm bởi người yêu du lịch",
+    "web_home_view_more": "Xem thêm",
 
 
     "__________________________________________comment": "Footer",
@@ -45,5 +49,9 @@
     "places_currency": "VND",
     "places_million": "triệu",
     "places_hot_places": "Điểm đến hấp dẫn",
-    "places_hot_services": "Tour hot tháng này"
+    "places_hot_services": "Tour hot tháng này",
+
+    "places_vietnam_title": "Du lịch Việt Nam",
+    "places_international_title": "Cùng Triplan khám phá thế giới",
+    "places_gallery_title": "Địa điểm nổi bật"
 }

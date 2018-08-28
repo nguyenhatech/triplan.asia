@@ -1,15 +1,21 @@
 @extends('web.layouts.master')
 
-@section('title')
-    {{ $title }}
-@endsection
-
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/screens/web/homes/index.css') }}">
+    <style type="text/css">
+        #view-more-btn {
+            color: #02a676;
+            border-color: #02a676;
+        }
+        #view-more-btn:hover {
+            color: #fff;
+            background-color: #02a676;
+        }
+    </style>
 @endsection
 
 @php
-    $locale = Session::get('locale', config('app.locale'));
+    $locale = \App::getLocale();
 @endphp
 
 @section('content')
@@ -96,7 +102,7 @@
             <div class="row">
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                        <h2 class="title">@lang('web_home_vn_destination')</h2>
+                        <h1 class="title">@lang('web_home_vn_destination')</h1>
                         <span class="description">@lang('web_home_vn_destination_description')</span>
                     </div>
                 </div>
@@ -108,6 +114,7 @@
                             <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
                                 <div class="place-caption">
                                     <span>{{ $place->getTranslation($locale)->name }}</span>
+                                    <span class="place-description">{{ shortString($place->getTranslation($locale)->description, 180) }}</span>
                                 </div>
                             </div>
                         </a>
@@ -117,13 +124,19 @@
                 @endforelse
             </div>
         </div>
+        <div class="col-12 d-md-none">
+            <a href="{{ route('places.vietnam') }}" id="view-more-btn" class="btn btn-outline-primary btn-block">@lang('web_home_view_more')</a>
+        </div>
+        <div class="col-12 d-none d-md-block text-center">
+            <a href="{{ route('places.vietnam') }}" id="view-more-btn" class="btn btn-outline-primary">@lang('web_home_view_more')</a>
+        </div>
     </div>
     <div class="home-destinations">
         <div class="container">
             <div class="row">
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                        <h2 class="title">@lang('web_home_over_destination')</h2>
+                        <h1 class="title">@lang('web_home_over_destination')</h1>
                         <span class="description">@lang('web_home_over_destination_description')</span>
                     </div>
                 </div>
@@ -143,6 +156,12 @@
 
                 @endforelse
             </div>
+        </div>
+        <div class="col-12 d-md-none">
+            <a href="{{ route('places.international') }}" id="view-more-btn" class="btn btn-outline-primary btn-block">@lang('web_home_view_more')</a>
+        </div>
+        <div class="col-12 d-none d-md-block text-center">
+            <a href="{{ route('places.international') }}" id="view-more-btn" class="btn btn-outline-primary">@lang('web_home_view_more')</a>
         </div>
     </div>
     <div class="home-best-trips">

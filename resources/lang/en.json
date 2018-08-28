@@ -2,6 +2,9 @@
     "__________________________________________comment": "Header",
     "home_page": "Home",
     "travel_handbook": "Blog",
+    "login": "Login",
+    "menu_vietnam": "Viet Nam Travel",
+    "menu_international": "The world",
 
 
     "__________________________________________comment": "Web/Home",
@@ -15,6 +18,7 @@
     "web_home_over_destination_description": "Explore the world together",
     "web_home_favorite_service": "Favorite service",
     "web_home_favorite_service_description": "Experienced by travel lovers",
+    "web_home_view_more": "Show all",
 
 
     "__________________________________________comment": "Footer",
@@ -45,6 +49,10 @@
     "places_currency": "USD",
     "places_million": "USD",
     "places_hot_places": "Best Destinations",
-    "places_hot_services": "Hot tour this month"
+    "places_hot_services": "Hot tour this month",
+
+    "places_vietnam_title": "Viet Nam Travel",
+    "places_international_title": "International Travel",
+    "places_gallery_title": "Bucket List"
 
 }

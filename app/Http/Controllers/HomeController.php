@@ -47,14 +47,13 @@ class HomeController extends WebController
 
         // Điểm đến lý tưởng
         // $place_destinations = $this->place->getByQuery(['hot' => 1], 4);
-        $vn_destinations = $this->place->getVnPlaces(4);
-        $over_destinations = $this->place->getOverPlaces(4);
+        $vn_destinations = $this->place->getVnPlaces(8);
+        $over_destinations = $this->place->getInterPlaces(8);
 
         // Dịch vụ được yêu thích nhất
         $best_services      = $this->service->getByQuery(['hot' => 1], 9);
 
         return view('web.homes.index')->with([
-            'title'                 => 'Trang chủ',
             'vn_destinations'       => $vn_destinations,
             'over_destinations'     => $over_destinations,
             'best_services'         => $best_services,
@@ -75,7 +74,7 @@ class HomeController extends WebController
         $service_types = $this->serviceType->getByQuery([], -1);
         $tours = $this->service->getByQuery($request->all());
 
-        return view('web.searches.places')->with([
+        return view('web.places.show')->with([
             'place' => $place,
             'durations'      => $durations,
             'service_groups' => $service_groups,

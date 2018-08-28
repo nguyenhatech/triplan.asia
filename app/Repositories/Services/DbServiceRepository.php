@@ -77,4 +77,62 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         return $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')->where('service_translations.locale', \App::getLocale())->where('services.hot', 1)->select('services.*', 'service_translations.name', 'service_translations.slug')->orderBy('services.created_at', 'DESC')->limit(6)->get();
     }
 
+    public function getVnServices($pagination = false)
+    {
+        $model  = $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')
+                            ->select('services.*', 'service_translations.name', 'service_translations.slug')
+                            ->where('services.service_type_id', 2)
+                            ->where('service_translations.locale', \App::getLocale())
+                            ->where('services.status', 1);
+
+        if (! empty($sorting)) {
+
+            $column_translation = [
+                'name'
+            ];
+
+            if (in_array($sorting[0], $column_translation)) {
+                $table = 'service_translations';
+            } else {
+                $table = 'services';
+            }
+
+            $model = $model->orderBy($table . '.' . $sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
+
+        } else {
+            $model = $model->orderBy('id', 'DESC');
+        }
+
+        return $pagination < 0 ? $model->get() : $model->paginate($pagination);
+    }
+
+    public function getInterServices($pagination = false)
+    {
+        $model  = $this->model->join('service_translations', 'services.id', '=', 'service_translations.service_id')
+                            ->select('services.*', 'service_translations.name', 'service_translations.slug')
+                            ->where('services.service_type_id', 1)
+                            ->where('service_translations.locale', \App::getLocale())
+                            ->where('services.status', 1);
+
+        if (! empty($sorting)) {
+
+            $column_translation = [
+                'name'
+            ];
+
+            if (in_array($sorting[0], $column_translation)) {
+                $table = 'service_translations';
+            } else {
+                $table = 'services';
+            }
+
+            $model = $model->orderBy($table . '.' . $sorting[0], $sorting[1] > 0 ? 'ASC' : 'DESC');
+
+        } else {
+            $model = $model->orderBy('id', 'DESC');
+        }
+
+        return $pagination < 0 ? $model->get() : $model->paginate($pagination);
+    }
+
 }

@@ -96,7 +96,7 @@ class DbPlaceRepository extends BaseRepository implements PlaceRepository
         return $pagination < 0 ? $model->get() : $model->paginate($pagination);
     }
 
-    public function getOverPlaces($pagination = false)
+    public function getInterPlaces($pagination = false)
     {
         $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
                             ->select('places.id', 'places.image', 'place_translations.name', 'place_translations.slug')

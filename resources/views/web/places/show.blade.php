@@ -507,7 +507,7 @@
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                     </div>
-                                                    <div class="price">{{ number_format($tour->getPrice()) }} @lang('places_currency')</div>
+                                                    <div class="price">{{ $tour->getPrice() }}</div>
                                                 </div>
                                             </a>
                                         </div>

@@ -1,9 +1,5 @@
 @extends('web.layouts.master')
 
-@section('title')
-    {{ $title }}
-@endsection
-
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/rangeslider.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/rangeslider.skinHTML5.css') }}">

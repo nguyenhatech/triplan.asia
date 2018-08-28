@@ -75,8 +75,7 @@ class HomeController extends WebController
         $service_types = $this->serviceType->getByQuery([], -1);
         $tours = $this->service->getByQuery($request->all());
 
-        return view('web.searches.tours')->with([
-            'title' => 'Tìm kiếm tours',
+        return view('web.searches.places')->with([
             'place' => $place,
             'durations'      => $durations,
             'service_groups' => $service_groups,

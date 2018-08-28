@@ -7,6 +7,16 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <i class="far fa-user"></i>
+                        Đăng kí / Đăng nhập
+                        </a>
+                    </li>
                     <li id="language-system" style="margin-right: 15px;">
                         @php
                             $langRepo = \App::make(\App\Repositories\Languages\LanguageRepository::class);
@@ -30,17 +40,6 @@
                                 @endforeach
                             </div>
                         </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                        <i class="far fa-user"></i>
-                        Đăng kí / Đăng nhập
-                        </a>
                     </li>
                 </ul>
             </div>

@@ -56,6 +56,9 @@ trait MetadataTrait
 
     public function createMetaDescriptionPlace($place)
     {
+        if ($place->getTranslation(\App::getLocale())->description) {
+            return $place->getTranslation(\App::getLocale())->description;
+        }
         switch (\App::getLocale()) {
             case 'vi':
                 return 'Thông tin du lịch ' . $place->getTranslation('vi')->name . '. ' .

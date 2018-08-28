@@ -28,6 +28,11 @@ class PlaceController extends WebController
         $this->serviceGroup = $serviceGroup;
     }
 
+    /**
+     * Search Ajax hompage
+     * @param  Request  $request
+     * @return Json     $data
+     */
     public function search(Request $request)
     {
         $q = array_get($request->all(), 'q', '');
@@ -67,8 +72,7 @@ class PlaceController extends WebController
         $this->metadata->setMetaKeyword($this->createMetaKeywordPlace($place));
         $this->metadata->setOgpimage($place->getImage('sm'));
 
-        return view('web.searches.tours')->with([
-            'title'             => 'Du lịch ' . $place->name,
+        return view('web.searches.places')->with([
             'place'             => $place,
             'places'            => $places,
             'durations'         => $durations,

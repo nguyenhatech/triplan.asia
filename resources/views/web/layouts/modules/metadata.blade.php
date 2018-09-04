@@ -26,4 +26,5 @@
 <meta property="og:description" content="{{ $metadata->getDescription() }}" />
 <meta property="og:url" href="{{ URL::current() }}" />
 <meta name="api-base-url" content="{{ env('API_URL') }}" />
+<meta property="fb:app_id" content="787848391549978" />
 @endif

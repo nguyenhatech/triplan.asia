@@ -14,7 +14,7 @@ class DbPlaceRepository extends BaseRepository implements PlaceRepository
     {
         $model  = $this->model->join('place_translations', 'places.id', '=', 'place_translations.place_id')
                             ->select('places.*', 'place_translations.name', 'place_translations.slug')
-                            ->where('place_translations.locale', getLocaleQuery())
+                            ->where('place_translations.locale', \App::getLocale())
                             ->where('place_translations.slug', $slug);
         return $model->first();
     }

@@ -81,13 +81,6 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12" id="box-pagination">
-                {!! $places->appends([array_except(Request::all(), 'page')])->links() !!}
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('scripts')

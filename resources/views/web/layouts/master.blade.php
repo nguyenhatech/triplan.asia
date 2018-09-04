@@ -20,6 +20,7 @@
 
             <main>
                 @yield('content')
+                <a href="#" class="scrollup" title="@lang('scroll_to_top')"><i class="fa fa-arrow-up"></i></a>
             </main>
 
             <footer>
@@ -33,6 +34,9 @@
         <script type="text/javascript" src="{{ get_asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/mobile-navigation/custom-navigation.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/customs-1.0.1/js/web.js') }}"></script>
+        <script type="text/javascript">
+
+        </script>
         @yield('scripts')
     </body>
 </html>

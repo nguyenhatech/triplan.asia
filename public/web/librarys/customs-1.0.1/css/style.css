@@ -161,8 +161,19 @@ body {
     background-color: rgba(0,0,0,.1);
 }
 
-
-
+.scrollup {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    display: none;
+    background-color: #02a676;
+    border-radius: 50%;
+    color: #fff;
+    padding: 8px 10px 10px 12px;
+    font-size: 18px;
+}
 
 
 

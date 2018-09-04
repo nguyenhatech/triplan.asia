@@ -86,8 +86,20 @@ class PlaceController extends WebController
     public function vietnam()
     {
         $locale = \App::getLocale();
-        $places = $this->place->getVnPlaces(8);
+        $places = $this->place->getVnPlaces(-1);
         $services = $this->service->getVnServices(9);
+
+        if ($locale == 'vi') {
+            $this->metadata->setMetaTitle('Du lịch trong nước');
+            $this->metadata->setDescription('Tour du lịch các vùng trong nước. Du lịch biển, du lịch sapa.');
+            $this->metadata->setMetaKeyword('du lịch sapa,du lịch hà giang,du lịch phú quốc,du lịch gia đình');
+            $this->metadata->setOgpimage(asset('web/images/places/vietnam.jpg'));
+        } else {
+            $this->metadata->setMetaTitle('Viet Nam Travel');
+            $this->metadata->setDescription('Best experience in Viet Nam. ');
+            $this->metadata->setMetaKeyword();
+            $this->metadata->setOgpimage(asset('web/images/places/vietnam.jpg'));
+        }
 
         return view('web.places.vietnam')->with([
             'places'       => $places,
@@ -99,8 +111,19 @@ class PlaceController extends WebController
     public function international()
     {
         $locale = \App::getLocale();
-        $places = $this->place->getInterPlaces(8);
+        $places = $this->place->getInterPlaces(-1);
         $services = $this->service->getInterServices(9);
+
+        if ($locale == 'vi') {
+            $this->metadata->setMetaTitle('Du lịch nước ngoài');
+            $this->metadata->setDescription('Tour du lịch nước ngoài. Đặt tour đi du lịch nước ngoài');
+            $this->metadata->setMetaKeyword('du lịch nước ngoài,du lịch Nhật Bản,du lịch Thái Lan,du lịch Hàn Quốc,du lịch châu Âu');
+        } else {
+            $this->metadata->setMetaTitle('Asia Travel');
+            $this->metadata->setDescription('Best travel experience in Asia');
+            $this->metadata->setMetaKeyword('asia travel,southeast travel,southeast tour guide,southeast destinations');
+        }
+        $this->metadata->setOgpimage(asset('web/images/places/international.jpg'));
 
         return view('web.places.international')->with([
             'places'       => $places,

@@ -10,12 +10,12 @@
                 </div>
                 <div class="download">
                     <div style="margin-bottom: 10px;">
-                        <a href="https://itunes.apple.com/us/app/triplan/id1429665204?l=vi&ls=1&mt=8" target="_blank">
+                        <a href="https://itunes.apple.com/us/app/triplan/id1429665204?l=vi&ls=1&mt=8" target="_blank" title="download_on_Appstore">
                             <img src="{{ get_asset('web/images/download/itunes-app-store-logo.png') }}">
                         </a>
                     </div>
                     <div>
-                        <a href="https://play.google.com/store/apps/details?id=asia.triplan.triplan" target="_blank">
+                        <a href="https://play.google.com/store/apps/details?id=asia.triplan.triplan" target="_blank" title="download_on_GooglePlay">
                             <img src="{{ get_asset('web/images/download/1280px-Get_it_on_Google_play.svg.png') }}">
                         </a>
                     </div>

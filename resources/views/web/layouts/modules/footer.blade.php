@@ -8,6 +8,18 @@
                 <div class="about-us">
                     <p>Triplan ra đời với mục tiêu áp dụng những kinh nghiệm sẵn có và công nghệ hiện đại vào dịch vụ du lịch nhằm đem đến khách hàng những tour thú vị, chất lượng</p>
                 </div>
+                <div class="download">
+                    <div style="margin-bottom: 10px;">
+                        <a href="https://itunes.apple.com/us/app/triplan/id1429665204?l=vi&ls=1&mt=8" target="_blank">
+                            <img src="{{ get_asset('web/images/download/itunes-app-store-logo.png') }}">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://play.google.com/store/apps/details?id=asia.triplan.triplan" target="_blank">
+                            <img src="{{ get_asset('web/images/download/1280px-Get_it_on_Google_play.svg.png') }}">
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="footer-title">

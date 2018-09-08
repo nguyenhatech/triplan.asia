@@ -21,12 +21,15 @@
 @section('content')
     <div class="home-banner">
         <div class="slide-show">
+            @forelse($banners as $banner)
             <div class="slide-show__item">
-                <img src="{{ get_asset('web/images/banners/baner3-min.jpg') }}">
+                <img src="{{ $banner->getImage() }}">
             </div>
+            @empty
             <div class="slide-show__item">
                 <img src="{{ get_asset('web/images/banners/baner2-min.jpg') }}">
             </div>
+            @endforelse
         </div>
         <div class="d-flex justify-content-center align-items-center">
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">

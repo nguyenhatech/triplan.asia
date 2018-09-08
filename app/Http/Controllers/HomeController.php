@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Repositories\Services\Service;
 
 use App\Repositories\Places\PlaceRepository;
+use App\Repositories\Banners\BannerRepository;
 use App\Repositories\Services\ServiceRepository;
 use App\Repositories\ServiceTypes\ServiceTypeRepository;
 use App\Repositories\ServiceGroups\ServiceGroupRepository;
@@ -15,12 +16,14 @@ class HomeController extends WebController
 {
 
     public function __construct(
+        BannerRepository $banner,
         PlaceRepository $place,
         ServiceRepository $service,
         ServiceTypeRepository $serviceType,
         ServiceGroupRepository $serviceGroup)
     {
         parent::__construct();
+        $this->banner         = $banner;
         $this->place         = $place;
         $this->service       = $service;
         $this->serviceType   = $serviceType;
@@ -44,6 +47,9 @@ class HomeController extends WebController
         $hotTours = \Cache::remember('hot_tours', 12*60, function(){
             return $this->service->getHotTourSearchBar();
         });
+        $banners = \Cache::remember('banners', 12*60, function(){
+            return $this->banner->getForHome();
+        });
 
         // Điểm đến lý tưởng
         // $place_destinations = $this->place->getByQuery(['hot' => 1], 4);
@@ -58,7 +64,8 @@ class HomeController extends WebController
             'over_destinations'     => $over_destinations,
             'best_services'         => $best_services,
             'places'                => $places,
-            'hotTours'              => $hotTours
+            'hotTours'              => $hotTours,
+            'banners'               => $banners
         ]);
     }
 

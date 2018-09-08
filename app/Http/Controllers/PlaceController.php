@@ -54,7 +54,7 @@ class PlaceController extends WebController
             abort(404);
         }
         $places = \Cache::remember('places', 12*60, function(){
-            return $this->place->getByQuery(['status' => 1]);
+            return $this->place->getByQuery(['status' => 1], 12);
         });
         $hotTours = \Cache::remember('hot_tours', 12*60, function(){
             return $this->service->getHotTourSearchBar();

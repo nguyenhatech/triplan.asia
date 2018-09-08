@@ -145,6 +145,9 @@ body {
     color: #fff;
     font-size: 16px;
 }
+.triplan-footer .download img {
+    width: 50%;
+}
 .triplan-footer-sub {
    background-color: #000;
    min-height: 80px;

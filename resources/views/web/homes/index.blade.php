@@ -112,6 +112,7 @@
             </div>
             <div class="row">
                 @forelse ($vn_destinations as $key_place => $place)
+                    @if($place->services->count())
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
@@ -122,6 +123,7 @@
                             </div>
                         </a>
                     </div>
+                    @endif
                 @empty
 
                 @endforelse
@@ -146,6 +148,7 @@
             </div>
             <div class="row">
                 @forelse ($over_destinations as $key_place => $place)
+                    @if($place->services->count())
                     <div class="col-sm-12 col-md-3">
                         <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
@@ -155,6 +158,7 @@
                             </div>
                         </a>
                     </div>
+                    @endif
                 @empty
 
                 @endforelse

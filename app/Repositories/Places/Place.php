@@ -46,4 +46,9 @@ class Place extends Entity
     {
         return route('web.show_place', ['slug' => $this->slug]);
     }
+
+    public function services()
+    {
+        return $this->hasMany('App\Repositories\Services\Service', 'place_id', 'id');
+    }
 }

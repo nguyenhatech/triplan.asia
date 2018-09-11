@@ -16,10 +16,35 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>
                     </li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">@lang('login')</a>
+                        </li>
+                    @else
+                        <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown nav-item" style="display: flex;align-items: center">
+                                    <img style="width: 25px;height: 25px; border-radius: 50%; margin-right: 3px;" src="{{ Auth::user()->getImage(true) }}" alt="Avatar" id="img-avatar">
+                                    <a style="color: #fff; display: flex;align-items: center" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">@lang('login')</a>
-                    </li>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">
+                                            #
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">Đăng xuất</a>
+                                        <li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </ul>
+                    @endguest
                     <li id="language-system" style="margin-right: 15px;">
                         @php
                             $langRepo = \App::make(\App\Repositories\Languages\LanguageRepository::class);

@@ -9,7 +9,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            height: 250px;
+            height: 200px;
         }
         .city-name {
             position: absolute;
@@ -33,6 +33,24 @@
         .help-block {
             color: red;
             margin-top: 5px;
+        }
+
+        .web-login .form-control {
+            font-size: 14px;
+        }
+        .web-login .form-control:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .btn-booking-now {
+            padding: 6px 40px;
+            background-color: #19A577;
+            color: #fff;
+            background: #00F260;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            border: none;
         }
     </style>
 @endsection
@@ -63,7 +81,7 @@
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="col-md-12">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Email">
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">
@@ -75,7 +93,7 @@
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <div class="col-md-12">
-                                    <input id="password" type="password" class="form-control" name="password" required>
+                                    <input id="password" type="password" class="form-control" name="password" required placeholder="Mật khẩu">
 
                                     @if ($errors->has('password'))
                                         <span class="help-block">
@@ -85,7 +103,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
                                 <div class="col-md-12 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
@@ -93,16 +110,30 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
 
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary block">
-                                        Đăng nhập
-                                    </button>
+                                    <span>
+                                        <button type="submit" class="btn btn-booking-now btn-block">
+                                            Đăng nhập
+                                        </button>
+                                    </span>
+
                                 </div>
                             </div>
                         </form>
+
+
+                        <div class="form-group" style="margin-top: 30px;">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <div class="d-flex justify-content-around align-items-center">
+                                        <i class="fab fa-facebook"></i>
+                                        <span>Đăng nhập bằng Facebook</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

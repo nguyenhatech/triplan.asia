@@ -126,12 +126,12 @@
 
                         <div class="form-group" style="margin-top: 30px;">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary btn-block">
+                                <a href="{{ route('redirect-social', 'facebook') }}" class="btn btn-primary btn-block">
                                     <div class="d-flex justify-content-around align-items-center">
                                         <i class="fab fa-facebook"></i>
                                         <span>@lang('login_btn_login_with_FB_txt')</span>
                                     </div>
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="form-group" style="margin-top: 30px;">

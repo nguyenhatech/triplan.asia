@@ -19,7 +19,7 @@
             <a href="{{ route('places.international') }}" style="color: #fff">@lang('menu_international')</a>
         </p>
         <p>
-            <a href="#" style="color: #fff"><i class="far fa-user"></i> @lang('login')</a>
+            <a href="{{ route('login') }}" style="color: #fff">@lang('login')</a>
         </p>
     </div>
 </div>

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Repositories\Core\Metadata\MetadataTrait;
 
 class LoginController extends Controller
 {
+    use MetadataTrait;
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -34,7 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-
+        $this->getMetadata();
     }
 
     /**

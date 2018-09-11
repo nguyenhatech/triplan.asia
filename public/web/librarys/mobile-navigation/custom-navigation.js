@@ -4,8 +4,8 @@ jQuery(document).ready(function($) {
       scrollTop;
 
     $('button').click(function(e) {
-      overlayOpen();
-      e.preventDefault();
+      // overlayOpen();
+      // e.preventDefault();
     });
 
     $('.close').click(function(e) {

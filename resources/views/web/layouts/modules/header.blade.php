@@ -18,7 +18,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="far fa-user"></i> @lang('login')</a>
+                        <a class="nav-link" href="{{ route('login') }}">@lang('login')</a>
                     </li>
                     <li id="language-system" style="margin-right: 15px;">
                         @php

@@ -54,5 +54,19 @@
 
     "places_vietnam_title": "Du lịch Việt Nam",
     "places_international_title": "Cùng Triplan khám phá thế giới",
-    "places_gallery_title": "Địa điểm nổi bật"
+    "places_gallery_title": "Địa điểm nổi bật",
+
+    "__________________________________________comment": "Login",
+    "login_title": "Đăng nhập",
+    "login_description": "Đăng nhập để đồng bộ booking và nhận nhiều ưu đãi hấp dẫn",
+    "login_email": "Email",
+    "login_pass": "Mật khẩu",
+    "login_remember": "Ghi nhớ tôi",
+    "login_btn_login_txt": "Đăng nhập",
+    "login_btn_login_with_FB_txt": "Đăng nhập bằng Facebook",
+    "login_sugget_register_txt": "Bạn chưa có tài khoản. Đăng kí ngay ?",
+
+    "__________________________________________comment": "UserHeader",
+    "logout": "Đăng xuất"
+
 }

@@ -60,9 +60,9 @@
         <div class="row">
             <div class="col-12 gradient-top" style="background-image: url({{ get_asset('web/images/login/background-login.jpg') }});">
                 <div class="city-name">
-                    <h1>Đăng nhập</h1>
+                    <h1>@lang('login_title')</h1>
                     <div class="d-none d-lg-block">
-                        <p>Đăng nhập để đồng bộ booking và nhận nhiều ưu đãi hấp dẫn</p>
+                        <p>@lang('login_description')</p>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="col-md-12">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Email">
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="@lang('login_email')">
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">
@@ -93,7 +93,7 @@
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <div class="col-md-12">
-                                    <input id="password" type="password" class="form-control" name="password" required placeholder="Mật khẩu">
+                                    <input id="password" type="password" class="form-control" name="password" required placeholder="@lang('login_pass')">
 
                                     @if ($errors->has('password'))
                                         <span class="help-block">
@@ -106,7 +106,7 @@
                                 <div class="col-md-12 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Ghi nhớ tôi
+                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> @lang('login_remember')
                                         </label>
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                                 <div class="col-md-12">
                                     <span>
                                         <button type="submit" class="btn btn-booking-now btn-block">
-                                            Đăng nhập
+                                            @lang('login_btn_login_txt')
                                         </button>
                                     </span>
 
@@ -129,9 +129,16 @@
                                 <button type="submit" class="btn btn-primary btn-block">
                                     <div class="d-flex justify-content-around align-items-center">
                                         <i class="fab fa-facebook"></i>
-                                        <span>Đăng nhập bằng Facebook</span>
+                                        <span>@lang('login_btn_login_with_FB_txt')</span>
                                     </div>
                                 </button>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 30px;">
+                            <div class="col-md-12">
+                                <a href="#">
+                                    @lang('login_sugget_register_txt')
+                                </a>
                             </div>
                         </div>
                     </div>

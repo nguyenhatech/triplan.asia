@@ -54,6 +54,19 @@
 
     "places_vietnam_title": "Viet Nam Travel",
     "places_international_title": "International Travel",
-    "places_gallery_title": "Bucket List"
+    "places_gallery_title": "Bucket List",
+
+    "__________________________________________comment": "Login",
+    "login_title": "Login",
+    "login_description": "Sign in to synchronize your booking and get many attractive deals",
+    "login_email": "Email",
+    "login_pass": "Password",
+    "login_remember": "Remember me",
+    "login_btn_login_txt": "Login",
+    "login_btn_login_with_FB_txt": "Login with Facebook",
+    "login_sugget_register_txt": "Do not have an account. Sign up now?",
+
+    "__________________________________________comment": "UserHeader",
+    "logout": "Logout"
 
 }

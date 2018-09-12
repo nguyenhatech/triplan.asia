@@ -13,7 +13,7 @@
 
 Route::group([
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'web' ]
     ], function($language){
     // Thay đổi ngôn ngữ hệ thống
     // Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('web.change-language');

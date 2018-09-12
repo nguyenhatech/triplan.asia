@@ -136,7 +136,7 @@
                         </div>
                         <div class="form-group" style="margin-top: 30px;">
                             <div class="col-md-12">
-                                <a href="#">
+                                <a href="{{ route('register') }}">
                                     @lang('login_sugget_register_txt')
                                 </a>
                             </div>

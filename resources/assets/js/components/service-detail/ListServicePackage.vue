@@ -140,6 +140,7 @@
             getServicePackageParent () {
                 let params = {
                     status: 1,
+                    day: this.day,
                     include:'service_package_parent_actives.service_package_children_actives,service_day_actives'
                 }
                 axios.get('services/' + this.service.id, {params: params}).then(response => {
@@ -182,8 +183,8 @@
                 if (this.day) {
                     let day = this.getFormattedDate(this.day);
                     this.setServicePackageDay(day)
+                    this.getServicePackageParent();
                     if (this.item.id) {
-                        console.log('chui')
                         this.openPackageChildren(this.item)
                         this.item = {}
                     }

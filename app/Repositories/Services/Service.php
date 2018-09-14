@@ -75,17 +75,44 @@ class Service extends Entity
         switch (\App::getLocale()) {
             case 'vi':
                 $currency = $currencyRepo->where('display', 'VND')->where('status', 1)->first();
-                return number_format($this->price * $currency->ratio,0,",",".") . $currency->unit;
+                return number_format($this->getPriceByDayOption('daily'),0,",",".") . $currency->unit;
                 break;
             case 'en':
                 $currency = $currencyRepo->where('display', 'USD')->where('status', 1)->first();
-                return $currency->unit . number_format($this->price * $currency->ratio, 0);
+                return $currency->unit . number_format($this->getPriceByDayOption('daily'), 0);
                 break;
             default:
                 $currency = $currencyRepo->where('display', 'VND')->where('status', 1)->first();
-                return number_format($this->price * $currency->ratio,0,",",".") . $currency->unit;
+                return number_format($this->getPriceByDayOption('daily'),0,",",".") . $currency->unit;
                 break;
         }
+    }
+
+    // Hàm lấy giá dịch của dịch vụ theo ngày mình chọn truyền vào
+    public function getPriceByDayOption($day = 'TA')
+    {
+        $currencyRepo = \App::make('App\Repositories\Currencies\Currency');
+
+        $currency = $currencyRepo->where('display', 'VND')
+                                ->where('status', 1)
+                                ->first();
+
+        // Xem dịch vụ thuộc nhóm nào để bênh giá lên tương ứng:
+        $service_group = $this->service_group;
+
+        $config_conversion = 0;
+
+        if ($day === 'daily') {
+            $config_conversion = $service_group->daily;
+        }
+        if ($day === 'weekend') {
+            $config_conversion = $service_group->weekend;
+        }
+        if ($day === 'holiday') {
+            $config_conversion = $service_group->holiday;
+        }
+
+        return round($this->price * $currency->ratio * (100 + $config_conversion) / 100);
     }
 
     public function getTranslation($locale = 'vi')
@@ -101,6 +128,11 @@ class Service extends Entity
     public function place()
     {
         return $this->belongsTo('App\Repositories\Places\Place', 'place_id');
+    }
+
+    public function service_group()
+    {
+        return $this->belongsTo('App\Repositories\ServiceGroups\ServiceGroup', 'service_group_id', 'id');
     }
 
     public function getUrl()

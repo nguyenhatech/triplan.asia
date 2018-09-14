@@ -39,6 +39,12 @@ Route::group([
     Route::get('/privacy', 'PageController@privacy')->name('privacy');
     Route::get('/policies', 'PageController@policies')->name('policies');
 
+    Route::get('/js/lang.js', function () {
+        $lang = \App::getLocale();
+        $text = file_get_contents(resource_path('lang/' . $lang . '.json'));
+        return response()->json(json_decode($text));
+    })->name('assets.lang');
+
     Auth::routes();
 });
 

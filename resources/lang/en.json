@@ -11,7 +11,7 @@
     "__________________________________________comment": "Web/Home",
     "where_do_you_want_to_go": "Explore the amazing things to do",
     "web_home_baner_top_sologun": "Trip, experience and location. All in one",
-    "web_home_baner_top_placehoder_input": "Search by destination, activity or attraction",
+    "web_home_baner_top_placehoder_input": "Search by destination, activity or attraction in ",
     "web_home_ideal_destination": "The destination",
     "web_home_vn_destination": "Most popular destination in Viet Nam",
     "web_home_over_destination": "Most popular destination in the world",
@@ -51,6 +51,7 @@
     "places_million": "USD",
     "places_hot_places": "Best Destinations",
     "places_hot_services": "Hot tour this month",
+    "places_view_more": "View more",
 
     "places_vietnam_title": "Viet Nam Travel",
     "places_international_title": "International Travel",

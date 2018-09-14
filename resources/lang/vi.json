@@ -11,7 +11,7 @@
     "__________________________________________comment": "Web/Home",
     "where_do_you_want_to_go": "Khám phá những điều tuyệt vời",
     "web_home_baner_top_sologun": "Nơi mà bạn chưa từng đặt chân tới",
-    "web_home_baner_top_placehoder_input": "Tìm kiếm địa điểm, hoạt động du lịch hoặc điểm tham quan",
+    "web_home_baner_top_placehoder_input": "Tìm kiếm dịch vụ ở ",
     "web_home_ideal_destination": "Các điểm đến lý tưởng",
     "web_home_vn_destination": "Du lịch trong nước",
     "web_home_over_destination": "Du lịch nước ngoài",
@@ -51,6 +51,7 @@
     "places_million": "triệu",
     "places_hot_places": "Điểm đến hấp dẫn",
     "places_hot_services": "Tour hot tháng này",
+    "places_view_more": "Xem thêm",
 
     "places_vietnam_title": "Du lịch Việt Nam",
     "places_international_title": "Cùng Triplan khám phá thế giới",

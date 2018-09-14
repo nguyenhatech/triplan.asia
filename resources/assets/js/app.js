@@ -13,10 +13,15 @@ window.Vue = require('vue');
 import indexStore from './store/index'
 
 import * as filters from './filters'
+import * as mixins from './mixins'
 
 // custom filters
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
+})
+
+Object.keys(mixins).forEach(key => {
+  Vue.mixin(mixins[key])
 })
 
 import messages from 'vee-validate/dist/locale/vi';
@@ -44,6 +49,7 @@ Vue.component('oder-box', require('./components/service-detail/OderBox.vue'));
 // Trang Booking
 Vue.component('booking-step1', require('./components/booking/Step1.vue'));
 Vue.component('thank-you', require('./components/booking/Thankyou.vue'));
+Vue.component('place-info', require('./components/place/PlaceInfo.vue'));
 
 
 const app = new Vue({

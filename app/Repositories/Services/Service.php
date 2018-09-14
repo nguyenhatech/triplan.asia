@@ -32,6 +32,13 @@ class Service extends Entity
         6 => '5 day more'
     ];
 
+    const PRICE_FILTERS = [
+        1   => 'Dưới 1 triệu',
+        5   => '1 đến 5 triệu',
+        10  => '5 đến 10 triệu',
+        11  => 'Trên 10 triệu'
+    ];
+
     protected static function boot()
     {
         static::addGlobalScope('active', function (Builder $builder) {

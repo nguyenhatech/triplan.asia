@@ -72,7 +72,7 @@ class PlaceController extends WebController
         $this->metadata->setMetaKeyword($this->createMetaKeywordPlace($place));
         $this->metadata->setOgpimage($place->getImage('sm'));
 
-        return view('web.places.show')->with([
+        return view('web.places.show_vue')->with([
             'place'             => $place,
             'places'            => $places,
             'durations'         => $durations,

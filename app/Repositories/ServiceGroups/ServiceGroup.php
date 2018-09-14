@@ -18,4 +18,14 @@ class ServiceGroup extends Entity
     {
         return $this->hasMany('App\Repositories\ServiceTypes\ServiceType', 'service_group_id', 'id');
     }
+
+    public function getImage()
+    {
+        return env('IMAGE_PATH') . $this->image;
+    }
+
+    public function getTranslation($locale = 'vi')
+    {
+        return $this->hasOne('App\Repositories\ServiceGroupTranslations\ServiceGroupTranslation', 'service_group_id', 'id')->where('locale', $locale)->first();
+    }
 }

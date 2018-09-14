@@ -17,4 +17,5 @@ return [
 	App\Providers\LanguageServiceProvider::class,
 	App\Providers\MediaServiceServiceProvider::class,
 	App\Providers\BannerServiceProvider::class,
+	App\Providers\ServiceGroupTranslationServiceProvider::class,
 ];

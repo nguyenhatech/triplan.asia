@@ -18,16 +18,24 @@ export default new Vuex.Store({
     serviceDetail
   },
   state: {
-    loading: false
+    loading: false,
+    trans: null
   },
   getters: {
-    loading: (state) => state.loading
+    loading: (state) => state.loading,
+    trans: (state)  => state.trans
   },
   actions: {
-
+    fetchTranslations ({commit, dispatch}) {
+        axios.get(window.location.origin + '/js/lang.js').then(response => {
+            commit('setTrans', response)
+        })
+    }
   },
   mutations: {
-
+    setTrans (state, trans) {
+        state.trans = trans
+    }
   },
   strict: debug
 })

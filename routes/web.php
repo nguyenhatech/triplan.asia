@@ -13,7 +13,7 @@
 
 Route::group([
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'web' ]
     ], function($language){
     // Thay đổi ngôn ngữ hệ thống
     // Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('web.change-language');
@@ -35,10 +35,6 @@ Route::group([
     Route::get('/kham-pha-vietnam', 'PlaceController@vietnam')->name('places.vietnam');
     Route::get('/kham-pha-the-gioi', 'PlaceController@international')->name('places.international');
 
-    // Login Facebook
-    Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');
-    Route::get('/callback/{social}', 'SocialAuthController@callback')->name('callback-social');
-
     // Điểu khoản & chính sách
     Route::get('/privacy', 'PageController@privacy')->name('privacy');
     Route::get('/policies', 'PageController@policies')->name('policies');
@@ -51,3 +47,7 @@ Route::group([
 
     Auth::routes();
 });
+
+// Login Facebook
+Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('redirect-social');
+Route::get('/callback/{social}', 'SocialAuthController@callback')->name('callback-social');

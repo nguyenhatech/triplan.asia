@@ -178,5 +178,14 @@ body {
     font-size: 18px;
 }
 
+/*Phần dropdow menu xổ xuống*/
+.header-top-navigation .dropdown-menu {
+    top: 35px !important;
+    border-radius: 2px;
+}
+.header-top-navigation .dropdown-item {
+    font-size: 13px;
+}
+
 
 

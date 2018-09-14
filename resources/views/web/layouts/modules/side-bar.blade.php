@@ -18,8 +18,20 @@
         <p>
             <a href="{{ route('places.international') }}" style="color: #fff">@lang('menu_international')</a>
         </p>
-        <p>
-            <a href="#" style="color: #fff"><i class="far fa-user"></i> @lang('login')</a>
-        </p>
+        @guest
+            <p>
+                <a href="{{ route('login') }}" style="color: #fff">@lang('login')</a>
+            </p>
+        @else
+            <p>
+                <span>{{ Auth::user()->name }}</span>
+               <a style="color: #fff" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">Đăng xuất</a>
+            </p>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        @endguest
     </div>
 </div>

@@ -124,8 +124,10 @@
                     service_packages: this.service_packages
                 };
 
-                console.log('1231')
                 localStorage.setItem('dataBooking', JSON.stringify(dataBooking));
+                window.location.href = this.data_params.url_booking_step1
+                // var dataBooking = localStorage.getItem('dataBooking');
+                // console.log('dataBooking: ', JSON.parse(dataBooking));
             }
         }
     }

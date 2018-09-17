@@ -4,8 +4,8 @@
         @include('web/layouts/modules/metadata')
         <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/bootstrap-4.1.1/dist/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/mobile-navigation/custom-navigation.css') }}">
-        {{-- <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet"> --}}
-        {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"> --}}
+        <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
         <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/customs-1.0.1/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ get_asset('css/styles.css') }}">
         @yield('styles')

@@ -14,5 +14,12 @@ class WebController extends Controller
     function __construct()
     {
         $this->getMetadata();
+
+        $this->middleware(function ($request, $next) {
+            $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
+            \View::share('dataCart', $dataCart);
+
+            return $next($request);
+        });
     }
 }

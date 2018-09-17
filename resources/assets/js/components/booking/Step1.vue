@@ -50,7 +50,7 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-2">
+      <!--                           <div class="form-group col-md-2">
                                     <label class="name" >Mã </label>
                                     <select
                                         v-model="orderBooking.passport_infomation"
@@ -62,8 +62,8 @@
                                             ({{ country.country_code }})
                                         </option>
                                     </select>
-                                </div>
-                                <div class="form-group col-md-4">
+                                </div> -->
+                                <div class="form-group col-md-6">
                                     <label class="name" >Số điện thoại</label>
                                     <input
                                         v-model="orderBooking.phone"

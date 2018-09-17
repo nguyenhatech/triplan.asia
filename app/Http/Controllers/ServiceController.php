@@ -37,7 +37,6 @@ class ServiceController extends WebController
         $locale = \App::getLocale();
         $this->metadata->setMetaTitle($service->getTranslation($locale)->name);
         $this->metadata->setMetaDescription($service->getTranslation($locale)->name);
-        // $this->metadata->setMetaKeyword($blog->tags->implode('name', ', '));
         $this->metadata->setOgpimage($service->getImage('sm'));
 
         return view('web.services.detail')->with([

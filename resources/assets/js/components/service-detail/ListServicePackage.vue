@@ -184,6 +184,7 @@
                     let day = this.getFormattedDate(this.day);
                     this.setServicePackageDay(day)
                     this.getServicePackageParent();
+                    this.setServicePackageName('');
                     if (this.item.id) {
                         this.openPackageChildren(this.item)
                         this.item = {}

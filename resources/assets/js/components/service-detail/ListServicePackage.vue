@@ -146,8 +146,9 @@
                 _.forEach(_this.data_booking.service_info.service_package_parent_actives.data, (item) => {
                     if (item.checked) {
                         _.forEach(item.service_package_children_actives.data , (item2) => {
-                            // console.log(item2)
-                            this.setArrayServicePackages(item2)
+                            if (item.quantity) {
+                                this.setArrayServicePackages(item2)
+                            }
                         })
 
                     }

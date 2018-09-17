@@ -53,7 +53,9 @@ class CartController extends WebController
     {
         $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
         $params = $request->all();
-        $dataCart[$params['dataBooking']['service_info']['id']] = $params;
+        $params = json_decode($params['dataBooking']);
+
+        $dataCart[$params->service_info->id] = $params;
 
         $request->session()->put('dataCart', $dataCart);
 

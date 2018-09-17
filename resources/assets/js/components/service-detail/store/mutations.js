@@ -27,5 +27,6 @@ export default {
             state.service_packages.splice(index, 1);
         }
     }
+    console.log(state.service_packages)
   }
 }

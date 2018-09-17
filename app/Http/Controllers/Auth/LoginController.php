@@ -38,6 +38,12 @@ class LoginController extends Controller
     {
         $this->getMetadata();
         $this->middleware('guest')->except('logout');
+        $this->middleware(function ($request, $next) {
+            $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
+            \View::share('dataCart', $dataCart);
+
+            return $next($request);
+        });
     }
 
     /**

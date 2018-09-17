@@ -19,6 +19,7 @@ class ServiceController extends WebController
 
     public function detail(Request $request, $slug, $id)
     {
+        // $request->session()->flush();
         $id = convert_uuid2id($id);
         $service = $this->service->getById($id);
         if (!$service) {
@@ -45,7 +46,7 @@ class ServiceController extends WebController
 
         $data_booking = (object) [];
         if (array_key_exists($id, $dataCart)) {
-            $data_booking = $dataCart[$id]['dataBooking'];
+            $data_booking = $dataCart[$id];
         }
         $data_booking = json_encode($data_booking);
 

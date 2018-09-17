@@ -133,8 +133,26 @@
             ...mapGetters(['loading'])
         },
         mounted () {
-            // this.getServicePackageParent();
-            console.log(this.data_booking)
+            if (_.isEmpty(this.data_booking)) {
+                this.getServicePackageParent();
+            } else {
+                // console.log(this.data_booking)
+                this.servicePackageParent = this.data_booking.service_info.service_package_parent_actives.data;
+                this.day = this.data_booking.date;
+                this.setServicePackageDay(this.day)
+                this.setServicePackageName(this.data_booking.package_name)
+                this.setServiceInfo(this.data_booking.service_info);
+                let _this = this
+                _.forEach(_this.data_booking.service_info.service_package_parent_actives.data, (item) => {
+                    if (item.checked) {
+                        _.forEach(item.service_package_children_actives.data , (item2) => {
+                            // console.log(item2)
+                            this.setArrayServicePackages(item2)
+                        })
+
+                    }
+                });
+            }
         },
         methods: {
             ...mapActions('serviceDetail', [
@@ -241,12 +259,13 @@
                     flag = true;
                 }
                 if (flag) {
-                    item.quantity = item.quantity - 1
+                    item.quantity = parseInt(item.quantity) - 1
                     this.setArrayServicePackages(item)
                 }
             },
             // Tăng 1 gói con
             increaseServicePackage (item) {
+                console.log(item)
                 let flag = false;
 
                 if (item.max == 0) {
@@ -257,7 +276,7 @@
                 }
 
                 if (flag) {
-                    item.quantity = item.quantity + 1
+                    item.quantity = parseInt(item.quantity) + 1
                     this.setArrayServicePackages(item)
                 }
             },

@@ -347,14 +347,14 @@
                 forEach(this.serviceTypeList, type => {
                   if (this.filters.service_group.includes(type.service_group_id)) {
                       this.serviceTypes.push(type)
-                      this.fetchServices()
-                      this.updateUrlParams()
                   } else {
                     if (this.filters.service_type.indexOf(type.id) !== -1) {
                         this.filters.service_type.splice(this.filters.service_type.indexOf(type.id))
                     }
                   }
                 })
+                this.fetchServices()
+                this.updateUrlParams()
             }, 500),
             'filters.service_type': debounce(function () {
                 this.fetchServices()

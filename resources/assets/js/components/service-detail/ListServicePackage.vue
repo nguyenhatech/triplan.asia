@@ -142,8 +142,7 @@
                 this.setServicePackageDay(this.day)
                 this.setServicePackageName(this.data_booking.package_name)
                 this.setServiceInfo(this.data_booking.service_info);
-                let _this = this
-                _.forEach(_this.data_booking.service_info.service_package_parent_actives.data, (item) => {
+                _.forEach(this.data_booking.service_info.service_package_parent_actives.data, (item) => {
                     if (item.checked) {
                         _.forEach(item.service_package_children_actives.data , (item2) => {
                             if (item2.quantity) {

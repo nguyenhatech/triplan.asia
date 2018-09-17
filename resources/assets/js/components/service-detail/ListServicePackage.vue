@@ -92,6 +92,12 @@
     export default {
         name: 'ListServicePackage',
         props: {
+            data_booking: {
+                type: Object,
+                default: () => {
+                  return {}
+                }
+            },
             data_params: {
                 type: Object,
                 default: () => {
@@ -127,7 +133,8 @@
             ...mapGetters(['loading'])
         },
         mounted () {
-            this.getServicePackageParent();
+            // this.getServicePackageParent();
+            console.log(this.data_booking)
         },
         methods: {
             ...mapActions('serviceDetail', [

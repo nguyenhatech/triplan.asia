@@ -51,10 +51,9 @@ class CartController extends WebController
      */
     public function addCartRealTime(Request $request)
     {
-        dd($request->all());
         $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
-
-        $dataCart[$course->id]    = $course;
+        $params = $request->all();
+        $dataCart[$params['dataBooking']['service_info']['id']] = $params;
 
         $request->session()->put('dataCart', $dataCart);
 

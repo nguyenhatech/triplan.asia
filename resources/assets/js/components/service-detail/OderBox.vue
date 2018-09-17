@@ -124,8 +124,25 @@
                     service_packages: this.service_packages
                 };
 
-                console.log('1231')
+
                 localStorage.setItem('dataBooking', JSON.stringify(dataBooking));
+
+                $.ajaxSetup({
+                    headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
+                });
+
+                $.ajax({
+                    url: app_url + '/vi/gio-hang/add-cart-real-time',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {dataBooking: dataBooking},
+                })
+                .done(function() {
+
+                })
+                .fail(function() {
+
+                });
             }
         }
     }

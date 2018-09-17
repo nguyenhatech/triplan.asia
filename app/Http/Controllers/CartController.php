@@ -16,6 +16,8 @@ class CartController extends WebController
     {
         $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
 
+        $this->metadata->setMetaTitle('Giỏ hàng');
+
         return view('web.carts.index')->with([
             'title' => 'Giỏ hàng',
             'dataCart' => $dataCart

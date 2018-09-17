@@ -136,41 +136,6 @@
             <a href="{{ route('places.vietnam') }}" id="view-more-btn" class="btn btn-outline-primary">@lang('web_home_view_more')</a>
         </div>
     </div>
-    <div class="home-destinations">
-        <div class="container">
-            <div class="row">
-                <div class="home-title col-md-12 d-flex justify-content-center">
-                    <div class="d-flex flex-column align-items-center">
-                        <h1 class="title">@lang('web_home_over_destination')</h1>
-                        <span class="description">@lang('web_home_over_destination_description')</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                @forelse ($over_destinations as $key_place => $place)
-                    @if($place->services->count())
-                    <div class="col-sm-12 col-md-3">
-                        <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
-                            <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
-                                <div class="place-caption">
-                                    <span>{{ $place->getTranslation($locale)->name }}</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    @endif
-                @empty
-
-                @endforelse
-            </div>
-        </div>
-        <div class="col-12 d-md-none">
-            <a href="{{ route('places.international') }}" id="view-more-btn" class="btn btn-outline-primary btn-block">@lang('web_home_view_more')</a>
-        </div>
-        <div class="col-12 d-none d-md-block text-center">
-            <a href="{{ route('places.international') }}" id="view-more-btn" class="btn btn-outline-primary">@lang('web_home_view_more')</a>
-        </div>
-    </div>
     <div class="home-best-trips">
         <div class="container">
             <div class="row">

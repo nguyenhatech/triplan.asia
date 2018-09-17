@@ -14,13 +14,9 @@ class CartController extends WebController
 
     public function index(Request $request)
     {
-        $dataCart    = $request->session()->get('dataCart');
+        $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
 
-        if (is_null($dataCart)) {
-            $dataCart = [];
-        }
-
-        return view('web.cart.index')->with([
+        return view('web.carts.index')->with([
             'title' => 'Giỏ hàng',
             'dataCart' => $dataCart
         ]);
@@ -41,7 +37,7 @@ class CartController extends WebController
 
         $request->session()->put('dataCart', $dataCart);
 
-        return redirect()->route('web.cart.index')->with('success', '');
+        return redirect()->route('web.carts.index')->with('success', '');
     }
 
     /**
@@ -89,6 +85,6 @@ class CartController extends WebController
 
         $request->session()->put('dataCart', $dataCart);
 
-        return redirect()->route('web.cart.index')->with('success', '');
+        return redirect()->route('web.carts.index')->with('success', '');
     }
 }

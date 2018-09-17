@@ -17,7 +17,7 @@
                         <a class="nav-link" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="position: relative;">
+                        <a class="nav-link" href="{{ route('web.cart.index') }}" style="position: relative;">
                             <i class="fas fa-shopping-cart"></i>
                             Giỏ hàng
                             <span id="data-Cart" class="badge badge-danger" style="position: absolute;top: 5px; left: 0px">

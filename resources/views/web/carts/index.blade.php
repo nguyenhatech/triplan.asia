@@ -34,6 +34,19 @@
             width: 180px;
             height: 110px;
         }
+        .data-cart .info {
+
+        }
+        .data-cart .info span {
+            margin-bottom: 10px;
+            line-height: 16px;
+            color: #888;
+        }
+        .data-cart .info .name {
+            font-weight: bold;
+            color: #000;
+            margin-top: 5px;
+        }
     </style>
 @endsection
 
@@ -52,13 +65,20 @@
                             <tbody>
                                 @forelse ($dataCart as $item)
                                     <tr>
-                                        <td>
+                                        <td width="180">
                                             <img src="{{ $item->service_info->thumb_path }}" alt="{{ $item->service_info->name }}">
                                         </td>
-                                        <td>
-                                            1
+                                        <td width="250">
+                                            <div class="info d-flex flex-column">
+                                                <span class="name">{{ $item->service_info->name }}</span>
+                                                <span class="package_name">Gói: {{ $item->package_name }}</span>
+                                                <span class="date">Ngày: {{ $item->date }}</span>
+                                            </div>
                                         </td>
                                         <td>
+
+                                        </td>
+                                        <td width="120">
                                             1
                                         </td>
                                     </tr>

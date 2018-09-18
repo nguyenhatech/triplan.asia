@@ -47,13 +47,14 @@
             color: #000;
             margin-top: 5px;
         }
-        .data-cart .action a {
+        .data-cart .action .item {
             font-size: 12px;
             text-decoration: none;
         }
-        .data-cart .action a.delete {
+        .data-cart .action .delete {
             margin-left: 10px;
             color: #ff424e;
+            cursor: pointer;
         }
     </style>
 @endsection
@@ -88,14 +89,14 @@
                                         </td>
                                         <td width="120">
                                             <div class="action">
-                                                <a href="#">
+                                                <a class="item" href="#">
                                                     <i class="far fa-edit"></i>
                                                     Sửa
                                                 </a>
-                                                <a href="#" class="delete">
+                                                <span class="item delete">
                                                     <i class="far fa-trash-alt"></i>
                                                     Xóa
-                                                </a>
+                                                </span>
                                             </div>
                                         </td>
                                     </tr>
@@ -142,6 +143,16 @@
             $('.navbar-light .navbar-nav .nav-link').addClass('nav-link-scroll');
             $('#logo_white').hide();
             $('#logo_blue').show();
+
+
+            $('.btn-delete-cart').click(function(event) {
+                let deleteOneCartUrl = $(this).attr("data-url");
+                let nameCourse = $(this).attr("data-name");
+                if (confirm("Xóa " + nameCourse + ' ?')) {
+                    window.location.href = deleteOneCartUrl;
+                }
+                return false;
+            });
         });
     </script>
 @endsection

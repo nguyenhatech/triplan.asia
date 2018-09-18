@@ -18,13 +18,13 @@ class MediaService extends Entity
     public function getImage($type = null)
     {
         if ($type == 'tn') {
-            return env('IMAGE_PATH') . '150x100/' . $this->source;
+            return env('IMAGE_PATH') . 'tiny/' . $this->image;
         } else if ($type == 'sm') {
-            return env('IMAGE_PATH') . '350x200/' . $this->source;
+            return env('IMAGE_PATH') . 'small/' . $this->image;
         } else if ($type == 'md') {
-            return env('IMAGE_PATH') . '750x390/' . $this->source;
+            return env('IMAGE_PATH') . 'medium/' . $this->image;
         } else {
-            return env('IMAGE_PATH') . $this->source;
+            return env('IMAGE_PATH') . $this->image;
         }
     }
 }

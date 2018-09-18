@@ -14,14 +14,14 @@ class Place extends Entity
      */
     public $fillable = [];
 
-    public function getImage($type = false)
+    public function getImage($type = null)
     {
-        if ($this->image == '') return get_asset('images/places/place_default.png');
-
-        if ($type == 'sm') {
-            return env('IMAGE_PATH') . '350x200/' . $this->image;
+        if ($type == 'tn') {
+            return env('IMAGE_PATH') . 'tiny/' . $this->image;
+        } else if ($type == 'sm') {
+            return env('IMAGE_PATH') . 'small/' . $this->image;
         } else if ($type == 'md') {
-            return env('IMAGE_PATH') . '750x390/' . $this->image;
+            return env('IMAGE_PATH') . 'medium/' . $this->image;
         } else {
             return env('IMAGE_PATH') . $this->image;
         }

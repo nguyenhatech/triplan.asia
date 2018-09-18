@@ -19,6 +19,7 @@ class ServiceController extends WebController
 
     public function detail(Request $request, $slug, $id)
     {
+        // $request->session()->flush();
         $id = convert_uuid2id($id);
         $service = $this->service->getById($id);
         if (!$service) {
@@ -37,14 +38,24 @@ class ServiceController extends WebController
         $locale = \App::getLocale();
         $this->metadata->setMetaTitle($service->getTranslation($locale)->name);
         $this->metadata->setMetaDescription($service->getTranslation($locale)->name);
-        // $this->metadata->setMetaKeyword($blog->tags->implode('name', ', '));
         $this->metadata->setOgpimage($service->getImage('sm'));
+
+
+        // Check xem có trong giỏ hàng ko để lấy ra hiển thị lại
+        $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
+
+        $data_booking = (object) [];
+        if (array_key_exists($id, $dataCart)) {
+            $data_booking = $dataCart[$id];
+        }
+        $data_booking = json_encode($data_booking);
 
         return view('web.services.detail')->with([
             'title'   => 'Chi tiết',
             'service' => $service,
             'service_involves' => $service_involves,
-            'data_params' => $data_params
+            'data_params' => $data_params,
+            'data_booking' => $data_booking
         ]);
     }
 }

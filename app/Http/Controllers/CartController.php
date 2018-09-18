@@ -14,13 +14,11 @@ class CartController extends WebController
 
     public function index(Request $request)
     {
-        $dataCart    = $request->session()->get('dataCart');
+        $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
 
-        if (is_null($dataCart)) {
-            $dataCart = [];
-        }
+        $this->metadata->setMetaTitle('Giỏ hàng');
 
-        return view('web.cart.index')->with([
+        return view('web.carts.index')->with([
             'title' => 'Giỏ hàng',
             'dataCart' => $dataCart
         ]);
@@ -41,7 +39,7 @@ class CartController extends WebController
 
         $request->session()->put('dataCart', $dataCart);
 
-        return redirect()->route('web.cart.index')->with('success', '');
+        return redirect()->route('web.carts.index')->with('success', '');
     }
 
     /**
@@ -51,10 +49,11 @@ class CartController extends WebController
      */
     public function addCartRealTime(Request $request)
     {
-        dd($request->all());
         $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
+        $params = $request->all();
+        $params = json_decode($params['dataBooking']);
 
-        $dataCart[$course->id]    = $course;
+        $dataCart[$params->service_info->id] = $params;
 
         $request->session()->put('dataCart', $dataCart);
 
@@ -88,6 +87,6 @@ class CartController extends WebController
 
         $request->session()->put('dataCart', $dataCart);
 
-        return redirect()->route('web.cart.index')->with('success', '');
+        return redirect()->route('web.carts.index')->with('success', '');
     }
 }

@@ -18,7 +18,7 @@
             <div>
                 <span style="font-weight: bold">{{ date }}</span>
             </div>
-            <div v-if="service_packages.length">
+            <div v-if="service_packages">
                 <span style="display: block; margin-top: 5px; font-size: 12px;">Số lượng:</span>
                 <div
                     v-for="service_package in service_packages"
@@ -124,8 +124,25 @@
                     service_packages: this.service_packages
                 };
 
-                console.log('1231')
+
                 localStorage.setItem('dataBooking', JSON.stringify(dataBooking));
+
+                $.ajaxSetup({
+                    headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
+                });
+
+                $.ajax({
+                    url: app_url + '/vi/gio-hang/add-cart-real-time',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {dataBooking: JSON.stringify(dataBooking)}
+                })
+                .done(function() {
+
+                })
+                .fail(function() {
+
+                });
             }
         }
     }

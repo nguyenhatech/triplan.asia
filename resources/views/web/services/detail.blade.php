@@ -54,7 +54,12 @@
                         </div>
                     @endif
                     <div>
-                        <list-service-package :service="{{ $service }}" :data_params="{{ $data_params }}"></list-service-package>
+                        <list-service-package
+                            :data_booking="{{ $data_booking }}"
+                            :service="{{ $service }}"
+                            :data_params="{{ $data_params }}">
+
+                        </list-service-package>
                     </div>
                     @if ($service->getTranslation($locale)->description)
                         <div class="service-description">

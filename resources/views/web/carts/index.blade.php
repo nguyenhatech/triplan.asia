@@ -26,6 +26,7 @@
             border-color: #ff424e;
             font-size: 14px;
             padding: 8px;
+            margin-bottom: 15px;
         }
         .data-cart {
             background-color: #fff;
@@ -73,50 +74,54 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 pb-1">
-                    <h6 class="text-uppercase font-weight-bold">Giỏ hàng</h6>
+                    <h6 class="text-uppercase font-weight-bold">
+                        Giỏ hàng <span  class="font-weight-light text-lowercase">({{ count($dataCart) }} dịch vụ)</span>
+                    </h6>
                 </div>
             </div>
             @if (count($dataCart))
                 <div class="row">
                     <div class="col-md-9">
                         <div class="data-cart">
-                            <table class="table table-hover">
-                                <tbody>
-                                    @forelse ($dataCart as $item)
-                                        <tr>
-                                            <td width="180">
-                                                <img src="{{ $item->service_info->thumb_path }}" alt="{{ $item->service_info->name }}">
-                                            </td>
-                                            <td width="250">
-                                                <div class="info d-flex flex-column">
-                                                    <span class="name">{{ $item->service_info->name }}</span>
-                                                    <span class="package_name">Gói: {{ $item->package_name }}</span>
-                                                    <span class="date">Ngày: {{ $item->date }}</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                Chi tiết tiền
-                                            </td>
-                                            <td width="120">
-                                                <div class="action">
-                                                    <a class="item" href="#">
-                                                        <i class="far fa-edit"></i>
-                                                        Sửa
-                                                    </a>
-                                                    <span class="item delete btn-delete-cart"
-                                                        data-url="{{ route('web.cart.delete-one-cart', $item->service_info->id) }}"
-                                                        data-name="{{ $item->service_info->name }}">
-                                                        <i class="far fa-trash-alt"></i>
-                                                        Xóa
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @empty
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        @forelse ($dataCart as $item)
+                                            <tr>
+                                                <td width="180">
+                                                    <img src="{{ $item->service_info->thumb_path }}" alt="{{ $item->service_info->name }}">
+                                                </td>
+                                                <td width="250">
+                                                    <div class="info d-flex flex-column">
+                                                        <span class="name">{{ $item->service_info->name }}</span>
+                                                        <span class="package_name">Gói: {{ $item->package_name }}</span>
+                                                        <span class="date">Ngày: {{ $item->date }}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Chi tiết tiền
+                                                </td>
+                                                <td width="120">
+                                                    <div class="action">
+                                                        <a class="item" href="#">
+                                                            <i class="far fa-edit"></i>
+                                                            Sửa
+                                                        </a>
+                                                        <span class="item delete btn-delete-cart"
+                                                            data-url="{{ route('web.cart.delete-one-cart', $item->service_info->id) }}"
+                                                            data-name="{{ $item->service_info->name }}">
+                                                            <i class="far fa-trash-alt"></i>
+                                                            Xóa
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @empty
 
-                                    @endforelse
-                                </tbody>
-                            </table>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3">

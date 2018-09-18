@@ -14,14 +14,15 @@ class CartController extends WebController
 
     public function index(Request $request)
     {
+        $request->session()->flush();
         $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
 
         $this->metadata->setMetaTitle('Giỏ hàng');
-        // dd($dataCart);
-        //
+
         // foreach ($dataCart as $key => $item) {
         //     dd($item->service_info);
         // }
+
         return view('web.carts.index')->with([
             'title' => 'Giỏ hàng',
             'dataCart' => $dataCart

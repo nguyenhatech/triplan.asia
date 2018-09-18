@@ -47,9 +47,9 @@ Route::group([
 
     // Module Cart
     Route::get('/gio-hang', 'CartController@index')->name('web.cart.index');
-    Route::get('/gio-hang/add-cart/{course_id}', 'CartController@addCart')->name('web.cart.add-cart');
+    Route::get('/gio-hang/add-cart/{service_id}', 'CartController@addCart')->name('web.cart.add-cart');
     Route::post('/gio-hang/add-cart-real-time', 'CartController@addCartRealTime')->name('web.cart.add-cart-real-time');
-    Route::get('/gio-hang/delete-one-cart/{course_id}', 'CartController@deleteOneCart')->name('web.cart.delete-one-cart');
+    Route::get('/gio-hang/delete-one-cart/{service_id}', 'CartController@deleteOneCart')->name('web.cart.delete-one-cart');
 
     Auth::routes();
 });

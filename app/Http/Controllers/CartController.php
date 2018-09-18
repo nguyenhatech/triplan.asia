@@ -74,23 +74,17 @@ class CartController extends WebController
     /**
      * Xóa từ giỏ hàng
      * @param  Request $request   [description]
-     * @param  [type]  $course_id [description]
+     * @param  [type]  $service_id [description]
      * @return [type]             [description]
      */
-    public function deleteOneCart(Request $request, $course_id)
+    public function deleteOneCart(Request $request, $service_id)
     {
-        $dataCart    = $request->session()->get('dataCart');
+        $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
 
-        if (is_null($dataCart)) {
-            $dataCart = [];
-        }
-
-        $course = $this->course->getById($course_id);
-
-        unset($dataCart[$course->id]);
+        unset($dataCart[$service_id]);
 
         $request->session()->put('dataCart', $dataCart);
 
-        return redirect()->route('web.carts.index')->with('success', '');
+        return redirect()->route('web.cart.index')->with('success', '');
     }
 }

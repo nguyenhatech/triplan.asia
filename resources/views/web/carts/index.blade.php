@@ -93,7 +93,9 @@
                                                     <i class="far fa-edit"></i>
                                                     Sửa
                                                 </a>
-                                                <span class="item delete">
+                                                <span class="item delete btn-delete-cart"
+                                                    data-url="{{ route('web.cart.delete-one-cart', $item->service_info->id) }}"
+                                                    data-name="{{ $item->service_info->name }}">
                                                     <i class="far fa-trash-alt"></i>
                                                     Xóa
                                                 </span>
@@ -148,6 +150,8 @@
             $('.btn-delete-cart').click(function(event) {
                 let deleteOneCartUrl = $(this).attr("data-url");
                 let nameCourse = $(this).attr("data-name");
+                console.log(deleteOneCartUrl)
+                console.log(nameCourse)
                 if (confirm("Xóa " + nameCourse + ' ?')) {
                     window.location.href = deleteOneCartUrl;
                 }

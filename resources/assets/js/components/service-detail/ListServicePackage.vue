@@ -265,7 +265,6 @@
             },
             // Tăng 1 gói con
             increaseServicePackage (item) {
-                console.log(item)
                 let flag = false;
 
                 if (item.max == 0) {

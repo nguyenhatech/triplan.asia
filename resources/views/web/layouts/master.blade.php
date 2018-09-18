@@ -22,11 +22,11 @@
                 @yield('content')
                 <a href="#" class="scrollup" title="@lang('scroll_to_top')"><i class="fa fa-arrow-up"></i></a>
 
-{{--                 <div class="fb-customerchat"
+                <div class="fb-customerchat"
                   attribution=setup_tool
                   page_id="1662541773864552"
                   theme_color="#02a676">
-                </div> --}}
+                </div>
             </main>
 
             <footer>
@@ -40,9 +40,9 @@
         <script type="text/javascript" src="{{ get_asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/mobile-navigation/custom-navigation.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/customs-1.0.1/js/web.js') }}"></script>
-        <script type="text/javascript">
-
-        </script>
+        @if (!Request::is('*/gio-hang'))
+            <script type="text/javascript" src="{{ get_asset('web/librarys/customs-1.0.1/js/header.js') }}"></script>
+        @endif
         @yield('scripts')
     </body>
 </html>

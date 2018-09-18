@@ -112,7 +112,7 @@
             }
         },
         mounted () {
-
+                            console.log(this.data_params.url_cart)
         },
         methods: {
             ...mapActions('serviceDetail', ['setServiceInfo']),
@@ -124,13 +124,12 @@
                     service_packages: this.service_packages
                 };
 
-
                 localStorage.setItem('dataBooking', JSON.stringify(dataBooking));
 
                 $.ajaxSetup({
                     headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
                 });
-
+                let _this = this
                 $.ajax({
                     url: app_url + '/vi/gio-hang/add-cart-real-time',
                     type: 'POST',
@@ -138,7 +137,7 @@
                     data: {dataBooking: JSON.stringify(dataBooking)}
                 })
                 .done(function() {
-
+                    window.location.href = _this.data_params.url_cart
                 })
                 .fail(function() {
 

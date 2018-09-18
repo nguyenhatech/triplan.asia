@@ -30,6 +30,10 @@
             background-color: #fff;
             min-height: 20px;
         }
+        .data-cart img {
+            width: 180px;
+            height: 110px;
+        }
     </style>
 @endsection
 
@@ -49,7 +53,7 @@
                                 @forelse ($dataCart as $item)
                                     <tr>
                                         <td>
-                                            123
+                                            <img src="{{ $item->service_info->thumb_path }}" alt="{{ $item->service_info->name }}">
                                         </td>
                                         <td>
                                             1

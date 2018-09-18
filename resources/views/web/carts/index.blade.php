@@ -76,14 +76,20 @@
                                             </div>
                                         </td>
                                         <td>
-
+                                            Chi tiết tiền
                                         </td>
                                         <td width="120">
-                                            1
+                                            <div>
+                                                <a href="#">
+                                                    <i class="far fa-edit"></i>
+                                                    Sửa
+                                                </a>
+                                                <a href="#">Xóa</a>
+                                            </div>
                                         </td>
                                     </tr>
                                 @empty
-                                    {{-- empty expr --}}
+
                                 @endforelse
                             </tbody>
                         </table>

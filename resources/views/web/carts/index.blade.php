@@ -36,9 +36,6 @@
             width: 180px;
             height: 110px;
         }
-        .data-cart .info {
-
-        }
         .data-cart .info span {
             margin-bottom: 10px;
             line-height: 16px;

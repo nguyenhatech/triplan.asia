@@ -14,7 +14,7 @@ class CartController extends WebController
 
     public function index(Request $request)
     {
-        $request->session()->flush();
+        // $request->session()->flush();
         $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
 
         $this->metadata->setMetaTitle('Giỏ hàng');

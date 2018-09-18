@@ -47,6 +47,14 @@
             color: #000;
             margin-top: 5px;
         }
+        .data-cart .action a {
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .data-cart .action a.delete {
+            margin-left: 10px;
+            color: #ff424e;
+        }
     </style>
 @endsection
 
@@ -79,12 +87,15 @@
                                             Chi tiết tiền
                                         </td>
                                         <td width="120">
-                                            <div>
+                                            <div class="action">
                                                 <a href="#">
                                                     <i class="far fa-edit"></i>
                                                     Sửa
                                                 </a>
-                                                <a href="#">Xóa</a>
+                                                <a href="#" class="delete">
+                                                    <i class="far fa-trash-alt"></i>
+                                                    Xóa
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>

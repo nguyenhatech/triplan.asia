@@ -126,14 +126,14 @@
                             <div class="provisional">
                                 <span class="d-flex justify-content-between">
                                     <span class="font-weight-light">Tạm tính:</span>
-                                    <span>13.500.400 đ</span>
+                                    <span>{{ $totalCart }} đ</span>
                                 </span>
                             </div>
                             <div class="provisional">
                                 <span class="d-flex justify-content-between">
                                     <span class="font-weight-light">Thành tiền:</span>
                                     <span class="d-flex flex-column align-items-end">
-                                        <span class="font-weight-bold price">13.500.400 đ</span>
+                                        <span class="font-weight-bold price">{{ $totalCart }} đ</span>
                                         <span class="font-weight-light" style="font-size: 12px;">(Đã bao gồm VAT)</span>
                                     </span>
                                 </span>

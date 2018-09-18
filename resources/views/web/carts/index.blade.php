@@ -100,7 +100,7 @@
                                                 </td>
                                                 <td width="120">
                                                     <div class="action">
-                                                        <a class="item" href="#">
+                                                        <a class="item" href="{{ route('web.services.detail', [$item->service_info->slug, $item->service_info->uuid]) }}">
                                                             <i class="far fa-edit"></i>
                                                             Sửa
                                                         </a>

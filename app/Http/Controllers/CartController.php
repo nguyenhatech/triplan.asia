@@ -33,24 +33,6 @@ class CartController extends WebController
      * @param Request $request   [description]
      * @param [type]  $course_id [description]
      */
-    public function addCart(Request $request, $course_id)
-    {
-        $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
-
-        dd('dưqdq');
-
-        $dataCart[$course->id]    = $course;
-
-        $request->session()->put('dataCart', $dataCart);
-
-        return redirect()->route('web.carts.index')->with('success', '');
-    }
-
-    /**
-     * Thêm vào giở hàng
-     * @param Request $request   [description]
-     * @param [type]  $course_id [description]
-     */
     public function addCartRealTime(Request $request)
     {
         $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');

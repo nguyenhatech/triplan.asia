@@ -44,9 +44,25 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="data-cart">
-                        <div class="data-cart_item">
-
-                        </div>
+                        <table class="table table-hover">
+                            <tbody>
+                                @forelse ($dataCart as $item)
+                                    <tr>
+                                        <td>
+                                            123
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                    </tr>
+                                @empty
+                                    {{-- empty expr --}}
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="col-md-3">

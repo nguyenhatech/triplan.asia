@@ -8,7 +8,7 @@
     <style type="text/css">
         .booking-step1 {
             padding-top: 110px;
-            background-color: #EEEEEE;
+            background-color: #f7f7f7;
             min-height: 300px;
             padding-bottom: 30px;
         }

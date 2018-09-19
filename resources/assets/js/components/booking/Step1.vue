@@ -261,7 +261,7 @@
     font-size: 13px;
 }
 .form-booking__item .header {
-    background-color: #19A577;
+    background-color: #ff424e;
     color: #fff;
     font-size: 20px;
     padding: 10px 20px 10px 30px;

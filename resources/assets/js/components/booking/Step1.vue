@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                         </div>
-                        <span style="color: #888; margin-bottom: 5px; display: block">Miễn phí</span>
+                        <span v-if="checkTitleFree(cart.service_packages)" style="color: #888; margin-bottom: 5px; display: block">Miễn phí</span>
                         <div>
                             <div v-for="item_sub in cart.service_packages" :key="item_sub.id">
                                 <div  v-if="item_sub.free" class="d-flex justify-content-between align-item_subs-center" style="min-height: 30px">
@@ -139,11 +139,11 @@
                     <div class="info">
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
                             <span style="color: #888">Tạm tính:</span>
-                            <span>{{ calcFee | number }} đ</span>
+                            <span  style="color: #ff424e; font-weight: bold">{{ data_params.totalCart | number }} đ</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
                             <span style="color: #888">Thành tiền:</span>
-                            <span>{{ calcFee | number }} đ</span>
+                            <span  style="color: #ff424e; font-weight: bold">{{ data_params.totalCart | number }} đ</span>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,6 @@
         },
         mounted () {
             this.fetchCurrencies();
-            console.log(this.data_cart)
         },
         methods: {
             fetchCurrencies () {
@@ -219,6 +218,15 @@
                             alert('Có lỗi xảy ra. Vui lòng liên hệ amdin')
                     }
                 })
+            },
+            checkTitleFree (service_packages) {
+                let flagFree = false
+                _.forEach(service_packages, (value) => {
+                    if (value.free) {
+                        flagFree = true
+                    }
+                })
+                return flagFree;
             },
             createBooking () {
                 this.$validator.validateAll().then((result) => {

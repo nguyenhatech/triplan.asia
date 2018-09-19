@@ -63,6 +63,14 @@
         .data-cart-empty .btn-checkout {
             padding: 8px 45px;
         }
+
+        .service-package span {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+        .service-package .price {
+            color: #ff424e;
+        }
     </style>
 @endsection
 
@@ -96,7 +104,12 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    Chi tiết tiền
+                                                    @foreach ($item->service_packages as $package)
+                                                        <div class="service-package d-flex justify-content-between">
+                                                            <span>{{ $package->quantity }} x {{ $package->name }}</span>
+                                                            <span class="price font-weight-bold">{{ number_format($package->quantity * $package->price_with_currency) }} đ</span>
+                                                        </div>
+                                                    @endforeach
                                                 </td>
                                                 <td width="120">
                                                     <div class="action">
@@ -126,14 +139,14 @@
                             <div class="provisional">
                                 <span class="d-flex justify-content-between">
                                     <span class="font-weight-light">Tạm tính:</span>
-                                    <span>{{ $totalCart }} đ</span>
+                                    <span>{{ number_format($totalCart) }} đ</span>
                                 </span>
                             </div>
                             <div class="provisional">
                                 <span class="d-flex justify-content-between">
                                     <span class="font-weight-light">Thành tiền:</span>
                                     <span class="d-flex flex-column align-items-end">
-                                        <span class="font-weight-bold price">{{ $totalCart }} đ</span>
+                                        <span class="font-weight-bold price">{{ number_format($totalCart) }} đ</span>
                                         <span class="font-weight-light" style="font-size: 12px;">(Đã bao gồm VAT)</span>
                                     </span>
                                 </span>

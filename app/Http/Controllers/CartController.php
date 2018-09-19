@@ -22,6 +22,7 @@ class CartController extends WebController
         $totalCart = 0;
 
         foreach ($dataCart as $key => $item) {
+            // dd($item->service_packages);
             $totalServicePackage = 0;
             foreach ($item->service_packages as $key2 => $item2) {
                 $totalServicePackage += $item2->quantity *  $item2->price_with_currency;

@@ -96,7 +96,7 @@
                                                 <td width="180">
                                                     <img src="{{ $item->service_info->thumb_path }}" alt="{{ $item->service_info->name }}">
                                                 </td>
-                                                <td width="250">
+                                                <td width="220">
                                                     <div class="info d-flex flex-column">
                                                         <span class="name">{{ $item->service_info->name }}</span>
                                                         <span class="package_name">Gói: {{ $item->package_name }}</span>
@@ -111,7 +111,7 @@
                                                         </div>
                                                     @endforeach
                                                 </td>
-                                                <td width="120">
+                                                <td width="110">
                                                     <div class="action">
                                                         <a class="item" href="{{ route('web.services.detail', [$item->service_info->slug, $item->service_info->uuid]) }}">
                                                             <i class="far fa-edit"></i>

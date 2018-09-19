@@ -110,11 +110,11 @@
                             <span style="color: #888">Ngày: {{ cart.date }}</span>
                         </div>
                         <div>
-                            <div v-for="item in dataBooking.service_packages" :key="item.id">
+                            <div v-for="item in cart.service_packages" :key="item.id">
                                 <div class="d-flex justify-content-between align-items-center" style="min-height: 30px">
                                     <span>{{item.quantity}} x {{item.name}}</span>
-                                    <span>
-                                        {{ item.quantity * item.price_with_currency | number }} VND
+                                    <span style="color: #ff424e; font-weight: bold">
+                                        {{ item.quantity * item.price_with_currency | number }} đ
                                     </span>
                                 </div>
 

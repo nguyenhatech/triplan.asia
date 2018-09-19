@@ -23,5 +23,13 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.header-top-navigation').addClass('header-top-navigation-scroll');
+            $('.navbar-light .navbar-nav .nav-link').addClass('nav-link-scroll');
+            $('#logo_white').hide();
+            $('#logo_blue').show();
+        });
+    </script>
 @endsection
 

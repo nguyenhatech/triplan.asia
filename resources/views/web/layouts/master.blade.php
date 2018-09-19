@@ -40,7 +40,7 @@
         <script type="text/javascript" src="{{ get_asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/mobile-navigation/custom-navigation.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/customs-1.0.1/js/web.js') }}"></script>
-        @if (!Request::is('*/gio-hang'))
+        @if ((!Request::is('*/gio-hang*') && !Request::is('*/booking*')))
             <script type="text/javascript" src="{{ get_asset('web/librarys/customs-1.0.1/js/header.js') }}"></script>
         @endif
         @yield('scripts')

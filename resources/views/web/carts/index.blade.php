@@ -153,7 +153,7 @@
                             </div>
                         </div>
                         <div class="pt-3 data-cart-right-checkout">
-                            <a href="#" class="btn btn-large btn-block btn-danger btn-checkout">
+                            <a href="{{ route('web.booking.step1') }}" class="btn btn-large btn-block btn-danger btn-checkout">
                                 Tiến hành đặt hàng
                             </a>
                         </div>

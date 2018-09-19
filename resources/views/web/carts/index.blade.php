@@ -110,6 +110,26 @@
                                                             <span class="price font-weight-bold">{{ number_format($package->quantity * $package->price_with_currency) }} đ</span>
                                                         </div>
                                                     @endforeach
+                                                    @php
+                                                        $flagFree = false;
+                                                        foreach ($item->service_packages as $package) {
+                                                            if ($package->free) {
+                                                                $flagFree = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                    @endphp
+                                                    @if ($flagFree)
+                                                        <span style="font-size: 13px; font-weight: bold; margin-bottom: 5px; display: block">Miễn phí: </span>
+                                                    @endif
+                                                    @foreach ($item->service_packages as $package)
+                                                        @if ($package->free)
+                                                            <div class="service-package d-flex justify-content-between">
+                                                                <span>-{{ min($package->free, $package->quantity) }} x {{ $package->name }}</span>
+                                                                <span class="price font-weight-bold">-{{ number_format(min($package->free, $package->quantity) * $package->price_with_currency) }} đ</span>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
                                                 </td>
                                                 <td width="110">
                                                     <div class="action">

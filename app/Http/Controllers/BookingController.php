@@ -14,13 +14,16 @@ class BookingController extends WebController
 
     public function bookingStep1(Request $request)
     {
+        $data_cart = json_encode(is_null(session('dataCart')) ? (object) [] : session('dataCart'));
+
         $data_params['APP_URL']              = env('APP_URL');
         $data_params['url_booking_thankyou'] = route('web.booking.thankyou');
         $data_params                         = json_encode($data_params);
 
         return view('web.bookings.step1')->with([
-            'title'   => 'Thông tin booking',
-            'data_params' => $data_params
+            'title'       => 'Thông tin booking',
+            'data_params' => $data_params,
+            'data_cart'    => $data_cart
         ]);
     }
 

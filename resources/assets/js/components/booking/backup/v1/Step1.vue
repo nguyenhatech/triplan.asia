@@ -175,12 +175,6 @@
     export default {
         name: 'BookingStep1',
         props: {
-            data_cart: {
-                type: Object,
-                default: () => {
-                    return {}
-                }
-            },
             data_params: {
                 type: Object,
                 default: () => {
@@ -226,20 +220,19 @@
         mounted () {
             this.getDateLocalStorage();
             this.fetchCurrencies();
-            console.log(this.data_cart)
         },
         methods: {
             getDateLocalStorage () {
-                // if (!(localStorage.getItem('dataBooking'))) {
-                //     window.location.href = this.data_params.APP_URL
-                // }
-                // this.dataBooking = JSON.parse(localStorage.getItem('dataBooking'));
-                // let booking_detail_item = {
-                //     service_packages: this.dataBooking.service_packages,
-                //     date: this.dataBooking.date,
-                //     service_id: this.dataBooking.service_info.id
-                // }
-                // this.orderBooking.booking_details.push(booking_detail_item);
+                if (!(localStorage.getItem('dataBooking'))) {
+                    window.location.href = this.data_params.APP_URL
+                }
+                this.dataBooking = JSON.parse(localStorage.getItem('dataBooking'));
+                let booking_detail_item = {
+                    service_packages: this.dataBooking.service_packages,
+                    date: this.dataBooking.date,
+                    service_id: this.dataBooking.service_info.id
+                }
+                this.orderBooking.booking_details.push(booking_detail_item);
             },
             fetchCurrencies () {
                 axios.get('countries', {params: {'limit':-1}}).then(response => {
@@ -273,6 +266,11 @@
                         })
                     }
                 })
+            }
+        },
+        watch: {
+            'orderBooking.passport_infomation' () {
+
             }
         }
     }

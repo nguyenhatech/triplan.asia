@@ -117,17 +117,17 @@
                                         {{ item.quantity * item.price_with_currency | number }} đ
                                     </span>
                                 </div>
-
                             </div>
                         </div>
+                        <span style="color: #888; margin-bottom: 5px; display: block">Miễn phí</span>
                         <div>
-                            <div v-for="item_sub in dataBooking.service_packages" :key="item_sub.id">
+                            <div v-for="item_sub in cart.service_packages" :key="item_sub.id">
                                 <div  v-if="item_sub.free" class="d-flex justify-content-between align-item_subs-center" style="min-height: 30px">
                                     <span>
-                                        {{ Math.min(item_sub.free, item_sub.quantity) }} x {{item_sub.name}}
+                                        - {{ Math.min(item_sub.free, item_sub.quantity) }} x {{item_sub.name}}
                                     </span>
-                                    <span>
-                                        - {{ Math.min(item_sub.free, item_sub.quantity) * item_sub.price_with_currency | number }} VND
+                                    <span style="color: #ff424e; font-weight: bold">
+                                        - {{ Math.min(item_sub.free, item_sub.quantity) * item_sub.price_with_currency | number }} đ
                                     </span>
                                 </div>
 
@@ -138,11 +138,11 @@
                 <div class="form-booking__item info-booking">
                     <div class="info">
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
-                            <span style="color: #888">Tổng cộng</span>
+                            <span style="color: #888">Tạm tính:</span>
                             <span>{{ calcFee | number }} đ</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
-                            <span style="color: #888">Tổng tiền thanh toán</span>
+                            <span style="color: #888">Thành tiền:</span>
                             <span>{{ calcFee | number }} đ</span>
                         </div>
                     </div>

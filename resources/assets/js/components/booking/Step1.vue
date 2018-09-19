@@ -87,8 +87,8 @@
                                 </span>
                             </div>
                             <div class="col-md-4">
-                                <button class="btn btn-booking-now" @click="createBooking()">
-                                    Đặt vé ngay
+                                <button class="btn btn-block btn-booking-now" @click="createBooking()">
+                                    Đặt ngay
                                 </button>
                             </div>
                         </div>
@@ -203,7 +203,6 @@
                 }
                 this.orderBooking.booking_details.push(booking_detail_item);
             })
-            console.log(this.orderBooking.booking_details)
         },
         methods: {
             fetchCurrencies () {
@@ -275,11 +274,9 @@
 }
 .btn-booking-now {
     padding: 6px 40px;
-    background-color: #19A577;
     color: #fff;
-    background: #00F260;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: #ff424e;
+    border-color: #ff424e;
     border: none;
 }
 /* Phần Info bên trái*/

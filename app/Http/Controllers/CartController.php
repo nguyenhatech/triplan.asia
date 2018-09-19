@@ -25,7 +25,7 @@ class CartController extends WebController
             // dd($item->service_packages);
             $totalServicePackage = 0;
             foreach ($item->service_packages as $key2 => $item2) {
-                $totalServicePackage += $item2->quantity *  $item2->price_with_currency;
+                $totalServicePackage += ($item2->quantity - min($item2->free, $item2->quantity)) *  $item2->price_with_currency;
             }
             $totalCart +=  $totalServicePackage;
         }

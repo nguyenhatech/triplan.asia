@@ -171,11 +171,6 @@
         },
         data () {
             return {
-                dataBooking: {
-                    service_info: {
-                        name: 'Name'
-                    }
-                },
                 orderBooking: {
                     phone: '',
                     email: '',
@@ -196,16 +191,19 @@
 
         },
         computed: {
-            calcFee () {
-                let totalFree = 0;
-                _.forEach(this.dataBooking.service_packages, (value) => {
-                    totalFree += (value.quantity - Math.min(value.free,value.quantity)) * value.price_with_currency
-                })
-                return totalFree
-            }
+
         },
         mounted () {
             this.fetchCurrencies();
+            _.forEach(this.data_cart, (item) => {
+                let booking_detail_item = {
+                    service_packages: item.service_packages,
+                    date: item.date,
+                    service_id: item.service_info.id
+                }
+                this.orderBooking.booking_details.push(booking_detail_item);
+            })
+            console.log(this.orderBooking.booking_details)
         },
         methods: {
             fetchCurrencies () {
@@ -234,8 +232,6 @@
                         axios.post('bookings', this.orderBooking).then(response => {
                             switch (response.code) {
                                 case 200:
-                                    // Xóa LocalStorage
-                                    window.localStorage.removeItem("dataBooking");
                                     window.location.href = this.data_params.url_booking_thankyou + '?code=' + response.data.code
                                     break;
                                 case 422:

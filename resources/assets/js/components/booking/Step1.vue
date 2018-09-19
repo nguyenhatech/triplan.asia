@@ -50,19 +50,6 @@
                                         </option>
                                     </select>
                                 </div>
-      <!--                           <div class="form-group col-md-2">
-                                    <label class="name" >Mã </label>
-                                    <select
-                                        v-model="orderBooking.passport_infomation"
-                                        class="custom-select">
-                                        <option
-                                            v-for="country in countries"
-                                            :key="country.id"
-                                            :value="country.name">
-                                            ({{ country.country_code }})
-                                        </option>
-                                    </select>
-                                </div> -->
                                 <div class="form-group col-md-6">
                                     <label class="name" >Số điện thoại</label>
                                     <input
@@ -109,21 +96,18 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="form-booking__item info-booking">
+                <div
+                    v-for="cart in data_cart"
+                    class="form-booking__item info-booking">
                     <div class="name">
-                        <span>{{ dataBooking.service_info.name }}</span>
+                        <span>{{ cart.service_info.name }}</span>
                     </div>
                     <div class="info">
-                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
-                            <span style="color: #888">Tên gọi dịch vụ</span>
-                            <span>{{ dataBooking.package_name }}</span>
+                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 5px;">
+                            <span style="color: #888">Gói: {{ cart.package_name }}</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
-                            <span style="color: #888">Ngày</span>
-                            <span>{{ dataBooking.date }}</span>
-                        </div>
-                        <div class="d-flex justify-content-between" style="margin-bottom: 5px;">
-                            <span style="color: #888">Đơn vị</span>
+                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 5px;">
+                            <span style="color: #888">Ngày: {{ cart.date }}</span>
                         </div>
                         <div>
                             <div v-for="item in dataBooking.service_packages" :key="item.id">
@@ -135,9 +119,6 @@
                                 </div>
 
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-between" style="margin-bottom: 5px; margin-top: 10px">
-                            <span style="color: #888">Khuyến mãi</span>
                         </div>
                         <div>
                             <div v-for="item_sub in dataBooking.service_packages" :key="item_sub.id">
@@ -158,11 +139,11 @@
                     <div class="info">
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
                             <span style="color: #888">Tổng cộng</span>
-                            <span>{{ calcFee | number }} VND</span>
+                            <span>{{ calcFee | number }} đ</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
                             <span style="color: #888">Tổng tiền thanh toán</span>
-                            <span>{{ calcFee | number }} VND</span>
+                            <span>{{ calcFee | number }} đ</span>
                         </div>
                     </div>
                 </div>
@@ -273,6 +254,9 @@
     background-color: #fff;
     margin-bottom: 15px;
 }
+.form-booking__item span {
+    font-size: 13px;
+}
 .form-booking__item .header {
     background-color: #19A577;
     color: #fff;
@@ -299,12 +283,12 @@
     padding: 15px 20px;
 }
 .info-booking .name {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #333;
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 /*Đè bootstrap*/
 .form-control {

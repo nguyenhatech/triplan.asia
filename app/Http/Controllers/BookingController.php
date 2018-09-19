@@ -14,6 +14,8 @@ class BookingController extends WebController
 
     public function bookingStep1(Request $request)
     {
+        $this->metadata->setMetaTitle('Thanh toán');
+
         $data_cart = json_encode(is_null(session('dataCart')) ? (object) [] : session('dataCart'));
 
         $data_params['APP_URL']              = env('APP_URL');

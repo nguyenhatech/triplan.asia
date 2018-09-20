@@ -88,18 +88,16 @@
                         <div class="content-promotion">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label class="name" >Tên (trên hộ chiếu)</label>
                                     <input
-                                        v-validate="'required'"
-                                        name="passport_last_name"
-                                        data-vv-as="Tên (trên hộ chiếu)"
                                         type="text"
                                         class="form-control"
-                                        placeholder="Như trên passport">
-                                    <span class="error" v-show="errors.has('passport_last_name')">{{ errors.first('passport_last_name') }}</span>
+                                        placeholder="Mã khuyến mại">
+                                    <span class="error"></span>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    Nút
+                                    <button class="btn btn-booking-now">
+                                        Kiểm tra
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <notifications group="foo" />
         <div class="row">
             <div class="col-md-8">
                 <div class="form-booking">
@@ -95,7 +96,7 @@
                                     <span class="error"></span>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <button class="btn btn-booking-now">
+                                    <button class="btn btn-booking-now" @click="checkPromotion()">
                                         Kiểm tra
                                     </button>
                                 </div>
@@ -247,6 +248,14 @@
                     }
                 })
                 return flagFree;
+            },
+            checkPromotion () {
+                console.log('1321')
+                Vue.notify({
+                  group: 'foo',
+                  title: 'Important message',
+                  text: 'Hello user! This is a notification!'
+                })
             },
             createBooking () {
                 this.$validator.validateAll().then((result) => {

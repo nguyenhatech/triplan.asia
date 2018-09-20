@@ -31,6 +31,10 @@
         .data-cart {
             background-color: #fff;
             border-radius: 4px;
+            margin-bottom: 30px;
+        }
+        .data-cart .table tr:first-child td {
+            border-top: none !important;
         }
         .data-cart img {
             width: 180px;

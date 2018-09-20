@@ -5,7 +5,7 @@
                 <div class="form-booking">
                     <div class="form-booking__item">
                         <div class="header">
-                            <span>
+                            <span style="font-weight: bold; font-size: 16px;">
                                 Thông tin người đặt
                             </span>
                         </div>
@@ -261,10 +261,11 @@
     font-size: 13px;
 }
 .form-booking__item .header {
-    background-color: #ff424e;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     font-size: 20px;
     padding: 10px 20px 10px 30px;
+    border-bottom: 1px solid #e0e0e0;
 }
 .form-booking__item .content {
     padding: 40px 32px 10px;

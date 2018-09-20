@@ -85,8 +85,23 @@
                                 Mã khuyến mại
                             </span>
                         </div>
-                        <div class="content">
-
+                        <div class="content-promotion">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="name" >Tên (trên hộ chiếu)</label>
+                                    <input
+                                        v-validate="'required'"
+                                        name="passport_last_name"
+                                        data-vv-as="Tên (trên hộ chiếu)"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Như trên passport">
+                                    <span class="error" v-show="errors.has('passport_last_name')">{{ errors.first('passport_last_name') }}</span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    Nút
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-booking__item booking_now">
@@ -279,6 +294,9 @@
 }
 .form-booking__item .content {
     padding: 40px 32px 10px;
+}
+.form-booking__item .content-promotion {
+    padding: 20px 32px 10px;
 }
 .booking_now {
     padding: 15px 25px;

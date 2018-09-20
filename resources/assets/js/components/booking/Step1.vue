@@ -79,6 +79,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-booking__item">
+                        <div class="header">
+                            <span style="font-weight: bold; font-size: 16px;">
+                                Mã khuyến mại
+                            </span>
+                        </div>
+                        <div class="content">
+
+                        </div>
+                    </div>
                     <div class="form-booking__item booking_now">
                         <div class="row">
                             <div class="col-md-8">

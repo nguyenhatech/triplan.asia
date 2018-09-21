@@ -10,18 +10,21 @@
 
     <style type="text/css">
         .service-banner {
+            margin-top: 50px;
             margin-bottom: 20px;
-            background-color: #ccc;
-            height: 380px;
+            background-color: #f6f6f6;
+            height: 400px !important;
+            overflow: hidden;
         }
         .service-banner img {
             object-fit: cover;
-            width: 100px;
-            height: 10px;
+            height: 400px !important;
+            width: auto;
+            padding-right: 5px;
         }
         @media screen and (min-width: 768px) {
             .service-banner {
-                height: 380px;
+                height: 400px !important;
             }
         }
 
@@ -225,7 +228,15 @@
 
 @section('content')
     <div class="service-banner">
-        <img src="{{ get_asset('web/images/login/background-login.jpg') }}">
+        <div class="owl-carousel">
+            @forelse ($service->media_services as $media)
+                <a href="{{ $media->getImage() }}" data-fancybox="images">
+                    <img src="{{ $media->getImage('sm') }}" />
+                </a>
+            @empty
+
+            @endforelse
+        </div>
     </div>
     <div class="container">
         <div class="row">
@@ -361,7 +372,7 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-    <script async defer
+    <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
     </script>
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
@@ -373,7 +384,7 @@
             nav:false,
             responsiveClass:true,
             autoplay: true,
-            autoplayTimeout: 2000,
+            autoplayTimeout: 3500,
             autoplaySpeed: 1200,
             responsive:{
                 0:{
@@ -388,6 +399,28 @@
                 },
                 1024:{
                     items:4,
+                    nav:true,
+                    stagePadding: 0
+                }
+            }
+        });
+
+        $(".service-banner .owl-carousel").owlCarousel({
+            loop:true,
+            dots:false,
+            nav:false,
+            responsiveClass:true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 2000,
+            autoWidth:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true,
+                    stagePadding: 20
+                },
+                768:{
                     nav:true,
                     stagePadding: 0
                 }
@@ -429,29 +462,6 @@
             if ($(this).scrollTop() > (height - 1280)) {
                 $('.booking-service-destop').removeClass('fixed');
             }
-        });
-    </script>
-    <script type="text/javascript">
-        $('#view-photos').on('click', async function() {
-            imageList = [
-                @forelse($service->media_services as $index => $image)
-                {src: '{{ $image->getImage() }}', opts: { caption: '{{ $service->getTranslation($locale)->name . " - Ảnh " . ($index+1) }}', thumb: '{{ $image->getImage("tn") }}' }}
-                @break($loop->last)
-                ,
-                @empty
-                {src: '{{ $service->getImage() }}', opts: { caption: '{{ $service->getTranslation($locale)->name }}', thumb: '{{ $service->getImage("tn") }}' }}
-                @endforelse
-            ];
-            $.fancybox.open(
-                imageList,
-                {
-                    loop: true,
-                    thumbs: {
-                        autoStart: true,
-                        axis: 'x'
-                    }
-                }
-            );
         });
     </script>
 @endsection

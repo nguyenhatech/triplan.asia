@@ -35,7 +35,7 @@
                 <div
                     v-for="service_package_sub in service_packages"
                     :key="service_package_sub.id_translation">
-                    <span v-if="service_package_sub.free" style="display: block; margin-top: 5px; font-size: 12px;">Khuyến mại:</span>
+                    <span v-if="service_package_sub.free" style="display: block; margin-top: 5px; font-size: 12px;">Miễn phí:</span>
                     <div v-if="service_package_sub.free" class="d-flex justify-content-between align-items-center" style="min-height: 30px">
                         <span>
                             {{ Math.min(service_package_sub.free,service_package_sub.quantity) }} x {{service_package_sub.name}}

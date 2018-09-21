@@ -26,6 +26,7 @@ Object.keys(mixins).forEach(key => {
 
 import messages from 'vee-validate/dist/locale/vi';
 import VeeValidate from 'vee-validate';
+import Notifications from 'vue-notification'
 
 Vue.use(VeeValidate, {
     locale: 'vi',
@@ -33,6 +34,8 @@ Vue.use(VeeValidate, {
         vi: { messages: messages.messages }
     }
 });
+
+Vue.use(Notifications)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

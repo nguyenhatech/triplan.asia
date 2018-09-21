@@ -1,12 +1,11 @@
 <template>
     <div class="container">
-        <notifications group="foo" />
         <div class="row">
             <div class="col-md-8">
                 <div class="form-booking">
                     <div class="form-booking__item">
                         <div class="header">
-                            <span style="font-weight: bold; font-size: 16px;">
+                            <span>
                                 Thông tin người đặt
                             </span>
                         </div>
@@ -51,6 +50,19 @@
                                         </option>
                                     </select>
                                 </div>
+      <!--                           <div class="form-group col-md-2">
+                                    <label class="name" >Mã </label>
+                                    <select
+                                        v-model="orderBooking.passport_infomation"
+                                        class="custom-select">
+                                        <option
+                                            v-for="country in countries"
+                                            :key="country.id"
+                                            :value="country.name">
+                                            ({{ country.country_code }})
+                                        </option>
+                                    </select>
+                                </div> -->
                                 <div class="form-group col-md-6">
                                     <label class="name" >Số điện thoại</label>
                                     <input
@@ -80,29 +92,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-booking__item">
-                        <div class="header">
-                            <span style="font-weight: bold; font-size: 16px;">
-                                Mã khuyến mại
-                            </span>
-                        </div>
-                        <div class="content-promotion">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="Mã khuyến mại">
-                                    <span class="error"></span>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <button class="btn btn-booking-now" @click="checkPromotion()">
-                                        Kiểm tra
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-booking__item booking_now">
                         <div class="row">
                             <div class="col-md-8">
@@ -111,8 +100,8 @@
                                 </span>
                             </div>
                             <div class="col-md-4">
-                                <button class="btn btn-block btn-booking-now" @click="createBooking()">
-                                    Đặt ngay
+                                <button class="btn btn-booking-now" @click="createBooking()">
+                                    Đặt vé ngay
                                 </button>
                             </div>
                         </div>
@@ -120,38 +109,44 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div
-                    v-for="cart in data_cart"
-                    class="form-booking__item info-booking">
+                <div class="form-booking__item info-booking">
                     <div class="name">
-                        <span>{{ cart.service_info.name }}</span>
+                        <span>{{ dataBooking.service_info.name }}</span>
                     </div>
                     <div class="info">
-                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 5px;">
-                            <span style="color: #888">Gói: {{ cart.package_name }}</span>
+                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
+                            <span style="color: #888">Tên gọi dịch vụ</span>
+                            <span>{{ dataBooking.package_name }}</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 5px;">
-                            <span style="color: #888">Ngày: {{ cart.date }}</span>
+                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
+                            <span style="color: #888">Ngày</span>
+                            <span>{{ dataBooking.date }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between" style="margin-bottom: 5px;">
+                            <span style="color: #888">Đơn vị</span>
                         </div>
                         <div>
-                            <div v-for="item in cart.service_packages" :key="item.id">
+                            <div v-for="item in dataBooking.service_packages" :key="item.id">
                                 <div class="d-flex justify-content-between align-items-center" style="min-height: 30px">
                                     <span>{{item.quantity}} x {{item.name}}</span>
-                                    <span style="color: #ff424e; font-weight: bold">
-                                        {{ item.quantity * item.price_with_currency | number }} đ
+                                    <span>
+                                        {{ item.quantity * item.price_with_currency | number }} VND
                                     </span>
                                 </div>
+
                             </div>
                         </div>
-                        <span v-if="checkTitleFree(cart.service_packages)" style="color: #888; margin-bottom: 5px; display: block">Miễn phí</span>
+                        <div class="d-flex justify-content-between" style="margin-bottom: 5px; margin-top: 10px">
+                            <span style="color: #888">Khuyến mãi</span>
+                        </div>
                         <div>
-                            <div v-for="item_sub in cart.service_packages" :key="item_sub.id">
+                            <div v-for="item_sub in dataBooking.service_packages" :key="item_sub.id">
                                 <div  v-if="item_sub.free" class="d-flex justify-content-between align-item_subs-center" style="min-height: 30px">
                                     <span>
-                                        - {{ Math.min(item_sub.free, item_sub.quantity) }} x {{item_sub.name}}
+                                        {{ Math.min(item_sub.free, item_sub.quantity) }} x {{item_sub.name}}
                                     </span>
-                                    <span style="color: #ff424e; font-weight: bold">
-                                        - {{ Math.min(item_sub.free, item_sub.quantity) * item_sub.price_with_currency | number }} đ
+                                    <span>
+                                        - {{ Math.min(item_sub.free, item_sub.quantity) * item_sub.price_with_currency | number }} VND
                                     </span>
                                 </div>
 
@@ -162,12 +157,12 @@
                 <div class="form-booking__item info-booking">
                     <div class="info">
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
-                            <span style="color: #888">Tạm tính:</span>
-                            <span  style="color: #ff424e; font-weight: bold">{{ data_params.totalCart | number }} đ</span>
+                            <span style="color: #888">Tổng cộng</span>
+                            <span>{{ calcFee | number }} VND</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 16px;">
-                            <span style="color: #888">Thành tiền:</span>
-                            <span  style="color: #ff424e; font-weight: bold">{{ data_params.totalCart | number }} đ</span>
+                            <span style="color: #888">Tổng tiền thanh toán</span>
+                            <span>{{ calcFee | number }} VND</span>
                         </div>
                     </div>
                 </div>
@@ -180,12 +175,6 @@
     export default {
         name: 'BookingStep1',
         props: {
-            data_cart: {
-                type: Object,
-                default: () => {
-                    return {}
-                }
-            },
             data_params: {
                 type: Object,
                 default: () => {
@@ -195,6 +184,11 @@
         },
         data () {
             return {
+                dataBooking: {
+                    service_info: {
+                        name: 'Name'
+                    }
+                },
                 orderBooking: {
                     phone: '',
                     email: '',
@@ -215,20 +209,31 @@
 
         },
         computed: {
-
+            calcFee () {
+                let totalFree = 0;
+                _.forEach(this.dataBooking.service_packages, (value) => {
+                    totalFree += (value.quantity - Math.min(value.free,value.quantity)) * value.price_with_currency
+                })
+                return totalFree
+            }
         },
         mounted () {
+            this.getDateLocalStorage();
             this.fetchCurrencies();
-            _.forEach(this.data_cart, (item) => {
-                let booking_detail_item = {
-                    service_packages: item.service_packages,
-                    date: item.date,
-                    service_id: item.service_info.id
-                }
-                this.orderBooking.booking_details.push(booking_detail_item);
-            })
         },
         methods: {
+            getDateLocalStorage () {
+                if (!(localStorage.getItem('dataBooking'))) {
+                    window.location.href = this.data_params.APP_URL
+                }
+                this.dataBooking = JSON.parse(localStorage.getItem('dataBooking'));
+                let booking_detail_item = {
+                    service_packages: this.dataBooking.service_packages,
+                    date: this.dataBooking.date,
+                    service_id: this.dataBooking.service_info.id
+                }
+                this.orderBooking.booking_details.push(booking_detail_item);
+            },
             fetchCurrencies () {
                 axios.get('countries', {params: {'limit':-1}}).then(response => {
                     switch (response.code) {
@@ -240,29 +245,14 @@
                     }
                 })
             },
-            checkTitleFree (service_packages) {
-                let flagFree = false
-                _.forEach(service_packages, (value) => {
-                    if (value.free) {
-                        flagFree = true
-                    }
-                })
-                return flagFree;
-            },
-            checkPromotion () {
-                console.log('1321')
-                Vue.notify({
-                  group: 'foo',
-                  title: 'Important message',
-                  text: 'Hello user! This is a notification!'
-                })
-            },
             createBooking () {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         axios.post('bookings', this.orderBooking).then(response => {
                             switch (response.code) {
                                 case 200:
+                                    // Xóa LocalStorage
+                                    window.localStorage.removeItem("dataBooking");
                                     window.location.href = this.data_params.url_booking_thankyou + '?code=' + response.data.code
                                     break;
                                 case 422:
@@ -277,6 +267,11 @@
                     }
                 })
             }
+        },
+        watch: {
+            'orderBooking.passport_infomation' () {
+
+            }
         }
     }
 </script>
@@ -289,30 +284,25 @@
     background-color: #fff;
     margin-bottom: 15px;
 }
-.form-booking__item span {
-    font-size: 13px;
-}
 .form-booking__item .header {
-    background-color: #fff;
-    color: #000;
+    background-color: #19A577;
+    color: #fff;
     font-size: 20px;
     padding: 10px 20px 10px 30px;
-    border-bottom: 1px solid #e0e0e0;
 }
 .form-booking__item .content {
     padding: 40px 32px 10px;
-}
-.form-booking__item .content-promotion {
-    padding: 20px 32px 10px;
 }
 .booking_now {
     padding: 15px 25px;
 }
 .btn-booking-now {
     padding: 6px 40px;
+    background-color: #19A577;
     color: #fff;
-    background-color: #ff424e;
-    border-color: #ff424e;
+    background: #00F260;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border: none;
 }
 /* Phần Info bên trái*/
@@ -320,12 +310,12 @@
     padding: 15px 20px;
 }
 .info-booking .name {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     color: #333;
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 }
 /*Đè bootstrap*/
 .form-control {

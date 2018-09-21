@@ -31,6 +31,10 @@
         .data-cart {
             background-color: #fff;
             border-radius: 4px;
+            margin-bottom: 30px;
+        }
+        .data-cart .table tr:first-child td {
+            border-top: none !important;
         }
         .data-cart img {
             width: 180px;
@@ -63,6 +67,14 @@
         .data-cart-empty .btn-checkout {
             padding: 8px 45px;
         }
+
+        .service-package span {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+        .service-package .price {
+            color: #ff424e;
+        }
     </style>
 @endsection
 
@@ -88,7 +100,7 @@
                                                 <td width="180">
                                                     <img src="{{ $item->service_info->thumb_path }}" alt="{{ $item->service_info->name }}">
                                                 </td>
-                                                <td width="250">
+                                                <td width="220">
                                                     <div class="info d-flex flex-column">
                                                         <span class="name">{{ $item->service_info->name }}</span>
                                                         <span class="package_name">Gói: {{ $item->package_name }}</span>
@@ -96,9 +108,34 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    Chi tiết tiền
+                                                    @foreach ($item->service_packages as $package)
+                                                        <div class="service-package d-flex justify-content-between">
+                                                            <span>{{ $package->quantity }} x {{ $package->name }}</span>
+                                                            <span class="price font-weight-bold">{{ number_format($package->quantity * $package->price_with_currency) }} đ</span>
+                                                        </div>
+                                                    @endforeach
+                                                    @php
+                                                        $flagFree = false;
+                                                        foreach ($item->service_packages as $package) {
+                                                            if ($package->free) {
+                                                                $flagFree = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                    @endphp
+                                                    @if ($flagFree)
+                                                        <span style="font-size: 13px; font-weight: bold; margin-bottom: 5px; display: block">Miễn phí: </span>
+                                                    @endif
+                                                    @foreach ($item->service_packages as $package)
+                                                        @if ($package->free)
+                                                            <div class="service-package d-flex justify-content-between">
+                                                                <span>-{{ min($package->free, $package->quantity) }} x {{ $package->name }}</span>
+                                                                <span class="price font-weight-bold">-{{ number_format(min($package->free, $package->quantity) * $package->price_with_currency) }} đ</span>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
                                                 </td>
-                                                <td width="120">
+                                                <td width="110">
                                                     <div class="action">
                                                         <a class="item" href="{{ route('web.services.detail', [$item->service_info->slug, $item->service_info->uuid]) }}">
                                                             <i class="far fa-edit"></i>
@@ -126,21 +163,21 @@
                             <div class="provisional">
                                 <span class="d-flex justify-content-between">
                                     <span class="font-weight-light">Tạm tính:</span>
-                                    <span>{{ $totalCart }} đ</span>
+                                    <span>{{ number_format($totalCart) }} đ</span>
                                 </span>
                             </div>
                             <div class="provisional">
                                 <span class="d-flex justify-content-between">
                                     <span class="font-weight-light">Thành tiền:</span>
                                     <span class="d-flex flex-column align-items-end">
-                                        <span class="font-weight-bold price">{{ $totalCart }} đ</span>
+                                        <span class="font-weight-bold price">{{ number_format($totalCart) }} đ</span>
                                         <span class="font-weight-light" style="font-size: 12px;">(Đã bao gồm VAT)</span>
                                     </span>
                                 </span>
                             </div>
                         </div>
                         <div class="pt-3 data-cart-right-checkout">
-                            <a href="#" class="btn btn-large btn-block btn-danger btn-checkout">
+                            <a href="{{ route('web.booking.step1') }}" class="btn btn-large btn-block btn-danger btn-checkout">
                                 Tiến hành đặt hàng
                             </a>
                         </div>

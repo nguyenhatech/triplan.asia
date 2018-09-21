@@ -23,11 +23,11 @@
                 @yield('content')
                 <a href="#" class="scrollup" title="@lang('scroll_to_top')"><i class="fa fa-arrow-up"></i></a>
 
-{{--                 <div class="fb-customerchat"
+                <div class="fb-customerchat"
                   attribution=setup_tool
                   page_id="1662541773864552"
                   theme_color="#02a676">
-                </div> --}}
+                </div>
             </main>
 
             <footer>

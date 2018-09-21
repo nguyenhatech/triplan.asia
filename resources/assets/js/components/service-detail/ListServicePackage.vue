@@ -1,5 +1,5 @@
 <template>
-    <div class="service-package">
+    <div class="service-package" ref="porto">
         <h4 class="title">{{ data_params.trans.web_service_package_options }}</h4>
         <div class="calander">
             <datepicker
@@ -133,6 +133,10 @@
             ...mapGetters(['loading'])
         },
         mounted () {
+            let _this = this
+            setTimeout(() => {
+                // _this.goto('porto')
+            }, 5000)
             if (_.isEmpty(this.data_booking)) {
                 this.getServicePackageParent();
             } else {
@@ -298,6 +302,13 @@
                     return '';
                 }
                 return 'disable';
+            },
+            goto(refName) {
+                var element = this.$refs[refName];
+                console.log(element);
+                var top = element.offsetTop;
+                console.log(top)
+                window.scrollTo(0, top);
             }
         }
     }

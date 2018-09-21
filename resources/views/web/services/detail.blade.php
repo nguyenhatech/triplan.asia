@@ -268,6 +268,13 @@
                             @endforelse
                         </div>
                     @endif
+                    @if ($service->getTranslation($locale)->description)
+                        <div class="service-description">
+                            <div>
+                                {!! $service->getTranslation($locale)->description !!}
+                            </div>
+                        </div>
+                    @endif
                     <div>
                         <list-service-package
                             :data_booking="{{ $data_booking }}"
@@ -276,13 +283,6 @@
 
                         </list-service-package>
                     </div>
-                    @if ($service->getTranslation($locale)->description)
-                        <div class="service-description">
-                            <div>
-                                {!! $service->getTranslation($locale)->description !!}
-                            </div>
-                        </div>
-                    @endif
                     @if ($service->getTranslation($locale)->what_to_expect)
                         <div class="service-what_to_expect">
                             <h4>@lang('web_service_experience_for_you')</h4>

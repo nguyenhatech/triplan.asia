@@ -231,7 +231,7 @@
         <div class="owl-carousel">
             @forelse ($service->media_services as $media)
                 <a href="{{ $media->getImage() }}" data-fancybox="images">
-                    <img src="{{ $media->getImage('sm') }}" />
+                    <img src="{{ $media->getImage() }}" />
                 </a>
             @empty
 

@@ -1,5 +1,5 @@
 <div class="fixed-top">
-    <div class="header-top-navigation header-top-navigation-scroll">
+    <div class="header-top-navigation">
         <nav class="navbar navbar-expand-md navbar-light">
             <a class="navbar-brand d-flex align-items-center" href="{{ route('web.home') }}"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" id="td-header-search-button-mob" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,16 +8,16 @@
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-scroll" href="{{ route('places.vietnam') }}">@lang('menu_vietnam')</a>
+                        <a class="nav-link" href="{{ route('places.vietnam') }}">@lang('menu_vietnam')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-scroll" href="{{ route('places.international') }}">@lang('menu_international')</a>
+                        <a class="nav-link" href="{{ route('places.international') }}">@lang('menu_international')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-scroll" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>
+                        <a class="nav-link" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-scroll" href="{{ route('web.cart.index') }}" style="position: relative;">
+                        <a class="nav-link" href="{{ route('web.cart.index') }}" style="position: relative;">
                             <i class="fas fa-shopping-cart"></i>
                             Giỏ hàng
                             <span id="data-Cart" class="badge badge-danger" style="position: absolute;top: 5px; left: 0px">
@@ -27,13 +27,13 @@
                     </li>
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link nav-link-scroll" href="{{ route('login') }}">@lang('login')</a>
+                            <a class="nav-link" href="{{ route('login') }}">@lang('login')</a>
                         </li>
                     @else
                         <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown nav-item" style="display: flex;align-items: center">
                                     <img style="width: 25px;height: 25px; border-radius: 50%; margin-right: 3px;" src="{{ Auth::user()->getImage(true) }}" alt="Avatar" id="img-avatar">
-                                    <a style="color: #fff; display: flex;align-items: center" href="#" class="dropdown-toggle nav-link nav-link-scroll" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    <a style="color: #fff; display: flex;align-items: center" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 

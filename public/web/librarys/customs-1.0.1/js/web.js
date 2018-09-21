@@ -18,4 +18,9 @@ jQuery(document).ready(function($) {
         }, 600);
         return false;
     });
+
+    $('.header-top-navigation').addClass('header-top-navigation-scroll');
+    $('.navbar-light .navbar-nav .nav-link').addClass('nav-link-scroll');
+    $('#logo_white').hide();
+    $('#logo_blue').show();
 });

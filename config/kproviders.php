@@ -18,4 +18,7 @@ return [
 	App\Providers\MediaServiceServiceProvider::class,
 	App\Providers\BannerServiceProvider::class,
 	App\Providers\ServiceGroupTranslationServiceProvider::class,
+	App\Providers\BookingServiceProvider::class,
+	App\Providers\CustomerServiceProvider::class,
+	App\Providers\BookingDetailServiceProvider::class,
 ];

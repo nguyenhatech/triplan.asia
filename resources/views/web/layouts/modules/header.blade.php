@@ -38,9 +38,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">
-                                            #
-                                        </a>
+                                        <a class="dropdown-item" href="{{ route('web.dashbroad') }}">@lang('dashbroad')</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

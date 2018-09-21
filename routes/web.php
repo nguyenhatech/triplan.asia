@@ -45,6 +45,13 @@ Route::group([
         return response()->json(json_decode($text));
     })->name('assets.lang');
 
+    Route::group(['middleware' => 'auth'], function(){
+        Route::get('dashbroad', 'AccountController@dashbroad')->name('web.dashbroad');
+        Route::get('bookings', 'AccountController@bookings')->name('web.profile.bookings');
+        Route::get('wishlist', 'AccountController@wishlist')->name('web.profile.wishlist');
+        Route::post('profile', 'AccountController@update')->name('web.profile.update');
+    });
+
     // Module Cart
     Route::get('/gio-hang', 'CartController@index')->name('web.cart.index');
     Route::get('/gio-hang/add-cart/{service_id}', 'CartController@addCart')->name('web.cart.add-cart');

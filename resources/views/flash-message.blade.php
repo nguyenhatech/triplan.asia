@@ -25,10 +25,3 @@
     <strong>{{ $message }}</strong>
 </div>
 @endif
-
-@if ($errors->any())
-<div class="alert alert-danger">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    Đã có lỗi xảy ra. Vui lòng kiểm tra lại !!
-</div>
-@endif

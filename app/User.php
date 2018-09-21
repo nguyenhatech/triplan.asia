@@ -121,4 +121,20 @@ class User extends Authenticatable
         return $this->hasMany('App\Repositories\Payments\Payment', 'user_id', 'id');
     }
 
+    public function customer()
+    {
+        return $this->hasOne('App\Repositories\Customers\Customer', 'user_id', 'id');
+    }
+
+    public function bookings()
+    {
+        return $this->hasManyThrough(
+            'App\Repositories\Bookings\Booking',
+            'App\Repositories\Customers\Customer',
+            'user_id',
+            'customer_id',
+            'id',
+            'id'
+        );
+    }
 }

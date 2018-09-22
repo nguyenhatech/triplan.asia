@@ -58,7 +58,7 @@
             </span>
         </div>
         <div class="d-flex flex-column ">
-            <p class="pt-3">Bạn muốn đặt dịch vụ tức thì vui lòng liên hệ hotline: <strong>0945 245 115</strong> hoặc chat với đội chăm sóc khách hàng Triplan: <a target="_blank" href="https://m.me/TriplanVN">Nhấn vào đây</a> để được hỗ trợ</p>
+            <p class="pt-3">Nếu có bất kì thắc mắc gì vui lòng liên hệ hotline: <strong>0945 245 115</strong> hoặc chat với đội chăm sóc khách hàng Triplan: <a target="_blank" href="https://m.me/TriplanVN">Nhấn vào đây</a> để được hỗ trợ.</p>
         </div>
     </div>
 </template>

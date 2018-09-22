@@ -17,9 +17,9 @@
             overflow: hidden;
         }
         .service-banner img {
-            object-fit: cover;
+            object-fit: contain;
             height: 400px !important;
-            width: auto;
+            width: auto !important;
             padding-right: 5px;
         }
         @media screen and (min-width: 768px) {

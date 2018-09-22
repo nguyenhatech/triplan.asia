@@ -2,7 +2,8 @@ import {
   SET_SERVICE_PACKAGE_NAME,
   SET_SERVICE_INFO,
   SET_SERVICE_PACKAGE_DAY,
-  SET_ARRAY_SERVICE_PACKAGES
+  SET_ARRAY_SERVICE_PACKAGES,
+  SET_ALERT_EMPTY_SERVICE_PACKAGES
 } from '../../../store/mutation-types'
 
 export default {
@@ -27,5 +28,8 @@ export default {
             state.service_packages.splice(index, 1);
         }
     }
-  }
+  },
+  [SET_ALERT_EMPTY_SERVICE_PACKAGES] (state, data) {
+    state.empty_service_package += 1
+  },
 }

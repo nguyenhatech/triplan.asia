@@ -130,9 +130,11 @@
             Datepicker
         },
         computed: {
-            ...mapGetters(['loading'])
+            ...mapGetters(['loading']),
+            ...mapGetters('serviceDetail', ['empty_service_package'])
         },
         mounted () {
+            console.log(this.empty_service_package)
             let _this = this
             setTimeout(() => {
                 _this.goto('porto')

@@ -1,6 +1,6 @@
 <template>
     <div class="order-box">
-        <notifications group="foo" />
+        <notifications group="foo" position="top center"/>
         <div
             class="d-flex justify-content-between"
             v-if="!package_name">
@@ -121,6 +121,7 @@
                 Vue.notify({
                   group: 'foo',
                   type: 'warn',
+                  duration: 1000000,
                   title: 'Gói dịch vụ',
                   text: 'Vui lòng chọn gói dịch vụ bạn muốn tham gia!'
                 })
@@ -180,6 +181,8 @@
 }
 
 .order-box .notifications {
-    top: 50px !important;
+    top: 55px !important;
+    left: calc(50% - 270px) !important;
+    width: 450px !important;
 }
 </style>

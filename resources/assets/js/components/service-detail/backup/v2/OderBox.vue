@@ -1,6 +1,5 @@
 <template>
     <div class="order-box">
-        <notifications group="foo" />
         <div
             class="d-flex justify-content-between"
             v-if="!package_name">
@@ -53,7 +52,7 @@
             </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
-            <span @click="nextStepBooking()" class="btn btn-block booking-now">
+            <span @click="nextStepBooking()" class="btn btn-block booking-now" :class="[!disableButton ? 'isDisabled' : '']">
                 {{ data_params.trans.web_service_book_now }}
             </span>
         </div>
@@ -118,13 +117,7 @@
         methods: {
             ...mapActions('serviceDetail', ['setServiceInfo']),
             checkDataBookingValid () {
-                Vue.notify({
-                  group: 'foo',
-                  type: 'warn',
-                  title: 'Gói dịch vụ',
-                  text: 'Vui lòng chọn gói dịch vụ bạn muốn tham gia!'
-                })
-                return false;
+                return true;
             },
             nextStepBooking () {
                 if (this.checkDataBookingValid()) {
@@ -177,9 +170,5 @@
     background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border: none;
-}
-
-.order-box .notifications {
-    top: 50px !important;
 }
 </style>

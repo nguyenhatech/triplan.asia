@@ -378,6 +378,16 @@
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>
+        jQuery(document).ready(function($) {
+            setTimeout(() => {
+                console.log('dưqdq')
+                // window.scrollTo(0, 500);
+                // $("html, body").animate({
+                //     scrollTop: 600
+                // }, 600);
+            }, 1500)
+        });
+
         $(".service-involve .owl-carousel").owlCarousel({
             loop:false,
             dots:false,

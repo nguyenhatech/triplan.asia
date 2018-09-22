@@ -127,9 +127,37 @@
                       text: 'Vui lòng chọn gói dịch vụ bạn muốn tham gia!'
                     })
                     this.setAlertEmptyServicePackages()
+                    return false
                 }
 
-                return false;
+                if (!this.disableButtonMethod()) {
+                    Vue.notify({
+                      group: 'foo',
+                      type: 'warn',
+                      duration: 3000,
+                      title: 'Số lượng không hợp lệ',
+                      text: 'Vui lòng kiểm tra lại số lượng trong gói dịch vụ'
+                    })
+                    return false
+                }
+
+                return true;
+            },
+            disableButtonMethod () {
+                let flag = false;
+                _.forEach(this.service_packages, (item) => {
+                    if (item.quantity) {
+                        flag = true
+                    }
+                })
+                _.forEach(this.service_packages, (item) => {
+                    if (item.min != 0) {
+                        if (item.min > item.quantity) {
+                             flag = false
+                        }
+                    }
+                })
+                return this.date !== '' && this.package_name !== '' && flag;
             },
             nextStepBooking () {
                 if (this.checkDataBookingValid()) {

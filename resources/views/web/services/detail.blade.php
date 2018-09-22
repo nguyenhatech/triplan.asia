@@ -83,7 +83,7 @@
         }
 
         .service-description {
-            padding: 20px 0px;
+            padding: 10px 0px;
             text-align: justify;
             font-family: 'Nunito', sans-serif !important;
         }
@@ -111,11 +111,11 @@
         }
         @media screen and (min-width: 768px) {
             .service-involve_item__wrap {
-                margin: 10px;
+                margin: 5px;
             }
         }
         .service-involve_item__wrap .image {
-            height: 225px;
+            height: 150px;
             transition: 0.1s all;
         }
         .service-involve_item__wrap .image:hover {
@@ -132,11 +132,11 @@
             padding: 10px;
         }
         .service-involve_item__wrap .info .name {
-            min-height: 60px;
-            font-size: 17px;
+            min-height: 50px;
+            font-size: 15px;
             font-weight: 700;
             line-height: 20px;
-            padding: 10px 0px;
+            padding: 0px 0px;
             color: #000;
         }
         .service-involve_item__wrap .info .price {
@@ -173,6 +173,7 @@
             padding: 20px 15px;
             border-radius: 2px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 3px 15px 2px rgba(0, 0, 0, 0.15);
             border: none;
         }
         .booking-service-destop .price {
@@ -330,7 +331,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="service-involve">
-                    <h3>@lang('web_service_maybe_you_are_interested')</h3>
+                    <h4>@lang('web_service_maybe_you_are_interested')</h4>
                     <div class="owl-carousel">
                         @forelse ($service_involves as $service_involve)
                             <a href="{{ route('web.services.detail', [$service_involve->getTranslation($locale)->slug, $service_involve->uuid]) }}">

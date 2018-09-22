@@ -30,5 +30,6 @@ export default {
     setServicePackageName,
     setServicePackageDay,
     setArrayServicePackages,
-    setServiceInfo
+    setServiceInfo,
+    setAlertEmptyServicePackages
 }

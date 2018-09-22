@@ -116,15 +116,19 @@
 
         },
         methods: {
-            ...mapActions('serviceDetail', ['setServiceInfo']),
+            ...mapActions('serviceDetail', ['setServiceInfo', 'setAlertEmptyServicePackages']),
             checkDataBookingValid () {
-                Vue.notify({
-                  group: 'foo',
-                  type: 'warn',
-                  duration: 1000000,
-                  title: 'Gói dịch vụ',
-                  text: 'Vui lòng chọn gói dịch vụ bạn muốn tham gia!'
-                })
+                if (this.date === '' || this.package_name === '') {
+                    Vue.notify({
+                      group: 'foo',
+                      type: 'warn',
+                      duration: 3000,
+                      title: 'Gói dịch vụ',
+                      text: 'Vui lòng chọn gói dịch vụ bạn muốn tham gia!'
+                    })
+                    this.setAlertEmptyServicePackages()
+                }
+
                 return false;
             },
             nextStepBooking () {

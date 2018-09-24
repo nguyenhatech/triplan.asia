@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css">
 
     <style type="text/css">
+        body {
+            position: relative !important;
+        }
         .service-banner {
             margin-top: 50px;
             margin-bottom: 20px;
@@ -29,13 +32,14 @@
         }
 
         .service-name h1 {
-            font-weight: 700;
             color: #333;
-            font-size: 24px;
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
         }
         @media screen and (min-width: 768px) {
             .service-name h1 {
-                font-size: 28px;
+                font-size: 22px;
             }
         }
 
@@ -199,7 +203,7 @@
         }
         .fixed {
             position: fixed;
-            top: 65px;
+            top: 50px;
             z-index: 1001;
         }
 
@@ -220,6 +224,45 @@
             bottom: 95px;
         }
 
+        /*Phần Hiện cái Menu Tổng quan - Các gói dịch vụ - Bản đồ ...*/
+        .fixed-myNavbar {
+            position: fixed;
+            top: 50px;
+            z-index: 1001;
+            width: 800px;
+            background-color: #fff;
+        }
+        #myNavbar {
+            height: 50px;
+        }
+        #myNavbar .bg-light {
+            height: 50px;
+            padding-left: 0px;
+        }
+        #myNavbar a {
+            color: #000;
+            font-size: 13px;
+            /*text-transform: uppercase;*/
+
+        }
+        .fixed-myNavbar .bg-light {
+            background-color: #fff !important;
+            box-shadow: 1px 0 2px rgba(0,0,0,.3) !important;
+
+        }
+        .fixed-myNavbar + #sum {
+            padding-top: 80px;
+        }
+        .fixed-myNavbar .nav-pills .nav-link.active {
+            background-color: red !important;
+            color: #fff !important;
+            border-radius: 50px;
+            padding: 5px 20px;
+        }
+        .fixed-myNavbar .nav {
+            align-items: center;
+        }
+
     </style>
 @endsection
 
@@ -232,7 +275,7 @@
         <div class="owl-carousel">
             @forelse ($service->media_services as $media)
                 <a href="{{ $media->getImage() }}" data-fancybox="images">
-                    <img src="{{ $media->getImage() }}" />
+                    <img src="{{ $media->getImage() }}" title="Nhấp vào ảnh để xem với kích thước lớn" />
                 </a>
             @empty
 
@@ -243,40 +286,61 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="service-info">
-                    <div class="service-name">
-                        <h1>{{ title_case($service->getTranslation($locale)->name) }}</h1>
+                    <div id="myNavbar">
+                        <nav class="navbar navbar-light bg-light">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#sum">Tổng quan</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#package">Các gói dịch vụ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#exptect">Bạn sẽ được gì ?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#map1">Bản đồ</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-                    <div class="service-sub_data_mobile d-block d-sm-none">
-                        <div>
-                            <div>
-                                <span class="price">{{ $service->getPrice() }}</span>
-                            </div>
-                            <div class="count-booking">
-                                <i class="fas fa-users"></i>
-                                836 Đã được đặt
-                            </div>
-                        </div>
-                    </div>
-                    @if (count($service->comforts))
-                        <div class="service-comforts d-flex flex-wrap">
-                            @forelse ($service->comforts as $comfort)
-                                <div class="comfort_item">
-                                    <i class="fas fa-globe"></i>
-                                    <span>{{ $comfort->getTranslation($locale)->name }}</span>
-                                </div>
-                            @empty
 
-                            @endforelse
+                    <div id="sum">
+                        <div class="service-name">
+                            <h1>{{ title_case($service->getTranslation($locale)->name) }}</h1>
                         </div>
-                    @endif
-                    @if ($service->getTranslation($locale)->description)
-                        <div class="service-description">
+                        <div class="service-sub_data_mobile d-block d-sm-none">
                             <div>
-                                {!! $service->getTranslation($locale)->description !!}
+                                <div>
+                                    <span class="price">{{ $service->getPrice() }}</span>
+                                </div>
+                                <div class="count-booking">
+                                    <i class="fas fa-users"></i>
+                                    836 Đã được đặt
+                                </div>
                             </div>
                         </div>
-                    @endif
-                    <div>
+                        @if (count($service->comforts))
+                            <div class="service-comforts d-flex flex-wrap">
+                                @forelse ($service->comforts as $comfort)
+                                    <div class="comfort_item">
+                                        <i class="fas fa-globe"></i>
+                                        <span>{{ $comfort->getTranslation($locale)->name }}</span>
+                                    </div>
+                                @empty
+
+                                @endforelse
+                            </div>
+                        @endif
+                        @if ($service->getTranslation($locale)->description)
+                            <div class="service-description">
+                                <div>
+                                    {!! $service->getTranslation($locale)->description !!}
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    <div id="package">
                         <list-service-package
                             :data_booking="{{ $data_booking }}"
                             :service="{{ $service }}"
@@ -284,39 +348,41 @@
 
                         </list-service-package>
                     </div>
-                    @if ($service->getTranslation($locale)->what_to_expect)
-                        <div class="service-what_to_expect">
-                            <h4>@lang('web_service_experience_for_you')</h4>
-                            <div>
-                                {!! $service->getTranslation($locale)->what_to_expect !!}
+                    <div id="exptect">
+                        @if ($service->getTranslation($locale)->what_to_expect)
+                            <div class="service-what_to_expect">
+                                <h4>@lang('web_service_experience_for_you')</h4>
+                                <div>
+                                    {!! $service->getTranslation($locale)->what_to_expect !!}
+                                </div>
                             </div>
-                        </div>
-                    @endif
-                    @if ($service->getTranslation($locale)->activity_information)
-                        <div class="service-what_to_expect">
-                            <h4>@lang('web_service_information_services')</h4>
-                            <div>
-                                {!! $service->getTranslation($locale)->activity_information !!}
+                        @endif
+                        @if ($service->getTranslation($locale)->activity_information)
+                            <div class="service-what_to_expect">
+                                <h4>@lang('web_service_information_services')</h4>
+                                <div>
+                                    {!! $service->getTranslation($locale)->activity_information !!}
+                                </div>
                             </div>
-                        </div>
-                    @endif
-                    @if ($service->getTranslation($locale)->additional_information)
-                        <div class="service-what_to_expect">
-                            <h4>@lang('web_service_additional_information')</h4>
-                            <div>
-                                {!! $service->getTranslation($locale)->additional_information !!}
+                        @endif
+                        @if ($service->getTranslation($locale)->additional_information)
+                            <div class="service-what_to_expect">
+                                <h4>@lang('web_service_additional_information')</h4>
+                                <div>
+                                    {!! $service->getTranslation($locale)->additional_information !!}
+                                </div>
                             </div>
-                        </div>
-                    @endif
-                    @if ($service->getTranslation($locale)->how_to_use)
-                        <div class="service-what_to_expect">
-                            <h4>@lang('web_service_user_manual')</h4>
-                            <div>
-                                {!! $service->getTranslation($locale)->how_to_use !!}
+                        @endif
+                        @if ($service->getTranslation($locale)->how_to_use)
+                            <div class="service-what_to_expect">
+                                <h4>@lang('web_service_user_manual')</h4>
+                                <div>
+                                    {!! $service->getTranslation($locale)->how_to_use !!}
+                                </div>
                             </div>
-                        </div>
-                    @endif
-                    <div class="service-what_to_expect">
+                        @endif
+                    </div>
+                    <div id="map1" class="service-what_to_expect">
                         <h4>@lang('web_service_map')</h4>
                         <div id="map" style="height: 400px; background-color: #ccc"></div>
                     </div>
@@ -379,16 +445,6 @@
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>
-        jQuery(document).ready(function($) {
-            setTimeout(() => {
-                console.log('dưqdq')
-                // window.scrollTo(0, 500);
-                // $("html, body").animate({
-                //     scrollTop: 600
-                // }, 600);
-            }, 1500)
-        });
-
         $(".service-involve .owl-carousel").owlCarousel({
             loop:false,
             dots:false,
@@ -415,7 +471,6 @@
                 }
             }
         });
-
         $(".service-banner .owl-carousel").owlCarousel({
             loop:true,
             dots:false,
@@ -425,6 +480,9 @@
             autoplayTimeout: 5000,
             autoplaySpeed: 2000,
             autoWidth:true,
+            lazyLoad: true,
+            autoplayHoverPause: true,
+            lazyLoadEager: 10,
             responsive:{
                 0:{
                     items:1,
@@ -464,14 +522,19 @@
 
             let height = Math.max( body.scrollHeight, body.offsetHeight,
                                    html.clientHeight, html.scrollHeight, html.offsetHeight );
-            if ($(this).scrollTop() > 500) {
+            if ($(this).scrollTop() > 415) {
                 $('.booking-service-destop').addClass('fixed');
+                $('#myNavbar').addClass('fixed-myNavbar');
             } else {
                 $('.booking-service-destop').removeClass('fixed');
+                $('#myNavbar').removeClass('fixed-myNavbar');
             }
 
             if ($(this).scrollTop() > (height - 1280)) {
                 $('.booking-service-destop').removeClass('fixed');
+            }
+            if ($(this).scrollTop() > (height - 1280)) {
+                $('#myNavbar').removeClass('fixed-myNavbar');
             }
         });
     </script>

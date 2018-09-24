@@ -263,6 +263,54 @@
             align-items: center;
         }
 
+
+        /*// Custom 2 nút next prew của phần ảnh phòng*/
+        .service-banner .owl-prev, .service-banner .owl-next {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .service-banner .owl-prev:before {
+            content: "\f061";
+        }
+        .service-banner .owl-next:before {
+            content: "\f061";
+        }
+
+        .service-banner .owl-dots {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .service-banner  .owl-nav [class*=owl-] {
+            position: absolute;
+            top: calc(50% - 23px );
+            margin: 0;
+            background: rgba(255,255,255,0.9);
+            color: #1a1a1a;
+            padding: 10px;
+            font-size: 25px;
+            border-radius: 0;
+        }
+        .service-banner .owl-next {
+            right: 20px;
+        }
+        .service-banner .owl-prev{
+            left: 20px;
+        }
+        .service-banner .owl-nav [class*=owl-]:hover {
+            background: #1a1a1a;
+            padding: 10px;
+            color: #fff;
+        }
+
     </style>
 @endsection
 
@@ -476,7 +524,7 @@
             dots:false,
             nav:false,
             responsiveClass:true,
-            autoplay: true,
+            autoplay: false,
             autoplayTimeout: 5000,
             autoplaySpeed: 2000,
             autoWidth:true,

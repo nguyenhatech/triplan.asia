@@ -240,9 +240,8 @@
         }
         #myNavbar a {
             color: #000;
-            font-size: 13px;
-            /*text-transform: uppercase;*/
-
+            font-size: 14px;
+            font-weight: bold;
         }
         .fixed-myNavbar .bg-light {
             background-color: #fff !important;
@@ -253,10 +252,11 @@
             padding-top: 80px;
         }
         .fixed-myNavbar .nav-pills .nav-link.active {
-            background-color: red !important;
-            color: #fff !important;
-            border-radius: 50px;
-            padding: 5px 20px;
+            background-color: #fff !important;
+            color: #000 !important;
+            border-radius: 0px;
+            padding: 12px 20px;
+            border-bottom: 5px solid #02a676;
         }
         .fixed-myNavbar .nav {
             align-items: center;

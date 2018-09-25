@@ -21,9 +21,8 @@
             overflow: hidden;
         }
         .service-banner img {
-            object-fit: contain;
+            object-fit: cover;
             height: 400px !important;
-            width: auto !important;
         }
         @media screen and (min-width: 768px) {
             .service-banner {
@@ -322,7 +321,7 @@
         <div class="owl-carousel owl-theme">
             @forelse ($service->media_services as $media)
                 <a href="{{ $media->getImage() }}" data-fancybox="images">
-                    <img src="{{ $media->getImage() }}" title="Nhấp vào ảnh để xem với kích thước lớn" />
+                    <img class="owl-lazy lazyOwl" data-src="{{ $media->getImage() }}" title="Nhấp vào ảnh để xem với kích thước lớn" />
                 </a>
             @empty
 
@@ -501,58 +500,61 @@
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>
-        $(".service-involve .owl-carousel").owlCarousel({
-            loop:false,
-            dots:false,
-            nav:false,
-            responsiveClass:true,
-            autoplay: true,
-            autoplayTimeout: 3500,
-            autoplaySpeed: 1200,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:true,
-                    stagePadding: 20
-                },
-                768:{
-                    items:3,
-                    nav:true,
-                    stagePadding: 0
-                },
-                1024:{
-                    items:4,
-                    nav:true,
-                    stagePadding: 0
+        jQuery(document).ready(function($) {
+            $(".service-banner .owl-carousel").owlCarousel({
+                loop:true,
+                dots:false,
+                nav:false,
+                responsiveClass:true,
+                margin: 5,
+                autoplay: true,
+                autoplayTimeout: 6000,
+                autoplaySpeed: 2000,
+                autoplayHoverPause: true,
+                lazyLoad: true,
+                lazyLoadEager: 2,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true,
+                        stagePadding: 20
+                    },
+                    768:{
+                        items:2,
+                        nav:true,
+                        dots:true
+                    }
                 }
-            }
-        });
-        $(".service-banner .owl-carousel").owlCarousel({
-            loop:true,
-            dots:false,
-            nav:false,
-            responsiveClass:true,
-            autoWidth:true,
-            margin: 4,
-            autoplay: true,
-            autoplayTimeout: 6000,
-            autoplaySpeed: 2000,
-            autoplayHoverPause: true,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:true,
-                    stagePadding: 20
-                },
-                768:{
-                    items:6,
-                    nav:true,
-                    dots:true
+            });
+            $(".service-involve .owl-carousel").owlCarousel({
+                loop:false,
+                dots:false,
+                nav:false,
+                responsiveClass:true,
+                autoplay: true,
+                autoplayTimeout: 3500,
+                autoplaySpeed: 1200,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true,
+                        stagePadding: 20
+                    },
+                    768:{
+                        items:3,
+                        nav:true,
+                        stagePadding: 0
+                    },
+                    1024:{
+                        items:4,
+                        nav:true,
+                        stagePadding: 0
+                    }
                 }
-            }
+            });
+            $('.owl-prev').text('');
+            $('.owl-next').text('');
         });
-        $('.owl-prev').text('');
-        $('.owl-next').text('');
 
         function initMap() {
             var myLatLng = {

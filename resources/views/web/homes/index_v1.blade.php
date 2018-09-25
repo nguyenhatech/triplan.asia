@@ -184,7 +184,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
-
+            // Ảnh ẩn hiện ở phần banner
+            $(".slide-show > div:gt(0)").hide();
+            setInterval(function() {
+              $('.slide-show > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('.slide-show');
+            },  3500);
         });
     </script>
     <script type="text/javascript">
@@ -225,4 +234,21 @@
             $('.box-suggest').css('display', 'none');
         }
     </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1783355911741045');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1783355911741045&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 @endsection

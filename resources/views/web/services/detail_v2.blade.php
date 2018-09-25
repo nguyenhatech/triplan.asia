@@ -229,7 +229,7 @@
             position: fixed;
             top: 50px;
             z-index: 1001;
-            width: 1110px;
+            width: 800px;
             background-color: #fff;
         }
         #myNavbar {
@@ -429,19 +429,15 @@
                             </div>
                         @endif
                     </div>
+                    <div id="map1" class="service-what_to_expect">
+                        <h4>@lang('web_service_map')</h4>
+                        <div id="map" style="height: 400px; background-color: #ccc"></div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
                     <oder-box :service="{{ $service }}" :data_params="{{ $data_params }}"></oder-box>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="map1" class="service-what_to_expect">
-                    <h4>@lang('web_service_map')</h4>
-                    <div id="map" style="height: 400px; background-color: #ccc"></div>
                 </div>
             </div>
         </div>
@@ -594,7 +590,7 @@
                 $('.booking-service-destop').removeClass('fixed');
             }
             if ($(this).scrollTop() > (height - 1280)) {
-                // $('#myNavbar').removeClass('fixed-myNavbar');
+                $('#myNavbar').removeClass('fixed-myNavbar');
             }
         });
 

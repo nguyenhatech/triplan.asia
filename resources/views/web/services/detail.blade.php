@@ -534,10 +534,10 @@
             responsiveClass:true,
             autoWidth:true,
             margin: 4,
-            // autoplay: false,
-            // autoplayTimeout: 5000,
-            // autoplaySpeed: 2000,
-            // autoplayHoverPause: true,
+            autoplay: true,
+            autoplayTimeout: 6000,
+            autoplaySpeed: 2000,
+            autoplayHoverPause: true,
             responsive:{
                 0:{
                     items:1,

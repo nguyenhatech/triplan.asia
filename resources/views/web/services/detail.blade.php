@@ -137,7 +137,7 @@
         }
         .service-involve_item__wrap .info .name {
             min-height: 50px;
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 700;
             line-height: 20px;
             padding: 0px 0px;
@@ -444,7 +444,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="service-involve">
-                    <h4>@lang('web_service_maybe_you_are_interested')</h4>
+                    <h5 class="font-weight-bold">@lang('web_service_maybe_you_are_interested')</h5>
                     <div class="owl-carousel">
                         @forelse ($service_involves as $service_involve)
                             <a href="{{ route('web.services.detail', [$service_involve->getTranslation($locale)->slug, $service_involve->uuid]) }}">

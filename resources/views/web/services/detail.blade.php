@@ -458,8 +458,17 @@
                                                 {{ shortString(title_case($service_involve->getTranslation($locale)->name), 58) }}
                                             </span>
                                         </div>
-                                        <div class="d-flex flex-column">
-                                            <span class="price">{{ $service_involve->getPrice() }}</span>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="address" style="color: #888888">
+                                                @if($service_involve->getTranslation($locale)->address)
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                    <span>{{ $service_involve->place ? $service_involve->place->getTranslation($locale)->name: '' }}</span>
+                                                @endif
+                                            </span>
+
+                                            <span class="d-flex align-items-center">
+                                                <span class="price">{{ $service_involve->getPrice() }}</span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

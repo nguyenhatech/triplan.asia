@@ -494,9 +494,9 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-    <script async
+{{--     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
-    </script>
+    </script> --}}
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>

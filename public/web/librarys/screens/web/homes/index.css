@@ -1,24 +1,25 @@
 .home-banner {
     position: relative;
+    margin-top: 51px;
 }
 .home-banner .slide-show {
     position: relative;
     width: 100vw;
-    height: 60vh;
+    height: 400px;
 }
 .home-banner .slide-show .slide-show__item {
     position: absolute;
 }
 .home-banner .slide-show img {
     width: 100vw;
-    height: 60vh;
+    height: 400px;
     object-fit: cover;
 }
 .home-banner .quick-search {
     position: absolute;
     top: 0;
     width: 100vw;
-    height: 60vh;
+    height: 400px;
     color: #fff;
 }
 .home-banner .quick-search {
@@ -72,7 +73,8 @@
 }
 @media  screen and (min-width: 768px) {
     .home-banner .solugan .main-solugan {
-        font-size: 32px;
+        font-size: 38px;
+        font-weight: bold;
     }
     .home-banner .solugan .sub-solugan {
         font-size: 20px;
@@ -89,15 +91,6 @@
     }
     .home-banner .form button {
         padding: 5px 35px;
-    }
-    .home-banner .slide-show {
-        height: 81vh;
-    }
-    .home-banner .slide-show img {
-        height: 81vh;
-    }
-    .home-banner .quick-search {
-        height: 81vh;
     }
 }
 

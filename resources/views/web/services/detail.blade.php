@@ -593,9 +593,6 @@
             if ($(this).scrollTop() > (height - 1280)) {
                 $('.booking-service-destop').removeClass('fixed');
             }
-            if ($(this).scrollTop() > (height - 1280)) {
-                // $('#myNavbar').removeClass('fixed-myNavbar');
-            }
         });
 
         // Add smooth scrolling on all links inside the navbar

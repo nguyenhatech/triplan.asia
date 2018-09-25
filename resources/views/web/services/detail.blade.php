@@ -6,6 +6,7 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.carousel.min.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.theme.default.min.css') }}" >
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css">
 
     <style type="text/css">
@@ -23,7 +24,6 @@
             object-fit: contain;
             height: 400px !important;
             width: auto !important;
-            padding-right: 5px;
         }
         @media screen and (min-width: 768px) {
             .service-banner {
@@ -268,6 +268,7 @@
         .service-banner .owl-prev, .service-banner .owl-next {
             display: inline-block;
             font: normal normal normal 14px/1 FontAwesome;
+            font-family: 'Font Awesome\ 5 Free';
             font-size: inherit;
             text-rendering: auto;
             -webkit-font-smoothing: antialiased;
@@ -275,12 +276,15 @@
         }
 
         .service-banner .owl-prev:before {
-            content: "\f061";
+            content: "\f060";
+            font-weight: 900;
+            font-family: 'Font Awesome 5 Free';
         }
         .service-banner .owl-next:before {
             content: "\f061";
+            font-weight: 900;
+            font-family: 'Font Awesome 5 Free';
         }
-
         .service-banner .owl-dots {
             position: absolute;
             bottom: 5px;
@@ -288,29 +292,24 @@
             text-align: center;
             width: 100%;
         }
-
         .service-banner  .owl-nav [class*=owl-] {
             position: absolute;
             top: calc(50% - 23px );
             margin: 0;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.9) !important;
             color: #1a1a1a;
             padding: 10px;
-            font-size: 25px;
-            border-radius: 0;
+            font-size: 20px !important;
+            border-radius: 50% !important;
+            width: 50px !important;
+            height: 50px !important;
         }
         .service-banner .owl-next {
-            right: 20px;
+            right: 35px;
         }
         .service-banner .owl-prev{
-            left: 20px;
+            left: 35px;
         }
-        .service-banner .owl-nav [class*=owl-]:hover {
-            background: #1a1a1a;
-            padding: 10px;
-            color: #fff;
-        }
-
     </style>
 @endsection
 
@@ -320,7 +319,7 @@
 
 @section('content')
     <div class="service-banner">
-        <div class="owl-carousel">
+        <div class="owl-carousel owl-theme">
             @forelse ($service->media_services as $media)
                 <a href="{{ $media->getImage() }}" data-fancybox="images">
                     <img src="{{ $media->getImage() }}" title="Nhấp vào ảnh để xem với kích thước lớn" />
@@ -524,13 +523,12 @@
             dots:false,
             nav:false,
             responsiveClass:true,
-            autoplay: false,
-            autoplayTimeout: 5000,
-            autoplaySpeed: 2000,
             autoWidth:true,
-            lazyLoad: true,
-            autoplayHoverPause: true,
-            lazyLoadEager: 10,
+            margin: 4,
+            // autoplay: false,
+            // autoplayTimeout: 5000,
+            // autoplaySpeed: 2000,
+            // autoplayHoverPause: true,
             responsive:{
                 0:{
                     items:1,
@@ -538,8 +536,9 @@
                     stagePadding: 20
                 },
                 768:{
+                    items:6,
                     nav:true,
-                    stagePadding: 0
+                    dots:true
                 }
             }
         });

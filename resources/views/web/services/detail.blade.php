@@ -429,19 +429,15 @@
                             </div>
                         @endif
                     </div>
+                    <div id="map1" class="service-what_to_expect">
+                        <h4>@lang('web_service_map')</h4>
+                        <div id="map" style="height: 400px; background-color: #ccc"></div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
                     <oder-box :service="{{ $service }}" :data_params="{{ $data_params }}"></oder-box>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="map1" class="service-what_to_expect">
-                    <h4>@lang('web_service_map')</h4>
-                    <div id="map" style="height: 400px; background-color: #ccc"></div>
                 </div>
             </div>
         </div>
@@ -565,13 +561,19 @@
             };
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
+                zoom: 15,
                 center: myLatLng
             });
 
             var marker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
+                icon: {
+                    path: 'M 0,0 0,0 z',
+                    scale: 10,
+                    strokeColor: 'rgba(243, 165, 55, .4)',
+                    strokeWeight: 120
+                },
                 title: 'Hello World!'
             });
         }

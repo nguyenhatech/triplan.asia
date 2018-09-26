@@ -3,5 +3,4 @@ export default {
     date: null,
     package_name: '',
     service_packages: [],
-    empty_service_package: 1
 }

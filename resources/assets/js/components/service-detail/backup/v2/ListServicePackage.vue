@@ -130,10 +130,13 @@
             Datepicker
         },
         computed: {
-            ...mapGetters(['loading']),
-            ...mapGetters('serviceDetail', ['empty_service_package'])
+            ...mapGetters(['loading'])
         },
         mounted () {
+            let _this = this
+            setTimeout(() => {
+                _this.goto('porto')
+            }, 15000)
             if (_.isEmpty(this.data_booking)) {
                 this.getServicePackageParent();
             } else {
@@ -302,23 +305,13 @@
             },
             goto(refName) {
                 var element = this.$refs[refName];
+                console.log(element);
                 var top = element.offsetTop;
+                console.log(top)
                 // window.scrollTo(0, top);
                 $("html, body").animate({
-                    scrollTop: 520
+                    scrollTop: 800
                 }, 600);
-            }
-        },
-        watch: {
-            empty_service_package () {
-                this.goto('porto')
-                // Check xem nếu chưa có Calendar thì bật ra
-                if (this.day === null) {
-                    setTimeout(() => {
-                        this.$refs.programaticOpen.showCalendar()
-                        return false
-                    }, 600)
-                }
             }
         }
     }

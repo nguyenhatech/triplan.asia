@@ -144,7 +144,8 @@ class Service extends Entity
 
     public function media_services()
     {
-        return $this->hasMany('App\Repositories\MediaServices\MediaService', 'service_id', 'id');
+        return $this->hasMany('App\Repositories\MediaServices\MediaService', 'service_id', 'id')
+                    ->orderBy('priority', 'asc');
     }
 
 }

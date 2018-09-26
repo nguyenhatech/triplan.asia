@@ -35,7 +35,7 @@
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">
                 <div class="solugan d-flex flex-column justify-content-center align-items-center">
                     <h1 class="main-solugan">@lang('where_do_you_want_to_go')</h1>
-                    {{-- <h3 class="sub-solugan">@lang('web_home_baner_top_sologun')</h3> --}}
+                    <h3 class="sub-solugan">@lang('web_home_baner_top_sologun')</h3>
                 </div>
                 <div class="form">
                     <form method="get" action="#">
@@ -100,19 +100,55 @@
             </div>
         </div>
     </div>
+    <div class="home-destinations">
+        <div class="container">
+            <div class="row">
+                <div class="home-title col-md-12 d-flex justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <h1 class="title">@lang('web_home_vn_destination')</h1>
+                        <span class="description">@lang('web_home_vn_destination_description')</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @forelse ($vn_destinations as $key_place => $place)
+                    @if($place->services->count())
+                    <div class="col-sm-12 col-md-3">
+                        <a href="{{ $place->getUrl() }}" title="{{ $place->getTranslation($locale)->name }}">
+                            <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
+                                <div class="place-caption">
+                                    <span>{{ $place->getTranslation($locale)->name }}</span>
+                                    <span class="place-description">{{ shortString($place->getTranslation($locale)->description, 180) }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    @endif
+                @empty
+
+                @endforelse
+            </div>
+        </div>
+        <div class="col-12 d-md-none">
+            <a href="{{ route('places.vietnam') }}" id="view-more-btn" class="btn btn-outline-primary btn-block">@lang('web_home_view_more')</a>
+        </div>
+        <div class="col-12 d-none d-md-block text-center">
+            <a href="{{ route('places.vietnam') }}" id="view-more-btn" class="btn btn-outline-primary">@lang('web_home_view_more')</a>
+        </div>
+    </div>
     <div class="home-best-trips">
         <div class="container">
             <div class="row">
                 <div class="home-title col-md-12 d-flex justify-content-center">
                     <div class="d-flex flex-column align-items-center">
                         <span class="title">@lang('web_home_favorite_service')</span>
-                        {{-- <span class="description">@lang('web_home_favorite_service_description')</span> --}}
+                        <span class="description">@lang('web_home_favorite_service_description')</span>
                     </div>
                 </div>
             </div>
-            <div class="row no-gutters">
+            <div class="row">
                 @forelse ($best_services as $key_service => $service)
-                    <div class="col-sm-12 col-md-3">
+                    <div class="col-sm-12 col-md-4">
                         <a href="{{ route('web.services.detail', [$service->getTranslation($locale)->slug, $service->uuid]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
                             <div class="best-trip__item">
                                 <div class="image">
@@ -148,7 +184,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
-
+            // Ảnh ẩn hiện ở phần banner
+            $(".slide-show > div:gt(0)").hide();
+            setInterval(function() {
+              $('.slide-show > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('.slide-show');
+            },  3500);
         });
     </script>
     <script type="text/javascript">
@@ -189,4 +234,21 @@
             $('.box-suggest').css('display', 'none');
         }
     </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1783355911741045');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1783355911741045&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 @endsection

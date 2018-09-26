@@ -1,6 +1,5 @@
 <template>
     <div class="order-box">
-        <notifications group="foo" position="top center"/>
         <div
             class="d-flex justify-content-between"
             v-if="!package_name">
@@ -53,12 +52,9 @@
             </div>
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
-            <span @click="nextStepBooking()" class="btn btn-block booking-now">
+            <span @click="nextStepBooking()" class="btn btn-block booking-now" :class="[!disableButton ? 'isDisabled' : '']">
                 {{ data_params.trans.web_service_book_now }}
             </span>
-        </div>
-        <div class="d-flex flex-column ">
-            <p class="pt-3">Nếu có bất kì thắc mắc gì vui lòng liên hệ hotline: <strong>0899.175.886</strong> hoặc chat với đội chăm sóc khách hàng Triplan: <a target="_blank" href="https://m.me/TriplanVN">Nhấn vào đây</a> để được hỗ trợ.</p>
         </div>
     </div>
 </template>
@@ -119,48 +115,9 @@
 
         },
         methods: {
-            ...mapActions('serviceDetail', ['setServiceInfo', 'setAlertEmptyServicePackages']),
+            ...mapActions('serviceDetail', ['setServiceInfo']),
             checkDataBookingValid () {
-                if (this.date === '' || this.package_name === '') {
-                    Vue.notify({
-                      group: 'foo',
-                      type: 'warn',
-                      duration: 3000,
-                      title: 'Gói dịch vụ',
-                      text: 'Vui lòng chọn gói dịch vụ bạn muốn tham gia!'
-                    })
-                    this.setAlertEmptyServicePackages()
-                    return false
-                }
-
-                if (!this.disableButtonMethod()) {
-                    Vue.notify({
-                      group: 'foo',
-                      type: 'warn',
-                      duration: 3000,
-                      title: 'Số lượng không hợp lệ',
-                      text: 'Vui lòng kiểm tra lại số lượng trong gói dịch vụ'
-                    })
-                    return false
-                }
-
                 return true;
-            },
-            disableButtonMethod () {
-                let flag = false;
-                _.forEach(this.service_packages, (item) => {
-                    if (item.quantity) {
-                        flag = true
-                    }
-                })
-                _.forEach(this.service_packages, (item) => {
-                    if (item.min != 0) {
-                        if (item.min > item.quantity) {
-                             flag = false
-                        }
-                    }
-                })
-                return this.date !== '' && this.package_name !== '' && flag;
             },
             nextStepBooking () {
                 if (this.checkDataBookingValid()) {
@@ -213,11 +170,5 @@
     background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border: none;
-}
-
-.order-box .notifications {
-    top: 55px !important;
-    left: calc(50% - 270px) !important;
-    width: 450px !important;
 }
 </style>

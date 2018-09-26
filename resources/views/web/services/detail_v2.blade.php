@@ -21,8 +21,9 @@
             overflow: hidden;
         }
         .service-banner img {
-            object-fit: cover;
+            object-fit: contain;
             height: 400px !important;
+            width: auto !important;
         }
         @media screen and (min-width: 768px) {
             .service-banner {
@@ -136,7 +137,7 @@
         }
         .service-involve_item__wrap .info .name {
             min-height: 50px;
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 700;
             line-height: 20px;
             padding: 0px 0px;
@@ -228,7 +229,7 @@
             position: fixed;
             top: 50px;
             z-index: 1001;
-            width: 1110px;
+            width: 800px;
             background-color: #fff;
         }
         #myNavbar {
@@ -240,8 +241,9 @@
         }
         #myNavbar a {
             color: #000;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 13px;
+            /*text-transform: uppercase;*/
+
         }
         .fixed-myNavbar .bg-light {
             background-color: #fff !important;
@@ -252,11 +254,10 @@
             padding-top: 80px;
         }
         .fixed-myNavbar .nav-pills .nav-link.active {
-            background-color: #fff !important;
-            color: #000 !important;
-            border-radius: 0px;
-            padding: 12px 20px;
-            border-bottom: 5px solid #02a676;
+            background-color: red !important;
+            color: #fff !important;
+            border-radius: 50px;
+            padding: 5px 20px;
         }
         .fixed-myNavbar .nav {
             align-items: center;
@@ -309,9 +310,6 @@
         .service-banner .owl-prev{
             left: 35px;
         }
-        .owl-theme .owl-nav [class*=owl-]:hover {
-            color: #4a4a4a;
-        }
     </style>
 @endsection
 
@@ -324,7 +322,7 @@
         <div class="owl-carousel owl-theme">
             @forelse ($service->media_services as $media)
                 <a href="{{ $media->getImage() }}" data-fancybox="images">
-                    <img class="owl-lazy lazyOwl" data-src="{{ $media->getImage() }}" title="Nhấp vào ảnh để xem với kích thước lớn" />
+                    <img src="{{ $media->getImage() }}" title="Nhấp vào ảnh để xem với kích thước lớn" />
                 </a>
             @empty
 
@@ -433,7 +431,7 @@
                     </div>
                     <div id="map1" class="service-what_to_expect">
                         <h4>@lang('web_service_map')</h4>
-                        <div id="map" style="height: 0px; background-color: #ccc"></div>
+                        <div id="map" style="height: 400px; background-color: #ccc"></div>
                     </div>
                 </div>
             </div>
@@ -446,7 +444,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="service-involve">
-                    <h5 class="font-weight-bold">@lang('web_service_maybe_you_are_interested')</h5>
+                    <h4>@lang('web_service_maybe_you_are_interested')</h4>
                     <div class="owl-carousel">
                         @forelse ($service_involves as $service_involve)
                             <a href="{{ route('web.services.detail', [$service_involve->getTranslation($locale)->slug, $service_involve->uuid]) }}">
@@ -497,67 +495,64 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-{{--     <script async
+    <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
-    </script> --}}
+    </script>
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>
-        jQuery(document).ready(function($) {
-            $(".service-banner .owl-carousel").owlCarousel({
-                loop:true,
-                dots:false,
-                nav:false,
-                responsiveClass:true,
-                margin: 5,
-                autoplay: true,
-                autoplayTimeout: 6000,
-                autoplaySpeed: 2000,
-                autoplayHoverPause: true,
-                lazyLoad: true,
-                lazyLoadEager: 2,
-                responsive:{
-                    0:{
-                        items:1,
-                        nav:true,
-                        stagePadding: 20
-                    },
-                    768:{
-                        items:2,
-                        nav:true,
-                        dots:true
-                    }
+        $(".service-involve .owl-carousel").owlCarousel({
+            loop:false,
+            dots:false,
+            nav:false,
+            responsiveClass:true,
+            autoplay: true,
+            autoplayTimeout: 3500,
+            autoplaySpeed: 1200,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true,
+                    stagePadding: 20
+                },
+                768:{
+                    items:3,
+                    nav:true,
+                    stagePadding: 0
+                },
+                1024:{
+                    items:4,
+                    nav:true,
+                    stagePadding: 0
                 }
-            });
-            $(".service-involve .owl-carousel").owlCarousel({
-                loop:false,
-                dots:false,
-                nav:false,
-                responsiveClass:true,
-                autoplay: true,
-                autoplayTimeout: 3500,
-                autoplaySpeed: 1200,
-                responsive:{
-                    0:{
-                        items:1,
-                        nav:true,
-                        stagePadding: 20
-                    },
-                    768:{
-                        items:3,
-                        nav:true,
-                        stagePadding: 0
-                    },
-                    1024:{
-                        items:4,
-                        nav:true,
-                        stagePadding: 0
-                    }
-                }
-            });
-            $('.owl-prev').text('');
-            $('.owl-next').text('');
+            }
         });
+        $(".service-banner .owl-carousel").owlCarousel({
+            loop:true,
+            dots:false,
+            nav:false,
+            responsiveClass:true,
+            autoWidth:true,
+            margin: 4,
+            // autoplay: false,
+            // autoplayTimeout: 5000,
+            // autoplaySpeed: 2000,
+            // autoplayHoverPause: true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true,
+                    stagePadding: 20
+                },
+                768:{
+                    items:6,
+                    nav:true,
+                    dots:true
+                }
+            }
+        });
+        $('.owl-prev').text('');
+        $('.owl-next').text('');
 
         function initMap() {
             var myLatLng = {
@@ -566,19 +561,13 @@
             };
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
+                zoom: 12,
                 center: myLatLng
             });
 
             var marker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
-                icon: {
-                    path: 'M 0,0 0,0 z',
-                    scale: 10,
-                    strokeColor: 'rgba(243, 165, 55, .4)',
-                    strokeWeight: 120
-                },
                 title: 'Hello World!'
             });
         }
@@ -599,6 +588,9 @@
 
             if ($(this).scrollTop() > (height - 1280)) {
                 $('.booking-service-destop').removeClass('fixed');
+            }
+            if ($(this).scrollTop() > (height - 1280)) {
+                $('#myNavbar').removeClass('fixed-myNavbar');
             }
         });
 

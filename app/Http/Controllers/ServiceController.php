@@ -26,6 +26,7 @@ class ServiceController extends WebController
             abort(404);
         }
 
+        // dd($service->media_services);
         $service_involves = $this->service->getByQuery([
             'notInID' => [$service->id]
         ], 8);

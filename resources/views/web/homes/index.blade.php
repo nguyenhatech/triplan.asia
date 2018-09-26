@@ -35,7 +35,7 @@
             <div class="quick-search d-flex flex-column justify-content-center align-items-center">
                 <div class="solugan d-flex flex-column justify-content-center align-items-center">
                     <h1 class="main-solugan">@lang('where_do_you_want_to_go')</h1>
-                    <h3 class="sub-solugan">@lang('web_home_baner_top_sologun')</h3>
+                    {{-- <h3 class="sub-solugan">@lang('web_home_baner_top_sologun')</h3> --}}
                 </div>
                 <div class="form">
                     <form method="get" action="#">

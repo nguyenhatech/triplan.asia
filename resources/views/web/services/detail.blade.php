@@ -309,6 +309,9 @@
         .service-banner .owl-prev{
             left: 35px;
         }
+        .owl-theme .owl-nav [class*=owl-]:hover {
+            color: #4a4a4a;
+        }
     </style>
 @endsection
 
@@ -430,7 +433,7 @@
                     </div>
                     <div id="map1" class="service-what_to_expect">
                         <h4>@lang('web_service_map')</h4>
-                        <div id="map" style="height: 400px; background-color: #ccc"></div>
+                        <div id="map" style="height: 0px; background-color: #ccc"></div>
                     </div>
                 </div>
             </div>

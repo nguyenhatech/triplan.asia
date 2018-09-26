@@ -73,7 +73,7 @@
 }
 @media  screen and (min-width: 768px) {
     .home-banner .solugan .main-solugan {
-        font-size: 38px;
+        font-size: 30px;
         font-weight: bold;
     }
     .home-banner .solugan .sub-solugan {
@@ -108,7 +108,7 @@
 }
 @media  screen and (min-width: 768px) {
     .home-title .title {
-        font-size: 25px;
+        font-size: 22px;
     }
 }
 

@@ -6,7 +6,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/bootstrap-4.1.1/dist/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/fontawesome/all.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.carousel.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.theme.default.min.css') }}"
+        <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <style type="text/css">
             body {
@@ -18,6 +19,7 @@
                 background-image: url('https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/07/Porto-Fira-Suites-Hotel-in-Santorini-by-Interior-Design-Laboratorium-Yellowtrace-19.jpg');
                 background-size: cover;
                 background-position: center;
+                margin-bottom: 100px;
             }
             .resort-banner .caption {
                 height: 100vh;
@@ -44,6 +46,79 @@
                     color: #fff;
                 }
             }
+
+            /* ITEM-1 */
+            .item-1 {
+                height: calc(100vh - 100px);
+            }
+            .item-1 .container-fluid {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+            .item-1 .info {
+                background-color: #222222;
+                height: calc(100vh - 100px);
+            }
+            .item-1 .list-images {
+                height: calc(100vh - 100px);
+            }
+            .item-1 .list-images .item {
+                height: calc(100vh - 100px) !important;
+            }
+            .item-1 .list-images img {
+                object-fit: cover;
+                height: calc(100vh - 100px) !important;
+            }
+
+            /*// Custom 2 nút next prew của phần ảnh phòng*/
+            .item-1 .owl-prev, .item-1 .owl-next {
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-family: 'Font Awesome\ 5 Free';
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .item-1 .owl-prev:before {
+                content: "\f060";
+                font-weight: 900;
+                font-family: 'Font Awesome 5 Free';
+            }
+            .item-1 .owl-next:before {
+                content: "\f061";
+                font-weight: 900;
+                font-family: 'Font Awesome 5 Free';
+            }
+            .item-1 .owl-dots {
+                position: absolute;
+                bottom: 5px;
+                left: 0;
+                text-align: center;
+                width: 100%;
+            }
+            .item-1  .owl-nav [class*=owl-] {
+                position: absolute;
+                top: calc(50% - 23px );
+                margin: 0;
+                background: rgba(255,255,255,0.9) !important;
+                color: #1a1a1a;
+                padding: 10px;
+                font-size: 20px !important;
+                border-radius: 50% !important;
+                width: 50px !important;
+                height: 50px !important;
+            }
+            .item-1 .owl-next {
+                right: 35px;
+            }
+            .item-1 .owl-prev{
+                left: 35px;
+            }
+            .owl-theme .owl-nav [class*=owl-]:hover {
+                color: #4a4a4a;
+            }
         </style>
     </head>
     <body>
@@ -53,9 +128,59 @@
                 <h3>Chia sẻ, khám phá, kết nối !</h3>
             </div>
         </div>
+        <div class="item-1">
+            <div class="container-fluid">
+                <div class="row no-gutters">
+                    <div class="info col-md-4">
+
+                    </div>
+                    <div class="list-images col-md-8">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <img class="owl-lazy lazyOwl" data-src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/07/kari-shea-99868-unsplash-1024x683.jpg" title="Nhấp vào ảnh để xem với kích thước lớn" />
+                            </div>
+                            <div class="item">
+                                <img class="owl-lazy lazyOwl" data-src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/06/anthony-delanoix-21053-unsplash-1024x683.jpg" title="Nhấp vào ảnh để xem với kích thước lớn" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
     <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/librarys/fontawesome/all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".owl-carousel").owlCarousel({
+                loop:true,
+                dots:false,
+                nav:false,
+                responsiveClass:true,
+                margin: 5,
+                autoplay: true,
+                autoplayTimeout: 6000,
+                autoplaySpeed: 2000,
+                autoplayHoverPause: true,
+                lazyLoad: true,
+                lazyLoadEager: 2,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true,
+                        stagePadding: 20
+                    },
+                    768:{
+                        items:1,
+                        nav:true,
+                        dots:true
+                    }
+                }
+            });
+            $('.owl-prev').text('');
+            $('.owl-next').text('');
+        });
+    </script>
 </html>

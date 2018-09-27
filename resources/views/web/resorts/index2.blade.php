@@ -58,6 +58,28 @@
             .item-1 .info {
                 background-color: #222222;
                 height: calc(100vh - 100px);
+                padding: 80px 50px 50px 60px;
+                color: #fff;
+            }
+            .item-1 .info .caption {
+                padding-top: 20px;
+                font-size: 13px;
+                padding-bottom: 15px;
+            }
+            .item-1 .view-more {
+                color: #fff;
+                padding: 13px 55px 13px 55px;
+                border-radius: 0px;
+                border: 2px solid #fff;
+                font-size: 13px;
+                transition: all 0.25s;
+            }
+            .item-1 .view-more:hover {
+                transform: scale(0.95);
+                border: 0px solid #fff;
+                transition: all 0.25s;
+                background-color: #52A5B8;
+                border-color: #52A5B8;
             }
             .item-1 .list-images {
                 height: calc(100vh - 100px);
@@ -132,7 +154,18 @@
             <div class="container-fluid">
                 <div class="row no-gutters">
                     <div class="info col-md-4">
-
+                        <h4>Triplan Room</h4>
+                        <div class="caption">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <a href="#" class="btn view-more">
+                            View more
+                        </a>
                     </div>
                     <div class="list-images col-md-8">
                         <div class="owl-carousel owl-theme">

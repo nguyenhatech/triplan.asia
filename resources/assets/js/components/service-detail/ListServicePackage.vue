@@ -302,10 +302,10 @@
             },
             goto(refName) {
                 var element = this.$refs[refName];
-                var top = element.offsetTop;
+                var top = element.scrollTop;
                 // window.scrollTo(0, top);
                 $("html, body").animate({
-                    scrollTop: 520
+                    scrollTop: $('#package').offset().top - 100
                 }, 600);
             }
         },

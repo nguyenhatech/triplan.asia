@@ -233,6 +233,24 @@
                 border-color: #fff;
                 color: #000;
             }
+
+
+            /*FOOTER*/
+            .footer-1 {
+                background-color: #222222;
+                color: #fff;
+                padding: 50px 0px 30px 0px;
+            }
+            .footer-1 .title {
+                font-size: 16px;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+                display: block;
+            }
+            .footer-1 p {
+                font-size: 13px;
+                margin-bottom: 5px;
+            }
         </style>
     </head>
     <body>
@@ -347,6 +365,26 @@
                         <div class="image">
                             <img src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/07/home_pic3.jpg">
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="title">Địa chỉ</span>
+                        <p>102 Thái Thịnh, Đống Đa, Hà Nội</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="title">Liên hệ</span>
+                        <p>0945 245 115</p>
+                        <p>0899 175 886</p>
+                        <p>info@triplan.asia</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="title">Về chúng tôi</span>
+                        <p>Triplan ra đời với mục tiêu áp dụng những kinh nghiệm sẵn có và công nghệ hiện đại vào dịch vụ du lịch nhằm đem đến khách hàng những tour thú vị, chất lượng</p>
                     </div>
                 </div>
             </div>

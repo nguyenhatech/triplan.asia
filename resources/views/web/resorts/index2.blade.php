@@ -251,6 +251,15 @@
                 font-size: 13px;
                 margin-bottom: 5px;
             }
+            .footer-2 {
+                background-color: #222222;
+                min-height: 50px;
+                border-top: 1px solid #444;
+                color: #cccccc;
+            }
+            .footer-2 span {
+                font-size: 13px;
+            }
         </style>
     </head>
     <body>
@@ -385,6 +394,15 @@
                     <div class="col-md-4">
                         <span class="title">Về chúng tôi</span>
                         <p>Triplan ra đời với mục tiêu áp dụng những kinh nghiệm sẵn có và công nghệ hiện đại vào dịch vụ du lịch nhằm đem đến khách hàng những tour thú vị, chất lượng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span>Copyright 2018 - Phiên bản chính thức - Mọi quyền đều được bảo lưu</span>
                     </div>
                 </div>
             </div>

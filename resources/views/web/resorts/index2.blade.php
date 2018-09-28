@@ -187,10 +187,16 @@
             .item-3 {
                 width: 100vw;
                 height: 100vh;
+                position: relative;
             }
             .item-3 img {
                 height: 100vh;
                 object-fit: cover;
+            }
+            .item-3 .info {
+                position: absolute;
+                top: 0px;
+                z-index: 150000px !important;
             }
         </style>
     </head>
@@ -257,6 +263,20 @@
             </div>
         </div>
         <div class="item-3">
+            <div class="info">
+                <h4>Triplan Room</h4>
+                <div class="caption">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <a href="#" class="btn view-more">
+                    View more
+                </a>
+            </div>
             <div class="list-images">
                 <div class="owl-carousel owl-theme">
                     <div class="item">

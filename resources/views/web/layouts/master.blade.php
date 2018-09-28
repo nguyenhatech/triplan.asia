@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{ get_asset('css/styles.css') }}">
         @yield('styles')
     </head>
-    <body data-spy="scroll" data-target="#myNavbar" data-offset="100">
+    <body data-spy="scroll" data-target="#myNavbar" data-offset="120">
         @include('web.layouts.modules.facebook')
 
         <div id="td-outer-wrap">

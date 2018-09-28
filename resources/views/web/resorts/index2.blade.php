@@ -195,7 +195,10 @@
             }
             .item-3 .info {
                 position: absolute;
-                top: 0px;
+                background-color: red;
+                top: 100px;
+                width: 500px;
+                left: 50px;
                 z-index: 150000px !important;
             }
         </style>
@@ -264,7 +267,7 @@
         </div>
         <div class="item-3">
             <div class="info">
-                <h4>Triplan Room</h4>
+                <h4>Triplan Room Item 3</h4>
                 <div class="caption">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -336,8 +339,7 @@
                 responsive:{
                     0:{
                         items:1,
-                        nav:true,
-                        stagePadding: 20
+                        nav:false
                     },
                     768:{
                         items:1,

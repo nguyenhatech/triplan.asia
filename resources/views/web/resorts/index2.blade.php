@@ -157,8 +157,7 @@
             }
 
             .item-2 .info {
-                background-color: #fff;
-                height: calc(100vh - 100px);
+                background-color: red;
                 padding: 80px 50px 50px 60px;
             }
 
@@ -182,6 +181,15 @@
                 background-color: #52A5B8;
                 border-color: #52A5B8;
                 color: #fff;
+            }
+
+            /*ITEM3*/
+            .item-3 {
+                width: 100vw;
+                height: 100vh;
+                background-image: url('https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/07/Porto-Fira-Suites-Hotel-in-Santorini-by-Interior-Design-Laboratorium-Yellowtrace-19.jpg');
+                background-size: cover;
+                background-position: center;
             }
         </style>
     </head>
@@ -246,6 +254,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="item-3">
+            dq
         </div>
     </body>
     <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>

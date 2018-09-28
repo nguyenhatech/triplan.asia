@@ -195,11 +195,37 @@
             }
             .item-3 .info {
                 position: absolute;
-                background-color: red;
-                top: 100px;
+                display: flex;
+                align-items: center;
+                flex-direction: flex-column;
                 width: 500px;
+                height: 100vh;
                 left: 50px;
-                z-index: 150000px !important;
+                z-index: 1500 !important;
+                color: #fff;
+            }
+            .item-3 .dim {
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+                background-color: #0000004f;
+                z-index: 1499 !important;
+            }
+            .item-3 .view-more {
+                padding: 13px 55px 13px 55px;
+                border-radius: 0px;
+                border: 2px solid #fff;
+                font-size: 13px;
+                transition: all 0.25s;
+                color: #fff;
+            }
+            .item-3 .view-more:hover {
+                transform: scale(0.95);
+                border: 0px solid #fff;
+                transition: all 0.25s;
+                background-color: #52A5B8;
+                border-color: #52A5B8;
+                color: #fff;
             }
         </style>
     </head>
@@ -267,19 +293,22 @@
         </div>
         <div class="item-3">
             <div class="info">
-                <h4>Triplan Room Item 3</h4>
-                <div class="caption">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div>
+                    <h4>Triplan Room Item 3</h4>
+                    <div class="caption">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <a href="#" class="btn view-more">
+                        View more
+                    </a>
                 </div>
-                <a href="#" class="btn view-more">
-                    View more
-                </a>
             </div>
+            <div class="dim"></div>
             <div class="list-images">
                 <div class="owl-carousel owl-theme">
                     <div class="item">

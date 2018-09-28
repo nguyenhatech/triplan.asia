@@ -146,7 +146,7 @@
             /*// ITEM2*/
             .item-2 {
                 padding-top: 100px;
-                height: calc(100vh - 100px);
+                height: calc(100vh);
             }
             .item-2 .image {
                 padding: 0px 15px 0px 45px;
@@ -157,7 +157,7 @@
             }
 
             .item-2 .info {
-                background-color: red;
+                background-color: #fff;
                 padding: 80px 50px 50px 60px;
             }
 
@@ -187,9 +187,10 @@
             .item-3 {
                 width: 100vw;
                 height: 100vh;
-                background-image: url('https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/07/Porto-Fira-Suites-Hotel-in-Santorini-by-Interior-Design-Laboratorium-Yellowtrace-19.jpg');
-                background-size: cover;
-                background-position: center;
+            }
+            .item-3 img {
+                height: 100vh;
+                object-fit: cover;
             }
         </style>
     </head>
@@ -256,7 +257,16 @@
             </div>
         </div>
         <div class="item-3">
-            dq
+            <div class="list-images">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img class="owl-lazy lazyOwl" data-src="https://themes.themegoods.com/hoteller/beach/wp-content/uploads/2018/06/Porto-Fira-Suites-Hotel-in-Santorini-by-Interior-Design-Laboratorium-Yellowtrace-12.jpg" title="Nhấp vào ảnh để xem với kích thước lớn" />
+                    </div>
+                    <div class="item">
+                        <img class="owl-lazy lazyOwl" data-src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/06/anthony-delanoix-21053-unsplash-1024x683.jpg" title="Nhấp vào ảnh để xem với kích thước lớn" />
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
     <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
@@ -265,7 +275,7 @@
     <script type="text/javascript" src="{{ asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
-            $(".owl-carousel").owlCarousel({
+            $(".item-1 .owl-carousel").owlCarousel({
                 loop:true,
                 dots:false,
                 nav:false,
@@ -290,6 +300,33 @@
                     }
                 }
             });
+
+            $(".item-3 .owl-carousel").owlCarousel({
+                loop:true,
+                dots:false,
+                nav:false,
+                responsiveClass:true,
+                margin: 5,
+                autoplay: true,
+                autoplayTimeout: 6000,
+                autoplaySpeed: 2000,
+                autoplayHoverPause: true,
+                lazyLoad: true,
+                lazyLoadEager: 2,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true,
+                        stagePadding: 20
+                    },
+                    768:{
+                        items:1,
+                        nav:false,
+                        dots:false
+                    }
+                }
+            });
+
             $('.owl-prev').text('');
             $('.owl-next').text('');
         });

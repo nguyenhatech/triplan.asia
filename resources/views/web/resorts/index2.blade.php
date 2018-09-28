@@ -223,9 +223,9 @@
                 transform: scale(0.95);
                 border: 0px solid #fff;
                 transition: all 0.25s;
-                background-color: #52A5B8;
-                border-color: #52A5B8;
-                color: #fff;
+                background-color: #fff;
+                border-color: #fff;
+                color: #000;
             }
         </style>
     </head>
@@ -316,6 +316,31 @@
                     </div>
                     <div class="item">
                         <img class="owl-lazy lazyOwl" data-src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/06/anthony-delanoix-21053-unsplash-1024x683.jpg" title="Nhấp vào ảnh để xem với kích thước lớn" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item-2">
+            <div class="container-fluid">
+                <div class="row no-gutters">
+                    <div class="info col-md-5">
+                        <h4>Triplan Room</h4>
+                        <div class="caption">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <a href="#" class="btn view-more">
+                            View more
+                        </a>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="image">
+                            <img src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/07/home_pic3.jpg">
+                        </div>
                     </div>
                 </div>
             </div>

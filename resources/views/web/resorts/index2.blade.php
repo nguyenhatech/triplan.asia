@@ -141,6 +141,48 @@
             .owl-theme .owl-nav [class*=owl-]:hover {
                 color: #4a4a4a;
             }
+
+
+            /*// ITEM2*/
+            .item-2 {
+                padding-top: 100px;
+                height: calc(100vh - 100px);
+            }
+            .item-2 .image {
+                padding: 0px 15px 0px 45px;
+            }
+            .item-2 img {
+                object-fit: cover;
+                width: 100%;
+            }
+
+            .item-2 .info {
+                background-color: #fff;
+                height: calc(100vh - 100px);
+                padding: 80px 50px 50px 60px;
+            }
+
+            .item-2 .info .caption {
+                padding-top: 20px;
+                font-size: 13px;
+                padding-bottom: 15px;
+            }
+            .item-2 .view-more {
+                padding: 13px 55px 13px 55px;
+                border-radius: 0px;
+                border: 2px solid #000;
+                font-size: 13px;
+                transition: all 0.25s;
+                color: #000;
+            }
+            .item-2 .view-more:hover {
+                transform: scale(0.95);
+                border: 0px solid #fff;
+                transition: all 0.25s;
+                background-color: #52A5B8;
+                border-color: #52A5B8;
+                color: #fff;
+            }
         </style>
     </head>
     <body>
@@ -176,6 +218,31 @@
                                 <img class="owl-lazy lazyOwl" data-src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/06/anthony-delanoix-21053-unsplash-1024x683.jpg" title="Nhấp vào ảnh để xem với kích thước lớn" />
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item-2">
+            <div class="container-fluid">
+                <div class="row no-gutters">
+                    <div class="col-md-7">
+                        <div class="image">
+                            <img src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/07/home_pic3.jpg">
+                        </div>
+                    </div>
+                    <div class="info col-md-5">
+                        <h4>Triplan Room</h4>
+                        <div class="caption">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <a href="#" class="btn view-more">
+                            View more
+                        </a>
                     </div>
                 </div>
             </div>

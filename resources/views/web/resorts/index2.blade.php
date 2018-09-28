@@ -49,7 +49,7 @@
 
             /* ITEM-1 */
             .item-1 {
-                height: calc(100vh - 100px);
+
             }
             .item-1 .container-fluid {
                 padding-left: 0px;
@@ -146,7 +146,7 @@
             /*// ITEM2*/
             .item-2 {
                 padding-top: 100px;
-                height: calc(100vh);
+                padding-bottom: 100px;
             }
             .item-2 .image {
                 padding: 0px 15px 0px 45px;
@@ -198,11 +198,17 @@
                 display: flex;
                 align-items: center;
                 flex-direction: flex-column;
-                width: 500px;
+                width: 300px;
                 height: 100vh;
                 left: 50px;
                 z-index: 1500 !important;
                 color: #fff;
+                font-size: 13px;
+            }
+            @media screen and (min-width: 768px) {
+                .item-3 .info {
+                    width: 500px;
+                }
             }
             .item-3 .dim {
                 position: absolute;
@@ -368,7 +374,6 @@
                     0:{
                         items:1,
                         nav:true,
-                        stagePadding: 20
                     },
                     768:{
                         items:1,

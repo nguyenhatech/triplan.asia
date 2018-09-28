@@ -59,7 +59,8 @@ Route::group([
     Route::get('/gio-hang/delete-one-cart/{service_id}', 'CartController@deleteOneCart')->name('web.cart.delete-one-cart');
 
     Route::get('/resorts/{id}', function() {
-        return view('web.resorts.index1');
+        // return view('web.resorts.index1');
+        return view('web.resorts.test');
     });
 
     Auth::routes();

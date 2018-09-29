@@ -4,7 +4,6 @@
         @include('web/layouts/modules/metadata')
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no" />
         <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/bootstrap-4.1.1/dist/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/fontawesome/all.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.carousel.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.theme.default.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/libraries/fullpage/fullpage.min.css') }}">
@@ -499,7 +498,6 @@
     </body>
     <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/librarys/fontawesome/all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/libraries/fullpage/fullpage.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/libraries/fullpage/scrolloverflow.min.js') }}"></script>

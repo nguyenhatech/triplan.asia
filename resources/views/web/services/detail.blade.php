@@ -319,6 +319,136 @@
             width: 100% !important;
             height: auto !important;
         }
+
+        /*  ----------------------------------------------------------------------------
+            Sharing Top
+        */
+        .td-post-sharing {
+          font-family: 'Nunito', arial, sans-serif;
+         padding-top: 15px;
+        }
+        .td-post-sharing a {
+          display: inline-block;
+          vertical-align: middle;
+          line-height: 23px;
+        }
+        .td-post-sharing a:hover {
+            color: #fff;
+        }
+        .td-default-sharing {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .td-social-sharing-buttons {
+          font-size: 11px;
+          color: #fff;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          padding: 10px 13px 8px 13px;
+          margin-right: 10px;
+          height: 40px;
+          min-width: 40px;
+          text-align: center;
+        }
+        .td-social-sharing-buttons:hover {
+          opacity: 0.8;
+        }
+        .td-social-sharing-buttons .td-sp {
+          width: 14px;
+          height: 20px;
+        }
+        .td-social-but-text {
+          display: inline-block;
+          position: relative;
+          top: -1px;
+          line-height: 16px;
+          padding-left: 10px;
+          margin-left: 12px;
+        }
+        .td-social-facebook {
+          background-color: #516eab;
+        }
+        .td-social-facebook .td-icon-facebook {
+          font-size: 14px;
+          position: relative;
+          top: 1px;
+        }
+        .td-social-facebook .td-social-but-text {
+          border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .td-social-twitter {
+          background-color: #29c5f6;
+        }
+        .td-social-twitter .td-icon-twitter {
+          font-size: 12px;
+        }
+        .td-social-twitter .td-social-but-text {
+          border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .td-social-google {
+          background-color: #eb4026;
+          width: 40px;
+        }
+        .td-social-google .td-icon-googleplus {
+          font-size: 16px;
+          position: relative;
+          top: 0;
+          left: -1px;
+          line-height: 22px;
+        }
+        .td-social-pinterest {
+          background-color: #ca212a;
+          margin-right: 0;
+          /* responsive portrait phone */
+        }
+        @media (max-width: 767px) {
+          .td-social-pinterest {
+            margin-right: 10px;
+          }
+        }
+        .td-social-pinterest .td-icon-pinterest {
+          font-size: 13px;
+          position: relative;
+          top: 1px;
+        }
+        .td-social-whatsapp {
+          display: none !important;
+          background-color: #7bbf6a;
+          margin-right: 0;
+          /* responsive portrait phone */
+        }
+        @media (max-width: 767px) {
+          .td-social-whatsapp {
+            display: inline-block !important;
+          }
+        }
+        .td-social-whatsapp i {
+          font-size: 20px;
+          bottom: 2px;
+          right: 2px;
+        }
+        .td-classic-sharing {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .td-classic-sharing ul {
+          margin: 0 0 0 30px;
+          height: 20px;
+        }
+        .td-classic-sharing li {
+          display: inline-block;
+          height: 20px;
+          margin-left: 0;
+        }
+        .td-classic-twitter {
+          position: relative;
+          top: -1px;
+          left: 2px;
+        }
+        .td-classic-twitter .twitter-share-button {
+          margin: 0 !important;
+        }
     </style>
 @endsection
 
@@ -447,6 +577,20 @@
             <div class="col-md-4">
                 <div class="booking-service-destop d-none d-sm-block">
                     <oder-box :service="{{ $service }}" :data_params="{{ $data_params }}"></oder-box>
+                </div>
+                <div class="td-post-sharing td-post-sharing-top ">
+                    <div class="td-default-sharing">
+                        <a class="td-social-sharing-buttons td-social-facebook" href="https://www.facebook.com/sharer.php?u=https://trip14.com/ha-noi-pho-nhung-ngay-mua_lqjzr2vm" onclick="window.open(this.href, &#39;mywin&#39;,&#39;left=50,top=50,width=600,height=350,toolbar=0&#39;); return false;">
+                            <i class="fab fa-facebook-f"></i>
+                            <div class="td-social-but-text">Chia sẻ qua Facebook</div>
+                        </a>
+                        <a class="td-social-sharing-buttons td-social-twitter" href="https://twitter.com/intent/tweet?text=WordPress+News+Magazine+Charts+the+Most+Fashionable+New+York+Women+in+2018&amp;url=https://trip14.com/ha-noi-pho-nhung-ngay-mua_lqjzr2vm">
+                            <i class="fab fa-twitter" style="padding-top: 5px;"></i>
+                        </a>
+                        <a class="td-social-sharing-buttons td-social-pinterest" href="https://pinterest.com/pin/create/button/?url=https://trip14.com/ha-noi-pho-nhung-ngay-mua_lqjzr2vm&amp;media=https://cdn1.trip14.com/trip14.com-cc9f45e4c86d655b126af6d08683e640.jpg&amp;description=Hà Nội phố những ngày mưa" onclick="window.open(this.href, &#39;mywin&#39;,&#39;left=50,top=50,width=600,height=350,toolbar=0&#39;); return false;">
+                            <i class="fab fa-pinterest" style="padding-top: 5px;"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

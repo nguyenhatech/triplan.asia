@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.theme.default.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/libraries/fullpage/fullpage.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -45,6 +46,11 @@
             .caption .play-button {
                 margin-top: 20px;
                 border-radius: 50%;
+            }
+            .caption .play-button:hover {
+                animation: ripple 2000ms infinite;
+            }
+            .caption .play-button:active {
                 animation: ripple 2000ms infinite;
             }
             .caption .play-button img {
@@ -210,6 +216,34 @@
             .owl-nav button {
                 outline: none;
             }
+            .class-fixed {
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+            }
+            .menu-mobile {
+                position: relative;
+                height: 30px;
+                /*background-image: linear-gradient(#00000075, #0000009e);*/
+                /*background-color: #01b07d;*/
+                /*color: #fff;*/
+                background-color: #fff;
+                font-weight: bold;
+                /*color: black;*/
+            }
+            .menu-mobile a {
+                color: #4a4a4a !important;
+            }
+            .menu-mobile__phone {
+                position: absolute;
+                bottom: 0px;
+                padding: 10px;
+                text-align: center;
+                background-color: #fff;
+                border-radius: 50%;
+                width: 44px;
+                animation: ripple 2000ms infinite;
+            }
             @media only screen and (min-width: 768px) {
                 .service-section {
                     height: 100vh;
@@ -241,6 +275,54 @@
                 #videoIframe {
                     height: 413px;
                 }
+                .class-fixed {
+                    left: 0px;
+                    bottom: 0;
+                    top: 0;
+                }
+                .menu-desktop {
+                    width: 100px;
+                    height: 100%;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    position: relative;
+                    font-weight: bold;
+                    color: #fff;
+                }
+                .menu-desktop a {
+                    color: #fff;
+                }
+                .menu-desktop__lang a {
+                    color: #fff !important;
+                }
+                .menu-desktop__phone {
+                    position: absolute;
+                    bottom: 80px;
+                    padding: 10px;
+                    text-align: center;
+                    background-color: #02a676;
+                    color: #fff;
+                    border-radius: 50%;
+                    width: 44px;
+                    /*animation: ripple 2000ms infinite;*/
+                }
+                .menu-desktop__book {
+                    cursor: pointer;
+                    display: block;
+                    width: 44px;
+                    height: 44px;
+                    text-align: center;
+                    font-size: 10px;
+                    padding-top: 5px;
+                    color: #fff;
+                    background: #02a676;
+                    border-radius: 50%;
+                    animation: ripple 2000ms infinite;
+                }
+                #booking-modal .modal-content {
+                    padding: 10px;
+                    width: 600px;
+                }
             }
             @media only screen and (max-device-width: 1024px) {
                 .parallax {
@@ -267,17 +349,6 @@
                     <img src="{{ asset('web/images/icons/play-button.png') }}" title="Xem video">
                 </div>
               </div>
-            </div>
-
-            <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal">
-                <div class="modal-dialog" role="document" style="height: 100%;">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true" class="video-close-btn">&times;</span></button>
-                            <iframe id="videoIframe" width="100%" height="auto" src="https://www.youtube.com/embed/mcBXv0OyXNQ?rel=0&amp;controls=0&amp;showinfo=0&amp;start=16&amp;end=150&amp;modestbranding=1&amp;enablejsapi=1&amp;vq=hd720" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="section service-section">
@@ -494,8 +565,44 @@
                     </div>
                 </div>
             </section>
+
+            <div class="d-sm-none class-fixed">
+                <div class="menu-mobile d-flex justify-content-around align-items-center">
+                    <span class="menu-mobile__lang"><a href="#">English</a></span>
+                    <span class="menu-mobile__phone"><a href="tel:+84945245115"><i class="fas fa-phone"></i></a></span>
+                    <span class="menu-mobile__book" data-toggle="modal" data-target="#booking-modal">Đặt ngay</span>
+                </div>
+            </div>
+            <div class="class-fixed d-none d-sm-block">
+                <div class="menu-desktop d-flex flex-column justify-content-between align-items-center align-content-between">
+                    <span class="menu-desktop__lang"><a href="#" title="English version">EN</a></span>
+                    <span class="menu-desktop__phone"><a href="tel:+84945245115"><i class="fas fa-phone"></i></a></span>
+                    <span class="menu-desktop__book" data-toggle="modal" data-target="#booking-modal">Đặt ngay</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="videoModal" role="dialog" aria-labelledby="videoModal">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="height: 100%;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true" class="video-close-btn">&times;</span></button>
+                        <iframe id="videoIframe" width="100%" height="auto" src="https://www.youtube.com/embed/mcBXv0OyXNQ?rel=0&amp;controls=0&amp;showinfo=0&amp;start=16&amp;end=150&amp;modestbranding=1&amp;enablejsapi=1&amp;vq=hd720" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="booking-modal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body" id="td-outer-wrap">
+                        <resort-booking language="{{ \App::getLocale() }}" app_url="{{ env('APP_URL') }}"></resort-booking>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
+    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
@@ -553,10 +660,16 @@
                 scrollingSpeed: 1000,
                 autoScrolling: true,
                 normalScrollElements: '#normal-scroll',
-                scrollOverflow: true
+                scrollOverflow: true,
+                fixedElements: '.class-fixed'
             });
 
             $.fn.fullpage.setAllowScrolling(true);
+        });
+    </script>
+    <script type="text/javascript">
+        $('.menu-mobile__book').click(function(){
+
         });
     </script>
 </html>

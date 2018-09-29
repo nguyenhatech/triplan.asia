@@ -53,6 +53,7 @@ Vue.component('oder-box', require('./components/service-detail/OderBox.vue'));
 Vue.component('booking-step1', require('./components/booking/Step1.vue'));
 Vue.component('thank-you', require('./components/booking/Thankyou.vue'));
 Vue.component('place-info', require('./components/place/PlaceInfo.vue'));
+Vue.component('resort-booking', require('./components/resort/Booking.vue'));
 
 
 const app = new Vue({

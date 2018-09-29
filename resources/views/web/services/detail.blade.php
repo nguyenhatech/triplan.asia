@@ -580,14 +580,14 @@
                 </div>
                 <div class="td-post-sharing td-post-sharing-top ">
                     <div class="td-default-sharing">
-                        <a class="td-social-sharing-buttons td-social-facebook" href="https://www.facebook.com/sharer.php?u=https://trip14.com/ha-noi-pho-nhung-ngay-mua_lqjzr2vm" onclick="window.open(this.href, &#39;mywin&#39;,&#39;left=50,top=50,width=600,height=350,toolbar=0&#39;); return false;">
+                        <a class="td-social-sharing-buttons td-social-facebook" href="https://www.facebook.com/sharer.php?u={{ URL::current() }}" onclick="window.open(this.href, &#39;mywin&#39;,&#39;left=50,top=50,width=600,height=350,toolbar=0&#39;); return false;">
                             <i class="fab fa-facebook-f"></i>
                             <div class="td-social-but-text">Chia sẻ qua Facebook</div>
                         </a>
-                        <a class="td-social-sharing-buttons td-social-twitter" href="https://twitter.com/intent/tweet?text=WordPress+News+Magazine+Charts+the+Most+Fashionable+New+York+Women+in+2018&amp;url=https://trip14.com/ha-noi-pho-nhung-ngay-mua_lqjzr2vm">
+                        <a class="td-social-sharing-buttons td-social-twitter" href="https://twitter.com/intent/tweet?text=Triplan Luxury&amp;url={{ URL::current() }}">
                             <i class="fab fa-twitter" style="padding-top: 5px;"></i>
                         </a>
-                        <a class="td-social-sharing-buttons td-social-pinterest" href="https://pinterest.com/pin/create/button/?url=https://trip14.com/ha-noi-pho-nhung-ngay-mua_lqjzr2vm&amp;media=https://cdn1.trip14.com/trip14.com-cc9f45e4c86d655b126af6d08683e640.jpg&amp;description=Hà Nội phố những ngày mưa" onclick="window.open(this.href, &#39;mywin&#39;,&#39;left=50,top=50,width=600,height=350,toolbar=0&#39;); return false;">
+                        <a class="td-social-sharing-buttons td-social-pinterest" href="https://pinterest.com/pin/create/button/?url={{ URL::current() }}&amp;&amp;description=Hà Nội phố những ngày mưa" onclick="window.open(this.href, &#39;mywin&#39;,&#39;left=50,top=50,width=600,height=350,toolbar=0&#39;); return false;">
                             <i class="fab fa-pinterest" style="padding-top: 5px;"></i>
                         </a>
                     </div>

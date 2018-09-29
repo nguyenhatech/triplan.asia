@@ -312,6 +312,13 @@
         .owl-theme .owl-nav [class*=owl-]:hover {
             color: #4a4a4a;
         }
+
+
+        /*// Fix cứng Image Full 100% cho đẹp*/
+        .service-info img {
+            width: 100% !important;
+            height: auto !important;
+        }
     </style>
 @endsection
 

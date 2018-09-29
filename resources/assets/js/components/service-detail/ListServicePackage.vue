@@ -458,11 +458,6 @@
     cursor: default;
 }
 
-.service-info img {
-    width: 100%;
-    height: auto;
-}
-
 </style>
 
 <style type="text/css">

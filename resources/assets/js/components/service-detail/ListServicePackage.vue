@@ -184,7 +184,12 @@
                 })
             },
             addColumnToServicePackage (servicePackageParent) {
+                let _this = this
                 servicePackageParent.map(function(index) {
+                    // Kiểm tra nếu có cái index nào mà giống với cái đang dc chọn thì gan lại
+                    if (_this.item.id === index.id) {
+                        _this.item = index
+                    }
                     index.checked = false;
                     index.service_package_children_actives.data.map(function(item) {
                         item.quantity = 0;
@@ -223,6 +228,7 @@
                                     this.setDisabledDates(response.data.disabledDates);
                                     this.setServiceInfo(response.data);
                                     this.openPackageChildren(this.item)
+                                    this.item = {}
                                     break
                                 case 404:
                                     break
@@ -231,7 +237,6 @@
                             }
                         })
 
-                        this.item = {}
                     } else {
                         this.getServicePackageParent();
                     }

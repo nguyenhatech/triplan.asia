@@ -209,11 +209,31 @@
                 if (this.day) {
                     let day = this.getFormattedDate(this.day);
                     this.setServicePackageDay(day)
-                    this.getServicePackageParent();
                     this.setServicePackageName('');
                     if (this.item.id) {
-                        this.openPackageChildren(this.item)
+                        let params = {
+                            status: 1,
+                            day: this.day,
+                            include:'service_package_parent_actives.service_package_children_actives,service_day_actives'
+                        }
+                        axios.get('services/' + this.service.id, {params: params}).then(response => {
+                            switch (response.code) {
+                                case 200:
+                                    this.addColumnToServicePackage(response.data.service_package_parent_actives.data);
+                                    this.setDisabledDates(response.data.disabledDates);
+                                    this.setServiceInfo(response.data);
+                                    this.openPackageChildren(this.item)
+                                    break
+                                case 404:
+                                    break
+                                default:
+                                    break
+                            }
+                        })
+
                         this.item = {}
+                    } else {
+                        this.getServicePackageParent();
                     }
                 }
             },

@@ -58,7 +58,13 @@ Route::group([
     Route::post('/gio-hang/add-cart-real-time', 'CartController@addCartRealTime')->name('web.cart.add-cart-real-time');
     Route::get('/gio-hang/delete-one-cart/{service_id}', 'CartController@deleteOneCart')->name('web.cart.delete-one-cart');
 
-    Route::get('/resorts/{id}', 'ResortController@show');
+    Route::get('/resorts/1', function() {
+        return view('web.resorts.index1');
+    });
+
+    Route::get('/resorts/2', function() {
+        return view('web.resorts.index2');
+    });
 
     Auth::routes();
 });

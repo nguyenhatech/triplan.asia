@@ -184,12 +184,7 @@
                 })
             },
             addColumnToServicePackage (servicePackageParent) {
-                let _this = this
                 servicePackageParent.map(function(index) {
-                    // Kiểm tra nếu có cái index nào mà giống với cái đang dc chọn thì gan lại
-                    if (_this.item.id === index.id) {
-                        _this.item = index
-                    }
                     index.checked = false;
                     index.service_package_children_actives.data.map(function(item) {
                         item.quantity = 0;
@@ -214,31 +209,11 @@
                 if (this.day) {
                     let day = this.getFormattedDate(this.day);
                     this.setServicePackageDay(day)
+                    this.getServicePackageParent();
                     this.setServicePackageName('');
                     if (this.item.id) {
-                        let params = {
-                            status: 1,
-                            day: this.day,
-                            include:'service_package_parent_actives.service_package_children_actives,service_day_actives'
-                        }
-                        axios.get('services/' + this.service.id, {params: params}).then(response => {
-                            switch (response.code) {
-                                case 200:
-                                    this.addColumnToServicePackage(response.data.service_package_parent_actives.data);
-                                    this.setDisabledDates(response.data.disabledDates);
-                                    this.setServiceInfo(response.data);
-                                    this.openPackageChildren(this.item)
-                                    this.item = {}
-                                    break
-                                case 404:
-                                    break
-                                default:
-                                    break
-                            }
-                        })
-
-                    } else {
-                        this.getServicePackageParent();
+                        this.openPackageChildren(this.item)
+                        this.item = {}
                     }
                 }
             },

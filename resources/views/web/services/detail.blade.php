@@ -748,7 +748,7 @@
                 $('#myNavbar').removeClass('fixed-myNavbar');
             }
 
-            if ($(this).scrollTop() > (height - 1280)) {
+            if ($(this).scrollTop() > (height - 1080)) {
                 $('.booking-service-destop').removeClass('fixed');
             }
         });

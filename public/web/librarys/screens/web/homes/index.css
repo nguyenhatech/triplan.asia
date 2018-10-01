@@ -328,14 +328,14 @@
 /*// HOME RESORTS*/
 .home-resorts {
     background-color: #fff;
-    min-height: 500px;
     padding-bottom: 25px;
-    padding-top: 25px;
+    padding-top: 5px;
 }
 .home-resorts .resorts-description {
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 15px;
+    padding-top: 25px;
+    padding-bottom: 10px;
 }
 .home-resorts .resorts-description p {
     margin-bottom: 0px;
@@ -355,7 +355,9 @@
     font-weight: bold;
     color: #02A676 !important;
 }
-.home-resorts .resort-item {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+.home-resorts .best-trip__item img {
+    border-radius: 3px;
+}
+.home-resorts .info-trip {
+    padding: 8px 0px;
 }

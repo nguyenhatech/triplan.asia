@@ -144,50 +144,54 @@
     </div>
     <div class="home-best-trips home-resorts">
         <div class="container">
-            <div class="resort-item">
-                <div class="row no-gutters">
-                    <div class="resorts-description col-md-12">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <p>Resort 1</p>
-                                <span class="title">Đây là dòng miêu tả về resoit đó nha</span>
+            @forelse ($resorts as $resort)
+                <div class="resort-item">
+                    <div class="row no-gutters">
+                        <div class="resorts-description col-md-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p>{{ $resort->name }}</p>
+                                    <span class="title">{{ $resort->slogan }}</span>
+                                </div>
+                                <a href="#" class="view-more">
+                                    <span>Xem tất cả</span>
+                                    <span><i class="fas fa-chevron-right"></i></span>
+                                </a>
                             </div>
-                            <a href="#" class="view-more">
-                                <span>Xem tất cả</span>
-                                <span><i class="fas fa-chevron-right"></i></span>
-                            </a>
                         </div>
-                    </div>
-                    @forelse ($best_services as $key_service => $service)
-                        <div class="col-sm-12 col-md-3">
-                            <a target="_blank" href="{{ route('web.services.detail', [$service->getTranslation($locale)->slug, $service->uuid]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
-                                <div class="best-trip__item">
-                                    <div class="image">
-                                        <img src="{{ $service->getImage('sm') }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
-                                    </div>
-                                    <div class="info-trip">
-                                        <h3 class="name">{{ shortString(title_case($service->getTranslation($locale)->name), 80) }}</h3>
-                                        <div class="d-flex justify-content-between">
-                                            <span class="address">
-                                                @if($service->getTranslation($locale)->address)
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                    <span>{{ $service->place ? $service->place->getTranslation($locale)->name: '' }}</span>
-                                                @endif
-                                            </span>
+                        @forelse ($resort->services as $key_service => $service)
+                            <div class="col-sm-12 col-md-3">
+                                <a target="_blank" href="{{ route('web.services.detail', [$service->getTranslation($locale)->slug, $service->uuid]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
+                                    <div class="best-trip__item">
+                                        <div class="image">
+                                            <img src="{{ $service->getImage('sm') }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
+                                        </div>
+                                        <div class="info-trip">
+                                            <h3 class="name">{{ shortString(title_case($service->getTranslation($locale)->name), 80) }}</h3>
+                                            <div class="d-flex justify-content-between">
+                                                <span class="address">
+                                                    @if($service->getTranslation($locale)->address)
+                                                        <i class="fas fa-map-marker-alt"></i>
+                                                        <span>{{ $service->place ? $service->place->getTranslation($locale)->name: '' }}</span>
+                                                    @endif
+                                                </span>
 
-                                            <span class="d-flex align-items-center">
-                                                <span class="price">{{ $service->getPrice() }}</span>
-                                            </span>
+                                                <span class="d-flex align-items-center">
+                                                    <span class="price">{{ $service->getPrice() }}</span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    @empty
+                                </a>
+                            </div>
+                        @empty
 
-                    @endforelse
+                        @endforelse
+                    </div>
                 </div>
-            </div>
+            @empty
+
+            @endforelse
         </div>
     </div>
 @endsection

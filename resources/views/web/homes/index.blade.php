@@ -103,11 +103,8 @@
     <div class="home-best-trips">
         <div class="container">
             <div class="row">
-                <div class="home-title col-md-12 d-flex justify-content-center">
-                    <div class="d-flex flex-column align-items-center">
-                        <span class="title">@lang('web_home_favorite_service')</span>
-                        {{-- <span class="description">@lang('web_home_favorite_service_description')</span> --}}
-                    </div>
+                <div class="home-title col-md-12">
+                    <span class="title">@lang('web_home_favorite_service')</span>
                 </div>
             </div>
             <div class="row no-gutters">

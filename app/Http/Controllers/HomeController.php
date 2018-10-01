@@ -60,7 +60,7 @@ class HomeController extends WebController
         // $over_destinations = $this->place->getInterPlaces(8);
 
         // Dịch vụ được yêu thích nhất
-        $best_services      = $this->service->getByQuery(['hot' => 1], 12);
+        $best_services      = $this->service->getByQuery(['hot' => 1], 8);
 
         // Resort
         $resorts = $this->resort->where('status', 1)->take(3)->get();

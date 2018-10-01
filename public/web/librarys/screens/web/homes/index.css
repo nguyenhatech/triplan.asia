@@ -104,7 +104,7 @@
 .home-title .title {
     font-size: 22px;
     font-weight: 700;
-    color: #02A676;
+    color: rgb(72, 72, 72) !important;
 }
 .home-title .description {
     color: #8D9199;
@@ -344,7 +344,7 @@
     margin-bottom: 0px;
     font-size: 26px;
     font-weight: bold;
-    color: #02A676 !important;
+    color: rgb(72, 72, 72) !important;
 }
 .home-resorts .resorts-description .title {
     font-size: 16px;

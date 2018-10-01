@@ -77,7 +77,11 @@ class Service extends Entity
         switch (\App::getLocale()) {
             case 'vi':
                 $currency = $currencyRepo->where('display', 'VND')->where('status', 1)->first();
-                return number_format($this->getPriceByDayOption('daily'),0,",",".") . $currency->unit;
+                $price = $this->getPriceByDayOption('daily');
+                if (!$price) {
+                    return 'Liên hệ';
+                }
+                return number_format($price,0,",",".") . $currency->unit;
                 break;
             case 'en':
                 $currency = $currencyRepo->where('display', 'USD')->where('status', 1)->first();

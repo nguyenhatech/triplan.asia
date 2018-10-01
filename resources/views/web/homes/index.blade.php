@@ -113,7 +113,7 @@
             <div class="row no-gutters">
                 @forelse ($best_services as $key_service => $service)
                     <div class="col-sm-12 col-md-3">
-                        <a href="{{ route('web.services.detail', [$service->getTranslation($locale)->slug, $service->uuid]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
+                        <a target="_blank" href="{{ route('web.services.detail', [$service->getTranslation($locale)->slug, $service->uuid]) }}" class="link-best-trip__item" title="{{ $service->getTranslation($locale)->name }}">
                             <div class="best-trip__item">
                                 <div class="image">
                                     <img src="{{ $service->getImage('sm') }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">

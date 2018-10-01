@@ -315,7 +315,7 @@
 
 
         /*// Fix cứng Image Full 100% cho đẹp*/
-        .service-info img {
+        .service-info:not('#map1') img {
             width: 100% !important;
             height: auto !important;
         }
@@ -570,7 +570,7 @@
                     </div>
                     <div id="map1" class="service-what_to_expect">
                         <h4>@lang('web_service_map')</h4>
-                        <div id="map" style="height: 0px; background-color: #ccc"></div>
+                        <div id="map" style="height: 350px; background-color: #ccc"></div>
                     </div>
                 </div>
             </div>
@@ -648,9 +648,9 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-{{--     <script async
+    <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
-    </script> --}}
+    </script>
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>

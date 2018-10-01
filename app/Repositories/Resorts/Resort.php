@@ -39,6 +39,6 @@ class Resort extends Entity
 
     public function services()
     {
-        return $this->hasMany('App\Repositories\Services\Service', 'resort_id', 'id');
+        return $this->hasMany('App\Repositories\Services\Service', 'resort_id', 'id')->take(8);
     }
 }

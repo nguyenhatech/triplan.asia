@@ -161,6 +161,7 @@
 /*//====================================*/
 .home-best-trips {
     background-color: #f2f2f2;
+    padding-bottom: 15px;
 }
 .home-best-trips .link-best-trip__item {
     text-decoration: none;

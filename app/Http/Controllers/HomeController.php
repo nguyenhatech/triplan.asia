@@ -11,6 +11,7 @@ use App\Repositories\Banners\BannerRepository;
 use App\Repositories\Services\ServiceRepository;
 use App\Repositories\ServiceTypes\ServiceTypeRepository;
 use App\Repositories\ServiceGroups\ServiceGroupRepository;
+use App\Repositories\Resorts\Resort;
 
 class HomeController extends WebController
 {
@@ -20,14 +21,16 @@ class HomeController extends WebController
         PlaceRepository $place,
         ServiceRepository $service,
         ServiceTypeRepository $serviceType,
+        Resort $resort,
         ServiceGroupRepository $serviceGroup)
     {
         parent::__construct();
-        $this->banner         = $banner;
-        $this->place         = $place;
-        $this->service       = $service;
-        $this->serviceType   = $serviceType;
-        $this->serviceGroup  = $serviceGroup;
+        $this->banner       = $banner;
+        $this->place        = $place;
+        $this->service      = $service;
+        $this->serviceType  = $serviceType;
+        $this->serviceGroup = $serviceGroup;
+        $this->resort       = $resort;
     }
 
     // Thay đổi ngôn ngữ hệ thống
@@ -60,6 +63,7 @@ class HomeController extends WebController
         $best_services      = $this->service->getByQuery(['hot' => 1], 12);
 
         // Resort
+        $resorts = $this->resort->where('status', 1)->take(3)->get();
 
         return view('web.homes.index')->with([
             'vn_destinations'       => $vn_destinations,
@@ -67,7 +71,9 @@ class HomeController extends WebController
             'best_services'         => $best_services,
             'places'                => $places,
             'hotTours'              => $hotTours,
-            'banners'               => $banners
+            'banners'               => $banners,
+            'resorts'               => $resorts
+
         ]);
     }
 

@@ -21,4 +21,7 @@ return [
 	App\Providers\BookingServiceProvider::class,
 	App\Providers\CustomerServiceProvider::class,
 	App\Providers\BookingDetailServiceProvider::class,
+	App\Providers\ResortServiceProvider::class,
+	App\Providers\ResortContentServiceProvider::class,
+	App\Providers\ResortComboServiceProvider::class,
 ];

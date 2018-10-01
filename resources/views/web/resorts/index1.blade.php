@@ -220,7 +220,7 @@
             .class-fixed {
                 position: absolute;
                 bottom: 0px;
-                width: 100%;
+                width: 100px;
             }
             .menu-mobile {
                 position: relative;
@@ -342,13 +342,15 @@
     </head>
     <body>
         <div id="fullpage">
-            <div class="section top-section parallax" style="background-image: url('http://flamingodailai.com/wp-content/uploads/Resize-FDL-7.jpg');">
+            <div class="section top-section parallax" style="background-image: url('{{ $resort->getImage() }}');">
               <div class="caption d-flex flex-column justify-content-center align-items-center">
-                <h1 class="resort-name">FLAMINGO ĐẠI LẢI RESORT</h1>
-                <h2 class="resort-slogan">Sống sang trọng giữa thiên nhiên</h2>
+                <h1 class="resort-name">{{ $resort->name }}</h1>
+                <h2 class="resort-slogan">{{ $resort->slogan }}</h2>
+                @if($resort->video)
                 <div class="play-button" data-toggle="modal" data-target="#videoModal">
                     <img src="{{ asset('web/images/icons/play-button.png') }}" title="Xem video">
                 </div>
+                @endif
               </div>
             </div>
 
@@ -569,16 +571,28 @@
 
             <div class="d-sm-none class-fixed">
                 <div class="menu-mobile d-flex justify-content-around align-items-center">
-                    <span class="menu-mobile__lang"><a href="#">English</a></span>
+                    @if (LaravelLocalization::getCurrentLocale() == 'vi')
+                    <span class="menu-mobile__lang"><a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">English</a></span>
+                    @else
+                    <span class="menu-mobile__lang"><a href="{{ LaravelLocalization::getLocalizedURL('vi', null, [], true) }}">Tiếng việt</a></span>
+                    @endif
                     <span class="menu-mobile__phone"><a href="tel:+84945245115"><i class="fas fa-phone"></i></a></span>
-                    <span class="menu-mobile__book" data-toggle="modal" data-target="#booking-modal">Đặt ngay</span>
+                    <span class="menu-mobile__book" data-toggle="modal" data-target="#booking-modal">@lang('resort_book_now')</span>
                 </div>
             </div>
             <div class="class-fixed d-none d-sm-block">
                 <div class="menu-desktop d-flex flex-column justify-content-between align-items-center align-content-between">
-                    <span class="menu-desktop__lang"><a href="#" title="English version">EN</a></span>
+                    @if (LaravelLocalization::getCurrentLocale() == 'vi')
+                    <span class="menu-desktop__lang"><a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}" title="English version">
+                        <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-0415ac5550fe366b08ab68ac2b33476c.png" width="24px">
+                    </a></span>
+                    @else
+                    <span class="menu-desktop__lang"><a href="{{ LaravelLocalization::getLocalizedURL('vi', null, [], true) }}" title="Tiếng Việt">
+                        <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-5f3ddff8a9709acb35c0b2bf3fb59994.png" width="24px">
+                    </a></span>
+                    @endif
                     <span class="menu-desktop__phone"><a href="tel:+84945245115"><i class="fas fa-phone"></i></a></span>
-                    <span class="menu-desktop__book" data-toggle="modal" data-target="#booking-modal">Đặt ngay</span>
+                    <span class="menu-desktop__book" data-toggle="modal" data-target="#booking-modal">@lang('resort_book_now')</span>
                 </div>
             </div>
         </div>
@@ -602,76 +616,71 @@
                 </div>
             </div>
         </div>
-    </body>
-    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/librarys/fontawesome/all.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/libraries/fullpage/fullpage.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/libraries/fullpage/scrolloverflow.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/libraries/fullpage/fullpage.extensions.min.js') }}"></script>
-    <script type="text/javascript">
-        var player;
+        <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/librarys/fontawesome/all.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/libraries/fullpage/fullpage.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/libraries/fullpage/scrolloverflow.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/libraries/fullpage/fullpage.extensions.min.js') }}"></script>
+        <script type="text/javascript">
+            var player;
 
-        function onYouTubePlayerAPIReady() {
-          // create the global player from the specific iframe (#video)
-          player = new YT.Player('videoIframe', {
-            events: {
-              // call this function when player is ready to use
-              'onReady': onPlayerReady
+            function onYouTubePlayerAPIReady() {
+              // create the global player from the specific iframe (#video)
+              player = new YT.Player('videoIframe', {
+                events: {
+                  // call this function when player is ready to use
+                  'onReady': onPlayerReady
+                }
+              });
             }
-          });
-        }
 
-        function onPlayerReady(event) {
-            $('#videoModal').on('shown.bs.modal', function (event) {
-              player.playVideo();
+            function onPlayerReady(event) {
+                $('#videoModal').on('shown.bs.modal', function (event) {
+                  player.playVideo();
+                });
+                $('#videoModal').on('hidden.bs.modal', function () {
+                  player.pauseVideo();
+                });
+            }
+
+            var tag = document.createElement('script');
+            tag.src = "//www.youtube.com/player_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        </script>
+        <script type="text/javascript">
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                items: 1,
+                loop: true,
+                lazyLoad: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                smartSpeed: 1000
             });
-            $('#videoModal').on('hidden.bs.modal', function () {
-              player.pauseVideo();
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#fullpage').fullpage({
+                    //options here
+                    autoScrolling:true,
+                    scrollHorizontally: true,
+                    licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+                    scrollingSpeed: 1000,
+                    autoScrolling: true,
+                    normalScrollElements: '#normal-scroll',
+                    scrollOverflow: true,
+                    fixedElements: '.class-fixed'
+                });
+
+                $.fn.fullpage.setAllowScrolling(true);
             });
-        }
-
-        var tag = document.createElement('script');
-        tag.src = "//www.youtube.com/player_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    </script>
-    <script type="text/javascript">
-        $('.owl-carousel').owlCarousel({
-            loop:true,
-            margin:10,
-            nav:true,
-            items: 1,
-            loop: true,
-            lazyLoad: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            smartSpeed: 1000
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#fullpage').fullpage({
-                //options here
-                autoScrolling:true,
-                scrollHorizontally: true,
-                licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
-                scrollingSpeed: 1000,
-                autoScrolling: true,
-                normalScrollElements: '#normal-scroll',
-                scrollOverflow: true,
-                fixedElements: '.class-fixed'
-            });
-
-            $.fn.fullpage.setAllowScrolling(true);
-        });
-    </script>
-    <script type="text/javascript">
-        $('.menu-mobile__book').click(function(){
-
-        });
-    </script>
+        </script>
+    </body>
 </html>

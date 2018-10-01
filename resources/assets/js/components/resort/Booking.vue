@@ -2,7 +2,7 @@
     <div class="row">
         <div v-if="stepCurrent === 1" class="progress-box">
             <div class="col-12">
-                <h5>Bạn dự định đi cùng ai?</h5>
+                <h5>{{ trans ? trans.resort_trip_type : 'Bạn dự định đi cùng ai?' }}</h5>
             </div>
             <div class="row text-center d-flex justify-content-center mr-1 ml-1">
                 <div v-for="(item, index) in typeList" :key="index" class="col-12 col-sm-4 pl-1 pr-1">
@@ -18,7 +18,7 @@
 
         <div v-if="stepCurrent === 2" class="progress-box">
             <div class="col-12">
-                <h5>Bạn thích ở căn hộ nào?</h5>
+                <h5>{{ trans ? trans.resort_accommodation_title : 'Bạn thích ở căn hộ nào?' }}</h5>
             </div>
             <div class="row">
                 <div v-for="(item, index) in accommodationList" :key="index" class="col-12">
@@ -33,7 +33,7 @@
         </div>
         <div v-if="stepCurrent === 3" class="progress-box">
             <div class="col-12">
-                <h5>Trải nghiệm ẩm thực</h5>
+                <h5>{{ trans ? trans.resort_food_title : 'Trải nghiệm ẩm thực'}}</h5>
             </div>
             <div class="row pl-1 pr-1">
                 <div v-for="(item, index) in restaurantList" :key="index" class="col-12 col-sm-6 pl-1 pr-1">
@@ -48,7 +48,7 @@
         </div>
         <div v-if="stepCurrent === 4" class="progress-box">
             <div class="col-12">
-                <h5>Show diễn, tham quan thú vị</h5>
+                <h5>{{ trans ? trans.resort_attraction_title : 'Show diễn, tham quan thú vị'}}</h5>
             </div>
             <div class="row pl-1 pr-1">
                 <div v-for="(item, index) in attractionList" :key="index" class="col-12 col-sm-6 pl-1 pr-1">
@@ -63,7 +63,7 @@
         </div>
         <div v-if="stepCurrent === 5" class="progress-box">
             <div class="col-12">
-                <h5>Còn rất nhiều hoạt động thú vị nữa</h5>
+                <h5>{{ trans ? trans.resort_activity_title : 'Còn rất nhiều hoạt động thú vị nữa' }}</h5>
             </div>
             <div class="row pl-1 pr-1">
                 <div v-for="(item, index) in activityList" :key="index" class="col-12 col-sm-6 pl-1 pr-1">
@@ -78,7 +78,7 @@
         </div>
         <div v-if="stepCurrent === 6" class="progress-box">
             <div class="col-12">
-                <h5>Danh sách dịch vụ bạn đã chọn</h5>
+                <h5>{{ trans ? trans.resort_sumery : 'Danh sách dịch vụ bạn đã chọn' }}</h5>
             </div>
             <div class="col-12">
                 <p v-if="accommodationSelected"><i class="fas fa-home"></i> {{ accommodationSelectedName }}</p>
@@ -106,24 +106,27 @@
         </div>
         <div v-if="stepCurrent === 7" class="progress-box">
             <div class="col-12">
-                <h5>Nhập thông tin liên hệ</h5>
+                <h5>{{ trans ? trans.resort_booking_form_title : 'Nhập thông tin liên hệ' }}</h5>
             </div>
             <div class="col-12">
                 <form>
+                    <div v-if="formFail" class="alert alert-danger" role="alert">
+                        {{ trans ? trans.resort_booking_form_error : 'Bạn chưa nhập đủ thông tin' }}
+                    </div>
                     <div class="form-group">
-                        <label for="customerName">Họ tên</label>
-                        <input type="text" class="form-control" id="customerName" aria-describedby="emailHelp" placeholder="Nhập họ tên của quý khách">
+                        <label for="customerName">{{ trans ? trans.resort_booking_form_name : 'Họ tên' }} <span class="text-danger">*</span></label>
+                        <input v-model="formSubmit.name" type="text" required class="form-control" id="customerName" aria-describedby="emailHelp" placeholder="Nhập họ tên của quý khách">
                     </div>
                     <div class="form-group">
                         <label for="customerEmail">Email</label>
-                        <input type="email" class="form-control" id="customerEmail" aria-describedby="emailHelp" placeholder="Địa chỉ email">
+                        <input v-model="formSubmit.email" type="email" class="form-control" id="customerEmail" aria-describedby="emailHelp" placeholder="Địa chỉ email">
                     </div>
                     <div class="form-group">
-                        <label for="customerPhone">Số điện thoại</label>
-                        <input type="text" class="form-control" id="customerPhone" placeholder="Số điện thoại">
+                        <label for="customerPhone">{{ trans ? trans.resort_booking_form_phone : 'Số điện thoại' }} <span class="text-danger">*</span></label>
+                        <input v-model="formSubmit.phone" type="text" required class="form-control" id="customerPhone" placeholder="Số điện thoại">
                     </div>
                     <div class="form-group">
-                        <label for="schedualeDate">Ngày đi</label>
+                        <label for="schedualeDate">{{ trans ? trans.resort_booking_form_check_in : 'Ngày đi' }}</label>
                         <datepicker
                             ref="programaticOpen"
                             :inline="false"
@@ -133,26 +136,26 @@
                         </datepicker>
                     </div>
                     <div class="form-group">
-                        <label for="duration">Quý khách muốn đi mấy ngày?</label>
-                        <input type="number" class="form-control" id="duration" placeholder="Số ngày đi">
+                        <label for="duration">{{ trans ? trans.resort_booking_form_duration : 'Quý khách muốn đi mấy ngày?' }}</label>
+                        <input v-model="formSubmit.duration" type="number" class="form-control" id="duration" placeholder="Số ngày đi">
                     </div>
                 </form>
             </div>
         </div>
         <div v-if="stepCurrent === 8" class="progress-box">
             <div class="col-12">
-                <h5 class="text-center">Booking thành công!</h5>
+                <h5 class="text-center">{{ trans ? trans.resort_booking_success : 'Booking thành công!' }}</h5>
                 <p class="text-center text-success"><i class="far fa-check-circle fa-2x"></i></p>
-                <p>Bộ phận chăm sóc khách hàng sẽ liên hệ với quý khách trong thời gian sớm nhất để xác nhận lịch trình.</p>
+                <p>{{ trans ? trans.resort_booking_thankyou : 'Bộ phận chăm sóc khách hàng sẽ liên hệ với quý khách trong thời gian sớm nhất để xác nhận lịch trình.' }}</p>
             </div>
         </div>
         <div v-if="stepCurrent === 7" class="col-12 text-center">
-            <button type="button" class="btn btn-primary btn-sm" @click="previousStep()">Quay lại</button>
-            <button type="button" class="btn btn-success btn-sm" @click="submitBooking()"><i class="far fa-thumbs-up"></i> Xong</button>
+            <button type="button" class="btn btn-light btn-sm" @click="previousStep()">{{ trans ? trans.resort_button_back : 'Quay lại' }}</button>
+            <button type="button" class="btn btn-success btn-sm" @click="submitBooking()"><i class="far fa-thumbs-up"></i> {{ trans ? trans.resort_button_finish : 'Xong' }}</button>
         </div>
         <div v-if="stepCurrent < 7" class="col-12 text-center">
-            <button type="button" class="btn btn-primary btn-sm" @click="previousStep()">Quay lại</button>
-            <button type="button" class="btn btn-primary btn-sm" @click="nextStep()">Tiếp tục</button>
+            <button type="button" class="btn btn-light btn-sm" @click="previousStep()">{{ trans ? trans.resort_button_back : 'Quay lại' }}</button>
+            <button type="button" class="btn btn-primary btn-sm" @click="nextStep()">{{ trans ? trans.resort_button_continue : 'Tiếp tục' }}</button>
         </div>
     </div>
 </template>
@@ -160,7 +163,8 @@
 <script>
     import { findIndex } from 'lodash'
     import Datepicker from 'vuejs-datepicker'
-    import {vi} from 'vuejs-datepicker/dist/locale'
+    import { vi, en } from 'vuejs-datepicker/dist/locale'
+    import { mapActions, mapGetters } from 'vuex'
     export default {
         name: 'ResortBooking',
         components: {
@@ -176,10 +180,19 @@
                 default: ''
             }
         },
+        mounted () {
+            if (this.trans === null) {
+                this.fetchTranslations()
+            }
+        },
         data () {
             return {
                 stepCurrent: 1,
                 type: 1,
+                datePickerLanguages: {
+                    vi: vi,
+                    en: en
+                },
                 combo: {
                     accommodation_intro: 'Nhà nghỉ',
                     accommodation_list: [1, 2, 3],
@@ -280,11 +293,14 @@
                     name: '',
                     email: '',
                     phone: '',
-                    date: ''
-                }
+                    date: '',
+                    duration: ''
+                },
+                formFail: false
             }
         },
         computed: {
+            ...mapGetters(['trans']),
             accommodationSelectedName () {
                 if (!this.accommodationSelected) {
                     return ''
@@ -294,6 +310,7 @@
             }
         },
         methods: {
+            ...mapActions(['fetchTranslations']),
             previousStep () {
                 if (this.stepCurrent > 1) {
                     this.stepCurrent--
@@ -308,7 +325,13 @@
                 this.type = value
             },
             submitBooking () {
-                this.stepCurrent = 8
+                if (!this.formSubmit.name || !this.formSubmit.phone) {
+                    this.formFail = true
+                    return
+                } else {
+                    this.formFail = false
+                    this.stepCurrent = 8
+                }
                 console.log('submitBooking')
             },
             selectAccommodation (id) {

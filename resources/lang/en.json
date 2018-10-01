@@ -77,6 +77,26 @@
     "register_name": "First and Last name",
     "register_btn_login_txt": "Register",
     "register_btn_register_with_FB_txt": "Register with Facebook",
-    "register_sugget_login_txt": "Do you already have an account. Log in now"
+    "register_sugget_login_txt": "Do you already have an account. Log in now",
+
+    "__________________________________________comment": "Resort",
+    "resort_book_now": "Book now",
+    "resort_booking_form_error": "Check your information, please!",
+    "resort_trip_type": "Who will you travel with?",
+    "resort_accommodation_title": "Choose accommodation",
+    "resort_food_title": "Restaurant you want...",
+    "resort_attraction_title": "Some attraction...",
+    "resort_activity_title": "More exciting activities...",
+    "resort_sumery": "Your choosed",
+    "resort_booking_form_title": "Your information",
+    "resort_booking_form_name": "Name",
+    "resort_booking_form_phone": "Phone",
+    "resort_booking_form_check_in": "Checkin Date",
+    "resort_booking_form_duration": "Duration Time (day)",
+    "resort_booking_success": "Booking success!",
+    "resort_booking_thankyou": "We will contact you as soon as possible to confirm the schedule.",
+    "resort_button_continue": "Continue",
+    "resort_button_back": "Back",
+    "resort_button_finish": "Finish"
 
 }

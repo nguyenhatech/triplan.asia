@@ -77,6 +77,26 @@
     "register_name": "Họ và tên",
     "register_btn_login_txt": "Đăng kí",
     "register_btn_register_with_FB_txt": "Đăng kí bằng Facebook",
-    "register_sugget_login_txt": "Bạn đã có tài khoản. Đăng nhập ngay"
+    "register_sugget_login_txt": "Bạn đã có tài khoản. Đăng nhập ngay",
+
+    "__________________________________________comment": "Resort",
+    "resort_book_now": "Đặt ngay",
+    "resort_trip_type": "Bạn dự định đi cùng ai?",
+    "resort_accommodation_title": "Bạn thích ở căn hộ nào?",
+    "resort_food_title": "Trải nghiệm ẩm thực",
+    "resort_attraction_title": "Show diễn, tham quan thú vị",
+    "resort_activity_title": "Còn rất nhiều hoạt động thú vị nữa",
+    "resort_sumery": "Danh sách dịch vụ bạn đã chọn",
+    "resort_booking_form_error": "Bạn chưa nhập đủ thông tin",
+    "resort_booking_form_title": "Nhập thông tin liên hệ",
+    "resort_booking_form_name": "Họ tên",
+    "resort_booking_form_phone": "Số điện thoại",
+    "resort_booking_form_check_in": "Ngày đi",
+    "resort_booking_form_duration": "Quý khách muốn đi mấy ngày?",
+    "resort_booking_success": "Booking thành công!",
+    "resort_booking_thankyou": "Bộ phận chăm sóc khách hàng sẽ liên hệ với quý khách trong thời gian sớm nhất để xác nhận lịch trình.",
+    "resort_button_continue": "Tiếp tục",
+    "resort_button_back": "Quay lại",
+    "resort_button_finish": "Xong"
 
 }

@@ -323,3 +323,39 @@
 .typeahead .dropdown-item {
     text-transform: capitalize;
 }
+
+
+/*// HOME RESORTS*/
+.home-resorts {
+    background-color: #fff;
+    min-height: 500px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+.home-resorts .resorts-description {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+}
+.home-resorts .resorts-description p {
+    margin-bottom: 0px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(72, 72, 72) !important;
+}
+.home-resorts .resorts-description .title {
+    font-size: 16px;
+    color: rgb(72, 72, 72) !important;
+    font-weight: 300;
+}
+.home-resorts .resorts-description .view-more {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    color: #02A676 !important;
+}
+.home-resorts .resort-item {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}

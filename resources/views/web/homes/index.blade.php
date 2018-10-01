@@ -116,7 +116,7 @@
                                     <img src="{{ $service->getImage('sm') }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
                                 </div>
                                 <div class="info-trip">
-                                    <h3 class="name">{{ shortString(title_case($service->getTranslation($locale)->name), 80) }}</h3>
+                                    <h3 class="name">{{ shortString(title_case($service->getTranslation($locale)->name), 70) }}</h3>
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
                                             @if($service->getTranslation($locale)->address)

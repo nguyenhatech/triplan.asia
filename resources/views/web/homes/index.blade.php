@@ -116,7 +116,7 @@
                                     <img src="{{ $service->getImage('sm') }}" alt="{{ $service->getTranslation($locale)->name }}" title="{{ $service->getTranslation($locale)->name }}">
                                 </div>
                                 <div class="info-trip">
-                                    <h3 class="name">{{ shortString(title_case($service->getTranslation($locale)->name), 80) }}</h3>
+                                    <h3 class="name">{{ shortString(title_case($service->getTranslation($locale)->name), 70) }}</h3>
                                     <div class="d-flex justify-content-between">
                                         <span class="address">
                                             @if($service->getTranslation($locale)->address)
@@ -150,7 +150,7 @@
                                     <p>{{ $resort->name }}</p>
                                     <span class="title">{{ $resort->slogan }}</span>
                                 </div>
-                                <a href="#" class="view-more">
+                                <a target="_blank" href="{{ route('resorts.show', $resort->id) }}" class="view-more">
                                     <span>Xem tất cả</span>
                                     <span><i class="fas fa-chevron-right"></i></span>
                                 </a>

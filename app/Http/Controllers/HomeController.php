@@ -57,7 +57,7 @@ class HomeController extends WebController
         $over_destinations = $this->place->getInterPlaces(8);
 
         // Dịch vụ được yêu thích nhất
-        $best_services      = $this->service->getByQuery(['hot' => 1], 9);
+        $best_services      = $this->service->getByQuery(['hot' => 1], 12);
 
         return view('web.homes.index')->with([
             'vn_destinations'       => $vn_destinations,

@@ -59,6 +59,8 @@ class HomeController extends WebController
         // Dịch vụ được yêu thích nhất
         $best_services      = $this->service->getByQuery(['hot' => 1], 12);
 
+        // Resort
+
         return view('web.homes.index')->with([
             'vn_destinations'       => $vn_destinations,
             'over_destinations'     => $over_destinations,

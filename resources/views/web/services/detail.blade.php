@@ -315,9 +315,13 @@
 
 
         /*// Fix cứng Image Full 100% cho đẹp*/
-        .service-info:not('#map1') img {
+        .service-info img {
             width: 100% !important;
             height: auto !important;
+        }
+        #map1 img {
+            width: 18px !important;
+            height: 18px !important;
         }
 
         /*  ----------------------------------------------------------------------------

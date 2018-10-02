@@ -17,6 +17,7 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
     {
         $status = array_get($params, 'status', null);
         $place = array_get($params, 'place_id', null);
+        $resort = array_get($params, 'resort_id', null);
         $type = array_get($params, 'type', null);
         $group = array_get($params, 'group', null);
         $minPrice = array_get($params, 'min_price', null);
@@ -40,6 +41,9 @@ class DbServiceRepository extends BaseRepository implements ServiceRepository
         }
         if (! is_null($place)) {
             $model = $model->where('place_id', $place);
+        }
+        if (! is_null($resort)) {
+            $model = $model->where('resort_id', $resort);
         }
         if (! is_null($type)) {
             $model = $model->where('service_type_id', $type);

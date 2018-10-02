@@ -10,4 +10,9 @@ class DbResortRepository extends BaseRepository implements ResortRepository
         $this->model = $resort;
     }
 
+    public function getBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
+    }
+
 }

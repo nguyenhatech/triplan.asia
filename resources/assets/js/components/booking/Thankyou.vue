@@ -52,101 +52,85 @@
                     </td>
                  </tr>
                  <tr>
-                    <td colspan="6" style="background-color:#fff;padding-bottom:30px">
-                       <table cellpadding="0" cellspacing="0" align="center" width="100%">
-                          <tbody>
-                             <tr>
-                                <td align="left" style="font-weight:bold;font-size:14px;font-family:Arial;color:#a9a9a9;padding:23px 0px 12px 30px">
-                                   Khởi hành
-                                </td>
-                                <td align="center" style="width:40px">&nbsp;</td>
-                             </tr>
-                             <tr>
-                                <td align="left" style="padding-left:30px">
-                                   <p style="font-size:24px;font-family:Arial;color:#222;margin:0px;line-height:26px">
-                                        {{ booking.timeGoing }}
-                                   </p>
-                                </td>
-                             </tr>
-                          </tbody>
-                       </table>
-                    </td>
-                 </tr>
-                 <tr>
-                    <td height="30px" style="float:left">&nbsp;</td>
-                 </tr>
-                 <tr>
                     <td colspan="6" style="background-color:#fff; padding:0px 30px">
-                       <table cellpadding="0" cellspacing="0" width="100%" style="padding:0px 30px">
-                          <tbody>
-                             <tr>
-                                <td style="font-size:14px;font-family:Arial;padding:10px 0px;text-align:left;border-bottom:1px solid #ddd">
-                                   <p style="margin:2px 0px">
-                                        <strong>
-                                            {{ booking.nameService }}
-                                        </strong>
-                                   </p>
-                                </td>
-                                <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
-                                   <p style="margin:2px 0px"></p>
-                                </td>
-                             </tr>
-                             <tr>
-                                <td style="font-size:14px;font-family:Arial;color:#666666;padding:10px 0px;text-align:left;border-bottom:1px solid #ddd">
-                                   <p style="margin:2px 0px;color:#a0a0a0">Dịch vụ</p>
-                                </td>
-                                <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
-                                    <div v-for="item in booking.infomation" :key="item.id">
-                                        <span>{{item.quantity}} x {{ item.service_package_name }}</span>
-                                        =
-                                        <span>{{item.total_money_origin | vnd}}</span>
-                                    </div>
-                                </td>
-                             </tr>
-                             <tr>
-                                <td style="font-size:14px;font-family:Arial;color:#666666;padding:10px 0px;text-align:left;border-bottom:1px solid #ddd">
-                                   <p style="margin:2px 0px;color:#a0a0a0">Khuyến mại</p>
-                                </td>
-                                <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
-                                    <div v-for="item in booking.infomation" :key="item.id">
-                                        <div v-if="item.quantity_free">
-                                            <span>{{item.quantity_free}} x {{ item.service_package_name }}</span>
-                                            =
-                                            <span>{{item.total_money_free | vnd}}</span>
-                                        </div>
-                                    </div>
-                                </td>
-                             </tr>
-                             <tr>
-                                <td style="font-size:14px;font-family:Arial;color:#1b1b1b;padding:10px 0px;text-align:left;border-bottom:1px solid #ddd">
-                                   <strong>Tổng:</strong>
-                                </td>
-                                <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
-                                   <p style="margin:2px 0px">&nbsp;</p>
-                                   <p style="margin:2px 0px;font-size:24px;color:#91bb15">
-                                       {{ booking.payment_total | vnd }}
-                                   </p>
-                                </td>
-                             </tr>
-                             <tr>
-                                <td style="font-size:14px;font-family:Arial;color:#1b1b1b;padding:10px 0px;text-align:left;border-bottom:1px solid #ddd">
-                                   <strong>Thanh toán:</strong>
-                                   <p style="margin:2px 0px;color:#a0a0a0">Đã bao gồm thuế VAT và phí dịch vụ.</p>
-                                </td>
-                                <td style="font-size:14px;font-family:Arial;color:#000;padding:10px 0px;text-align:right;border-bottom:1px solid #ddd">
-                                   <p style="margin:2px 0px">&nbsp;</p>
-                                   <p style="margin:2px 0px;font-size:24px;color:#91bb15">
-                                        {{ booking.payment_total | vnd }}
-                                   </p>
-                                </td>
-                             </tr>
-                             <tr>
-                                <td colspan="2" style="font-size:14px;font-family:Arial;color:#666;padding:10px 0px">Vui lòng
-                                   lưu ý: Ăn uống ngoài chương trình, vé thăm quan các điểm, hướng dẫn viên. Dịch vụ ngoài gói khuyến mãi
-                                </td>
-                             </tr>
-                          </tbody>
-                       </table>
+                      <div>
+                        <div v-for="(bookingCurrent, key) in booking.details" style="margin-top: 20px;font-size:14px">
+                          <!-- Tên dịch vụ -->
+                          <div class="border-bottom-ddd"">
+                            <strong class="margin-10">
+                                {{ key + 1 }}/ {{ bookingCurrent.service_name }}
+                            </strong>
+                            <p class="margin-10" style="color:gray;">
+                              Gói: {{ bookingCurrent.service_package_parent_name }} - Ngày: {{ bookingCurrent.date }}
+                            </p>
+                          </div>
+                          <!-- Thông tin dịch vụ -->
+                          <div class="display-flex border-bottom-ddd">
+                            <div class="margin-10 width-25">
+                              <p class="color-a0a0a0 mar-bottom-0">Dịch vụ</p>
+                            </div>
+                            <div class="width-100">
+                              <div v-for="item in bookingCurrent.infomation">
+                                <div class="margin-10 display-flex content-between">
+                                  <div class="margin-auto">
+                                    <p class="mar-bottom-0">
+                                      {{ item.quantity }} x {{ item.service_package_name }}
+                                    </p>
+                                  </div>
+                                  <div class="margin-auto">
+                                    <p class="mar-bottom-0" style="width:130px; text-align: left">
+                                        = {{ item.total_money_origin | vnd }}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- khuyến mại -->
+                          <div class="border-bottom-ddd display-flex">
+                            <div class="margin-10 width-25">
+                              <p class="color-a0a0a0 mar-bottom-0">Khuyến mại</p>
+                            </div>
+                            <div class="width-100">
+                              <div v-for="item in bookingCurrent.infomation">
+                                <div v-if="item.quantity_free" class="margin-10 display-flex content-between">
+                                  <div class="margin-auto">
+                                    <p class="mar-bottom-0">
+                                        {{ item.quantity_free }} x {{ item.service_package_name }}
+                                    </p>
+                                  </div>
+                                  <div class="margin-auto">
+                                    <p class="mar-bottom-0" style="width:130px; text-align: left">
+                                        = - {{ item.total_money_free | vnd }}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Tổng tiền -->
+                        <div class="display-flex content-between margin-10 border-bottom-ddd">
+                          <strong class="mar-bottom-0">Tổng:</strong>
+                          <p class="mar-bottom-0" style="font-size:24px;color:#91bb15">{{ booking.payment_total | vnd }}</p>
+                        </div>
+                        <!-- Thanh toán -->
+                        <div class="display-flex content-between margin-10 border-bottom-ddd">
+                          <div>
+                            <strong>Thanh toán:</strong>
+                            <p style="margin:2px 0px;color:#a0a0a0">Đã bao gồm thuế VAT và phí dịch vụ.</p>
+                          </div>
+                          <div>
+                            <p class="mar-bottom-0" style="font-size:24px;color:#91bb15">
+                              {{ booking.payment_total | vnd }}
+                            </p>
+                          </div>
+                        </div>
+                        <!-- Lưu ý -->
+                        <div class="margin-10">
+                          <p>Lưu ý: Ăn uống ngoài chương trình, vé thăm quan các điểm, hướng dẫn viên. Dịch vụ ngoài gói khuyến mãi</p>
+                        </div>
+                      </div>
                     </td>
                  </tr>
                  <tr>
@@ -292,5 +276,37 @@
 </script>
 
 <style type="text/css" scoped>
+.padding-15{
+  padding: 15px 0;
+}
+.margin-10{
+  padding: 10px 0;
+}
+.margin-auto{
+  margin: auto 0;
+}
+.mar-bottom-0{
+  margin-bottom: 0px;
+}
 
+.display-flex{
+  display: flex;
+}
+.content-between{
+  justify-content: space-between
+}
+
+.width-25{
+  width: 25%;
+}
+.width-100{
+  width: 100%;
+}
+
+.border-bottom-ddd{
+  border-bottom:1px solid #ddd
+}
+.color-a0a0a0{
+  color: #a0a0a0;
+}
 </style>

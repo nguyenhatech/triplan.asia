@@ -186,11 +186,12 @@
             addColumnToServicePackage (servicePackageParent) {
                 let _this = this
                 servicePackageParent.map(function(index) {
-                    // Kiểm tra nếu có cái index nào mà giống với cái đang dc chọn thì gan lại
-                    if (_this.item.id === index.id) {
-                        _this.item = index
-                    }
                     index.checked = false;
+                    // Kiểm tra nếu có cái index nào mà giống với cái đang dc chọn thì gan lại
+                    if (_this.item.id && _this.item.id === index.id) {
+                        index.checked = true
+                        _this.setServicePackageName(index.name)
+                    }
                     index.service_package_children_actives.data.map(function(item) {
                         item.quantity = 0;
                         return item;
@@ -227,7 +228,6 @@
                                     this.addColumnToServicePackage(response.data.service_package_parent_actives.data);
                                     this.setDisabledDates(response.data.disabledDates);
                                     this.setServiceInfo(response.data);
-                                    this.openPackageChildren(this.item)
                                     this.item = {}
                                     break
                                 case 404:

@@ -34,6 +34,7 @@ Route::group([
     Route::get('/search-places', 'PlaceController@search')->name('places.search');
     Route::get('/kham-pha-vietnam', 'PlaceController@vietnam')->name('places.vietnam');
     Route::get('/kham-pha-the-gioi', 'PlaceController@international')->name('places.international');
+    Route::get('/kham-pha-resort', 'PlaceController@resort')->name('places.resort');
 
     // Điểu khoản & chính sách
     Route::get('/privacy', 'PageController@privacy')->name('privacy');

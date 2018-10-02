@@ -5,6 +5,7 @@
     "login": "Đăng nhập",
     "menu_vietnam": "Du lịch Việt Nam",
     "menu_international": "Du lịch nước ngoài",
+    "menu_resort": "Khám phá Resort",
     "scroll_to_top": "Lên đầu trang",
     "dashbroad": "Thông tin cá nhân",
 
@@ -56,6 +57,7 @@
 
     "places_vietnam_title": "Du lịch Việt Nam",
     "places_international_title": "Cùng Triplan khám phá thế giới",
+    "places_resort_title": "Cùng Triplan khám phá Resort",
     "places_gallery_title": "Địa điểm nổi bật",
 
     "__________________________________________comment": "Login",

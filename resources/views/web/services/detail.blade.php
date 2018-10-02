@@ -319,7 +319,7 @@
             width: 100% !important;
             height: auto !important;
         }
-        #map1 img {
+        #map1 button img {
             width: 18px !important;
             height: 18px !important;
         }
@@ -491,6 +491,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#map1">Bản đồ</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#commentFB">Bình luận</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -576,6 +579,14 @@
                         <h4>@lang('web_service_map')</h4>
                         <div id="map" style="height: 350px; background-color: #ccc"></div>
                     </div>
+                    <div id="commentFB" style="min-height: 100px;">
+                        <div
+                            class="fb-comments"
+                            data-width="100%"
+                            data-href="{{ URL::current() }}"
+                            data-numposts="5">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -607,7 +618,7 @@
                             <a href="{{ route('web.services.detail', [$service_involve->getTranslation($locale)->slug, $service_involve->uuid]) }}">
                                 <div class="service-involve_item__wrap">
                                     <div class="image">
-                                        <img src="{{ $service_involve->getImage('sm') }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
+                                        <img class="owl-lazy lazyOwl" data-src="{{ $service_involve->getImage('sm') }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
                                     </div>
                                     <div class="info d-flex flex-column">
                                         <div class="name">
@@ -690,8 +701,11 @@
                 nav:false,
                 responsiveClass:true,
                 autoplay: true,
-                autoplayTimeout: 3500,
+                autoplayTimeout: 12000,
                 autoplaySpeed: 1200,
+                autoplayHoverPause: true,
+                lazyLoad: true,
+                lazyLoadEager: 0,
                 responsive:{
                     0:{
                         items:1,

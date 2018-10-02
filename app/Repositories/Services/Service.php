@@ -118,7 +118,7 @@ class Service extends Entity
             $config_conversion = $service_group->holiday;
         }
 
-        return round($this->price * $currency->ratio * (100 + $config_conversion) / 100);
+        return round($this->price * $currency->ratio * (100 + $config_conversion) / 100, -3);
     }
 
     public function getTranslation($locale = 'vi')

@@ -352,87 +352,60 @@
                 @endif
               </div>
             </div>
-
+            @foreach($resort->resort_contents as $index => $content)
+            @if($index % 2)
             <div class="section service-section">
                 <div class="container-fluid height-full">
                     <div class="row height-full">
                         <div class="col-12 col-md-5 height-full">
                             <div class="d-flex flex-column justify-content-center" style="height: 100%;">
-                                <h2 class="animated fadeInLeft section-title">Chốn nghỉ dưỡng tuyệt vời</h2>
-                                <p class="section-content text-right">Chỉ cách trung tâm Hà Nội 45 km thuộc huyện Phúc Yên, tỉnh Vĩnh Phúc, nói đến Flamingo Đại Lải Resort, người ta nghĩ ngay đến một vùng đất “non thanh thủy tú” với khí hậu trong lành, phong cảnh hùng vĩ, ẩn chứa trong lòng biết bao điều kỳ diệu. Một vùng đất với nét thơ mộng hòa với vẻ yên bình, sự tĩnh lặng lại chất chứa những sóng ngầm lan tỏa niềm hạnh phúc. Một vùng đất bốn mùa đều tươi đẹp như bước ra từ truyện cổ tích xưa…</p>
+                                <h2 class="animated fadeInLeft section-title">{{ $content->title }}</h2>
+                                <p class="section-content text-right">{{ $content->description }}</p>
                             </div>
                         </div>
                         <div class="col-12 col-md-7 height-full">
                             <div class="d-flex flex-column justify-content-center" style="height: 100%;">
                                 <div class="owl-carousel fs-slides">
+                                    @foreach(json_decode($content->images) as $image)
                                     <div class="item">
-                                        <img class="d-block w-100" src="http://flamingodailai.com/wp-content/uploads/HVG_9168.jpg" alt="First slide">
+                                        <img class="d-block w-100" src="{{ env('IMAGE_PATH') . $image->source }}" alt="First slide">
                                     </div>
-                                    <div class="item">
-                                        <img class="d-block w-100" src="http://flamingodailai.com/wp-content/uploads/Resize-FDL-3.jpg" alt="Second slide">
-                                    </div>
-                                    <div class="item">
-                                        <img class="d-block w-100" src="http://flamingodailai.com/wp-content/uploads/Resize-FDL-4.jpg" alt="Third slide">
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="section service-section single-section" style="background-image: url('http://flamingodailai.com/wp-content/uploads/banner.png');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="container">
-                                <h2 class="section-title">Nơi đất trời hòa quyện</h2>
-                                <p class="section-content box-inside">Bên hồ Đại Lải nên thơ, phong cảnh hữu tình, tuyệt đẹp được tô điểm bởi những căn biệt thự Lakeview xinh xắn, duyên dáng. Mang chất liệu chủ đạo là gỗ kết hợp với đá, biệt thự được thiết kế trong vườn cây xanh ngắt với những thảm cỏ uốn lượn, êm dịu. Sự khéo léo kết hợp các vật liệu thiên nhiên để tạo sự hoà hợp giữa cảnh quan & ngôi nhà, giữa nội thất & ngoại thất tạo nên một không gian sống hoàn hảo cho những tâm hồn yêu thiên nhiên.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @else
             <div class="section service-section">
                 <div class="container-fluid height-full">
                     <div class="row height-full reverse-content">
                         <div class="col-12 col-md-7 height-full">
                             <div class="d-flex flex-column justify-content-center" style="height: 100%;">
                                 <div class="owl-carousel">
+                                    @foreach(json_decode($content->images) as $image)
                                     <div class="item">
-                                        <img class="d-block w-100" src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-d286a251fc67c65451d94310ab2af5b0.jpg" alt="First slide">
+                                        <img class="d-block w-100" src="{{ env('IMAGE_PATH') . $image->source }}" alt="{{ $image->title }}">
                                     </div>
-                                    <div class="item">
-                                        <img class="d-block w-100" src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-baf01c1b271cf041f97b5964fdc7595f.jpg" alt="Second slide">
-                                    </div>
-                                    <div class="item">
-                                        <img class="d-block w-100" src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-2fee4c68ddc52466744d1fad084ede95.jpg" alt="Third slide">
-                                    </div>
-                                    <div class="item">
-                                        <img class="d-block w-100" src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-2b6e0a503b4229392ebd55d4b296970c.jpg" alt="Third slide">
-                                    </div>
-                                    <div class="item">
-                                        <img class="d-block w-100" src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-8b5e74e4d2005637bd9838c4fcba8c2a.jpg" alt="Third slide">
-                                    </div>
-                                    <div class="item">
-                                        <img class="d-block w-100" src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-fec1bd5a29780fb361c97891752cbf93.jpg" alt="Third slide">
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12 col-md-5 height-full">
                             <div class="height-full d-flex flex-column justify-content-center">
-                                <h2 class="section-title">Biệt thự hiện đại, đầy đủ tiện nghi</h2>
-                                <p class="section-content">Sở hữu không gian nghỉ dưỡng hoàn toàn riêng tư mà vẫn hết sức tiện nghi với thiết kế hiện đại, bể bơi thông minh ngoài trời, không gian sân vườn thoáng rộng, tràn ngập sắc xanh hoa cỏ, hệ thống biệt thự Flamingo Villa đáp ứng đa dạng nhu cầu nghỉ dưỡng của du khách.</p>
+                                <h2 class="section-title">{{ $content->title }}</h2>
+                                <p class="section-content">{{ $content->description }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @endif
+            @endforeach
 
-            <div class="section service-section single-section" style="background-image: url('http://flamingodailai.com/wp-content/uploads/Resize-FDL-12.jpg');">
+            {{-- <div class="section service-section single-section" style="background-image: url('http://flamingodailai.com/wp-content/uploads/Resize-FDL-12.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-md-6">
@@ -443,9 +416,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div id="normal-scroll" class="section service-section">
+            {{-- <div id="normal-scroll" class="section service-section">
                 <div class="container">
                     <h2 class="text-center section-title mt-5">Nhiều hoạt thư giãn, giải trí đa dạng</h2>
                     <div class="row">
@@ -511,7 +484,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <section class="section footer" style="background-image: url('http://flamingodailai.com/wp-content/uploads/DJI_0025-3-1.jpg');">
                 <div class="row">
@@ -615,7 +588,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
         <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -626,18 +598,6 @@
         <script type="text/javascript" src="{{ asset('web/libraries/fullpage/fullpage.extensions.min.js') }}"></script>
         <script type="text/javascript">
             var player;
-=======
-    </body>
-    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/libraries/fullpage/fullpage.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/libraries/fullpage/scrolloverflow.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('web/libraries/fullpage/fullpage.extensions.min.js') }}"></script>
-    <script type="text/javascript">
-        var player;
->>>>>>> 4f7298faee6946c5e572ceeeaef519d52ff61d94
 
             function onYouTubePlayerAPIReady() {
               // create the global player from the specific iframe (#video)

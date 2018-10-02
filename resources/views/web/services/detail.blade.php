@@ -576,6 +576,14 @@
                         <h4>@lang('web_service_map')</h4>
                         <div id="map" style="height: 350px; background-color: #ccc"></div>
                     </div>
+                    <div style="min-height: 100px;">
+                        <div
+                            class="fb-comments"
+                            data-width="100%"
+                            data-href="{{ URL::current() }}"
+                            data-numposts="5">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">

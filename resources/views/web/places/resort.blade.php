@@ -53,9 +53,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 gradient-top" style="background-image: url('{{ asset('web/images/places/vietnam.jpg') }}');">
+            <div class="col-12 gradient-top" style="background-image: url('{{ asset('web/images/places/resort.jpg') }}');">
                 <div class="city-name">
-                    <h1>Khám phá Resort</h1>
+                    <h1>@lang('menu_resort')</h1>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="box-title">Resort nổi bật</h3>
+                    <h3 class="box-title">@lang('places_resort_title')</h3>
                 </div>
                 @foreach($places as $place)
                     <div class="col-12 col-md-3">

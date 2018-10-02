@@ -491,6 +491,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#map1">Bản đồ</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#commentFB">Bình luận</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -575,6 +578,14 @@
                     <div id="map1" class="service-what_to_expect">
                         <h4>@lang('web_service_map')</h4>
                         <div id="map" style="height: 350px; background-color: #ccc"></div>
+                    </div>
+                    <div id="commentFB" style="min-height: 100px;">
+                        <div
+                            class="fb-comments"
+                            data-width="100%"
+                            data-href="{{ URL::current() }}"
+                            data-numposts="5">
+                        </div>
                     </div>
                 </div>
             </div>

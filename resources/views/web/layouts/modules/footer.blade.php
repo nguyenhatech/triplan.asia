@@ -26,10 +26,14 @@
                     <span>@lang('contact')</span>
                 </div>
                 <div class="contact-us">
-                    <div class="contact-us__item d-flex align-items-center">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>0945 245 115</span>
-                    </div>
+                    @forelse ($metadata->getPhone() as $item)
+                        <div class="contact-us__item d-flex align-items-center">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>{{ $item->phone }}</span>
+                        </div>
+                    @empty
+                        {{-- empty expr --}}
+                    @endforelse
                     <div class="contact-us__item d-flex align-items-center">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>102 Thái Thịnh, Đống Đa, Hà Nội</span>

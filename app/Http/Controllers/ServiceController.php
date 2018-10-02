@@ -28,7 +28,8 @@ class ServiceController extends WebController
 
         // dd($service->media_services);
         $service_involves = $this->service->getByQuery([
-            'notInID' => [$service->id]
+            'notInID' => [$service->id],
+            'resort_id' => $service->resort_id
         ], 8);
 
         $data_params['APP_URL']           = env('APP_URL');

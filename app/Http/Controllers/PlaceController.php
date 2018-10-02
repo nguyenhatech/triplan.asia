@@ -122,8 +122,8 @@ class PlaceController extends WebController
             $this->metadata->setOgpimage(asset('web/images/places/resort.jpg'));
         } else {
             $this->metadata->setMetaTitle('Viet Nam Travel');
-            $this->metadata->setDescription('Best experience in Viet Nam. ');
-            $this->metadata->setMetaKeyword();
+            $this->metadata->setDescription('Best experience in Resort. ');
+            $this->metadata->setMetaKeyword('Mai Chau tourism, flamingo tourism');
             $this->metadata->setOgpimage(asset('web/images/places/resort.jpg'));
         }
 

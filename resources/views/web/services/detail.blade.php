@@ -491,6 +491,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#map1">Bản đồ</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#commentFB">Bình luận</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -576,7 +579,7 @@
                         <h4>@lang('web_service_map')</h4>
                         <div id="map" style="height: 350px; background-color: #ccc"></div>
                     </div>
-                    <div style="min-height: 100px;">
+                    <div id="commentFB" style="min-height: 100px;">
                         <div
                             class="fb-comments"
                             data-width="100%"

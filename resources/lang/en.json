@@ -5,6 +5,7 @@
     "login": "Login",
     "menu_vietnam": "Viet Nam Travel",
     "menu_international": "The world",
+    "menu_resort": "Discover Resort",
     "scroll_to_top": "Scroll To Top",
     "dashbroad": "Dashbroad",
 
@@ -56,6 +57,7 @@
 
     "places_vietnam_title": "Viet Nam Travel",
     "places_international_title": "International Travel",
+    "places_resort_title": "Discover Resort",
     "places_gallery_title": "Bucket List",
 
     "__________________________________________comment": "Login",

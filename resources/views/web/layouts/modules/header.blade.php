@@ -14,7 +14,7 @@
                         <a class="nav-link nav-link-scroll" href="{{ route('places.international') }}">@lang('menu_international')</a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link nav-link-scroll" href="{{ route('places.resort') }}">Khám phá Resort</a>
+                        <a class="nav-link nav-link-scroll" href="{{ route('places.resort') }}">@lang('menu_resort')</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>

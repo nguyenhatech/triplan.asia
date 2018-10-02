@@ -607,7 +607,7 @@
                             <a href="{{ route('web.services.detail', [$service_involve->getTranslation($locale)->slug, $service_involve->uuid]) }}">
                                 <div class="service-involve_item__wrap">
                                     <div class="image">
-                                        <img src="{{ $service_involve->getImage('sm') }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
+                                        <img class="owl-lazy lazyOwl" data-src="{{ $service_involve->getImage('sm') }}"  alt="{{ $service_involve->getTranslation($locale)->name }}" title="{{ $service_involve->getTranslation($locale)->name }}">
                                     </div>
                                     <div class="info d-flex flex-column">
                                         <div class="name">
@@ -690,8 +690,11 @@
                 nav:false,
                 responsiveClass:true,
                 autoplay: true,
-                autoplayTimeout: 3500,
+                autoplayTimeout: 12000,
                 autoplaySpeed: 1200,
+                autoplayHoverPause: true,
+                lazyLoad: true,
+                lazyLoadEager: 0,
                 responsive:{
                     0:{
                         items:1,

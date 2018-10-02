@@ -10,8 +10,11 @@
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ route('places.vietnam') }}">@lang('menu_vietnam')</a>
                     </li>
-                    <li class="nav-item">
+{{--                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ route('places.international') }}">@lang('menu_international')</a>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="{{ route('places.resort') }}">Khám phá Resort</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>

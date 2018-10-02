@@ -108,6 +108,31 @@ class PlaceController extends WebController
         ]);
     }
 
+    public function resort()
+    {
+        $locale = \App::getLocale();
+
+        $resortRepo = \App::make('App\Repositories\Resorts\Resort');
+        $resorts = $resortRepo->where('status', 1)->get();
+
+        if ($locale == 'vi') {
+            $this->metadata->setMetaTitle('Du lịch resort');
+            $this->metadata->setDescription('Tour du lịch ở resort. Du lịch mai châu, du lịch flamigo.');
+            $this->metadata->setMetaKeyword('du lịch mai châu,du lịch hà flamigo');
+            $this->metadata->setOgpimage(asset('web/images/places/resort.jpg'));
+        } else {
+            $this->metadata->setMetaTitle('Viet Nam Travel');
+            $this->metadata->setDescription('Best experience in Viet Nam. ');
+            $this->metadata->setMetaKeyword();
+            $this->metadata->setOgpimage(asset('web/images/places/resort.jpg'));
+        }
+
+        return view('web.places.resort')->with([
+            'places'       => $resorts,
+            'locale'       => $locale
+        ]);
+    }
+
     public function international()
     {
         $locale = \App::getLocale();
@@ -131,4 +156,5 @@ class PlaceController extends WebController
             'locale'       => $locale
         ]);
     }
+
 }

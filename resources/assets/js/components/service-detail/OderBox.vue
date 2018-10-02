@@ -1,6 +1,6 @@
 <template>
     <div class="order-box">
-        <notifications group="foo" position="top center"/>
+        <notifications group="foo"/>
         <div
             class="d-flex justify-content-between"
             v-if="!package_name">
@@ -54,7 +54,7 @@
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
             <span @click="nextStepBooking()" class="btn btn-block booking-now">
-                {{ data_params.trans.web_service_book_now }}
+                Chọn gói dịch vụ
             </span>
         </div>
         <div class="d-flex flex-column ">
@@ -216,8 +216,12 @@
 }
 
 .order-box .notifications {
-    top: 55px !important;
+/*    top: 55px !important;
     left: calc(50% - 270px) !important;
-    width: 450px !important;
+    width: 450px !important;*/
+
+    top: 50px !important;
+    width: 345px !important;
+    right: 80px !important;
 }
 </style>

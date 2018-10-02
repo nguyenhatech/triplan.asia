@@ -382,7 +382,7 @@
                                 <h2 class="animated fadeInLeft section-title">{{ $content->title }}</h2>
                                 <p class="section-content text-right">{{ $content->description }}</p>
                                 <div class="view-more-button__wrap mb-2">
-                                    <a class="view-more-button" href="#">Xem chi tiết</a>
+                                    <a class="view-more-button" href="{{ route('resorts.service', $resort->slug) }}?service_group_id={{ $content->service_group_id }}">Xem chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -421,7 +421,7 @@
                                 <h2 class="section-title animated fadeInRight">{{ $content->title }}</h2>
                                 <p class="section-content">{{ $content->description }}</p>
                                 <div class="view-more-button__wrap mb-1">
-                                    <a class="view-more-button" href="#">Xem chi tiết</a>
+                                    <a class="view-more-button" href="{{ route('resorts.service', $resort->slug) }}?service_group_id={{ $content->service_group_id }}">Xem chi tiết</a>
                                 </div>
                             </div>
                         </div>

@@ -53,7 +53,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 gradient-top" style="background-image: url('{{ asset('web/images/places/vietnam.jpg') }}');">
+            <div class="col-12 gradient-top" style="background-image: url('{{ asset('web/images/places/resort.jpg') }}');">
                 <div class="city-name">
                     <h1>@lang('menu_resort')</h1>
                 </div>

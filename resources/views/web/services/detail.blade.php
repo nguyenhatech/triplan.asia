@@ -319,7 +319,7 @@
             width: 100% !important;
             height: auto !important;
         }
-        #map1 img {
+        #map1 button img {
             width: 18px !important;
             height: 18px !important;
         }

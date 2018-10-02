@@ -131,7 +131,7 @@ function convert_uuid2id($uuid) {
  */
 function shortString($string, $length)
 {
-    if(strlen($string) > $length)
+    if(mb_strlen($string) > $length)
     {
         $string = trim(substr($string, 0, $length))."&hellip;";
     }

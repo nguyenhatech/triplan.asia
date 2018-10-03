@@ -1,6 +1,6 @@
 <template>
     <div class="order-box">
-        <notifications group="foo" position="top center"/>
+        <notifications group="foo"/>
         <div
             class="d-flex justify-content-between"
             v-if="!package_name">
@@ -54,12 +54,24 @@
         </div>
         <div class="d-flex flex-column justify-content-between align-items-center">
             <span @click="nextStepBooking()" class="btn btn-block booking-now">
-                {{ data_params.trans.web_service_book_now }}
+                <span v-if="canSubmit">
+                    Đặt ngay
+                </span>
+                <span v-else>
+                    Chọn gói dịch vụ
+                </span>
             </span>
         </div>
         <div class="d-flex flex-column ">
-            <p class="pt-3">Nếu có bất kì thắc mắc gì vui lòng liên hệ hotline: <strong>0899.175.886</strong> hoặc chat với đội chăm sóc khách hàng Triplan: <a target="_blank" href="https://m.me/TriplanVN">Nhấn vào đây</a> để được hỗ trợ.</p>
+            <p class="pt-3">Nếu có bất kì thắc mắc gì vui lòng liên hệ hotline: <strong>0899.175.886</strong> hoặc:</p>
         </div>
+        <a target="_blank"  href="https://m.me/TriplanVN" style="text-decoration: none;color: #000;font-weight: bold">
+            <div class="tu-van d-flex justify-content-center align-items-center">
+                <i class="far fa-comment"></i>
+                <span>Tư vấn dịch vụ</span>
+            </div>
+        </a>
+
     </div>
 </template>
 
@@ -83,7 +95,7 @@
         },
         data () {
             return {
-
+                canSubmit: false,
             }
         },
         components: {
@@ -96,6 +108,25 @@
                 _.forEach(this.service_packages, (value) => {
                     totalFree += (value.quantity - Math.min(value.free,value.quantity)) * value.price_with_currency
                 })
+                let flag = false;
+                _.forEach(this.service_packages, (item) => {
+                    if (item.quantity) {
+                        flag = true
+                    }
+                })
+                _.forEach(this.service_packages, (item) => {
+                    if (item.min != 0) {
+                        if (item.min > item.quantity) {
+                             flag = false
+                        }
+                    }
+                })
+
+                if (this.date !== '' && this.package_name !== '' && flag) {
+                    this.canSubmit = true;
+                } else {
+                    this.canSubmit = false;
+                }
                 return totalFree
             },
             disableButton () {
@@ -143,7 +174,7 @@
                     })
                     return false
                 }
-
+                this.canSubmit = true;
                 return true;
             },
             disableButtonMethod () {
@@ -216,8 +247,28 @@
 }
 
 .order-box .notifications {
-    top: 55px !important;
+/*    top: 55px !important;
     left: calc(50% - 270px) !important;
-    width: 450px !important;
+    width: 450px !important;*/
+
+    top: 50px !important;
+    width: 345px !important;
+    right: 80px !important;
+}
+
+.tu-van {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: 0.3s all;
+    cursor: pointer;
+}
+.tu-van i {
+    margin-right: 8px;
+}
+.tu-van:hover {
+    background-color: #f8f8f8;
+    transition: 0.3s all;
 }
 </style>

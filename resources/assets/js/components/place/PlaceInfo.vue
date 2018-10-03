@@ -61,9 +61,20 @@
                     </div>
                 </div>
             </div>
+            <div class="box-sort d-flex justify-content-end">
+                <div class="dropdown">
+                  <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="sortMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sắp xếp theo: {{ sortCurrent }}
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="sortMenuButton">
+                    <span v-for="(item, index) in sortList" :key="index" @click="changeSort(item)" class="dropdown-item">{{ item.text }}</span>
+                  </div>
+                </div>
+            </div>
             <div class="box-list-result">
-                <div class="row">
-                    <div v-for="(service, index) in services" :key="index" class="col-12 animated animatedFadeInUp fadeInUp">
+                <div class="row" style="min-height: 100vh;">
+                <transition-group name="list">
+                    <div v-for="(service, index) in services" :key="index" class="col-12">
                         <div class="card">
                             <div class="row">
                                 <div class="col-12 col-md-5">
@@ -73,9 +84,9 @@
                                 </div>
                                 <div class="col-12 col-md-7">
                                     <div class="card-body">
-                                        <a :href="service.link">
-                                            <h3 class="card-title">{{ service.name }}</h3>
-                                            <p class="card-text">{{ trimText(service.description, 200) }}</p>
+                                        <a :href="service.link" :title="service.name">
+                                            <h3 class="card-title">{{ trimText(service.name, 80)}}</h3>
+                                            <p class="card-text">{{ trimText(service.description, 180) }}</p>
                                             <div class="card-bottom d-flex justify-content-between">
                                                 <div class="rate">
                                                     <i class="fas fa-star"></i>
@@ -92,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+                </transition-group>
                 </div>
             </div>
             <div v-if="loading" class="d-flex justify-content-center service-loading">
@@ -175,7 +187,8 @@
                     price: [],
                     time: [],
                     service_group: [],
-                    service_type: []
+                    service_type: [],
+                    sort: 'hot:-1'
                 },
                 timer: {},
                 loading: false,
@@ -187,7 +200,13 @@
                         prevEl: '.swiper-button-prev'
                     }
                 },
-                serviceTypeList: []
+                serviceTypeList: [],
+                sortList: [
+                    { value: 'price:1', text: 'Giá tăng dần' },
+                    { value: 'price:-1', text: 'Giá giảm dần' },
+                    { value: 'hot:-1', text: 'Hot nhất' }
+                ],
+                sortCurrent: 'Hot nhất'
             }
         },
         mounted () {
@@ -310,6 +329,13 @@
                         params = '?q=' + encodeURIComponent(this.filters.price)
                     }
                 }
+                if (this.filters.sort.length) {
+                    if (params !== '') {
+                        params += '&sort=' + encodeURIComponent(this.filters.sort)
+                    } else {
+                        params = '?sort=' + encodeURIComponent(this.filters.sort)
+                    }
+                }
                 history.pushState(null, null, location.origin + location.pathname + params)
             },
             parseUrlParams () {
@@ -336,6 +362,10 @@
                 if (queryParameters.hasOwnProperty('q')) {
                     this.filters.q = queryParameters['q']
                 }
+            },
+            changeSort (sortObject) {
+                this.filters.sort = sortObject.value
+                this.sortCurrent = sortObject.text
             }
         },
         watch: {
@@ -372,12 +402,23 @@
             'filters.price': debounce(function () {
                 this.fetchServices()
                 this.updateUrlParams()
+            }, 800),
+            'filters.sort': debounce(function () {
+                this.fetchServices()
+                this.updateUrlParams()
             }, 800)
         }
     }
 </script>
 
 <style type="scoped">
+    .list-enter-active, .list-leave-active {
+      transition: all 1s;
+    }
+    .list-enter, .list-leave-to {
+      opacity: 0;
+      transform: translateX(30px);
+    }
     .card-body a:hover {
         text-decoration: none;
     }
@@ -450,39 +491,27 @@
     .has-search-key {
         border-right: 0px;
     }
-    @keyframes fadeInUp {
-        from {
-            transform: translate3d(0,40px,0)
-        }
-
-        to {
-            transform: translate3d(0,0,0);
-            opacity: 1
-        }
+    .box-search {
+        margin-bottom: 20px;
     }
-    @-webkit-keyframes fadeInUp {
-        from {
-            transform: translate3d(0,40px,0)
-        }
-
-        to {
-            transform: translate3d(0,0,0);
-            opacity: 1
-        }
+    .box-sort .dropdown {
+        background: #fff;
+        color: #54575a;
     }
-
-    .animated {
-        animation-duration: 1s;
-        animation-fill-mode: both;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-fill-mode: both
+    .box-sort .dropdown .dropdown-toggle {
+        background: #fff;
+        color: #54575a;
     }
-    .animatedFadeInUp {
-        opacity: 0
+    .box-sort .dropdown button {
+        width: 220px;
+        background: #fff;
+        color: #54575a;
     }
-    .fadeInUp {
-        opacity: 0;
-        animation-name: fadeInUp;
-        -webkit-animation-name: fadeInUp;
+    .box-sort .dropdown button:focus,
+    .box-sort .dropdown button:active {
+        outline: none;
+    }
+    .box-sort .dropdown .dropdown-menu {
+        cursor: pointer;
     }
 </style>

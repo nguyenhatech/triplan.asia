@@ -363,7 +363,7 @@
                 height: 100vh !important;
             }
             .item img {
-                height: 100vh !important;
+                height: 100% !important;
             }
         </style>
     </head>

@@ -357,6 +357,14 @@
                 box-shadow: 0 0 0 15px transparent, 0 0 0 17px rgba(255,255,255,0), 0 0 0 40px transparent, 0 0 0 42px rgba(255,255,255,0);
               }
             }
+
+            /*FIX Các ITEM Ảnh Full With 100%*/
+            .item {
+                height: 100vh !important;
+            }
+            .item img {
+                height: 100vh !important;
+            }
         </style>
     </head>
     <body>

@@ -150,7 +150,7 @@
                                     <p>{{ $resort->name }}</p>
                                     <span class="title">{{ $resort->slogan }}</span>
                                 </div>
-                                <a target="_blank" href="{{ route('resorts.show', $resort->id) }}" class="view-more">
+                                <a target="_blank" href="{{ route('resorts.show', $resort->slug) }}" class="view-more">
                                     <span>Xem tất cả</span>
                                     <span><i class="fas fa-chevron-right"></i></span>
                                 </a>

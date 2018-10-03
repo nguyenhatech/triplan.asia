@@ -22,9 +22,9 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{ $metadata->getMetaTitle() }}" />
 <meta property="og:site_name" content="{{ $metadata->getName() }}" />
-<link property="og:image" href="{{ $metadata->getOgpimage() }}" />
+<link property="og:image" content="{{ $metadata->getOgpimage() }}" />
 <meta property="og:description" content="{{ $metadata->getDescription() }}" />
-<meta property="og:url" href="{{ URL::current() }}" />
+<meta property="og:url" content="{{ URL::current() }}" />
 <meta name="api-base-url" content="{{ env('API_URL') }}" />
 <meta name="app-url" content="{{ env('APP_URL') }}" />
 <meta property="fb:app_id" content="787848391549978" />

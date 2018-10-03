@@ -133,7 +133,7 @@ function shortString($string, $length)
 {
     if(mb_strlen($string) > $length)
     {
-        $string = trim(substr($string, 0, $length))."&hellip;";
+        $string = trim(mb_substr($string, 0, $length))."&hellip;";
     }
     return $string;
 }

@@ -38,6 +38,9 @@
             border-color: #02a676;
             color: #fff;
         }
+        .home-destinations .list__item:hover .place-caption {
+            height: 240px;
+        }
         @media screen and (min-width: 768px) {
             .gradient-top {
                 height: 320px;
@@ -67,12 +70,12 @@
                     <h3 class="box-title">@lang('places_resort_title')</h3>
                 </div>
                 @foreach($places as $place)
-                    <div class="col-12 col-md-3">
-                        <a href="#" title="{{ $place->name }}">
-                            <div class="list__item" style="background-image: url({{ $place->getImage('md') }});">
+                    <div class="col-12 col-md-4">
+                        <a href="{{ route('resorts.show', $place->slug) }}" title="{{ $place->name }}">
+                            <div class="list__item" style="background-image: url({{ $place->getImage('sm') }}); height: 240px;">
                                 <div class="place-caption">
                                     <span>{{ $place->name }}</span>
-                                    <span class="place-description">{{ shortString($place->slogan, 180) }}</span>
+                                    <span class="place-description">{{ shortString($place->short_description, 300) }}</span>
                                 </div>
                             </div>
                         </a>

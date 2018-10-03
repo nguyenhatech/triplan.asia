@@ -28,9 +28,9 @@ class ResortController extends WebController
         $this->serviceType  = $serviceType;
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $resort = $this->resort->getById($id);
+        $resort = $this->resort->getBySlug($slug);
         if (!$resort) {
             abort(404);
         }

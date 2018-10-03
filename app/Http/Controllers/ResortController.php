@@ -37,7 +37,7 @@ class ResortController extends WebController
         $this->metadata->setMetaTitle($resort->name);
         $this->metadata->setDescription($resort->name . ' ' . $resort->slogan);
         $this->metadata->setMetaKeyword($resort->name . ',nghỉ dưỡng ' . $resort->name . ',đi ' . $resort->name . ',team building ' . $resort->name);
-        $this->metadata->setOgpimage($resort->getImage('sm'));
+        $this->metadata->setOgpimage($resort->getImage('md'));
 
         if ($resort->theme_id == 1) {
             return view('web.resorts.index1')->with([

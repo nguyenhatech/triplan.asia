@@ -259,6 +259,12 @@
                 background: forestgreen;
                 transition: all 0.3s;
             }
+            .owl-carousel .item {
+                height: 40vh;
+            }
+            .owl-carousel .item img {
+                height: 100%;
+            }
             @media only screen and (min-width: 768px) {
                 .service-section {
                     height: 100vh;
@@ -363,12 +369,6 @@
               100% {
                 box-shadow: 0 0 0 15px transparent, 0 0 0 17px rgba(255,255,255,0), 0 0 0 40px transparent, 0 0 0 42px rgba(255,255,255,0);
               }
-            }
-            .owl-carousel .item {
-                height: 40vh !important;
-            }
-            .owl-carousel .item img {
-                height: 100% !important;
             }
         </style>
     </head>

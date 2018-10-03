@@ -60,6 +60,7 @@ Route::group([
     Route::get('/gio-hang/delete-one-cart/{service_id}', 'CartController@deleteOneCart')->name('web.cart.delete-one-cart');
 
     Route::get('/resorts/{id}', 'ResortController@show')->name('resorts.show');
+    Route::get('/resort-services/{slug}', 'ResortController@service')->name('resorts.service');
 
     Auth::routes();
 });

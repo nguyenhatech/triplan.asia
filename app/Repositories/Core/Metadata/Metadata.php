@@ -68,6 +68,11 @@ class Metadata {
         $this->phone = $phone;
     }
 
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
     // Sort Description
     public function setShortDescription($short_description) {
         $this->short_description = $short_description;

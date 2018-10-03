@@ -14,9 +14,8 @@
                 font-family: 'Roboto Condensed', sans-serif;
             }
             .resort-banner {
-                width: 100vw;
+                width: 100%;
                 height: 100vh;
-                background-image: url('https://themegoods-cdn-pzbycso8wng.stackpathdns.com/hoteller/beach/wp-content/uploads/2018/07/Porto-Fira-Suites-Hotel-in-Santorini-by-Interior-Design-Laboratorium-Yellowtrace-19.jpg');
                 background-size: cover;
                 background-position: center;
                 margin-bottom: 100px;
@@ -185,7 +184,7 @@
 
             /*ITEM3*/
             .item-3 {
-                width: 100vw;
+                width: 100%;
                 height: 100vh;
                 position: relative;
             }
@@ -212,7 +211,7 @@
             }
             .item-3 .dim {
                 position: absolute;
-                width: 100vw;
+                width: 100%;
                 height: 100vh;
                 background-color: #0000004f;
                 z-index: 1499 !important;
@@ -263,12 +262,13 @@
         </style>
     </head>
     <body>
-        <div class="resort-banner">
+        <div class="resort-banner" style="background-image: url('{{ $resort->getImage() }}');">
             <div class="caption d-flex flex-column justify-content-center">
-                <h1>Triplan Luxury</h1>
-                <h3>Chia sẻ, khám phá, kết nối !</h3>
+                <h1>{{ $resort->name }}</h1>
+                <h3>{{ $resort->slogan }}</h3>
             </div>
         </div>
+        @if($resort->resort_contents)
         <div class="item-1">
             <div class="container-fluid">
                 <div class="row no-gutters">
@@ -299,6 +299,7 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="item-2">
             <div class="container-fluid">
                 <div class="row no-gutters">

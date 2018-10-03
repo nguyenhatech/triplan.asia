@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="google-site-verification" content="vbykco7VtC5nsa1NzflzE-6gdiUjNcuhJatIayRjJyQ"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta http-equiv="content-language" content="vi" />
+<meta http-equiv="content-language" content="{{ \App::getLocale() }}" />
 <title>{{ $metadata->getMetaTitle() }} | {{ $metadata->getName() }}</title>
 <meta name="robots" content="index,follow" />
 <meta name="description" content="" />
@@ -20,7 +20,7 @@
 <meta itemprop="description" content="{{ $metadata->getDescription() }}">
 <meta property="og:locale" content="vi_VN" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="" />
+<meta property="og:title" content="{{ $metadata->getMetaTitle() }}" />
 <meta property="og:site_name" content="{{ $metadata->getName() }}" />
 <link property="og:image" href="{{ $metadata->getOgpimage() }}" />
 <meta property="og:description" content="{{ $metadata->getDescription() }}" />

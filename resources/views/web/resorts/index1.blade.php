@@ -8,7 +8,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('web/librarys/owl-carousel-2.3.4/dist/assets/owl.theme.default.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/libraries/fullpage/fullpage.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -218,18 +217,14 @@
             }
             .class-fixed {
                 position: absolute;
-                bottom: 0px;
+                /*bottom: 0px;*/
                 width: 100px;
             }
             .menu-mobile {
                 position: relative;
                 height: 30px;
-                /*background-image: linear-gradient(#00000075, #0000009e);*/
-                /*background-color: #01b07d;*/
-                /*color: #fff;*/
                 background-color: #fff;
                 font-weight: bold;
-                /*color: black;*/
             }
             .menu-mobile a {
                 color: #4a4a4a !important;
@@ -243,6 +238,26 @@
                 border-radius: 50%;
                 width: 44px;
                 animation: ripple 2000ms infinite;
+            }
+            .view-more-button__wrap {
+                text-align: center;
+            }
+            .view-more-button {
+                background: transparent;
+                color: forestgreen;
+                width: 200px;
+                border: 1px solid forestgreen;
+                padding: 5px 30px 5px 30px;
+                text-align: center;
+                transition: all 0.3s;
+
+                outline: none;
+                position: relative;
+            }
+            .view-more-button:hover {
+                color: #fff;
+                background: forestgreen;
+                transition: all 0.3s;
             }
             @media only screen and (min-width: 768px) {
                 .service-section {
@@ -263,6 +278,12 @@
                     line-height: 1.66em;
                     text-align: right;
                 }
+                .content-left .view-more-button__wrap {
+                    text-align: right;
+                }
+                .content-right .view-more-button__wrap {
+                    text-align: left;
+                }
                 .reverse-content .section-title {
                     text-align: left;
                 }
@@ -275,13 +296,12 @@
                 #videoIframe {
                     height: 413px;
                 }
-                .class-fixed {
+                /*.class-fixed {
                     left: 0px;
                     bottom: 0;
                     top: 0;
-                }
+                }*/
                 .menu-desktop {
-                    width: 100px;
                     height: 100%;
                     padding-top: 20px;
                     padding-bottom: 20px;
@@ -343,10 +363,10 @@
         <div id="fullpage">
             <div class="section top-section parallax" style="background-image: url('{{ $resort->getImage() }}');">
               <div class="caption d-flex flex-column justify-content-center align-items-center">
-                <h1 class="resort-name">{{ $resort->name }}</h1>
-                <h2 class="resort-slogan">{{ $resort->slogan }}</h2>
+                <h1 class="resort-name animated fadeInDown">{{ $resort->name }}</h1>
+                <h2 class="resort-slogan animated fadeInUp">{{ $resort->slogan }}</h2>
                 @if($resort->video)
-                <div class="play-button" data-toggle="modal" data-target="#videoModal">
+                <div class="play-button animated fadeInDown delay-1s" data-toggle="modal" data-target="#videoModal">
                     <img src="{{ asset('web/images/icons/play-button.png') }}" title="Xem video">
                 </div>
                 @endif
@@ -357,10 +377,13 @@
             <div class="section service-section">
                 <div class="container-fluid height-full">
                     <div class="row height-full">
-                        <div class="col-12 col-md-5 height-full">
+                        <div class="col-12 col-md-5 height-full content-left">
                             <div class="d-flex flex-column justify-content-center" style="height: 100%;">
                                 <h2 class="animated fadeInLeft section-title">{{ $content->title }}</h2>
                                 <p class="section-content text-right">{{ $content->description }}</p>
+                                <div class="view-more-button__wrap mb-2">
+                                    <a class="view-more-button" href="{{ route('resorts.service', $resort->slug) }}?service_group_id={{ $content->service_group_id }}">Xem chi tiết</a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12 col-md-7 height-full">
@@ -381,7 +404,7 @@
             <div class="section service-section">
                 <div class="container-fluid height-full">
                     <div class="row height-full reverse-content">
-                        <div class="col-12 col-md-7 height-full">
+                        <div class="col-12 col-md-7 height-full content-right">
                             <div class="d-flex flex-column justify-content-center" style="height: 100%;">
                                 <div class="owl-carousel">
                                     @foreach(json_decode($content->images) as $image)
@@ -395,8 +418,11 @@
 
                         <div class="col-12 col-md-5 height-full">
                             <div class="height-full d-flex flex-column justify-content-center">
-                                <h2 class="section-title">{{ $content->title }}</h2>
+                                <h2 class="section-title animated fadeInRight">{{ $content->title }}</h2>
                                 <p class="section-content">{{ $content->description }}</p>
+                                <div class="view-more-button__wrap mb-1">
+                                    <a class="view-more-button" href="{{ route('resorts.service', $resort->slug) }}?service_group_id={{ $content->service_group_id }}">Xem chi tiết</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -496,14 +522,16 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <h3>Liên hệ</h3>
+                        @foreach($metadata->getPhone() as $item)
                         <p>
-                            <a href="tel:+84945245115"><i class="fas fa-mobile-alt"></i> 0945 245 115</a>
+                            <a href="tel:+84{{ intval($item->phone) }}"><i class="{{ $item->icon }}"></i> {{ $item->phone }}</a>
+                        </p>
+                        @endforeach
+                        <p>
+                            <a href="#"><i class="fas fa-map-marker-alt"></i> {{ $metadata->getAddress() }}</a>
                         </p>
                         <p>
-                            <a href="#"><i class="fas fa-map-marker-alt"></i> 102 Thái Thịnh, Đống Đa, Hà Nội</a>
-                        </p>
-                        <p>
-                            <a href="mailto:info@triplan.asia"><i class="far fa-envelope"></i> info@triplan.asia</a>
+                            <a href="mailto:{{ $metadata->getEmail() }}"><i class="far fa-envelope"></i> {{ $metadata->getEmail() }}</a>
                         </p>
                     </div>
                     <div class="col-12 col-md-4">
@@ -541,19 +569,20 @@
                 </div>
             </section>
 
-            <div class="d-sm-none class-fixed">
+            <div class="d-sm-none class-fixed" style="width: 100%;">
                 <div class="menu-mobile d-flex justify-content-around align-items-center">
                     @if (LaravelLocalization::getCurrentLocale() == 'vi')
-                    <span class="menu-mobile__lang"><a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">English</a></span>
+                    <span class=""><a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">English</a></span>
                     @else
                     <span class="menu-mobile__lang"><a href="{{ LaravelLocalization::getLocalizedURL('vi', null, [], true) }}">Tiếng việt</a></span>
                     @endif
-                    <span class="menu-mobile__phone"><a href="tel:+84945245115"><i class="fas fa-phone"></i></a></span>
-                    <span class="menu-mobile__book" data-toggle="modal" data-target="#booking-modal">@lang('resort_book_now')</span>
+                    <span class=""><a href="tel:+84945245115">@lang('resort_call_now')</a></span>
+                    <span class=""><a href="{{ route('resorts.service', $resort->slug) }}">@lang('resort_book_now')</a></span>
+                    <span class=""><a href="{{ route('web.home') }}">@lang('home_page')</a></span>
                 </div>
             </div>
-            <div class="class-fixed d-none d-sm-block">
-                <div class="menu-desktop d-flex flex-column justify-content-between align-items-center align-content-between">
+            <div class="class-fixed d-none d-sm-block" style="top: 0px; left: 27px; width: 116px;">
+                <div class="menu-desktop d-flex align-items-center align-content-between">
                     @if (LaravelLocalization::getCurrentLocale() == 'vi')
                     <span class="menu-desktop__lang"><a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}" title="English version">
                         <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-0415ac5550fe366b08ab68ac2b33476c.png" width="24px">
@@ -563,8 +592,13 @@
                         <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-5f3ddff8a9709acb35c0b2bf3fb59994.png" width="24px">
                     </a></span>
                     @endif
+                    <span class="pl-2"><a href="{{ route('web.home') }}">@lang('home_page')</a></span>
+                </div>
+            </div>
+            <div class="class-fixed d-none d-sm-block" style="bottom: 0px; left: 0px;">
+                <div class="menu-desktop d-flex flex-column justify-content-between align-items-center align-content-between">
                     <span class="menu-desktop__phone"><a href="tel:+84945245115"><i class="fas fa-phone"></i></a></span>
-                    <span class="menu-desktop__book" data-toggle="modal" data-target="#booking-modal">@lang('resort_book_now')</span>
+                    <span class="menu-desktop__book"><a href="{{ route('resorts.service', $resort->slug) }}">@lang('resort_book_now')</a></span>
                 </div>
             </div>
         </div>
@@ -588,7 +622,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
         <script type="text/javascript" src="{{ asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('web/librarys/fontawesome/all.js') }}"></script>

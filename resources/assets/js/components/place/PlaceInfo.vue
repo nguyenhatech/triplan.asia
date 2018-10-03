@@ -129,6 +129,10 @@
                 type: Number,
                 default: 0
             },
+            resort_id: {
+                type: Number,
+                default: 0
+            },
             language: {
                 type: String,
                 default: 'vi'
@@ -162,6 +166,7 @@
                 },
                 filters: {
                     place_id: 0,
+                    resort_id: 0,
                     q: '',
                     page: 0,
                     limit: 10,
@@ -190,6 +195,7 @@
                 this.fetchTranslations()
             }
             this.filters.place_id = this.place_id
+            this.filters.resort_id = this.resort_id
             this.filters.locale = this.language
             this.fetchServices()
             this.fetchServiceGroups()
@@ -235,7 +241,7 @@
                 })
             },
             fetchServiceGroups () {
-                axios.get('service-groups', {params: {limit: -1, locale: this.language, place_id: this.place_id}}).then(response => {
+                axios.get('service-groups', {params: {limit: -1, locale: this.language, place_id: this.place_id, resort_id: this.resort_id}}).then(response => {
                     switch (response.code) {
                         case 200:
                             this.serviceGroups = response.data;
@@ -248,7 +254,7 @@
                 })
             },
             fetchServiceTypes () {
-                axios.get('service-types', {params: {limit: -1, locale: this.language, place_id: this.place_id}}).then(response => {
+                axios.get('service-types', {params: {limit: -1, locale: this.language, place_id: this.place_id, resort_id: this.resort_id}}).then(response => {
                     switch (response.code) {
                         case 200:
                             this.serviceTypeList = response.data;
@@ -262,12 +268,13 @@
                 })
             },
             toggleServiceGroupFilter (serviceGroupId) {
-                let index = this.filters.service_group.indexOf(serviceGroupId)
-                if (index === -1) {
-                    this.filters.service_group.push(serviceGroupId)
-                } else {
-                    this.filters.service_group.splice(index, 1)
-                }
+              this.filters.service_group = [serviceGroupId]
+              // let index = this.filters.service_group.indexOf(serviceGroupId)
+              // if (index === -1) {
+              //     this.filters.service_group.push(serviceGroupId)
+              // } else {
+              //     this.filters.service_group.splice(index, 1)
+              // }
             },
             toggleServiceTypeFilter (serviceTypeId) {
                 let index = this.filters.service_type.indexOf(serviceTypeId)
@@ -346,7 +353,9 @@
                 this.serviceTypes = []
                 forEach(this.serviceTypeList, type => {
                   if (this.filters.service_group.includes(type.service_group_id)) {
-                      this.serviceTypes.push(type)
+                      if (findIndex(this.serviceTypes, ['id', type.id]) === -1) {
+                        this.serviceTypes.push(type)
+                      }
                   } else {
                     if (this.filters.service_type.indexOf(type.id) !== -1) {
                         this.filters.service_type.splice(this.filters.service_type.indexOf(type.id))

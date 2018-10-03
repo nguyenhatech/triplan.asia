@@ -420,7 +420,7 @@
     margin-bottom: 20px;
 }
 .package_children__item {
-    padding-right: 50%;
+    padding-right: 35% !important;
     margin-bottom: 10px;
 }
 .package_children__item .name {

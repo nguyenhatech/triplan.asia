@@ -287,7 +287,7 @@
                 .content-left .view-more-button__wrap {
                     text-align: right;
                 }
-                .content-right .view-more-button__wrap {
+                .reverse-content .view-more-button__wrap {
                     text-align: left;
                 }
                 .reverse-content .section-title {
@@ -584,11 +584,6 @@
 
             <div class="d-sm-none class-fixed" style="width: 100%;">
                 <div class="menu-mobile d-flex justify-content-around align-items-center">
-                    @if (LaravelLocalization::getCurrentLocale() == 'vi')
-                    <span class=""><a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">English</a></span>
-                    @else
-                    <span class="menu-mobile__lang"><a href="{{ LaravelLocalization::getLocalizedURL('vi', null, [], true) }}">Tiếng việt</a></span>
-                    @endif
                     <span class=""><a href="tel:+84945245115">@lang('resort_call_now')</a></span>
                     <span class=""><a href="{{ route('resorts.service', $resort->slug) }}">@lang('resort_book_now')</a></span>
                     <span class=""><a href="{{ route('web.home') }}">@lang('home_page')</a></span>
@@ -596,15 +591,6 @@
             </div>
             <div class="class-fixed d-none d-sm-block" style="top: 0px; left: 27px; width: 116px;">
                 <div class="menu-desktop d-flex align-items-center align-content-between">
-                    @if (LaravelLocalization::getCurrentLocale() == 'vi')
-                    <span class="menu-desktop__lang"><a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}" title="English version">
-                        <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-0415ac5550fe366b08ab68ac2b33476c.png" width="24px">
-                    </a></span>
-                    @else
-                    <span class="menu-desktop__lang"><a href="{{ LaravelLocalization::getLocalizedURL('vi', null, [], true) }}" title="Tiếng Việt">
-                        <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.triplan.asia/triplan.asia-5f3ddff8a9709acb35c0b2bf3fb59994.png" width="24px">
-                    </a></span>
-                    @endif
                     <span class="pl-2"><a href="{{ route('web.home') }}">@lang('home_page')</a></span>
                 </div>
             </div>

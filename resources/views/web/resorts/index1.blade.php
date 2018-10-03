@@ -366,7 +366,7 @@
                 <h1 class="resort-name animated fadeInDown">{{ $resort->name }}</h1>
                 <h2 class="resort-slogan animated fadeInUp">{{ $resort->slogan }}</h2>
                 @if($resort->video)
-                <div class="play-button animated fadeInDown delay-1s" data-toggle="modal" data-target="#videoModal">
+                <div class="play-button" data-toggle="modal" data-target="#videoModal">
                     <img src="{{ asset('web/images/icons/play-button.png') }}" title="Xem video">
                 </div>
                 @endif
@@ -409,7 +409,7 @@
                                 <div class="owl-carousel">
                                     @foreach(json_decode($content->images) as $image)
                                     <div class="item">
-                                        <img class="d-block w-100" src="{{ env('IMAGE_PATH') . $image->source }}" alt="{{ $image->title }}">
+                                        <img class="d-block w-100" src="{{ env('IMAGE_PATH') . $image->source }}">
                                     </div>
                                     @endforeach
                                 </div>

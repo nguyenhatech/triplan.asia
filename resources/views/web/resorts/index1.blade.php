@@ -343,6 +343,13 @@
                     padding: 10px;
                     width: 600px;
                 }
+
+                .owl-carousel .item {
+                    height: 90vh !important;
+                }
+                .owl-carousel .item img {
+                    height: 100% !important;
+                }
             }
             @media only screen and (max-device-width: 1024px) {
                 .parallax {
@@ -357,12 +364,10 @@
                 box-shadow: 0 0 0 15px transparent, 0 0 0 17px rgba(255,255,255,0), 0 0 0 40px transparent, 0 0 0 42px rgba(255,255,255,0);
               }
             }
-
-            /*FIX Các ITEM Ảnh Full With 100%*/
-            .item {
-                height: 100vh !important;
+            .owl-carousel .item {
+                height: 40vh !important;
             }
-            .item img {
+            .owl-carousel .item img {
                 height: 100% !important;
             }
         </style>

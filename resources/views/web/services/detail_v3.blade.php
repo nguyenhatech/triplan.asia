@@ -228,26 +228,15 @@
             position: fixed;
             top: 50px;
             z-index: 1001;
-            left: 0px;
+            width: 1110px;
             background-color: #fff;
-        }
-        @media (min-width: 767px) {
-            .fixed-myNavbar {
-                width: 1110px;
-                left: inherit;
-            }
         }
         #myNavbar {
             height: 50px;
         }
         #myNavbar .bg-light {
-            min-height: 50px;
+            height: 50px;
             padding-left: 0px;
-        }
-        @media (min-width: 767px) {
-            #myNavbar .bg-light {
-                height: 50px;
-            }
         }
         #myNavbar a {
             color: #000;
@@ -551,9 +540,6 @@
                             :data_params="{{ $data_params }}">
 
                         </list-service-package>
-                        <div class="d-block d-sm-none">
-                            <oder-box :service="{{ $service }}" :data_params="{{ $data_params }}"></oder-box>
-                        </div>
                     </div>
                     <div id="exptect">
                         @if ($service->getTranslation($locale)->what_to_expect)
@@ -663,6 +649,16 @@
             </div>
         </div>
     </div>
+    <div class="booking-on-mobile d-block d-sm-none">
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="/" class="btn btn-success">
+                Đặt ngay
+            </a>
+            <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="color: #fff; margin-left: 10px;">
+                Chat ngay với Triplan
+            </a>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -673,7 +669,6 @@
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>
-        var widthScreen = $(document).width();
         jQuery(document).ready(function($) {
             $(".service-banner .owl-carousel").owlCarousel({
                 loop:true,
@@ -778,7 +773,6 @@
 
         // Add smooth scrolling on all links inside the navbar
         $("#myNavbar a").on('click', function(event) {
-
           // Make sure this.hash has a value before overriding default behavior
           if (this.hash !== "") {
             // Prevent default anchor click behavior
@@ -786,15 +780,11 @@
 
             // Store hash
             var hash = this.hash;
-            // Check màn hình để trừ cho hợp lý:
-            let padding = 190;
-            if (widthScreen > 767) {
-                padding = 125
-            }
+
             // Using jQuery's animate() method to add smooth page scroll
             // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
             $('html, body').animate({
-              scrollTop: $(hash).offset().top - padding
+              scrollTop: $(hash).offset().top - 120
             }, 800, function(){
 
               // Add hash (#) to URL when done scrolling (default click behavior)

@@ -189,7 +189,7 @@
                         <div class="data-cart data-cart-empty d-flex justify-content-center align-items-center">
                             <div class="d-flex flex-column align-items-center justify-content-center">
                                 <img class="mb-3" src="{{ get_asset('web/images/download/cartEmpty.png')}}">
-                                <h5 class="pb-3">Không có sản phẩm nào trong giỏ hàng</h5>
+                                <h5 class="pb-3" style="text-align: center">Không có sản phẩm nào trong giỏ hàng</h5>
                                 <a href="{{ route('web.home') }}" class="btn btn-danger btn-checkout">
                                     Trở về trang chủ
                                 </a>

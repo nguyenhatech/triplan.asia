@@ -423,8 +423,13 @@
     margin-bottom: 20px;
 }
 .package_children__item {
-    padding-right: 35% !important;
+    padding-right: 0 !important;
     margin-bottom: 10px;
+}
+@media (min-width: 767px) {
+    .package_children__item {
+        padding-right: 35% !important;
+    }
 }
 .package_children__item .name {
     font-weight: 700;

@@ -16,7 +16,7 @@
             <a href="{{ route('places.vietnam') }}" style="color: #fff">@lang('menu_vietnam')</a>
         </p>
         <p>
-            <a href="{{ route('places.international') }}" style="color: #fff">@lang('menu_international')</a>
+            <a href="{{ route('places.resort') }}" style="color: #fff">@lang('menu_resort')</a>
         </p>
         @guest
             <p>

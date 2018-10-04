@@ -235,13 +235,8 @@
             height: 50px;
         }
         #myNavbar .bg-light {
-            min-height: 50px;
+            height: 50px;
             padding-left: 0px;
-        }
-        @media (min-width: 767px) {
-            #myNavbar .bg-light {
-                height: 50px;
-            }
         }
         #myNavbar a {
             color: #000;
@@ -545,9 +540,6 @@
                             :data_params="{{ $data_params }}">
 
                         </list-service-package>
-                        <div class="d-block d-sm-none">
-                            <oder-box :service="{{ $service }}" :data_params="{{ $data_params }}"></oder-box>
-                        </div>
                     </div>
                     <div id="exptect">
                         @if ($service->getTranslation($locale)->what_to_expect)
@@ -655,6 +647,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="booking-on-mobile d-block d-sm-none">
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="/" class="btn btn-success">
+                Đặt ngay
+            </a>
+            <a href="https://www.facebook.com/TriplanVN/" target="_blank" class="btn btn-block btn-warning" style="color: #fff; margin-left: 10px;">
+                Chat ngay với Triplan
+            </a>
         </div>
     </div>
 @endsection

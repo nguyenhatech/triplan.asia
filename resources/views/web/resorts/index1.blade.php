@@ -45,7 +45,7 @@
                                 <div class="owl-carousel fs-slides">
                                     @foreach(json_decode($content->images) as $image)
                                     <div class="item">
-                                        <img class="d-block w-100" src="{{ env('IMAGE_PATH') . $image->source }}" alt="First slide">
+                                        <img class="d-block w-100" sizes="100vw" src="{{ env('IMAGE_PATH') . $image->source }}" srcset="{{ env('IMAGE_PATH') . $image->source }} 1024w, {{ env('IMAGE_PATH') . 'medium/' . $image->source }} 768w, {{ env('IMAGE_PATH') . 'small/' . $image->source }} 420w">
                                     </div>
                                     @endforeach
                                 </div>
@@ -63,7 +63,7 @@
                                 <div class="owl-carousel">
                                     @foreach(json_decode($content->images) as $image)
                                     <div class="item">
-                                        <img class="d-block w-100" src="{{ env('IMAGE_PATH') . $image->source }}">
+                                        <img class="d-block w-100" src="{{ env('IMAGE_PATH') . $image->source }}" srcset="{{ env('IMAGE_PATH') . $image->source }} 1024w, {{ env('IMAGE_PATH') . 'medium/' . $image->source }} 768w, {{ env('IMAGE_PATH') . 'small/' . $image->source }} 420w">
                                     </div>
                                     @endforeach
                                 </div>

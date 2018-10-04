@@ -71,6 +71,11 @@
         .city-name {
             color: #fff;
         }
+        .city-name h1 {
+            font-size: 20px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
         .city-name p {
             font-size: 16px;
         }
@@ -267,6 +272,10 @@
             .city-name {
                 padding-left: 120px;
                 padding-right: 120px;
+            }
+            .city-name h1 {
+                font-size: 2.5rem;
+                margin-top: 0px;
             }
         }
     </style>

@@ -166,7 +166,7 @@
                 </div>
             </div> --}}
 
-            <section class="section footer" style="background-image: url('http://flamingodailai.com/wp-content/uploads/DJI_0025-3-1.jpg');">
+            <section class="section footer" style="background-image: url('{{ asset('web/images/resorts/resort_footer_1.jpg') }}');">
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="footer__copyright d-flex flex-column justify-content-center align-items-center">
@@ -223,7 +223,7 @@
                 </div>
             </section>
 
-            <div class="d-sm-none class-fixed" style="width: 100%;">
+            <div class="d-sm-none class-fixed" style="width: 100%; bottom: 0px;">
                 <div class="menu-mobile d-flex justify-content-around align-items-center">
                     <span class=""><a href="tel:+84945245115">@lang('resort_call_now')</a></span>
                     <span class=""><a href="{{ route('resorts.service', $resort->slug) }}">@lang('resort_book_now')</a></span>
@@ -307,7 +307,8 @@
                 autoplay: true,
                 autoplayTimeout: 5000,
                 autoplayHoverPause: true,
-                smartSpeed: 1000
+                smartSpeed: 1000,
+                mouseDrag: true
             });
         </script>
         <script type="text/javascript">

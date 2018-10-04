@@ -209,11 +209,12 @@ body {
 .menu-mobile {
     position: relative;
     height: 30px;
-    background-color: #fff;
+    background-color: #0000004f;
     font-weight: bold;
 }
 .menu-mobile a {
-    color: #4a4a4a !important;
+    color: #fff !important;
+    font-size: 13px;
 }
 .menu-mobile__phone {
     position: absolute;

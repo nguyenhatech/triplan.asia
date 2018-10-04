@@ -239,12 +239,16 @@
         }
         #myNavbar {
             height: 50px;
+            margin-bottom: 50px;
         }
         #myNavbar .bg-light {
             min-height: 50px;
             padding-left: 0px;
         }
         @media (min-width: 767px) {
+            #myNavbar {
+                margin-bottom: 0px;
+            }
             #myNavbar .bg-light {
                 height: 50px;
             }

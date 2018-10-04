@@ -92,7 +92,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="data-cart">
-                            <div class="table-responsive">
+                            <div class="table-responsive d-none d-sm-block">
                                 <table class="table table-hover">
                                     <tbody>
                                         @forelse ($dataCart as $item)
@@ -155,6 +155,64 @@
                                         @endforelse
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="d-block d-sm-none">
+                                @forelse ($dataCart as $item)
+                                    <div style="padding: 20px 20px;border-bottom: 1px solid #ccc">
+                                        <div style="margin-bottom: 10px">
+                                            <img style="width: 100%;height: auto" src="{{ $item->service_info->thumb_path }}" alt="{{ $item->service_info->name }}">
+                                        </div>
+                                        <div class="info d-flex flex-column">
+                                            <span class="name">{{ $item->service_info->name }}</span>
+                                            <span class="package_name">Gói: {{ $item->package_name }}</span>
+                                            <span class="date">Ngày: {{ $item->date }}</span>
+                                        </div>
+                                        <div>
+                                            @foreach ($item->service_packages as $package)
+                                                <div class="service-package d-flex justify-content-between">
+                                                    <span>{{ $package->quantity }} x {{ $package->name }}</span>
+                                                    <span class="price font-weight-bold">{{ number_format($package->quantity * $package->price_with_currency) }} đ</span>
+                                                </div>
+                                            @endforeach
+                                            @php
+                                                $flagFree = false;
+                                                foreach ($item->service_packages as $package) {
+                                                    if ($package->free) {
+                                                        $flagFree = true;
+                                                        break;
+                                                    }
+                                                }
+                                            @endphp
+                                            @if ($flagFree)
+                                                <span style="font-size: 13px; font-weight: bold; margin-bottom: 5px; display: block">Miễn phí: </span>
+                                            @endif
+                                            @foreach ($item->service_packages as $package)
+                                                @if ($package->free)
+                                                    <div class="service-package d-flex justify-content-between">
+                                                        <span>-{{ min($package->free, $package->quantity) }} x {{ $package->name }}</span>
+                                                        <span class="price font-weight-bold">-{{ number_format(min($package->free, $package->quantity) * $package->price_with_currency) }} đ</span>
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                        <div>
+                                            <div class="action">
+                                                <a class="item" href="{{ route('web.services.detail', [$item->service_info->slug, $item->service_info->uuid]) }}">
+                                                    <i class="far fa-edit"></i>
+                                                    Sửa
+                                                </a>
+                                                <span class="item delete btn-delete-cart"
+                                                    data-url="{{ route('web.cart.delete-one-cart', $item->service_info->id) }}"
+                                                    data-name="{{ $item->service_info->name }}">
+                                                    <i class="far fa-trash-alt"></i>
+                                                    Xóa
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+
+                                @endforelse
                             </div>
                         </div>
                     </div>

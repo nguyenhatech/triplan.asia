@@ -138,16 +138,20 @@
     -webkit-transition: height 0.2s ease-out;
     transition: height 0.2s ease-out;
 }
+.home-destinations .list__item .place-caption {
+    transition: all 0.3s ease-out;
+}
 .home-destinations .list__item:hover .place-caption {
     height: 200px;
     background-image: linear-gradient(#00000075, #0000009e);
     /*transform: translateY(-20px);*/
     /*box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);*/
     /*transition: 1s all;*/
-    transition: height 0.2s ease-out;
+    transition: all 0.3s ease-out;
 }
 .home-destinations .list__item:hover .place-caption .place-description {
     display: block;
+    transition: all 0.3s ease-out;
 }
 .home-destinations .list__item .place-caption {
     position: absolute;

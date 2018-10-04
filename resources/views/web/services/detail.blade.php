@@ -228,8 +228,14 @@
             position: fixed;
             top: 50px;
             z-index: 1001;
-            width: 1110px;
+            left: 0px;
             background-color: #fff;
+        }
+        @media (min-width: 767px) {
+            .fixed-myNavbar {
+                width: 1110px;
+                left: inherit;
+            }
         }
         #myNavbar {
             height: 50px;
@@ -667,6 +673,7 @@
     <script type="text/javascript" src="{{ get_asset('web/librarys/owl-carousel-2.3.4/dist/owl.carousel.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <script>
+        var widthScreen = $(document).width();
         jQuery(document).ready(function($) {
             $(".service-banner .owl-carousel").owlCarousel({
                 loop:true,
@@ -771,6 +778,7 @@
 
         // Add smooth scrolling on all links inside the navbar
         $("#myNavbar a").on('click', function(event) {
+
           // Make sure this.hash has a value before overriding default behavior
           if (this.hash !== "") {
             // Prevent default anchor click behavior
@@ -778,11 +786,15 @@
 
             // Store hash
             var hash = this.hash;
-
+            // Check màn hình để trừ cho hợp lý:
+            let padding = 190;
+            if (widthScreen > 767) {
+                padding = 125
+            }
             // Using jQuery's animate() method to add smooth page scroll
             // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
             $('html, body').animate({
-              scrollTop: $(hash).offset().top - 120
+              scrollTop: $(hash).offset().top - padding
             }, 800, function(){
 
               // Add hash (#) to URL when done scrolling (default click behavior)

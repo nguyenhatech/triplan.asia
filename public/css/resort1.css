@@ -1,0 +1,394 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #4a4a4a;
+}
+.parallax {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-section {
+    height: 100vh;
+    background-color: #0606064d;
+    background-blend-mode: darken;
+}
+.caption {
+    height: 100%;
+    padding: 0px 10px 0px 10px;
+    text-align: center;
+}
+.caption .resort-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.caption .resort-slogan {
+    font-family: 'Cormorant Upright', serif;
+    color: #fff;
+}
+.caption .play-button {
+    margin-top: 20px;
+    border-radius: 50%;
+}
+.caption .play-button:hover {
+    animation: ripple 2000ms infinite;
+}
+.caption .play-button:active {
+    animation: ripple 2000ms infinite;
+}
+.caption .play-button img {
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.caption .play-button:hover img {
+    transform: scale(1.1);
+}
+
+.service-section {
+    background-color: #f5f7f8;
+    color: #4a4a4a;
+}
+.section-title {
+    font-size: 20px;
+    text-align:center;
+    margin-bottom: 20px;
+    font-family: 'Cormorant Upright', serif;
+    color: forestgreen;
+    text-align: center;
+}
+.section-content {
+    font-size: 10pt;
+    line-height: 20pt;
+}
+
+/*SINGLE SECTION*/
+.single-section {
+    background-color: #ddd;
+    background-position: center center;
+    background-size: cover;
+}
+.single-section .section-title {
+    color: #fff;
+    font-size: 20px;
+    text-align: left;
+}
+.single-section .section-content {
+    font-size: 12pt;
+    color: #fff;
+}
+.box-inside {
+    padding: 20px;
+    background: linear-gradient(to right,#00000047 0%, #04040414 100%);
+}
+.box-inside:hover {
+    background: linear-gradient(to right,#0000007a 0%, #04040445 100%);
+}
+.service-section a {
+    text-decoration: none;
+}
+.box-item {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    background-size: cover;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-position: center center;
+    transition: all .5s ease-in-out;
+}
+.box-item .caption {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient(transparent, #00000075);
+}
+.box-item__title {
+    color: #fff;
+    font-size: 1.2rem;
+    -webkit-transition: height 0.2s ease-out;
+    transition: height 0.2s ease-out;
+}
+.box-item__description {
+    font-size: 14px;
+    color: #fff;
+    display: none;
+    -webkit-transition: height 0.2s ease-out;
+    transition: height 0.2s ease-out;
+}
+.box-item:hover {
+    background-color: #0000007a;
+    background-blend-mode: darken;
+}
+.box-tem:hover .caption {
+    height: 200px;
+    background-image: linear-gradient(#00000075, #0000009e);
+    transition: height 0.2s ease-out;
+}
+.box-item:hover .box-item__description {
+    display: block;
+}
+.footer {
+    min-height: 200px;
+    padding: 30px;
+    background-position: center center;
+    background-size: cover;
+    background-color: #0000007a;
+    background-blend-mode: darken;
+    color: #fff;
+    font-family: 'Roboto', serif;
+}
+.footer__copyright {
+    height: 100%;
+}
+.footer__copyright img {
+    margin-bottom: 10px;
+}
+.footer a {
+    text-decoration: none;
+    color: #fff;
+}
+.footer a:hover {
+    text-decoration: none;
+}
+.contact-us .social {
+    margin-top: 10px;
+}
+.contact-us .social a {
+    text-decoration: none;
+}
+.contact-us .social span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+.contact-us .social i {
+    color: #fff;
+    font-size: 16px;
+}
+#videoModal .modal-content {
+    max-width: 100%;
+    height: 80vh;
+    background-color: transparent;
+}
+#videoModal .video-close-btn {
+    color: #fff;
+    font-size: 40pt;
+}
+#videoIframe {
+    height: 204px;
+}
+.owl-nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 50px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+.owl-nav button {
+    outline: none;
+}
+.class-fixed {
+    position: absolute;
+    /*bottom: 0px;*/
+    width: 100px;
+}
+.menu-mobile {
+    position: relative;
+    height: 30px;
+    background-color: #fff;
+    font-weight: bold;
+}
+.menu-mobile a {
+    color: #4a4a4a !important;
+}
+.menu-mobile__phone {
+    position: absolute;
+    bottom: 0px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 44px;
+    animation: ripple 2000ms infinite;
+}
+.view-more-button__wrap {
+    text-align: center;
+}
+.view-more-button {
+    background: transparent;
+    color: forestgreen;
+    width: 200px;
+    border: 1px solid forestgreen;
+    padding: 5px 30px 5px 30px;
+    text-align: center;
+    transition: all 0.3s;
+
+    outline: none;
+    -webkit-transition: color 300ms;
+    transition: color 300ms;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+.view-more-button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: forestgreen;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition: 300ms ease-out;
+    transition: 300ms ease-out;
+}
+.view-more-button:hover {
+    color: #fff;
+}
+.view-more-button:hover:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+.owl-carousel .item {
+    height: 40vh;
+}
+.owl-carousel .item img {
+    height: 100%;
+}
+@media only screen and (min-width: 768px) {
+    .service-section {
+        height: 100vh;
+    }
+    .service-section .height-full {
+        height: 100%;
+    }
+    .caption .resort-name {
+        font-size: 2.5rem;
+    }
+    .section-title {
+        font-size: 45px;
+        text-align: right;
+    }
+    .section-content {
+        font-size: 12pt;
+        line-height: 1.66em;
+        text-align: right;
+    }
+    .content-left .view-more-button__wrap {
+        text-align: right;
+    }
+    .reverse-content .view-more-button__wrap {
+        text-align: left;
+    }
+    .reverse-content .section-title {
+        text-align: left;
+    }
+    .reverse-content .section-content {
+        text-align: left;
+    }
+    #videoModal .modal-dialog {
+        max-width: 768px;
+    }
+    #videoIframe {
+        height: 413px;
+    }
+    /*.class-fixed {
+        left: 0px;
+        bottom: 0;
+        top: 0;
+    }*/
+    .menu-desktop {
+        height: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        font-weight: bold;
+        color: #fff;
+    }
+    .menu-desktop a {
+        color: #fff;
+    }
+    .menu-desktop__lang a {
+        color: #fff !important;
+    }
+    .menu-desktop__phone {
+        position: absolute;
+        bottom: 80px;
+        padding: 10px;
+        text-align: center;
+        background-color: #02a676;
+        color: #fff;
+        border-radius: 50%;
+        width: 44px;
+        /*animation: ripple 2000ms infinite;*/
+    }
+    .menu-desktop__book {
+        cursor: pointer;
+        display: block;
+        width: 44px;
+        height: 44px;
+        text-align: center;
+        font-size: 10px;
+        padding-top: 5px;
+        color: #fff;
+        background: #02a676;
+        border-radius: 50%;
+        animation: ripple 2000ms infinite;
+    }
+    #booking-modal .modal-content {
+        padding: 10px;
+        width: 600px;
+    }
+
+    .owl-carousel .item {
+        height: 90vh !important;
+    }
+    .owl-carousel .item img {
+        height: 100% !important;
+    }
+}
+@media only screen and (max-device-width: 1024px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .owl-carousel .item {
+        height: 35vh;
+    }
+    .section-content {
+        font-size: 10pt;
+        line-height: 14pt;
+    }
+}
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0px transparent, 0 0 0 0px #ffffff40, 0 0 0 0px transparent, 0 0 0 0px #ffffff40;
+  }
+  100% {
+    box-shadow: 0 0 0 15px transparent, 0 0 0 17px rgba(255,255,255,0), 0 0 0 40px transparent, 0 0 0 42px rgba(255,255,255,0);
+  }
+}

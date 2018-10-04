@@ -52,14 +52,14 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex flex-column justify-content-between align-items-center">
+        <div v-if="package_name !== ''" class="d-flex flex-column justify-content-between align-items-center">
+            <span @click="nextStepBooking()" class="btn btn-block" :class="[canSubmit ? 'booking-now' : 'booking-miss']">
+                Đặt ngay
+            </span>
+        </div>
+        <div v-if="package_name === ''" class="d-flex flex-column justify-content-between align-items-center">
             <span @click="nextStepBooking()" class="btn btn-block booking-now">
-                <span v-if="canSubmit">
-                    Đặt ngay
-                </span>
-                <span v-else>
-                    Chọn gói dịch vụ
-                </span>
+                Chọn gói dịch vụ
             </span>
         </div>
         <div class="d-flex flex-column ">
@@ -244,6 +244,10 @@
     background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border: none;
+}
+.booking-miss {
+    background-color: #ccc !important;
+    font-weight: bold;
 }
 
 .order-box .notifications {

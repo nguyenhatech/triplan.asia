@@ -52,6 +52,9 @@
                                 <span style="font-size: 11px; font-style: italic;">
                                     {{ package_children.view_more }}
                                 </span>
+                                <span style="color: red" v-show="package_children.min > 0 && package_children.min > package_children.quantity">
+                                    Số lượng đặt tối thiểu là {{ package_children.min }}
+                                </span>
                                 <span class="price">
                                     {{ package_children.price_with_currency | number }}
                                     <span style="font-size: 12px; font-weight: bold">VND</span>
@@ -420,7 +423,7 @@
     margin-bottom: 20px;
 }
 .package_children__item {
-    padding-right: 50%;
+    padding-right: 35% !important;
     margin-bottom: 10px;
 }
 .package_children__item .name {

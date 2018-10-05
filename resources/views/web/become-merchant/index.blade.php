@@ -32,31 +32,19 @@
             font-size: 13px;
             border: 1px solid #EBEBEB;
             height: 36px;
+            color: rgb(72, 72, 72) !important;
         }
         .form-data .form-control:focus {
             outline: none;
             box-shadow: none;
         }
-        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-            color:    #909;
+        .form-data .btn-danger {
+            padding: 5px 40px;
+            font-size: 14px;
         }
-        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-           color:    #909;
-           opacity:  1;
-        }
-        ::-moz-placeholder { /* Mozilla Firefox 19+ */
-           color:    #909;
-           opacity:  1;
-        }
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-           color:    #909;
-        }
-        ::-ms-input-placeholder { /* Microsoft Edge */
-           color:    #909;
-        }
-
-        ::placeholder { /* Most modern browsers support this now. */
-           color:    #909;
+        .form-data input[type="text"]::-webkit-input-placeholder {
+            color: #767676 !important;
+            font-weight: 300 !important;
         }
     </style>
 @endsection
@@ -75,8 +63,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Số điện thoại:</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Số điện thoại">
-                                <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẻ số điện thoại của bạn với bất kỳ ai khác.</small>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Số điện thoại">
+                                <small class="form-text text-muted font-weight-light mt-3">Chúng tôi sẽ không bao giờ chia sẻ số điện thoại của bạn với bất kỳ ai khác.</small>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary btn-danger">Gửi ngay</button>

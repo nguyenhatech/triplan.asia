@@ -20,6 +20,44 @@
             margin-bottom: 64px !important;
             box-shadow: 0 16px 40px rgba(0,0,0,0.12) !important;
         }
+        .form-data h4 {
+            margin-bottom: 20px;
+        }
+        .form-data label {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .form-data input {
+            font-size: 13px;
+            border: 1px solid #EBEBEB;
+            height: 36px;
+        }
+        .form-data .form-control:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color:    #909;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+           color:    #909;
+           opacity:  1;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+           color:    #909;
+           opacity:  1;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+           color:    #909;
+        }
+        ::-ms-input-placeholder { /* Microsoft Edge */
+           color:    #909;
+        }
+
+        ::placeholder { /* Most modern browsers support this now. */
+           color:    #909;
+        }
     </style>
 @endsection
 
@@ -30,20 +68,19 @@
                 <div class="col-md-12">
                     <div class="form-data">
                         <form>
+                            <h4 class="font-weight-bold">Trở thành Merchant và hưởng nhiều ưu đãi</h4>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                <label for="exampleInputEmail1">Họ và tên:</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nhập họ tên">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <label for="exampleInputPassword1">Số điện thoại:</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Số điện thoại">
+                                <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẻ số điện thoại của bạn với bất kỳ ai khác.</small>
                             </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary btn-danger">Gửi ngay</button>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>

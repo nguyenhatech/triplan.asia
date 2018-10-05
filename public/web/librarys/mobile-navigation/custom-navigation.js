@@ -66,7 +66,12 @@ jQuery(document).ready(function($) {
 
     $('#td-header-search-button-mob, .td-search-close a').click(function(e) {
         e.preventDefault();
-        jQuery("body").hasClass("td-search-opened") ? jQuery("body").removeClass("td-search-opened") : jQuery("body").addClass("td-search-opened");
+        if (jQuery("body").hasClass("td-search-opened")) {
+            jQuery("body").removeClass("td-search-opened");
+        } else {
+            jQuery("body").addClass("td-search-opened");
+            document.getElementById("searchInput").focus();
+        }
 
         jQuery("body").hasClass("td-search-opened") ? $.lockBody() : $.unlockBody();
 

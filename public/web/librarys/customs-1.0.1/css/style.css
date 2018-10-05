@@ -8,16 +8,12 @@ body {
 /* HEDER TOP NAVIGATION */
 .navbar-brand {
     height: 36px;
-    width: 140px;
     background-size: 100%;
     padding: 0;
     margin: 0;
 }
 .header-top-navigation .navbar-brand {
     background-image: url('/web/images/logos/logo_white.png');
-}
-.header-top-navigation-scroll .navbar-brand{
-    background-image: url('/web/images/logos/logo_blue.png');
 }
 /*.layoutpage .header-top-navigation {
     background-color: #fff !important;
@@ -54,6 +50,7 @@ body {
 }
 .header-top-navigation .navbar-light .navbar-toggler {
     border-color: transparent !important;
+    padding: .25rem 0rem;
 }
 .header-top-navigation .navbar-collapse {
     background-color: #fff;
@@ -61,7 +58,7 @@ body {
     margin-right: -16px;
 }
 .header-top-navigation .navbar {
-    padding: .45rem 1.5rem !important;
+    padding: .45rem 1rem !important;
 }
 @media screen and (min-width: 768px) {
     .header-top-navigation {

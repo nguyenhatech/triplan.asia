@@ -4,6 +4,21 @@
             <i class="fa fa-times" style="color: #fff; padding: 20px 30px 20px 20px;"></i>
         </a>
     </div>
+    <div style="padding-left: 30px; padding-right: 30px; font-size: 22px; font-weight: bold">
+        <div style="padding: 20px 30px 20px 20px;">
+            <h5 class="text-center">Tìm kiếm</h5>
+        </div>
+        <div class="md_box-search">
+            <input type="text" class="form-control" id="searchInput" name="q" placeholder="Nhập từ khóa để tìm kiếm...">
+        </div>
+    </div>
+</div>
+<div id="td-mobile-nav" style="-webkit-overflow-scrolling: touch;height: 100vh;overflow-y: scroll;">
+    <div class="td-mobile-close">
+        <a href="#">
+            <i class="fa fa-times" style="color: #fff; padding: 20px 30px 20px 20px;"></i>
+        </a>
+    </div>
     <div style="padding-left: 50px; padding-right: 50px; font-size: 22px; font-weight: bold">
         <p class="d-flex justify-content-around">
             <a target="_blank" href="https://www.facebook.com/TriplanVN/" style="color: #fff; padding: 5px 20px 5px 20px;"><i class="fab fa-facebook-f"></i></a>

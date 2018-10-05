@@ -30,14 +30,6 @@
             margin-top: 20px;
             margin-bottom: 20px;
         }
-        #box-pagination .page-link {
-            color: #02a676;
-        }
-        #box-pagination .page-item.active .page-link {
-            background-color: #02a676;
-            border-color: #02a676;
-            color: #fff;
-        }
         .home-destinations .list__item:hover .place-caption {
             height: 240px;
         }
@@ -74,8 +66,8 @@
                         <a href="{{ route('resorts.show', $place->slug) }}" title="{{ $place->name }}">
                             <div class="list__item" style="background-image: url({{ $place->getImage('sm') }}); height: 240px;">
                                 <div class="place-caption">
-                                    <span>{{ $place->name }}</span>
-                                    <span class="place-description">{{ shortString($place->short_description, 300) }}</span>
+                                    <h2 class="place-title">{{ $place->name }}</h2>
+                                    <p class="place-description">{{ trim_text($place->short_description, 300) }}</p>
                                 </div>
                             </div>
                         </a>

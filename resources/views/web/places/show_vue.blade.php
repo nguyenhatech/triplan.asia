@@ -161,97 +161,11 @@
         .search-box {
             position: relative;
         }
-        .box-suggest {
-            position: absolute;
-            top: 37px;
-            left: 0px;
-            width: 100%;
-            z-index: 1;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 2px;
-        }
-        .box-suggest .tab-content {
-            padding: 20px;
-        }
-        .box-suggest .nav {
-            height: 100%;
-            background-color: #01b07d;
-        }
-        .box-suggest ul li {
-            padding: 20px;
-            font-size: 15px;
-        }
-        .box-suggest ul li.active {
-            background-color: #fff;
-        }
-        .box-suggest ul li.active a {
-            color: #01b07d;
-        }
-        .box-suggest ul li a {
-            color: #fff;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .suggest__list-place .box-image {
-            height: 90px;
-            padding: 5px;
-            text-align: center;
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #00000052;
-            background-blend-mode: overlay;
-            color: #fff;
-            font-weight: bold;
-            border: 2px;
-        }
-        .suggest__list-place .hot-service-list a {
-            text-decoration: none;
-            color: rgb(33, 37, 41);
-        }
-        .suggest__list-place .hot-service-list a:hover {
-            color: #4db2ec;
-        }
-        .suggest__list-place .hot-service-list .box-image {
-            margin-bottom: 10px;
-        }
-        .suggest__list-place .box-image a {
-            color: #fff;
-            text-decoration: none;
-        }
-        .suggest__list-place .hot-service-list h6 {
-            text-transform: capitalize;
-            font-size: 14px;
-        }
-        .suggest__list-place .box-hover:hover a:before {
-            opacity: 0.4;
-        }
-        .suggest__list-place .box-hover a:before {
-            content: '';
-            width: 79%;
-            height: 85%;
-            border: 1px solid #fff;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            margin: auto;
-            margin-right: 23px;
-        }
         .box-list-result .price {
             font-size: 16px;
             font-weight: bold;
             color: #28a745;
             margin-left: 5px;
-        }
-        .typeahead .dropdown-item {
-            text-transform: capitalize;
         }
         @media screen and (min-width: 768px) {
             .box-list-result .card-body {

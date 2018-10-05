@@ -8,6 +8,8 @@
   z-index: 9999;
   visibility: hidden;
   transform: translate3d(-99%, 0, 0);
+  background: #02a676;
+  color: #fff;
   left: -1%;
 }
 
@@ -18,7 +20,6 @@
 
 /*close modal*/
 .td-mobile-close {
-  position: absolute;
   right: 0px;
   top: 0;
   z-index: 1000;
@@ -79,11 +80,13 @@
   transform: translate3d(0, 0, 0);
 }
 
-.td-search-close {
+.td-search-close,
+.td-mobile-close {
   text-align: right;
   z-index: 1000;
 }
-.td-search-close i {
+.td-search-close i,
+.td-mobile-close i {
     font-size: 30px;
     padding: 10px 10px;
 }
@@ -100,4 +103,18 @@
 .overflow-hidden {
   overflow-y: hidden; // hide vertical
   overflow-x: hidden; // hide horizontal
+}
+
+#searchInput {
+    background: #019066;
+    border-color: #019066;
+    color: #fff;
+}
+#searchInput:active,
+#searchInput:focus {
+    outline: none;
+    box-shadow: none;
+}
+#searchInput::placeholder {
+    color: #ddddddc7;
 }

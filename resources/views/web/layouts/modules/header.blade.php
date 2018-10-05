@@ -1,18 +1,22 @@
 <div class="fixed-top">
     <div class="header-top-navigation header-top-navigation-scroll">
         <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand d-flex align-items-center" href="{{ route('web.home') }}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" id="td-top-mobile-toggle" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #fff;"></span>
+            </button>
+            <a class="navbar-brand d-flex align-items-center" href="{{ route('web.home') }}">
+                <img src="{{ asset('web/images/logos/logo_blue.png') }}" width="100px">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" id="td-header-search-button-mob" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" style="color: #fff;"></span>
+                <span class="navbar-toggler-icon" style="color: #fff; background-image: none;">
+                    <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 24px; width: 24px; display: block; fill: rgb(118, 118, 118);"><path d="m10.4 18.2c-4.2-.6-7.2-4.5-6.6-8.8.6-4.2 4.5-7.2 8.8-6.6 4.2.6 7.2 4.5 6.6 8.8-.6 4.2-4.6 7.2-8.8 6.6m12.6 3.8-5-5c1.4-1.4 2.3-3.1 2.6-5.2.7-5.1-2.8-9.7-7.8-10.5-5-.7-9.7 2.8-10.5 7.9-.7 5.1 2.8 9.7 7.8 10.5 2.5.4 4.9-.3 6.7-1.7v.1l5 5c .3.3.8.3 1.1 0s .4-.8.1-1.1" fill-rule="evenodd"></path></svg>
+                </span>
             </button>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ route('places.vietnam') }}">@lang('menu_vietnam')</a>
                     </li>
-{{--                     <li class="nav-item">
-                        <a class="nav-link nav-link-scroll" href="{{ route('places.international') }}">@lang('menu_international')</a>
-                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ route('places.resort') }}">@lang('menu_resort')</a>
                     </li>

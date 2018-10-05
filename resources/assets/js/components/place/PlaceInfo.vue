@@ -98,7 +98,7 @@
                                             <h3 class="card-title">{{ trimText(service.name, 80)}}</h3>
                                             <p class="card-text">{{ trimText(service.description, 180) }}</p>
                                             <div class="card-bottom d-flex justify-content-between">
-                                                <div class="rate">
+                                                <div class="rate d-flex justify-content-between align-items-center">
                                                     <i class="fas fa-star"></i>
                                                     <i class="fas fa-star"></i>
                                                     <i class="fas fa-star"></i>
@@ -461,6 +461,10 @@
 </script>
 
 <style type="scoped">
+    .rate {
+      width: 80px;
+
+    }
     #input-search::placeholder {
         font-size: 12px;
     }

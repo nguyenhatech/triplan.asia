@@ -116,14 +116,14 @@ class PlaceController extends WebController
         $resorts = $resortRepo->where('status', 1)->get();
 
         if ($locale == 'vi') {
-            $this->metadata->setMetaTitle('Du lịch resort');
-            $this->metadata->setDescription('Tour du lịch ở resort. Du lịch mai châu, du lịch flamigo.');
-            $this->metadata->setMetaKeyword('du lịch mai châu,du lịch hà flamigo');
+            $this->metadata->setMetaTitle('Nghỉ dưỡng Resort Việt Nam');
+            $this->metadata->setDescription('Resort nghỉ dưỡng Việt Nam. Đẳng cấp, sang trọng, gần gũi thiên nhiên.');
+            $this->metadata->setMetaKeyword('nghỉ dưỡng resort,du lịch sinh thái,resort việt nam');
             $this->metadata->setOgpimage(asset('web/images/places/resort.jpg'));
         } else {
-            $this->metadata->setMetaTitle('Viet Nam Travel');
-            $this->metadata->setDescription('Best experience in Resort. ');
-            $this->metadata->setMetaKeyword('Mai Chau tourism, flamingo tourism');
+            $this->metadata->setMetaTitle('Viet Nam Resort Luxury');
+            $this->metadata->setDescription('Resort in Viet Nam. Luxury, heavenly place, nature.');
+            $this->metadata->setMetaKeyword('resort viet nam,resort asia,luxury resort,nature resort');
             $this->metadata->setOgpimage(asset('web/images/places/resort.jpg'));
         }
 

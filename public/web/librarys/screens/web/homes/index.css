@@ -134,12 +134,16 @@
 .place-description {
     display: none;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     -webkit-transition: height 0.2s ease-out;
     transition: height 0.2s ease-out;
 }
 .home-destinations .list__item .place-caption {
-    transition: all 0.3s ease-out;
+    transition: all 0.3s;
+}
+.place-caption .place-title {
+    font-size: 18px;
+    font-weight: bold;
 }
 .home-destinations .list__item:hover .place-caption {
     height: 200px;

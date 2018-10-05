@@ -15,7 +15,7 @@ class DbLanguageRepository extends BaseRepository implements LanguageRepository
     {
         return Cache::remember('languages', 864000, function()
         {
-            return $this->model->where('status', 1)->get();
+            return $this->model->where('status', 1)->where('code', 'vi')->get();
         });
     }
 }

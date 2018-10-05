@@ -247,7 +247,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true" class="video-close-btn">&times;</span></button>
-                        <iframe id="videoIframe" width="100%" height="auto" src="https://www.youtube.com/embed/mcBXv0OyXNQ?rel=0&amp;controls=0&amp;showinfo=0&amp;start=16&amp;end=150&amp;modestbranding=1&amp;enablejsapi=1&amp;vq=hd720" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe id="videoIframe" width="100%" height="auto" src="{{ $resort->video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

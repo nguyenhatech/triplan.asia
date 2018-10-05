@@ -103,4 +103,11 @@ class HomeController extends WebController
             'tours'          => $tours
         ]);
     }
+
+    public function viewBecomeMerchant(Request $request)
+    {
+        return view('web.become-merchant.index')->with([
+
+        ]);
+    }
 }

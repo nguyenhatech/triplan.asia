@@ -10,7 +10,7 @@
 <meta name="description" content="" />
 <meta name="revisit-after" content="1 days" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no" />
-<link href="{{ get_asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
+<link href="{{ get_asset('favicon.png') }}" rel="shortcut icon" type="image/x-icon" />
 <meta name="keywords" content="{!! $metadata->getMetaKeyword() !!}"/>
 <meta name="description" content="{{ $metadata->getDescription() }}"/>
 <meta name="author" content="{{ $metadata->getName() }}"/>

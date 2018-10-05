@@ -19,6 +19,8 @@ Route::group([
     // Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('web.change-language');
 
     Route::get('/', 'HomeController@index')->name('web.home');
+    Route::get('/become-merchant', 'HomeController@viewBecomeMerchant')->name('web.home.get-becomeMerchant');
+    Route::post('/become-merchant', 'HomeController@storeBecomeMerchant')->name('web.home.post-becomeMerchant');
 
     // Module
     Route::get('du-lich-{slug}', 'PlaceController@show')->name('web.show_place');

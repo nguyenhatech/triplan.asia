@@ -178,6 +178,7 @@ body {
     max-width: 100%;
     height: 80vh;
     background-color: transparent;
+    border-color: transparent;
 }
 #videoModal .video-close-btn {
     color: #fff;

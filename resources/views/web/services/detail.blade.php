@@ -343,8 +343,8 @@
             Sharing Top
         */
         .td-post-sharing {
-          font-family: 'Nunito', arial, sans-serif;
-         padding-top: 15px;
+            font-family: 'Nunito', arial, sans-serif;
+            padding-top: 40px;
         }
         .td-post-sharing a {
           display: inline-block;
@@ -363,15 +363,16 @@
           color: #fff;
           -webkit-border-radius: 2px;
           -moz-border-radius: 2px;
-          border-radius: 2px;
-          padding: 10px 13px 8px 13px;
+          border-radius: 50%;
+          padding: 9px 0px 9px 0px;
+          display:
           margin-right: 10px;
           height: 40px;
           min-width: 40px;
           text-align: center;
         }
-        .td-social-sharing-buttons:hover {
-          opacity: 0.8;
+        .td-social-sharing-buttons i {
+            font-size: 16px;
         }
         .td-social-sharing-buttons .td-sp {
           width: 14px;
@@ -386,7 +387,13 @@
           margin-left: 12px;
         }
         .td-social-facebook {
-          background-color: #516eab;
+          margin-right: 20px;
+          background-color: #fff;
+          border: 1px solid #516eab;
+          color: #516eab;
+        }
+        .td-social-facebook:hover {
+            background-color: #516eab;
         }
         .td-social-facebook .td-icon-facebook {
           font-size: 14px;
@@ -397,7 +404,14 @@
           border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
         .td-social-twitter {
-          background-color: #29c5f6;
+            margin-right: 20px;
+            background-color: #fff;
+            border: 1px solid #29c5f6;
+            color: #29c5f6;
+        }
+        .td-social-twitter:hover {
+            background-color: #29c5f6;
+            color: #fff;
         }
         .td-social-twitter .td-icon-twitter {
           font-size: 12px;
@@ -417,9 +431,15 @@
           line-height: 22px;
         }
         .td-social-pinterest {
-          background-color: #ca212a;
-          margin-right: 0;
+            background-color: #fff;
+            color: #ca212a;
+            border: 1px solid #ca212a;
+            margin-right: 0;
           /* responsive portrait phone */
+        }
+        .td-social-pinterest:hover {
+            background-color: #ca212a;
+            color: #fff;
         }
         @media (max-width: 767px) {
           .td-social-pinterest {
@@ -613,13 +633,13 @@
                     <div class="td-post-sharing td-post-sharing-top" style="display: flex;justify-content: center;">
                         <div class="td-default-sharing">
                             <a class="td-social-sharing-buttons td-social-facebook" href="https://www.facebook.com/sharer.php?u={{ URL::current() }}" onclick="window.open(this.href, &#39;mywin&#39;,&#39;left=50,top=50,width=600,height=350,toolbar=0&#39;); return false;">
-                                <i class="fab fa-facebook-f" style="padding-top: 5px;"></i>
+                                <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a class="td-social-sharing-buttons td-social-twitter" href="https://twitter.com/intent/tweet?text=Triplan Luxury&amp;url={{ URL::current() }}">
-                                <i class="fab fa-twitter" style="padding-top: 5px;"></i>
+                            <a class="td-social-sharing-buttons td-social-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Triplan Luxury&amp;url={{ URL::current() }}">
+                                <i class="fab fa-twitter"></i>
                             </a>
                             <a class="td-social-sharing-buttons td-social-pinterest" href="https://pinterest.com/pin/create/button/?url={{ URL::current() }}&amp;&amp;description=Hà Nội phố những ngày mưa" onclick="window.open(this.href, &#39;mywin&#39;,&#39;left=50,top=50,width=600,height=350,toolbar=0&#39;); return false;">
-                                <i class="fab fa-pinterest" style="padding-top: 5px;"></i>
+                                <i class="fab fa-pinterest"></i>
                             </a>
                         </div>
                     </div>

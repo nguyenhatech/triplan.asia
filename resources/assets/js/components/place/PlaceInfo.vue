@@ -61,18 +61,28 @@
                     </div>
                 </div>
             </div>
-            <div class="box-sort d-flex justify-content-end">
-                <div class="dropdown">
-                  <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="sortMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sắp xếp theo: {{ sortCurrent }}
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="sortMenuButton">
-                    <span v-for="(item, index) in sortList" :key="index" @click="changeSort(item)" class="dropdown-item">{{ item.text }}</span>
-                  </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="mobile-filter-button d-sm-none">
+                        <button @click="showFilterDialog = true" class="btn btn-sm btn-light"><i class="fas fa-filter"></i> Bộ lọc</button>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="box-sort d-flex justify-content-end">
+                        <div class="dropdown">
+                          <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="sortMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sắp xếp theo: {{ sortCurrent }}
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="sortMenuButton">
+                            <span v-for="(item, index) in sortList" :key="index" @click="changeSort(item)" class="dropdown-item">{{ item.text }}</span>
+                          </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="box-list-result">
-                <div class="row" style="min-height: 100vh;">
+                <div class="row">
                 <transition-group name="list">
                     <div v-for="(service, index) in services" :key="index" class="col-12">
                         <div class="card">
@@ -116,6 +126,39 @@
                 <div class="col-12 d-none d-md-block text-center">
                     <button @click="fetchMoreServices()" type="button" class="btn btn-outline-primary">{{ trans ? trans.places_view_more : 'Xem thêm' }}</button>
                 </div>
+            </div>
+        </div>
+        <div v-if="showFilterDialog" class="box-filters">
+            <div class="box-filters__header pl-3 pr-3 d-flex justify-content-end">
+                <span @click="showFilterDialog = false"><i class="fas fa-times fa-2x"></i></span>
+            </div>
+            <div class="pl-3 pr-3">
+              <h6 class="text-center box-filters__title">{{ trans ? trans.places_service_type_filter : 'Loại dịch vụ' }}</h6>
+              <ul class="list-group">
+                <li v-for="(item, index) in serviceGroups" :key="index" @click="toggleServiceGroupFilter(item.id)" :class="'list-group-item ' + (filters.service_group.includes(item.id) ? 'active' : '')">
+                  <span :class="{'brand-color': filters.service_group.includes(item.id)}">{{ item.name }}</span>
+                  <span class="badge badge-light badge-pill float-right">{{ item.total }}</span>
+                  <div v-if="filters.service_group.includes(item.id)" class="mb_box-service-type">
+                    <div v-for="(type, index) in serviceTypes" class="custom-control custom-checkbox"  @click="toggleServiceTypeFilter(type.id)">
+                      <input type="checkbox" class="custom-control-input" :id="'mbtype' + type.name" :value="type.id" v-model="filters.service_type">
+                      <label class="custom-control-label" :for="'mbtype' + type.name">{{ type.name }}</label>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <h6 class="text-center box-filters__title">{{ trans ? trans.places_price_filter : 'Giá' }}</h6>
+              <div class="card" style="width: 100%; padding: 5px 15px 5px 15px;">
+                  <div v-for="(price, index) in pricePeriods" :key="index" class="custom-control custom-checkbox">
+                      <input class="custom-control-input" type="checkbox" :id="'price' + price.value" v-model="filters.price" :value="price.value">
+                      <label class="custom-control-label" :for="'price' + price.value">
+                          {{ price.text }}
+                      </label>
+                  </div>
+              </div>
+              <div class="apply-wrap-btn d-flex justify-content-around">
+                <button @click="clearFilters()" type="button" class="btn btn-sm btn-outline-secondary">{{ trans ? trans.places_filters_clear_all : 'Xóa tất cả' }}</button>
+                <button @click="showFilterDialog = false" type="button" class="btn btn-sm btn-outline-primary">{{ trans ? trans.places_filters_apply : 'Xong' }}</button>
+              </div>
             </div>
         </div>
     </div>
@@ -206,7 +249,8 @@
                     { value: 'price:-1', text: 'Giá giảm dần' },
                     { value: 'hot:-1', text: 'Hot nhất' }
                 ],
-                sortCurrent: 'Hot nhất'
+                sortCurrent: 'Hot nhất',
+                showFilterDialog: false
             }
         },
         mounted () {
@@ -222,7 +266,7 @@
         },
         methods: {
             ...mapActions(['fetchTranslations']),
-            fetchServices () {
+            fetchServices: debounce( function () {
                 this.filters.page = 1
                 this.loading = true
                 this.services = []
@@ -239,7 +283,7 @@
                             break;
                     }
                 })
-            },
+            }, 500),
             fetchMoreServices () {
                 this.filters.page++
                 this.loading = true
@@ -276,7 +320,7 @@
                 axios.get('service-types', {params: {limit: -1, locale: this.language, place_id: this.place_id, resort_id: this.resort_id}}).then(response => {
                     switch (response.code) {
                         case 200:
-                            this.serviceTypeList = response.data;
+                            this.serviceTypeList = response.data
                             this.parseUrlParams()
                             break;
                         case 404:
@@ -366,6 +410,11 @@
             changeSort (sortObject) {
                 this.filters.sort = sortObject.value
                 this.sortCurrent = sortObject.text
+            },
+            clearFilters () {
+              this.filters.service_group = []
+              this.filters.service_type = []
+              this.filters.price = []
             }
         },
         watch: {
@@ -379,7 +428,7 @@
                 _this.fetchServices()
               }, 900)
             },
-            'filters.service_group': debounce(function () {
+            'filters.service_group': function () {
                 this.serviceTypes = []
                 forEach(this.serviceTypeList, type => {
                   if (this.filters.service_group.includes(type.service_group_id)) {
@@ -394,7 +443,7 @@
                 })
                 this.fetchServices()
                 this.updateUrlParams()
-            }, 500),
+            },
             'filters.service_type': debounce(function () {
                 this.fetchServices()
                 this.updateUrlParams()
@@ -412,6 +461,43 @@
 </script>
 
 <style type="scoped">
+    #input-search::placeholder {
+        font-size: 12px;
+    }
+    .list-group-item.active {
+      color: black;
+      background-color: #f8f9fa;
+      border-color: #ddd;
+    }
+    .brand-color {
+      color: #02a676;
+    }
+    .box-filters {
+        padding-top: 55px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        z-index: 2;
+    }
+    .box-filters__header {
+        padding: 10px 0px 10px 0px;
+        color: #9e9e9e;
+    }
+    .box-filters__title {
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+    .selected-btn {
+      color: #212529;
+      background-color: #dae0e5;
+      border-color: #d3d9df;
+    }
+    .apply-wrap-btn {
+      margin-top: 20px;
+    }
     .list-enter-active, .list-leave-active {
       transition: all 1s;
     }
@@ -513,5 +599,10 @@
     }
     .box-sort .dropdown .dropdown-menu {
         cursor: pointer;
+    }
+    @media only screen and (min-width: 768px) {
+      #input-search::placeholder {
+          font-size: 16px;
+      }
     }
 </style>

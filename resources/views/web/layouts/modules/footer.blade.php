@@ -8,7 +8,7 @@
                 <div class="about-us">
                     <p>Triplan ra đời với mục tiêu áp dụng những kinh nghiệm sẵn có và công nghệ hiện đại vào dịch vụ du lịch nhằm đem đến khách hàng những tour thú vị, chất lượng</p>
                 </div>
-                <div class="download">
+                <div class="download d-none">
                     <div style="margin-bottom: 10px;">
                         <a href="https://itunes.apple.com/us/app/triplan/id1429665204?l=vi&ls=1&mt=8" target="_blank" title="download_on_Appstore">
                             <img src="{{ get_asset('web/images/download/itunes-app-store-logo.png') }}">
@@ -87,7 +87,8 @@
         <div class="row">
             <div class="col-md-12">
                 <span>
-                    @lang('footer_sologun')
+                    {{-- @lang('footer_sologun') --}}
+                    &copy; 2018 - Phiên bản thử nghiệm
                 </span>
             </div>
         </div>

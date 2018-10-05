@@ -65,7 +65,7 @@ class HomeController extends WebController
         ]);
 
         // Resort
-        $resorts = $this->resort->where('status', 1)->take(3)->get();
+        $resorts = $this->resort->where('status', 1)->get();
 
         // foreach ($resorts as $key => $item) {
         //     dd($item->services);

@@ -14,6 +14,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
+                    <li class="nav-item become-merchant">
+                        <a class="nav-link nav-link-scroll" href="{{ route('web.home.get-becomeMerchant') }}">Trở thành đối tác</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ route('places.vietnam') }}">@lang('menu_vietnam')</a>
                     </li>

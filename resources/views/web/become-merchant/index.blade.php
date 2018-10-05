@@ -56,7 +56,7 @@
                 <div class="col-md-12">
                     <div class="form-data">
                         <form>
-                            <h4 class="font-weight-bold">Trở thành Merchant và hưởng nhiều ưu đãi</h4>
+                            <h4 class="font-weight-bold">Trở thành đối tác và hưởng nhiều ưu đãi</h4>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Họ và tên:</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nhập họ tên">

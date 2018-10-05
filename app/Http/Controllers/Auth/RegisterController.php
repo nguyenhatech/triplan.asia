@@ -6,9 +6,12 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Repositories\Core\Metadata\MetadataTrait;
 
 class RegisterController extends Controller
 {
+
+    use MetadataTrait;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -36,7 +39,14 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $this->getMetadata();
         $this->middleware('guest');
+        $this->middleware(function ($request, $next) {
+            $dataCart = is_null(session('dataCart')) ? [] : session('dataCart');
+            \View::share('dataCart', $dataCart);
+
+            return $next($request);
+        });
     }
 
     /**

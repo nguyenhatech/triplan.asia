@@ -298,7 +298,3 @@
         <place-info language="{{ \App::getLocale() }}" place_name="{{ $resort->name }}" :resort_id="{{ $resort->id }}"></place-info>
     </div>
 @endsection
-
-@section('scripts')
-    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-@endsection

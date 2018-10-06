@@ -54,9 +54,10 @@ Vue.component('booking-step1', require('./components/booking/Step1.vue'));
 Vue.component('thank-you', require('./components/booking/Thankyou.vue'));
 Vue.component('place-info', require('./components/place/PlaceInfo.vue'));
 Vue.component('resort-booking', require('./components/resort/Booking.vue'));
+Vue.component('mobile-search', require('./components/search/MobileSearch.vue'));
 
 
 const app = new Vue({
-    el: '#td-outer-wrap',
+    el: '#wrap-body',
     store: indexStore
 });

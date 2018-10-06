@@ -203,7 +203,3 @@
         <place-info language="{{ \App::getLocale() }}" place_name="{{ $place->getTranslation(\App::getLocale())->name }}" :place_id="{{ $place->id }}"></place-info>
     </div>
 @endsection
-
-@section('scripts')
-    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-@endsection

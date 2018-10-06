@@ -485,6 +485,7 @@
         height: 100vh;
         background: #fff;
         z-index: 2;
+        overflow: auto;
     }
     .box-filters__header {
         padding: 10px 0px 10px 0px;
@@ -501,6 +502,7 @@
     }
     .apply-wrap-btn {
       margin-top: 20px;
+      margin-bottom: 20px;
     }
     .list-enter-active, .list-leave-active {
       transition: all 1s;

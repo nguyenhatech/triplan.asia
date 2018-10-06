@@ -689,7 +689,6 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCODSbfU_kkgIfebejWqASwb-tQ6g_t8ec&language=vi&libraries=places&callback=initMap">
     </script>

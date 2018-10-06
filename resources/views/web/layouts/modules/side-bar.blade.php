@@ -5,11 +5,11 @@
         </a>
     </div>
     <div style="padding-left: 30px; padding-right: 30px; font-size: 22px; font-weight: bold">
-        <div style="padding: 20px 30px 20px 20px;">
+        <div style="padding: 0px 30px 10px 20px;">
             <h5 class="text-center">Tìm kiếm</h5>
         </div>
         <div class="md_box-search">
-            <input type="text" class="form-control" id="searchInput" name="q" placeholder="Nhập từ khóa để tìm kiếm...">
+            <mobile-search></mobile-search>
         </div>
     </div>
 </div>

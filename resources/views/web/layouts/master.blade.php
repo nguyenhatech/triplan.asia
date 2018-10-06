@@ -12,34 +12,36 @@
     </head>
     <body data-spy="scroll" data-target="#myNavbar" data-offset="120">
         @include('web.layouts.modules.facebook')
+        <div id="wrap-body">
 
-        <div id="td-outer-wrap">
-            <header class="tp-header {{ Request::is('/') ? 'homepage' : 'layoutpage' }}">
-                @include('web.layouts.modules.header')
-            </header>
+            <div id="td-outer-wrap">
+                <header class="tp-header {{ Request::is('/') ? 'homepage' : 'layoutpage' }}">
+                    @include('web.layouts.modules.header')
+                </header>
 
-            <main>
-                @yield('content')
-                <a href="#" class="scrollup" title="@lang('scroll_to_top')"><i class="fa fa-arrow-up"></i></a>
+                <main>
+                    @yield('content')
+                    <a href="#" class="scrollup" title="@lang('scroll_to_top')"><i class="fa fa-arrow-up"></i></a>
 
-                <div class="fb-customerchat"
-                  attribution=setup_tool
-                  page_id="1662541773864552"
-                  theme_color="#02a676">
-                </div>
-            </main>
+                    <div class="fb-customerchat"
+                      attribution=setup_tool
+                      page_id="1662541773864552"
+                      theme_color="#02a676">
+                    </div>
+                </main>
 
-            <footer>
-                @include('web.layouts.modules.footer')
-            </footer>
+                <footer>
+                    @include('web.layouts.modules.footer')
+                </footer>
+            </div>
+            @include('web.layouts.modules.side-bar')
         </div>
-
-        @include('web.layouts.modules.side-bar')
 
         <script type="text/javascript" src="{{ get_asset('web/librarys/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/mobile-navigation/custom-navigation.js') }}"></script>
         <script type="text/javascript" src="{{ get_asset('web/librarys/customs-1.0.1/js/web.js') }}"></script>
+        <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
         <!-- Facebook Pixel Code -->
         <script>

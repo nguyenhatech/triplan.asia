@@ -77,6 +77,18 @@ body {
     }
 }
 
+/*Nút trở thành đối tác*/
+.header-top-navigation .become-merchant {
+    border-radius: 45px;
+    line-height: 35px;
+}
+.header-top-navigation .become-merchant a {
+    color: #fff !important;
+    background-color: #DA3749;
+    padding: 5px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+}
 #language-system .dropdown-menu {
     border: none;
     border-radius: 0px;

@@ -65,7 +65,7 @@ class HomeController extends WebController
         ]);
 
         // Resort
-        $resorts = $this->resort->where('status', 1)->take(3)->get();
+        $resorts = $this->resort->where('status', 1)->get();
 
         // foreach ($resorts as $key => $item) {
         //     dd($item->services);
@@ -103,4 +103,53 @@ class HomeController extends WebController
             'tours'          => $tours
         ]);
     }
+
+    public function viewBecomeMerchant(Request $request)
+    {
+        return view('web.become-merchant.index')->with([
+
+        ]);
+    }
+
+    public function storeBecomeMerchant(Request $request)
+    {
+        \DB::beginTransaction();
+
+        try {
+            $this->validationRules = [
+                'name' => 'required',
+                'phone' => 'required|numeric',
+            ];
+
+            $this->validationMessages = [
+
+            ];
+
+            $this->validate($request, $this->validationRules, $this->validationMessages);
+
+            $contactRepo = \App::make('App\Repositories\Contacts\ContactRepository');
+            $contact = $contactRepo->store($request->all());
+
+            \DB::commit();
+
+            return redirect()->route('web.home.post-storeBecomeMerchantSuccess')->with('success', 'Cảm ơn bạn đã gửi yêu cầu. Chúng tôi sẽ liên lạc bạn ngay');
+        }
+        catch(\Illuminate\Validation\ValidationException $exception) {
+            \DB::rollback();
+            return redirect()->back()->withErrors($exception->validator->errors())->withInput();
+        }
+        catch (\Exception $e) {
+            \Log::info('DashBoardController@demo: ' . $e);
+            \DB::rollback();
+            throw $e;
+        }
+    }
+
+    public function storeBecomeMerchantSuccess(Request $request)
+    {
+        return view('web.become-merchant.success')->with([
+
+        ]);
+    }
+
 }

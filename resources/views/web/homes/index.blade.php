@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-    <div class="home-best-trips">
+{{--     <div class="home-best-trips d-none">
         <div class="container">
             <div class="row">
                 <div class="home-title col-md-12">
@@ -138,7 +138,7 @@
                 @endforelse
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="home-best-trips home-resorts">
         <div class="container">
             @forelse ($resorts as $resort)

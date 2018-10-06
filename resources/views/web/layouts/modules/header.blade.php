@@ -14,15 +14,18 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
+                    <li class="become-merchant">
+                        <a class="" href="{{ route('web.home.get-becomeMerchant') }}"><i class="fas fa-handshake"></i> Trở thành đối tác</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ route('places.vietnam') }}">@lang('menu_vietnam')</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ route('places.resort') }}">@lang('menu_resort')</a>
                     </li>
-                    <li class="nav-item">
+{{--                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ env('URL_BLOG') }}">@lang('travel_handbook')</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="{{ route('web.cart.index') }}" style="position: relative;">
                             <i class="fas fa-shopping-cart"></i>
@@ -59,7 +62,7 @@
                                 </li>
                         </ul>
                     @endguest
-                    <li id="language-system" style="margin-right: 15px;">
+{{--                     <li id="language-system" style="margin-right: 15px;">
                         @php
                             $langRepo = \App::make(\App\Repositories\Languages\LanguageRepository::class);
                             $languages = $langRepo->getAllLanguagesByActive();
@@ -82,7 +85,7 @@
                                 @endforeach
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </nav>

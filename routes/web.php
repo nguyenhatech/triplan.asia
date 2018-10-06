@@ -21,6 +21,7 @@ Route::group([
     Route::get('/', 'HomeController@index')->name('web.home');
     Route::get('/become-merchant', 'HomeController@viewBecomeMerchant')->name('web.home.get-becomeMerchant');
     Route::post('/become-merchant', 'HomeController@storeBecomeMerchant')->name('web.home.post-becomeMerchant');
+    Route::get('/become-merchant-success', 'HomeController@storeBecomeMerchantSuccess')->name('web.home.post-storeBecomeMerchantSuccess');
 
     // Module
     Route::get('du-lich-{slug}', 'PlaceController@show')->name('web.show_place');

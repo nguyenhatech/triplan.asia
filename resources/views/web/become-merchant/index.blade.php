@@ -42,7 +42,7 @@
             padding: 5px 40px;
             font-size: 14px;
         }
-        .form-data input[type="text"]::-webkit-input-placeholder {
+        .form-data input::-webkit-input-placeholder {
             color: #767676 !important;
             font-weight: 300 !important;
         }

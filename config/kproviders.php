@@ -1,5 +1,5 @@
-<?php
-return [
+<?php 
+return [ 
 	App\Providers\UserServiceProvider::class,
 	App\Providers\RoleServiceProvider::class,
 	App\Providers\PermissionServiceProvider::class,
@@ -24,4 +24,5 @@ return [
 	App\Providers\ResortServiceProvider::class,
 	App\Providers\ResortContentServiceProvider::class,
 	App\Providers\ResortComboServiceProvider::class,
+	App\Providers\ContactServiceProvider::class,
 ];

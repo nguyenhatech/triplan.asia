@@ -55,15 +55,16 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-data">
-                        <form>
+                        <form action="{{ route('web.home.post-becomeMerchant') }}" method="POST">
+                            {{ csrf_field() }}
                             <h4 class="font-weight-bold">Trở thành đối tác và hưởng nhiều ưu đãi</h4>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Họ và tên:</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nhập họ tên">
+                                <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Nhập họ tên" required="true">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Số điện thoại:</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Số điện thoại">
+                                <input name="phone" type="number" class="form-control" id="exampleInputPassword1" placeholder="Số điện thoại" required="true">
                                 <small class="form-text text-muted font-weight-light mt-3">Chúng tôi sẽ không bao giờ chia sẻ số điện thoại của bạn với bất kỳ ai khác.</small>
                             </div>
                             <div class="d-flex justify-content-end">

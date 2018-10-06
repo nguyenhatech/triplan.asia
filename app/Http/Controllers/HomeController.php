@@ -110,4 +110,10 @@ class HomeController extends WebController
 
         ]);
     }
+
+    public function storeBecomeMerchant(Request $request)
+    {
+        dd($request->all());
+    }
+
 }

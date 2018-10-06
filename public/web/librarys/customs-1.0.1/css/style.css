@@ -79,12 +79,15 @@ body {
 
 /*Nút trở thành đối tác*/
 .header-top-navigation .become-merchant {
-    background-color: #FFC312;
     border-radius: 45px;
-    padding: 0px 27px;
+    line-height: 35px;
 }
 .header-top-navigation .become-merchant a {
     color: #fff !important;
+    background-color: #DA3749;
+    padding: 5px 20px;
+    border-radius: 25px;
+    text-decoration: none;
 }
 #language-system .dropdown-menu {
     border: none;

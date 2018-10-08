@@ -19,7 +19,7 @@
             <i class="fa fa-times" style="color: #fff; padding: 20px 30px 20px 20px;"></i>
         </a>
     </div>
-    <div style="padding-left: 50px; padding-right: 50px; font-size: 22px; font-weight: bold">
+    <div style="padding-left: 50px; padding-right: 50px; font-size: 20px; font-weight: bold">
         <p class="d-flex justify-content-around">
             <a target="_blank" href="https://www.facebook.com/TriplanVN/" style="color: #fff; padding: 5px 20px 5px 20px;"><i class="fab fa-facebook-f"></i></a>
             <a target="_blank" href="https://twitter.com/TriplanVietnam" style="color: #fff; padding: 5px 20px 5px 20px;"><i class="fab fa-twitter"></i></a>
@@ -32,6 +32,15 @@
         </p>
         <p>
             <a href="{{ route('places.resort') }}" style="color: #fff">@lang('menu_resort')</a>
+        </p>
+        <p>
+            <a href="{{ route('web.cart.index') }}" style="position: relative; color: #fff;">
+                <i class="fas fa-shopping-cart"></i>
+                Giỏ hàng
+                <span id="data-Cart" class="badge badge-danger" style="position: absolute; left: 7px; font-size: 40%;">
+                    {{ count($dataCart) }}
+                </span>
+            </a>
         </p>
         @guest
             <p>
@@ -48,5 +57,9 @@
                 {{ csrf_field() }}
             </form>
         @endguest
+        <p style="border-bottom: 1px solid #fff"></p>
+        <p>
+            <a href="{{ route('web.home.get-becomeMerchant') }}" style="color: #fff">@lang('become_a_host')</a>
+        </p>
     </div>
 </div>

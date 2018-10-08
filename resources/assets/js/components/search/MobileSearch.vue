@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="input-group">
-          <input type="text" id="searchInput" class="form-control" v-model="search" placeholder="Nhập từ khóa để tìm kiếm...">
+          <input type="text" id="searchInput" class="form-control" v-model="search" :placeholder="trans ? trans.search_place_holder : 'Nhập từ khóa để tìm kiếm...'">
           <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2"><i v-if="loading" class="fas fa-spinner fa-spin"></i></span>
           </div>
@@ -9,14 +9,14 @@
 
         <div v-if="search" class="search-result-box">
             <ul>
-                <li v-if="places.length" class="place-header">Địa điểm</li>
+                <li v-if="places.length" class="place-header">{{ trans ? trans.place : 'Địa điểm' }}</li>
                 <li class="place-item" v-for="(place, index) in places" :key="place.id">
                     <a :href="place.link">
                         <p><i class="fas fa-map-marker-alt"></i> {{ place.name }}</p>
                     </a>
                 </li>
 
-                <li v-if="services.length" class="service-header">Dịch vụ</li>
+                <li v-if="services.length" class="service-header">{{ trans ? trans.service : 'Dịch vụ' }}</li>
                 <li class="service-item" v-for="(service, indexService) in services" :key="service.id">
                     <a :href="service.link">
                         <div class="row">

@@ -15,8 +15,6 @@
             border-radius: 4px !important;
             padding: 32px !important;
             padding-bottom: 24px !important;
-            margin-left: 100px;
-            width: 350px !important;
             margin-bottom: 64px !important;
             box-shadow: 0 16px 40px rgba(0,0,0,0.12) !important;
         }
@@ -45,6 +43,12 @@
         .form-data input::-webkit-input-placeholder {
             color: #767676 !important;
             font-weight: 300 !important;
+        }
+        @media only screen and (min-width: 768px) {
+            .form-data {
+                margin-left: 100px;
+                width: 350px !important;
+            }
         }
     </style>
 @endsection
